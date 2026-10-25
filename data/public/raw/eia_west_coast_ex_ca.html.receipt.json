@@ -1,0 +1,15 @@
+{
+  "name": "eia_west_coast_ex_ca.html",
+  "url": "https://www.eia.gov/dnav/pet/hist/LeafHandler.ashx?f=W&n=PET&s=EMD_EPD2D_PTE_R5XCA_DPG",
+  "status": 200,
+  "retrieved_at": "2026-10-25T18:49:07.912039+00:00",
+  "sha256": "02f5cf793d7973a423e2622deca012ea7e67187f8847d151b3be0d85f74e4388",
+  "bytes": 84400,
+  "headers": {
+    "Content-Type": "text/html; charset=utf-8",
+    "Last-Modified": null,
+    "ETag": null,
+    "Content-Length": "84400",
+    "Date": "Sun, 25 Oct 2026 18:49:10 GMT"
+  }
+}

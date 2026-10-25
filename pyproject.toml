@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "fleet-fuel-analytics"
+version = "1.0.0"
+description = "Auditable vehicle fuel accounting, price analysis and investigation workflow"
+requires-python = ">=3.11"
+dependencies = ["duckdb", "pyarrow", "pandas", "numpy", "requests", "psycopg[binary]", "plotly", "matplotlib"]
+
+[project.optional-dependencies]
+test = ["pytest"]
+reports = ["python-docx", "pypdf", "nbformat"]
+
+[project.scripts]
+fleet-fuel = "fleet_fuel.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]

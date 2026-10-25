@@ -1,0 +1,395 @@
+{
+  "schema_version": "1.0.0",
+  "contract_role": "External synthetic_scenario key registry; outside the 26-table canonical subset.",
+  "entries": [
+    {
+      "synthetic_scenario_id": "AMOUNT-ONLY-REFUND",
+      "origin_type": "synthetic",
+      "definition": "A negative price adjustment with zero fuel quantity.",
+      "evidence": [
+        "src/fleet_fuel/simulation.py",
+        "config/simulation.json"
+      ],
+      "use_boundary": "Scenario identity is validation metadata, not an analytical predictor."
+    },
+    {
+      "synthetic_scenario_id": "CONFIRMED-ROLLOVER",
+      "origin_type": "synthetic",
+      "definition": "Fuel counter wrap with the configured 4096-litre modulus and explicit evidence.",
+      "evidence": [
+        "src/fleet_fuel/simulation.py",
+        "config/simulation.json"
+      ],
+      "use_boundary": "Scenario identity is validation metadata, not an analytical predictor."
+    },
+    {
+      "synthetic_scenario_id": "CORRECTED-COUNTER",
+      "origin_type": "synthetic",
+      "definition": "apply validity and available-time contract; as_of latest revision; original retained",
+      "injected_record_ids": [
+        "T02-V03-TR040-OBS0050"
+      ],
+      "evidence": [
+        "validation/expected/injections.json",
+        "src/fleet_fuel/simulation.py"
+      ],
+      "use_boundary": "Injection truth is restricted to validation; missing packets create no source row."
+    },
+    {
+      "synthetic_scenario_id": "DISTANCE-ERROR",
+      "origin_type": "synthetic",
+      "definition": "apply validity and available-time contract",
+      "injected_record_ids": [
+        "T02-V04-TR021-OBS0010"
+      ],
+      "evidence": [
+        "validation/expected/injections.json",
+        "src/fleet_fuel/simulation.py"
+      ],
+      "use_boundary": "Injection truth is restricted to validation; missing packets create no source row."
+    },
+    {
+      "synthetic_scenario_id": "FUEL-NORMAL",
+      "origin_type": "synthetic",
+      "definition": "Baseline entity, trip, purchase and physical fuel-ledger records with stable cross-table identifiers.",
+      "evidence": [
+        "src/fleet_fuel/simulation.py",
+        "config/simulation.json"
+      ],
+      "use_boundary": "Scenario identity is validation metadata, not an analytical predictor."
+    },
+    {
+      "synthetic_scenario_id": "FUEL-RESET",
+      "origin_type": "synthetic",
+      "definition": "Fuel counter reset independent of the odometer reset.",
+      "evidence": [
+        "src/fleet_fuel/simulation.py",
+        "config/simulation.json"
+      ],
+      "use_boundary": "Scenario identity is validation metadata, not an analytical predictor."
+    },
+    {
+      "synthetic_scenario_id": "HAND-001",
+      "origin_type": "synthetic",
+      "definition": "100km/1.609344 divided by 20L/3.785411784",
+      "reference_metric": "paired_mpg",
+      "expected": {
+        "numeric_value": 11.7607291667,
+        "unit": "mile/US_gal",
+        "state_value": null,
+        "tolerance": 1e-06,
+        "evidence_ref": "validation/expected/hand_cases.json#HAND-001"
+      },
+      "evidence": [
+        "validation/expected/hand_cases.json"
+      ],
+      "use_boundary": "Independent fixed arithmetic reference; not an input feature."
+    },
+    {
+      "synthetic_scenario_id": "HAND-002",
+      "origin_type": "synthetic",
+      "definition": "200+100+20-10-180=130",
+      "reference_metric": "fuel_balance_l",
+      "expected": {
+        "numeric_value": 130.0,
+        "unit": "L",
+        "state_value": null,
+        "tolerance": 1e-06,
+        "evidence_ref": "validation/expected/hand_cases.json#HAND-002"
+      },
+      "evidence": [
+        "validation/expected/hand_cases.json"
+      ],
+      "use_boundary": "Independent fixed arithmetic reference; not an input feature."
+    },
+    {
+      "synthetic_scenario_id": "HAND-003",
+      "origin_type": "synthetic",
+      "definition": "A price refund has no physical volume",
+      "reference_metric": "refund_quantity_l",
+      "expected": {
+        "numeric_value": 0.0,
+        "unit": "L",
+        "state_value": null,
+        "tolerance": 1e-06,
+        "evidence_ref": "validation/expected/hand_cases.json#HAND-003"
+      },
+      "evidence": [
+        "validation/expected/hand_cases.json"
+      ],
+      "use_boundary": "Independent fixed arithmetic reference; not an input feature."
+    },
+    {
+      "synthetic_scenario_id": "HAND-004",
+      "origin_type": "synthetic",
+      "definition": "Unknown movement is not zero",
+      "reference_metric": "unknown_movement_balance",
+      "expected": {
+        "numeric_value": null,
+        "unit": "L",
+        "state_value": "unknown",
+        "tolerance": 1e-06,
+        "evidence_ref": "validation/expected/hand_cases.json#HAND-004"
+      },
+      "evidence": [
+        "validation/expected/hand_cases.json"
+      ],
+      "use_boundary": "Independent fixed arithmetic reference; not an input feature."
+    },
+    {
+      "synthetic_scenario_id": "HAND-005",
+      "origin_type": "synthetic",
+      "definition": "(1.1-1.0)*100=10",
+      "reference_metric": "price_effect_usd",
+      "expected": {
+        "numeric_value": 10.0,
+        "unit": "USD",
+        "state_value": null,
+        "tolerance": 1e-06,
+        "evidence_ref": "validation/expected/hand_cases.json#HAND-005"
+      },
+      "evidence": [
+        "validation/expected/hand_cases.json"
+      ],
+      "use_boundary": "Independent fixed arithmetic reference; not an input feature."
+    },
+    {
+      "synthetic_scenario_id": "HAND-006",
+      "origin_type": "synthetic",
+      "definition": "1.1*(120-100)=22; price+quantity=132-100",
+      "reference_metric": "quantity_effect_usd",
+      "expected": {
+        "numeric_value": 22.0,
+        "unit": "USD",
+        "state_value": null,
+        "tolerance": 1e-06,
+        "evidence_ref": "validation/expected/hand_cases.json#HAND-006"
+      },
+      "evidence": [
+        "validation/expected/hand_cases.json"
+      ],
+      "use_boundary": "Independent fixed arithmetic reference; not an input feature."
+    },
+    {
+      "synthetic_scenario_id": "HAND-007",
+      "origin_type": "synthetic",
+      "definition": "Spring-forward local day has 23 hours",
+      "reference_metric": "dst_day_seconds",
+      "expected": {
+        "numeric_value": 82800.0,
+        "unit": "seconds",
+        "state_value": null,
+        "tolerance": 1e-06,
+        "evidence_ref": "validation/expected/hand_cases.json#HAND-007"
+      },
+      "evidence": [
+        "validation/expected/hand_cases.json"
+      ],
+      "use_boundary": "Independent fixed arithmetic reference; not an input feature."
+    },
+    {
+      "synthetic_scenario_id": "HAND-008",
+      "origin_type": "synthetic",
+      "definition": "Discontinuity needs segment evidence",
+      "reference_metric": "counter_reset",
+      "expected": {
+        "numeric_value": null,
+        "unit": "L",
+        "state_value": "exclude_reset_boundary",
+        "tolerance": 1e-06,
+        "evidence_ref": "validation/expected/hand_cases.json#HAND-008"
+      },
+      "evidence": [
+        "validation/expected/hand_cases.json"
+      ],
+      "use_boundary": "Independent fixed arithmetic reference; not an input feature."
+    },
+    {
+      "synthetic_scenario_id": "IDENTITY-OVERLAP",
+      "origin_type": "synthetic",
+      "definition": "Deliberate conflicting vehicle-device effective periods; ambiguous assignment is not guessed.",
+      "evidence": [
+        "src/fleet_fuel/simulation.py",
+        "config/simulation.json"
+      ],
+      "use_boundary": "Scenario identity is validation metadata, not an analytical predictor."
+    },
+    {
+      "synthetic_scenario_id": "INDEPENDENT-STATEMENT-CONTROL",
+      "origin_type": "synthetic",
+      "definition": "Monthly accounting control totals maintained before source-row serialization.",
+      "evidence": [
+        "src/fleet_fuel/simulation.py",
+        "config/simulation.json"
+      ],
+      "use_boundary": "Scenario identity is validation metadata, not an analytical predictor."
+    },
+    {
+      "synthetic_scenario_id": "KNOWN-FUEL-TRANSFER",
+      "origin_type": "synthetic",
+      "definition": "Measured transfer-in and maintenance-outflow records with movement references.",
+      "evidence": [
+        "src/fleet_fuel/simulation.py",
+        "config/simulation.json"
+      ],
+      "use_boundary": "Scenario identity is validation metadata, not an analytical predictor."
+    },
+    {
+      "synthetic_scenario_id": "LATE-PACKET",
+      "origin_type": "synthetic",
+      "definition": "apply validity and available-time contract",
+      "injected_record_ids": [
+        "T01-V02-TR017-OBS0030",
+        "T01-V02-TR017-OBS0031"
+      ],
+      "evidence": [
+        "validation/expected/injections.json",
+        "src/fleet_fuel/simulation.py"
+      ],
+      "use_boundary": "Injection truth is restricted to validation; missing packets create no source row."
+    },
+    {
+      "synthetic_scenario_id": "MISSING-FUEL-ONLY",
+      "origin_type": "synthetic",
+      "definition": "apply validity and available-time contract",
+      "injected_record_ids": [
+        "T02-V03-TR040-OBS0035"
+      ],
+      "evidence": [
+        "validation/expected/injections.json",
+        "src/fleet_fuel/simulation.py"
+      ],
+      "use_boundary": "Injection truth is restricted to validation; missing packets create no source row."
+    },
+    {
+      "synthetic_scenario_id": "MISSING-PACKET",
+      "origin_type": "synthetic",
+      "definition": "retain coverage loss; no invented point",
+      "injected_record_ids": [
+        "T01-V03-TR020-OBS0025",
+        "T01-V03-TR020-OBS0026"
+      ],
+      "evidence": [
+        "validation/expected/injections.json",
+        "src/fleet_fuel/simulation.py"
+      ],
+      "use_boundary": "Injection truth is restricted to validation; missing packets create no source row."
+    },
+    {
+      "synthetic_scenario_id": "NONFUEL-LINE",
+      "origin_type": "synthetic",
+      "definition": "Nonfuel purchase components excluded from fuel-volume and comparable-price denominators.",
+      "evidence": [
+        "src/fleet_fuel/simulation.py",
+        "config/simulation.json"
+      ],
+      "use_boundary": "Scenario identity is validation metadata, not an analytical predictor."
+    },
+    {
+      "synthetic_scenario_id": "ODOMETER-RESET",
+      "origin_type": "synthetic",
+      "definition": "Independent odometer reset supported by a fictional ECU service event.",
+      "evidence": [
+        "src/fleet_fuel/simulation.py",
+        "config/simulation.json"
+      ],
+      "use_boundary": "Scenario identity is validation metadata, not an analytical predictor."
+    },
+    {
+      "synthetic_scenario_id": "STATIONARY-WEEK-BOUNDARY",
+      "origin_type": "synthetic",
+      "definition": "Explicit counter observations at local week boundaries; not a new operating trip.",
+      "evidence": [
+        "src/fleet_fuel/simulation.py",
+        "config/simulation.json"
+      ],
+      "use_boundary": "Scenario identity is validation metadata, not an analytical predictor."
+    },
+    {
+      "synthetic_scenario_id": "SYNTHETIC-FOLLOWUP",
+      "origin_type": "synthetic",
+      "definition": "Fictional action windows, follow-up exposure and task mix from the shared physical ledger.",
+      "evidence": [
+        "src/fleet_fuel/simulation.py",
+        "config/simulation.json"
+      ],
+      "use_boundary": "Scenario identity is validation metadata, not an analytical predictor."
+    },
+    {
+      "synthetic_scenario_id": "SYNTHETIC-PRICE",
+      "origin_type": "synthetic",
+      "definition": "Fictional regional diesel price curves with simulated publication availability.",
+      "evidence": [
+        "src/fleet_fuel/simulation.py",
+        "config/simulation.json"
+      ],
+      "use_boundary": "Scenario identity is validation metadata, not an analytical predictor."
+    },
+    {
+      "synthetic_scenario_id": "SYNTHETIC-REVIEW",
+      "origin_type": "synthetic",
+      "definition": "Fictional report adoption and reviewer outcomes, including unanswered cases.",
+      "evidence": [
+        "src/fleet_fuel/simulation.py",
+        "config/simulation.json"
+      ],
+      "use_boundary": "Scenario identity is validation metadata, not an analytical predictor."
+    },
+    {
+      "synthetic_scenario_id": "TRANSACTION-CORRECTION",
+      "origin_type": "synthetic",
+      "definition": "latest available line_version only; no duplicate volume",
+      "injected_record_ids": [
+        "T01-V02-TR017-FUEL"
+      ],
+      "evidence": [
+        "validation/expected/injections.json",
+        "src/fleet_fuel/simulation.py"
+      ],
+      "use_boundary": "Injection truth is restricted to validation; missing packets create no source row."
+    },
+    {
+      "synthetic_scenario_id": "UNCALIBRATED-INVENTORY",
+      "origin_type": "synthetic",
+      "definition": "Percentage tank level without a calibration reference; litres remain unknown.",
+      "evidence": [
+        "src/fleet_fuel/simulation.py",
+        "config/simulation.json"
+      ],
+      "use_boundary": "Scenario identity is validation metadata, not an analytical predictor."
+    },
+    {
+      "synthetic_scenario_id": "UNKNOWN-MOVEMENT",
+      "origin_type": "synthetic",
+      "definition": "Maintenance drain recorded without a known volume; balance cannot be asserted.",
+      "evidence": [
+        "src/fleet_fuel/simulation.py",
+        "config/simulation.json"
+      ],
+      "use_boundary": "Scenario identity is validation metadata, not an analytical predictor."
+    },
+    {
+      "synthetic_scenario_id": "UNKNOWN-UNIT",
+      "origin_type": "synthetic",
+      "definition": "apply validity and available-time contract",
+      "injected_record_ids": [
+        "T03-V04-TR030-OBS0045"
+      ],
+      "evidence": [
+        "validation/expected/injections.json",
+        "src/fleet_fuel/simulation.py"
+      ],
+      "use_boundary": "Injection truth is restricted to validation; missing packets create no source row."
+    },
+    {
+      "synthetic_scenario_id": "WEEKLY-INVENTORY",
+      "origin_type": "synthetic",
+      "definition": "Week-boundary tank stock observations from the physical fuel ledger.",
+      "evidence": [
+        "src/fleet_fuel/simulation.py",
+        "config/simulation.json"
+      ],
+      "use_boundary": "Scenario identity is validation metadata, not an analytical predictor."
+    }
+  ]
+}

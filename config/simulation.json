@@ -1,0 +1,20 @@
+{
+  "version": "1.0.0",
+  "dataset_created_at": "2026-10-25T18:57:01Z",
+  "seed": 20261021,
+  "substream_rule": "UTF-8 unit-separated tokens; SHA256 prefix128 unsigned big-endian",
+  "fuel_modulus_l": 4096,
+  "fuel_efficiency_l_per_km": {
+    "base": 0.235,
+    "load_coefficient_per_kg": 2.2e-06,
+    "vehicle_index_coefficient": 0.002,
+    "regional_delivery_increment": 0.025
+  },
+  "idle_l_per_hour": 2.5,
+  "pto_l_per_hour": 7.0,
+  "tank_capacity_l": 650.0,
+  "initial_inventory_l": 350.0,
+  "linear_tank_calibration": "quantity_l = level_percent / 100 * 650; unknown calibration has NULL litres",
+  "market_price": "Synthetic regional USD/USgal curves; CA and WEST_COAST_EX_CA; never official EIA values",
+  "snapshot_as_of": "2025-07-10T23:59:59Z"
+}
