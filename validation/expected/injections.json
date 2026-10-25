@@ -1,0 +1,62 @@
+[
+  {
+    "scenario_id": "TRANSACTION-CORRECTION",
+    "table": "fuel_purchase_line",
+    "record_id": "T01-V02-TR017-FUEL",
+    "expected": "latest available line_version only; no duplicate volume"
+  },
+  {
+    "scenario_id": "LATE-PACKET",
+    "table": "fuel_counter_observation",
+    "record_id": "T01-V02-TR017-OBS0030",
+    "expected": "apply validity and available-time contract"
+  },
+  {
+    "scenario_id": "LATE-PACKET",
+    "table": "fuel_counter_observation",
+    "record_id": "T01-V02-TR017-OBS0031",
+    "expected": "apply validity and available-time contract"
+  },
+  {
+    "scenario_id": "MISSING-PACKET",
+    "table": "fuel_counter_observation",
+    "record_id": "T01-V03-TR020-OBS0025",
+    "expected": "retain coverage loss; no invented point"
+  },
+  {
+    "scenario_id": "MISSING-PACKET",
+    "table": "fuel_counter_observation",
+    "record_id": "T01-V03-TR020-OBS0026",
+    "expected": "retain coverage loss; no invented point"
+  },
+  {
+    "scenario_id": "MISSING-FUEL-ONLY",
+    "table": "fuel_counter_observation",
+    "record_id": "T02-V03-TR040-OBS0035",
+    "expected": "apply validity and available-time contract"
+  },
+  {
+    "scenario_id": "CORRECTED-COUNTER",
+    "table": "fuel_counter_observation",
+    "record_id": "T02-V03-TR040-OBS0050",
+    "expected": "as_of latest revision; original retained"
+  },
+  {
+    "scenario_id": "CORRECTED-COUNTER",
+    "table": "fuel_counter_observation",
+    "record_id": "T02-V03-TR040-OBS0050",
+    "expected": "apply validity and available-time contract"
+  },
+  {
+    "scenario_id": "DISTANCE-ERROR",
+    "table": "fuel_counter_observation",
+    "record_id": "T02-V04-TR021-OBS0010",
+    "expected": "apply validity and available-time contract"
+  },
+  {
+    "scenario_id": "UNKNOWN-UNIT",
+    "table": "fuel_counter_observation",
+    "record_id": "T03-V04-TR030-OBS0045",
+    "expected": "apply validity and available-time contract"
+  }
+]

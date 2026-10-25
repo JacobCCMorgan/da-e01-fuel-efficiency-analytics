@@ -1,0 +1,23 @@
+{
+  "mode": "http_simulated_eld_api",
+  "snapshot": "9cfc0dcf6a84fa6c24966f09fee37152b05225b91f0a7eb5197ab3a1e6bb49ce",
+  "started_at": "2026-10-25T19:13:26.440510+00:00",
+  "finished_at": "2026-10-25T19:13:45.434283+00:00",
+  "pages": 102,
+  "retries": 0,
+  "new_receipts": {
+    "accepted": 202453,
+    "duplicate": 20,
+    "quarantined": 1
+  },
+  "total_receipts": {
+    "accepted": 246448,
+    "duplicate": 24,
+    "quarantined": 2
+  },
+  "accepted_records": 246448,
+  "expected_source_attempts": 246474,
+  "complete": true,
+  "checkpoint": "WyI5Y2ZjMGRjZjZhODRmYTZjMjQ5NjZmMDlmZWUzNzE1MmIwNTIyNWI5MWYwYTdlYjUxOTdhYjNhMWU2YmI0OWNlIiwyNDY0NzRd",
+  "counts_reconcile": true
+}

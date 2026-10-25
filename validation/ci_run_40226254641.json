@@ -1,0 +1,359 @@
+{
+  "repository": "JacobCCMorgan/da-e01-fuel-efficiency-analytics",
+  "run_id": 40226254641,
+  "job_id": 121268156571,
+  "commit": "ad396bfd66ad4f67ec753fb8dfa20c29bb902a1b",
+  "conclusion": "success",
+  "url": "https://github.com/JacobCCMorgan/da-e01-fuel-efficiency-analytics/actions/runs/40226254641",
+  "jobs": [
+    {
+      "id": 121268156571,
+      "name": "postgres-smoke",
+      "status": "completed",
+      "conclusion": "success",
+      "run_id": 40226254641,
+      "logs_url": null,
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1
+        },
+        {
+          "name": "Initialize containers",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2
+        },
+        {
+          "name": "Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3
+        },
+        {
+          "name": "Run actions/setup-python@v5",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4
+        },
+        {
+          "name": "Install pinned runtime and test dependencies",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5
+        },
+        {
+          "name": "Test calculations, ingestion and real PostgreSQL transactions",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6
+        },
+        {
+          "name": "Rebuild smoke project through PostgreSQL and HTTP sources",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7
+        },
+        {
+          "name": "Preserve CI verification evidence",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8
+        },
+        {
+          "name": "Post Run actions/setup-python@v5",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 14
+        },
+        {
+          "name": "Post Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 15
+        },
+        {
+          "name": "Stop containers",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 16
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 17
+        }
+      ]
+    }
+  ],
+  "artifacts": [
+    {
+      "id": 12610893921,
+      "name": "postgres-smoke-evidence",
+      "size_in_bytes": 34118,
+      "url": "https://api.github.com/repos/JacobCCMorgan/da-e01-fuel-efficiency-analytics/actions/artifacts/12610893921",
+      "archive_download_url": "https://api.github.com/repos/JacobCCMorgan/da-e01-fuel-efficiency-analytics/actions/artifacts/12610893921/zip",
+      "expired": false,
+      "created_at": "2026-10-25T19:30:35Z",
+      "expires_at": "2026-11-24T19:30:34Z",
+      "updated_at": "2026-10-25T19:30:35Z",
+      "digest": "sha256:a7cd16d86ddfa48fb60d387244f8c70ff24e6dc6fce598ca98bc4888d99e634d",
+      "workflow_run": {
+        "id": 40226254641,
+        "repository_id": 1433547902,
+        "head_repository_id": 1433547902,
+        "head_branch": "main",
+        "head_sha": "ad396bfd66ad4f67ec753fb8dfa20c29bb902a1b"
+      }
+    }
+  ],
+  "scope": "PostgreSQL 16 integration tests and smoke profile PostgreSQL + HTTP + DuckDB rebuild. Not evidence of a full-profile PostgreSQL build.",
+  "archive_sha256": "a7cd16d86ddfa48fb60d387244f8c70ff24e6dc6fce598ca98bc4888d99e634d",
+  "junit": {
+    "tests": 61,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "postgres_cases": [
+      {
+        "classname": "tests.test_postgres",
+        "name": "test_bootstrap_repeat_is_idempotent_and_extract_is_complete",
+        "time": "5.428"
+      },
+      {
+        "classname": "tests.test_postgres",
+        "name": "test_reusing_an_immutable_key_with_changed_payload_fails",
+        "time": "2.844"
+      },
+      {
+        "classname": "tests.test_postgres",
+        "name": "test_incremental_cursor_returns_new_committed_rows_once",
+        "time": "4.488"
+      },
+      {
+        "classname": "tests.test_postgres",
+        "name": "test_failure_rolls_back_earlier_table_rows_and_change_log",
+        "time": "2.889"
+      },
+      {
+        "classname": "tests.test_postgres",
+        "name": "test_typed_row_and_change_log_disagreement_is_not_silently_accepted",
+        "time": "2.831"
+      },
+      {
+        "classname": "tests.test_postgres",
+        "name": "test_extract_retains_one_snapshot_when_another_connection_commits",
+        "time": "4.377"
+      },
+      {
+        "classname": "tests.test_postgres",
+        "name": "test_invalid_change_cursor_fails_before_opening_a_connection[-1-1]",
+        "time": "0.000"
+      },
+      {
+        "classname": "tests.test_postgres",
+        "name": "test_invalid_change_cursor_fails_before_opening_a_connection[0-0]",
+        "time": "0.000"
+      },
+      {
+        "classname": "tests.test_postgres",
+        "name": "test_invalid_change_cursor_fails_before_opening_a_connection[0-10001]",
+        "time": "0.000"
+      },
+      {
+        "classname": "tests.test_postgres",
+        "name": "test_invalid_change_cursor_fails_before_opening_a_connection[True-1]",
+        "time": "0.000"
+      },
+      {
+        "classname": "tests.test_postgres",
+        "name": "test_invalid_change_cursor_fails_before_opening_a_connection[0-False]",
+        "time": "0.000"
+      },
+      {
+        "classname": "tests.test_postgres",
+        "name": "test_invalid_change_cursor_fails_before_opening_a_connection[0.5-1]",
+        "time": "0.000"
+      }
+    ]
+  },
+  "postgres_bootstrap": {
+    "status": "executed",
+    "engine": "PostgreSQL 16.15 (Debian 16.15-1.pgdg13+2) on x86_64-pc-linux-gnu, compiled by gcc (Debian 14.2.0-19) 14.2.0, 64-bit",
+    "schema": "fleet_ops",
+    "rows": {
+      "core_tenant": 3,
+      "core_vehicle": 30,
+      "core_device": 36,
+      "core_vehicle_device_assignment": 34,
+      "fuel_vehicle_context": 30,
+      "fuel_task_assignment": 100,
+      "fuel_purchase_line": 1861,
+      "fuel_card_assignment": 30,
+      "fuel_station": 36,
+      "fuel_tank_scope": 30,
+      "fuel_inventory_measurement": 840,
+      "fuel_movement": 3423,
+      "fuel_statement_control": 24,
+      "fuel_output_review": 8,
+      "fuel_action_followup": 8
+    },
+    "inserted_records": 6493,
+    "watermark": 6493,
+    "executed_at": "2026-10-25T19:30:31.028455+00:00",
+    "source_kind": "synthetic_operational_postgresql",
+    "transaction": "all_tables_atomic",
+    "immutable_key_policy": "reject_conflicting_payload"
+  },
+  "postgres_extract": {
+    "status": "executed",
+    "schema": "fleet_ops",
+    "snapshot_watermark": 6493,
+    "directory": "data/postgres_extract/snapshot-6493-4d44057db777",
+    "rows": {
+      "core_tenant": 3,
+      "core_vehicle": 30,
+      "core_device": 36,
+      "core_vehicle_device_assignment": 34,
+      "fuel_vehicle_context": 30,
+      "fuel_task_assignment": 100,
+      "fuel_purchase_line": 1861,
+      "fuel_card_assignment": 30,
+      "fuel_station": 36,
+      "fuel_tank_scope": 30,
+      "fuel_inventory_measurement": 840,
+      "fuel_movement": 3423,
+      "fuel_statement_control": 24,
+      "fuel_output_review": 8,
+      "fuel_action_followup": 8
+    },
+    "extracted_at": "2026-10-25T19:30:31.131785+00:00",
+    "transaction": "repeatable_read_read_only"
+  },
+  "build": {
+    "database": "data/DA-E01.duckdb",
+    "rows": {
+      "core_tenant": 3,
+      "core_vehicle": 30,
+      "core_device": 36,
+      "core_vehicle_device_assignment": 34,
+      "provenance_record": 20577,
+      "fuel_vehicle_context": 30,
+      "fuel_task_assignment": 100,
+      "fuel_signal_definition": 60,
+      "fuel_counter_observation": 13718,
+      "fuel_counter_change": 3,
+      "fuel_purchase_line": 1861,
+      "fuel_card_assignment": 30,
+      "fuel_station": 36,
+      "fuel_market_price": 354,
+      "fuel_region_mapping": 9,
+      "fuel_tank_scope": 30,
+      "fuel_inventory_measurement": 840,
+      "fuel_movement": 3423,
+      "fuel_statement_control": 24,
+      "fuel_reference_case": 8,
+      "fuel_output_review": 8,
+      "fuel_action_followup": 8,
+      "fuel_inventory_balance": 0,
+      "fuel_report_run": 0,
+      "fuel_paired_interval": 0,
+      "fuel_weekly_metric": 0
+    },
+    "inputs": {
+      "core_tenant": {
+        "path": "data/postgres_extract/snapshot-6493-4d44057db777/core_tenant.jsonl",
+        "sha256": "37715c553a3f047a5b0bd639a66a7a35ea5a20bc52141a375175edd3297bc2f2"
+      },
+      "core_vehicle": {
+        "path": "data/postgres_extract/snapshot-6493-4d44057db777/core_vehicle.jsonl",
+        "sha256": "0fe17f7b1ff10f4bc047bb3b9c2331fe6a1313ef54bf36286a79c9d06ccdf292"
+      },
+      "core_device": {
+        "path": "data/postgres_extract/snapshot-6493-4d44057db777/core_device.jsonl",
+        "sha256": "0434bd87e1ec24b3e2d9f997a585b17658f084eafdda733225e77d1e794a29af"
+      },
+      "core_vehicle_device_assignment": {
+        "path": "data/postgres_extract/snapshot-6493-4d44057db777/core_vehicle_device_assignment.jsonl",
+        "sha256": "ca4df2846ef90bb4a5c07ad62a60425b276fb1e35766e8270dd60c63c569597d"
+      },
+      "provenance_record": {
+        "path": "data/raw/tables/provenance_record.jsonl",
+        "sha256": "1d8395e2a5e046c95ed0e40000dd53e1e91b500b9ff19c7a030e1871a24ed4d8"
+      },
+      "fuel_vehicle_context": {
+        "path": "data/postgres_extract/snapshot-6493-4d44057db777/fuel_vehicle_context.jsonl",
+        "sha256": "2145ddef318a443da2e585dbaa2dd85363dcb0a3a3d8b7f1cfd84c00bd3c8c3e"
+      },
+      "fuel_task_assignment": {
+        "path": "data/postgres_extract/snapshot-6493-4d44057db777/fuel_task_assignment.jsonl",
+        "sha256": "4126e56c06f90f6ef2d07e2552af6643b3b665cf7e2c0864b24e38108b3d18d0"
+      },
+      "fuel_signal_definition": {
+        "path": "data/raw/tables/fuel_signal_definition.jsonl",
+        "sha256": "0ac8379dac558aece91c21af43c42cd135a8f062b855bb9c52ccb2165f13b982"
+      },
+      "fuel_counter_observation": {
+        "path": "data/staged/events/fuel_counter_observation.jsonl",
+        "sha256": "e7d90b952fb17f95b6ecbe421963c999ff8667a114bb05e7f2d3a82d1f0a54d4"
+      },
+      "fuel_counter_change": {
+        "path": "data/raw/tables/fuel_counter_change.jsonl",
+        "sha256": "93f8d28a748f2bb421ee965287f414840999a81f219ad69f7cee314dff9e5488"
+      },
+      "fuel_purchase_line": {
+        "path": "data/postgres_extract/snapshot-6493-4d44057db777/fuel_purchase_line.jsonl",
+        "sha256": "0bdc8367a986bc4d6e8074b1ab27ffdb81bcc7bec12ce3f2824b6b8a2afc18b0"
+      },
+      "fuel_card_assignment": {
+        "path": "data/postgres_extract/snapshot-6493-4d44057db777/fuel_card_assignment.jsonl",
+        "sha256": "5b63b7f39eb61b05dee3d2ee33cafdf902a8e71134687529a6d0695d3f5a4cc6"
+      },
+      "fuel_station": {
+        "path": "data/postgres_extract/snapshot-6493-4d44057db777/fuel_station.jsonl",
+        "sha256": "6d065475dbbdd8a7da248a5ee9f3f44f7ddfab1f185c381b608d03305e5e3fff"
+      },
+      "fuel_market_price": {
+        "path": "data/raw/tables/fuel_market_price.jsonl",
+        "sha256": "a66a9493d3b1228629c5355234068fa01517235e7cc664db9b26e0957baef278"
+      },
+      "fuel_region_mapping": {
+        "path": "data/raw/tables/fuel_region_mapping.jsonl",
+        "sha256": "d4f45386866929eaa41fd489de502e57c4f8c187605089a32d64a49b5ceb21bf"
+      },
+      "fuel_tank_scope": {
+        "path": "data/postgres_extract/snapshot-6493-4d44057db777/fuel_tank_scope.jsonl",
+        "sha256": "23a6047b3f3c09cb0abb287bda04fb089fe0dbc91705ce7bf8013fd826dafd99"
+      },
+      "fuel_inventory_measurement": {
+        "path": "data/postgres_extract/snapshot-6493-4d44057db777/fuel_inventory_measurement.jsonl",
+        "sha256": "2969eae10e6dd0fbb463a08aec67b1691f570190be481b97c11d413501526979"
+      },
+      "fuel_movement": {
+        "path": "data/postgres_extract/snapshot-6493-4d44057db777/fuel_movement.jsonl",
+        "sha256": "f2af9d338a905d1e7890f7aea20a03f57a4713db4e39340f226cbc7a358e97ee"
+      },
+      "fuel_statement_control": {
+        "path": "data/postgres_extract/snapshot-6493-4d44057db777/fuel_statement_control.jsonl",
+        "sha256": "319fce97fb5721bdf11bb1b39338352df573407e5f7e64de8a050920f2cade4f"
+      },
+      "fuel_reference_case": {
+        "path": "data/raw/tables/fuel_reference_case.jsonl",
+        "sha256": "4048b22de7491286e86022ce4280af5b4ba6d28d4d42615c62a57d1c6308c5e5"
+      },
+      "fuel_output_review": {
+        "path": "data/postgres_extract/snapshot-6493-4d44057db777/fuel_output_review.jsonl",
+        "sha256": "9c048883d3e4d6d130036794aed35b9ee644652707e0bc8d5d01a6c7ba00771e"
+      },
+      "fuel_action_followup": {
+        "path": "data/postgres_extract/snapshot-6493-4d44057db777/fuel_action_followup.jsonl",
+        "sha256": "a12eb86eeb890dbbb6170c428b7888808e3626f9166a6ef2e713b699a7b538f6"
+      }
+    },
+    "operational_source": "postgresql_extract",
+    "built_at": "2026-10-25T19:30:31.750328+00:00"
+  }
+}

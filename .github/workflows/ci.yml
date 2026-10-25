@@ -2,14 +2,39 @@ name: Reproducible data pipeline
 
 "on":
   push:
+    branches: [main]
+    paths:
+      - "src/**"
+      - "config/**"
+      - "contracts/**"
+      - "sql/**"
+      - "tests/**"
+      - "requirements*.txt"
+      - "pyproject.toml"
+      - "scripts/**"
+      - ".github/**"
+      - "docker-compose.yml"
+      - "data/public/**"
   pull_request:
+    paths:
+      - "src/**"
+      - "config/**"
+      - "contracts/**"
+      - "sql/**"
+      - "tests/**"
+      - "requirements*.txt"
+      - "pyproject.toml"
+      - "scripts/**"
+      - ".github/**"
+      - "docker-compose.yml"
+      - "data/public/**"
   workflow_dispatch:
 
 permissions:
   contents: read
 
 jobs:
-  postgres-smoke:
+  postgres-full:
     runs-on: ubuntu-24.04
     timeout-minutes: 20
     services:
@@ -44,20 +69,38 @@ jobs:
           python -m pip install --no-deps --no-build-isolation -e .
       - name: Test calculations, ingestion and real PostgreSQL transactions
         run: python -m pytest -q --junitxml=validation/ci-tests.xml
-      - name: Rebuild smoke project through PostgreSQL and HTTP sources
-        run: python -m fleet_fuel.cli run --profile smoke --operational postgres --skip-report
-      - name: Preserve CI verification evidence
+      - name: Rebuild all 1800 trips through PostgreSQL and HTTP sources
+        run: python -m fleet_fuel.cli run --profile full --operational postgres --skip-report
+      - name: Preserve full-project verification evidence
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: postgres-smoke-evidence
+          name: postgres-full-evidence
           path: |
             validation/ci-tests.xml
             validation/postgres_bootstrap.json
             validation/postgres_extract.json
             validation/ingestion_report.json
             validation/build_report.json
+            validation/run_manifest.json
             validation/quality_report.json
             data/generation_manifest.json
+            data/normalized/manifest.json
+            outputs/analytics_summary.json
           if-no-files-found: warn
+          retention-days: 30
+      - name: Preserve PostgreSQL-built full database and source extract
+        if: success()
+        uses: actions/upload-artifact@v4
+        with:
+          name: postgres-full-database
+          path: |
+            data/DA-E01.duckdb
+            data/postgres_extract/**/*.jsonl
+            validation/postgres_bootstrap.json
+            validation/postgres_extract.json
+            validation/build_report.json
+            validation/run_manifest.json
+          if-no-files-found: error
+          compression-level: 6
           retention-days: 30

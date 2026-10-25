@@ -1,0 +1,138 @@
+[
+  {
+    "scenario_id": "HAND-001",
+    "reference_metric": "paired_mpg",
+    "input": {
+      "start_fuel_l": 100.0,
+      "end_fuel_l": 120.0,
+      "start_km": 1000.0,
+      "end_km": 1100.0
+    },
+    "expected": {
+      "numeric_value": 11.7607291667,
+      "unit": "mile/US_gal",
+      "state_value": null,
+      "tolerance": 1e-06,
+      "evidence_ref": "validation/expected/hand_cases.json#HAND-001"
+    },
+    "reason": "100km/1.609344 divided by 20L/3.785411784"
+  },
+  {
+    "scenario_id": "HAND-002",
+    "reference_metric": "fuel_balance_l",
+    "input": {
+      "opening_l": 200,
+      "closing_l": 180,
+      "refuel_l": 100,
+      "transfer_in_l": 20,
+      "removed_l": 10
+    },
+    "expected": {
+      "numeric_value": 130.0,
+      "unit": "L",
+      "state_value": null,
+      "tolerance": 1e-06,
+      "evidence_ref": "validation/expected/hand_cases.json#HAND-002"
+    },
+    "reason": "200+100+20-10-180=130"
+  },
+  {
+    "scenario_id": "HAND-003",
+    "reference_metric": "refund_quantity_l",
+    "input": {
+      "refund_usd": -6.0,
+      "quantity_l": 0.0
+    },
+    "expected": {
+      "numeric_value": 0.0,
+      "unit": "L",
+      "state_value": null,
+      "tolerance": 1e-06,
+      "evidence_ref": "validation/expected/hand_cases.json#HAND-003"
+    },
+    "reason": "A price refund has no physical volume"
+  },
+  {
+    "scenario_id": "HAND-004",
+    "reference_metric": "unknown_movement_balance",
+    "input": {
+      "unmetered_drain": true
+    },
+    "expected": {
+      "numeric_value": null,
+      "unit": "L",
+      "state_value": "unknown",
+      "tolerance": 1e-06,
+      "evidence_ref": "validation/expected/hand_cases.json#HAND-004"
+    },
+    "reason": "Unknown movement is not zero"
+  },
+  {
+    "scenario_id": "HAND-005",
+    "reference_metric": "price_effect_usd",
+    "input": {
+      "p0": 1.0,
+      "p1": 1.1,
+      "q0": 100.0,
+      "q1": 120.0
+    },
+    "expected": {
+      "numeric_value": 10.0,
+      "unit": "USD",
+      "state_value": null,
+      "tolerance": 1e-06,
+      "evidence_ref": "validation/expected/hand_cases.json#HAND-005"
+    },
+    "reason": "(1.1-1.0)*100=10"
+  },
+  {
+    "scenario_id": "HAND-006",
+    "reference_metric": "quantity_effect_usd",
+    "input": {
+      "p0": 1.0,
+      "p1": 1.1,
+      "q0": 100.0,
+      "q1": 120.0
+    },
+    "expected": {
+      "numeric_value": 22.0,
+      "unit": "USD",
+      "state_value": null,
+      "tolerance": 1e-06,
+      "evidence_ref": "validation/expected/hand_cases.json#HAND-006"
+    },
+    "reason": "1.1*(120-100)=22; price+quantity=132-100"
+  },
+  {
+    "scenario_id": "HAND-007",
+    "reference_metric": "dst_day_seconds",
+    "input": {
+      "zone": "America/Los_Angeles",
+      "date": "2025-03-09"
+    },
+    "expected": {
+      "numeric_value": 82800.0,
+      "unit": "seconds",
+      "state_value": null,
+      "tolerance": 1e-06,
+      "evidence_ref": "validation/expected/hand_cases.json#HAND-007"
+    },
+    "reason": "Spring-forward local day has 23 hours"
+  },
+  {
+    "scenario_id": "HAND-008",
+    "reference_metric": "counter_reset",
+    "input": {
+      "before_l": 1200.0,
+      "after_l": 50.0
+    },
+    "expected": {
+      "numeric_value": null,
+      "unit": "L",
+      "state_value": "exclude_reset_boundary",
+      "tolerance": 1e-06,
+      "evidence_ref": "validation/expected/hand_cases.json#HAND-008"
+    },
+    "reason": "Discontinuity needs segment evidence"
+  }
+]
