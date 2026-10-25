@@ -1,0 +1,104 @@
+{
+  "schema_version": "1.0.0",
+  "project_id": "DA-E01",
+  "release_version": "v1.0.0",
+  "record_kind": "post_package_delivery_receipt",
+  "status": "delivered_verified_user_acceptance_pending",
+  "prepared_at": "2026-10-25T20:24:18.812713+00:00",
+  "technical_snapshot": "validation/acceptance_checkpoint.json",
+  "github": {
+    "project_id": "DA-E01",
+    "release_version": "v1.0.0",
+    "status": "published_verified",
+    "verified_at": "2026-10-25T20:21:49.074088+00:00",
+    "url": "https://github.com/JacobCCMorgan/da-e01-fuel-efficiency-analytics/releases/tag/v1.0.0",
+    "tag": "v1.0.0",
+    "tag_commit": "ada6dea19c7ae5c7c117f828df44adf65ddeadfd",
+    "code_validation_commit": "e0992b650a1686bd19dd50b5950b923be97ab6e0",
+    "assets": [
+      {
+        "bytes": 9992746,
+        "content_verification": "all_members_sha256_verified",
+        "embedded_manifest_sha256": "e1d126f299b94fe358da04828049b89840309a46a993b93f2b8e213e0fb723de",
+        "file_count": 165,
+        "filename": "DA-E01_v1_source.zip",
+        "sha256": "c6f890c1bd0724bcf3f133dde50957a259502280c05f9f4eadd2f75daacc1e0a",
+        "uncompressed_bytes": 34903440,
+        "github_displayed_sha256": "c6f890c1bd0724bcf3f133dde50957a259502280c05f9f4eadd2f75daacc1e0a",
+        "digest_matches": true
+      },
+      {
+        "bytes": 458241379,
+        "content_verification": "all_members_sha256_verified",
+        "embedded_manifest_sha256": "15ad6d3fbf953d81ece841dba4d0d5fa8d62c81991128df51d39375f26927624",
+        "file_count": 106,
+        "filename": "DA-E01_v1_data.zip",
+        "sha256": "4eeb5a214b0062f716d9167c7fb0e39c0a58b34c8b9a36ba997fd537ff4a23e6",
+        "uncompressed_bytes": 2022339991,
+        "github_displayed_sha256": "4eeb5a214b0062f716d9167c7fb0e39c0a58b34c8b9a36ba997fd537ff4a23e6",
+        "digest_matches": true
+      },
+      {
+        "bytes": 467919692,
+        "content_verification": "all_members_sha256_verified",
+        "embedded_manifest_sha256": "963c10ef4ae5f6ccdcaafb4005120d1a8e70f4444e6f5076b8a389451c569280",
+        "file_count": 244,
+        "filename": "DA-E01_v1_complete.zip",
+        "sha256": "76f585f33f3b4fb7f38fc87bc7325db424431956c732e816cfda375ae8fa1426",
+        "uncompressed_bytes": 2055408803,
+        "github_displayed_sha256": "76f585f33f3b4fb7f38fc87bc7325db424431956c732e816cfda375ae8fa1426",
+        "digest_matches": true
+      }
+    ],
+    "additional_assets": [
+      {
+        "filename": "release_manifest.json",
+        "bytes": 121097,
+        "sha256": "bd4950f7da4556d0b4665b0baeb56becedbcfd660f99b9a41ea7e2245615c98f",
+        "github_displayed_sha256_matches": true
+      },
+      {
+        "filename": "SHA256SUMS.txt",
+        "bytes": 349,
+        "sha256": "5b7761c94a4ac844b4a7d28696291c5de9e77f5876436037c82a02835035535e",
+        "github_displayed_sha256_matches": true
+      }
+    ],
+    "verification": "Published page readback: five attached assets and all server-displayed SHA256 digests match the local artifacts. Two automatic GitHub source archives are additional provider-generated assets.",
+    "proof": "docs/release_proof.jpg"
+  },
+  "validation": {
+    "ci_run": 40229112753,
+    "tests_passed": 103,
+    "tests_skipped": 0,
+    "data_quality_checks_passed": 1312,
+    "canonical_tables": 26,
+    "canonical_fields": 330,
+    "canonical_comparison": "passed_all_fields_no_exclusions",
+    "notebook_executed_code_cells": 12
+  },
+  "drive": {
+    "status": "uploaded_and_metadata_verified",
+    "format": "source_zip_plus_verified_binary_parts_for_large_archives",
+    "part_limit_bytes": 94371840,
+    "private_destination_policy": "Private file and folder identifiers remain in the private delivery receipt.",
+    "portable_instructions": "docs/download_parts/README_REASSEMBLE_EN.md",
+    "portable_instructions_zh": "docs/download_parts/README_REASSEMBLE_ZH.md",
+    "local_reassembly_verification": "docs/download_parts/local_reassembly_verification.json",
+    "uploaded_transport_files": 21,
+    "large_archive_parts": 10,
+    "parts_per_large_archive": 5,
+    "verification": "Every upload read back with matching filename, byte size and parent; original archive and local reassembly SHA256 checks passed. GitHub independently exposes matching original archive SHA256 digests."
+  },
+  "portfolio": {
+    "url": "https://github.com/JacobCCMorgan/data-portfolio",
+    "business_topics": 11,
+    "original_project_ids_preserved": 47,
+    "classification": "business_theme_not_priority"
+  },
+  "user_acceptance": "pending",
+  "second_project_started": false,
+  "archive_policy": "This receipt is written after packaging and is not contained in the frozen archives. Archive bytes and SHA256 digests are unchanged.",
+  "stop": "Await DA-E01 v1 acceptance; no automatic next-project execution.",
+  "verified_at": "2026-10-25T20:26:40.857044+00:00"
+}

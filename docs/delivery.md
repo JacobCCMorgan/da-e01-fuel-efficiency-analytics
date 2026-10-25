@@ -1,5 +1,7 @@
 # Release packages and verification
 
+The [published v1 release](https://github.com/JacobCCMorgan/da-e01-fuel-efficiency-analytics/releases/tag/v1.0.0) and [post-package delivery receipt](delivery_receipt.md) record the completed uploads and verified digests.
+
 The release separates rebuildable source from ready-to-query data. All archives use repository-relative paths, so the source and data ZIPs can be extracted into the same directory. The complete ZIP contains their union once. Packaging does not upload files, rerun analysis or claim that a remote delivery succeeded.
 
 | Package | Intended use | Contents |
