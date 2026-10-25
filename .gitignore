@@ -1,0 +1,15 @@
+__pycache__/
+*.py[cod]
+.venv/
+.env
+.pytest_cache/
+*.egg-info/
+.postgres/
+data/raw/
+data/api/
+data/ingestion/
+data/staged/
+data/postgres_extract/
+data/normalized/
+data/*.duckdb*
+artifacts/
