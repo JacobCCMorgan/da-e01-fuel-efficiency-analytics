@@ -16,6 +16,7 @@ import requests
 
 from .common import atomic_json, contract, digest, ident, json_text, rows, utcnow
 from .quality import enum_values
+from .input_policy import forbidden_payload_field
 
 
 DERIVED = {'fuel_report_run','fuel_paired_interval','fuel_weekly_metric','fuel_inventory_balance'}
@@ -32,9 +33,18 @@ def validate_envelope(event: dict, definitions: dict) -> tuple[str | None, str |
         or event['revision']<1 or not isinstance(event['event_id'],str)
         or not event['event_id'].strip()):
         return 'invalid_event_identity', None
+    if not isinstance(event['tenant_id'],str) or not event['tenant_id'].strip():
+        return 'invalid_envelope', None
+    if any(not isinstance(event[key],str) for key in ('event_time','available_time')):
+        return 'invalid_envelope', None
     payload = event['payload']
     if not isinstance(payload, dict) or payload.get('tenant_id') != event['tenant_id']:
         return 'tenant_mismatch', None
+    if any(forbidden_payload_field(name) for name in payload):
+        return 'forbidden_payload_field', None
+    allowed={field['name'] for field in definitions[table]['fields']}
+    if set(payload)-allowed:
+        return 'unknown_payload_field', None
     try:
         for k in ('available_time','event_time'):
             d = datetime.fromisoformat(event[k].replace('Z','+00:00'))

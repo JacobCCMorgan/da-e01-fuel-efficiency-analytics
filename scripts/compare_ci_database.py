@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
 """Compare a full PostgreSQL-built CI artifact against the local reference DB.
 
-Byte identity is not required: runtime timestamps, physical DuckDB layouts and
-source-extract paths differ. Canonical identities and analytical outcomes must
-agree. This command only reads databases and writes comparison evidence.
+Database byte identity is not required because physical layouts can differ.
+Every canonical field value, including provenance and availability timestamps,
+must match after the shared logical-hash normalization. This command only reads
+databases and writes comparison evidence.
 """
 from __future__ import annotations
 
@@ -11,11 +12,23 @@ import argparse
 from datetime import datetime, timezone
 from decimal import Decimal
 import hashlib
+import importlib.util
 import json
 import math
 from pathlib import Path
 
 import duckdb
+
+
+# Load the sibling by path so CLI and test imports use the exact same helper,
+# regardless of current working directory or Python package search paths.
+_helper_spec = importlib.util.spec_from_file_location(
+    "fuel_verify_rebuild", Path(__file__).with_name("verify_rebuild.py")
+)
+_helper = importlib.util.module_from_spec(_helper_spec)
+_helper_spec.loader.exec_module(_helper)
+logical_table_hash = _helper.logical_table_hash
+SET_JSON_FIELDS = _helper.SET_JSON_FIELDS
 
 
 def quoted(name):
@@ -104,41 +117,74 @@ def differences(left, right, path='outcomes'):
     return found
 
 
+def canonical_checks(reference, candidate, contract):
+    """Compare every contract field, ordered by the declared primary key."""
+    expected = {table['name']: table for table in contract['tables']}
+    for connection in (reference, candidate):
+        connection.execute("SET TimeZone='UTC'")
+        connection.execute("SET memory_limit='2GB'")
+        connection.execute("SET threads=2")
+        connection.execute("SET preserve_insertion_order=false")
+        actual = {row[0] for row in connection.execute(
+            "SELECT table_name FROM information_schema.tables WHERE table_schema='normalized'"
+        ).fetchall()}
+        if actual != set(expected):
+            raise ValueError(f'Canonical table mismatch: missing={set(expected)-actual}, extra={actual-set(expected)}')
+    checks = []
+    for name, table in expected.items():
+        fields = [field for field in contract['fields'] if field['table'] == name]
+        if not fields:
+            raise ValueError(f'Canonical table has no field definitions: {name}')
+        a = identities(reference, name, table['primary_key'])
+        b = identities(candidate, name, table['primary_key'])
+        a_values = logical_table_hash(reference, table, fields)
+        b_values = logical_table_hash(candidate, table, fields)
+        a['logical_values_sha256'] = a_values['sha256']
+        b['logical_values_sha256'] = b_values['sha256']
+        if a['rows'] != a_values['rows'] or b['rows'] != b_values['rows']:
+            raise RuntimeError(f'Row count changed while comparing: {name}')
+        checks.append({
+            'table': name, 'field_count': len(fields),
+            'fields': [field['name'] for field in fields],
+            'reference': a, 'candidate': b, 'matches': a == b,
+        })
+        print('canonical field comparison:', name, 'equal' if a == b else 'DIFFERENT', flush=True)
+    return checks
+
+
 def compare(reference, candidate, contract_path):
     contract = json.loads(contract_path.read_text())
-    expected = {table['name']: table for table in contract['tables']}
-    checks = []
     with duckdb.connect(str(reference), read_only=True) as ref, duckdb.connect(str(candidate), read_only=True) as new:
-        for connection in (ref, new):
-            connection.execute("SET TimeZone='UTC'")
-            connection.execute("SET memory_limit='512MB'")
-            actual = {row[0] for row in connection.execute(
-                "SELECT table_name FROM information_schema.tables WHERE table_schema='normalized'"
-            ).fetchall()}
-            if actual != set(expected):
-                raise ValueError(f'Canonical table mismatch: missing={set(expected)-actual}, extra={actual-set(expected)}')
-        for name, table in expected.items():
-            a = identities(ref, name, table['primary_key'])
-            b = identities(new, name, table['primary_key'])
-            checks.append({'table': name, 'reference': a, 'candidate': b, 'matches': a == b})
+        checks = canonical_checks(ref, new, contract)
         baseline = analytical_outcomes(ref)
         rebuilt = analytical_outcomes(new)
     mismatches = differences(baseline, rebuilt)
     return {
         'checked_at': datetime.now(timezone.utc).isoformat(),
         'status': 'passed' if all(row['matches'] for row in checks) and not mismatches else 'failed',
-        'reference_database': str(reference), 'candidate_database': str(candidate),
+        'reference_database': 'reference', 'candidate_database': 'candidate',
+        'database_label_policy': 'Logical roles only; no private filesystem paths are published.',
         'reference_sha256': sha256(reference), 'candidate_sha256': sha256(candidate),
-        'canonical_table_count': len(expected), 'table_checks': checks,
+        'contract_sha256': sha256(contract_path),
+        'canonical_table_count': len(contract['tables']),
+        'canonical_field_count': len(contract['fields']), 'table_checks': checks,
         'reference_outcomes': baseline, 'candidate_outcomes': rebuilt,
         'outcome_differences': mismatches,
-        'numeric_tolerance': {'absolute': 1e-6, 'relative': 1e-10},
-        'scope': 'Canonical counts and primary-key sets; fleet KPIs and financial/market/followup/inventory group outcomes.',
+        'numeric_tolerance': {'absolute': 1e-6, 'relative': 1e-10, 'applies_to': 'Analytical aggregate outcomes only; canonical value hashes are exact.'},
+        'scope': 'All contract fields in all canonical tables, plus primary-key identities and analytical aggregate outcomes.',
+        'logical_normalization': {
+            'implementation': 'scripts/verify_rebuild.py::logical_table_hash',
+            'row_order': 'Declared canonical primary keys',
+            'json_objects': 'Sorted keys',
+            'unordered_json_arrays': sorted(SET_JSON_FIELDS),
+            'timestamps': 'UTC representation; all event, availability, retrieval and as-of values preserved.',
+        },
+        'canonical_field_exclusions': [],
         'excluded_from_equality': [
-            'Execution and retrieval timestamps', 'Physical database layout and byte order',
-            'Machine-specific source-extract paths',
+            'Physical database page layout and storage encoding',
+            'Runtime files outside canonical tables, such as source-extract directory locations',
         ],
-        'limitations': 'This comparison does not assert byte-identical non-key field values in every source row. Separate contract and calculation tests remain required.',
+        'limitations': 'Logical equivalence does not replace independent business-rule tests or establish real-fleet effectiveness.',
     }
 
 
@@ -152,7 +198,7 @@ def main():
     result = compare(args.reference_db, args.candidate_db, args.contract)
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text(json.dumps(result, indent=2, default=str) + '\n')
-    print(json.dumps({'status': result['status'], 'canonical_tables': result['canonical_table_count'], 'evidence': str(args.output)}))
+    print(json.dumps({'status': result['status'], 'canonical_tables': result['canonical_table_count'], 'evidence': args.output.name}))
     if result['status'] != 'passed':
         raise SystemExit(1)
 

@@ -108,3 +108,51 @@ def test_invalid_event_identity_is_quarantined_not_coerced(source,change):
     assert result['counts_reconcile'] is True
     assert json.loads((source/'data/ingestion/quarantine.jsonl').read_text())['reason']=='invalid_event_identity'
 
+
+@pytest.mark.parametrize('extra,reason',[
+    ({'true_fuel_l':42},'forbidden_payload_field'),
+    ({'expected_waste_label':True},'forbidden_payload_field'),
+    ({'supplier_new_column':'unreviewed'},'unknown_payload_field'),
+])
+def test_unapproved_payload_fields_are_quarantined_before_staging(source,extra,reason):
+    path=source/'data/raw/events.jsonl'
+    event=json.loads(path.read_text().splitlines()[0]);event['payload'].update(extra)
+    path.write_text(json.dumps(event)+'\n')
+    with serve(source) as url:result=ingest_api(source,url)
+    assert result['total_receipts']=={'quarantined':1}
+    assert result['accepted_records']==0 and result['counts_reconcile'] is True
+    assert (source/'data/staged/events/fuel_counter_observation.jsonl').read_text()==''
+    quarantined=json.loads((source/'data/ingestion/quarantine.jsonl').read_text())
+    assert quarantined['reason']==reason
+    assert all(quarantined['envelope']['payload'][key]==value for key,value in extra.items())
+
+
+@pytest.mark.parametrize('change',[
+    {'table':[]},{'table':{}},{'event_time':123},{'available_time':123},{'tenant_id':['T01']},
+])
+def test_malformed_scalar_envelope_types_are_quarantined_without_crashing(source,change):
+    path=source/'data/raw/events.jsonl'
+    event=json.loads(path.read_text().splitlines()[0]);event.update(change)
+    path.write_text(json.dumps(event)+'\n')
+    with serve(source) as url:result=ingest_api(source,url)
+    assert result['total_receipts']=={'quarantined':1}
+    assert result['accepted_records']==0 and result['counts_reconcile'] is True
+
+
+def test_available_since_uses_instants_and_rejects_naive_time(source):
+    path=source/'data/raw/events.jsonl'
+    original=[json.loads(line) for line in path.read_text().splitlines()]
+    a,b=original[0],original[2]
+    a['available_time']='2025-01-02T14:00:00+02:00'  #12:00UTC
+    b['available_time']='2025-01-02T11:30:00Z'
+    path.write_text(json.dumps(a)+'\n'+json.dumps(b)+'\n')
+    with serve(source) as url:
+        utc=requests.get(url+'/v1/events',params={'available_since':'2025-01-02T12:00:00Z'},timeout=3).json()
+        offset=requests.get(url+'/v1/events',params={'available_since':'2025-01-02T13:00:00+01:00'},timeout=3).json()
+        later=requests.get(url+'/v1/events',params={'available_since':'2025-01-02T13:00:00Z'},timeout=3).json()
+        assert utc['items']==offset['items']
+        assert [r['envelope']['event_id'] for r in utc['items']]==['E1']
+        assert later['items']==[]
+        assert requests.get(url+'/v1/events',params={'available_since':'2025-01-02T12:00:00'},timeout=3).status_code==400
+    assert json.loads(path.read_text().splitlines()[0])['available_time']=='2025-01-02T14:00:00+02:00'
+
