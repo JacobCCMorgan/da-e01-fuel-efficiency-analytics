@@ -22,7 +22,7 @@
 
 ![Vehicle-week efficiency matrix](../outputs/figures/02_vehicle_week_heatmap.png)
 
-橫向辨識同車變化，縱向比較前先核對任務與覆蓋；灰格代表未知，不是零效率。
+橫向辨識同車變化，縱向比較前先核對任務與覆蓋；灰格表示沒有可用效率，不是零效率。
 
 矩陣共有 30 輛車、27 週；30 格沒有可用 MPG，1 格配對時間覆蓋低於 95%。
 

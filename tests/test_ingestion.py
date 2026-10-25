@@ -27,6 +27,7 @@ def test_duplicate_and_tenant_quarantine_have_independent_expected_counts(source
     with serve(source) as url:
         report=ingest_api(source,url,limit=1)
         assert report['total_receipts']=={'accepted':2,'duplicate':1,'quarantined':1}
+        assert report['counts_reconcile'] is True
         rerun=ingest_api(source,url,resume=False)
         assert rerun['new_receipts']=={'already_received':4}
         assert rerun['accepted_records']==2
@@ -41,6 +42,7 @@ def test_checkpoint_resume_does_not_skip_equal_available_times(source):
         second=ingest_api(source,url,limit=1)
         assert second['complete'] is True
         assert sum(second['total_receipts'].values())==4
+        assert second['counts_reconcile'] is True
 
 
 @pytest.mark.parametrize('fault',['once_429','once_503','once_slow'])
@@ -49,6 +51,7 @@ def test_retry_without_duplicate_side_effects(source,fault):
         result=ingest_api(source,url,limit=100,test_fault=fault,timeout=.06 if fault=='once_slow' else 3)
         assert result['retries']==1
         assert result['accepted_records']==2
+        assert result['counts_reconcile'] is True
 
 
 def test_cursor_rejects_different_snapshot():
@@ -59,4 +62,49 @@ def test_http_invalid_page_size_and_cursor(source):
     with serve(source) as url:
         assert requests.get(url+'/v1/events',params={'limit':0},timeout=3).status_code==400
         assert requests.get(url+'/v1/events',params={'cursor':cursor_token('wrong',4)},timeout=3).status_code==409
+
+
+def test_malformed_json_is_quarantined_with_original_line(source):
+    path=source/'data/raw/events.jsonl'
+    malformed='{"event_id": "broken", this is not JSON}'
+    with path.open('a') as stream:stream.write(malformed+'\n')
+    with serve(source) as url:
+        result=ingest_api(source,url,limit=2)
+    assert result['total_receipts']=={'accepted':2,'duplicate':1,'quarantined':2}
+    assert result['counts_reconcile'] is True
+    quarantine=[json.loads(line) for line in (source/'data/ingestion/quarantine.jsonl').read_text().splitlines()]
+    broken=next(r for r in quarantine if r['envelope'].get('transport_error')=='invalid_json')
+    assert broken['reason']=='invalid_envelope'
+    assert broken['envelope']['raw_line']==malformed
+
+
+def test_changed_source_snapshot_has_separate_accepted_ledger(source):
+    with serve(source) as url:first=ingest_api(source,url)
+    path=source/'data/raw/events.jsonl'
+    changed=json.loads(path.read_text().splitlines()[0])
+    changed['payload']['fuel_total_l']=99
+    path.write_text(json.dumps(changed)+'\n')
+    with serve(source) as url:second=ingest_api(source,url)
+    assert first['snapshot']!=second['snapshot']
+    assert first['counts_reconcile'] is second['counts_reconcile'] is True
+    assert second['total_receipts']=={'accepted':1}
+    assert second['accepted_records']==1
+    for report,count in [(first,2),(second,1)]:
+        ledger=source/'data/ingestion'/report['snapshot']/'receipts.sqlite'
+        with sqlite3.connect(ledger) as con:
+            assert con.execute('SELECT count(*) FROM accepted').fetchone()[0]==count
+    staged=[json.loads(line) for line in (source/'data/staged/events/fuel_counter_observation.jsonl').read_text().splitlines()]
+    assert len(staged)==1 and staged[0]['fuel_total_l']==99
+
+
+@pytest.mark.parametrize('change',[{'revision':True},{'event_id':123},{'event_id':{'bad':'type'}}])
+def test_invalid_event_identity_is_quarantined_not_coerced(source,change):
+    path=source/'data/raw/events.jsonl'
+    malformed=json.loads(path.read_text().splitlines()[0]);malformed.update(change)
+    path.write_text(json.dumps(malformed)+'\n')
+    with serve(source) as url:result=ingest_api(source,url)
+    assert result['total_receipts']=={'quarantined':1}
+    assert result['accepted_records']==0
+    assert result['counts_reconcile'] is True
+    assert json.loads((source/'data/ingestion/quarantine.jsonl').read_text())['reason']=='invalid_event_identity'
 

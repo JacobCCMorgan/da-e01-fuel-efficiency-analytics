@@ -1,0 +1,29 @@
+{
+  "version": "1.0.0",
+  "records": [
+    {
+      "path": "validation/test_results.xml",
+      "original_sha256": "70f70f57f4a11c163c06caf11f1fd912095129be44f708e8610ee7a8c536eb90",
+      "portable_sha256": "32276a625f136b2eb253638ee6765fa2030a3d064c5f0cb009044e47f0ba4feb",
+      "original_bytes": 8976,
+      "portable_bytes": 8538,
+      "normalization": "machine_prefix_to_relative_dot_slash",
+      "result_signature_unchanged": true,
+      "original_location": "private_external_backup_not_in_release",
+      "checksum_policy": "original_checksum_replaced_by_portable_checksum"
+    },
+    {
+      "path": "validation/test_results.xml",
+      "original_sha256": "ff04c3f13e81c31d37d7ae10a70442f738fcb008f78050c29164486b5bcc4b71",
+      "portable_sha256": "e425fdac990ae48309fef8b1172884e4bda34023c71175ec8e451c78e5529701",
+      "original_bytes": 11320,
+      "portable_bytes": 10882,
+      "normalization": "machine_prefix_to_relative_dot_slash",
+      "result_signature_unchanged": true,
+      "original_location": "private_external_backup_not_in_release",
+      "checksum_policy": "original_checksum_replaced_by_portable_checksum"
+    }
+  ],
+  "scope": "JUnit filesystem locations only; counts, outcomes, timing and skip reasons preserved",
+  "note": "Portable files have new hashes; original checksums no longer identify the normalized bytes."
+}

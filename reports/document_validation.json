@@ -1,0 +1,24 @@
+{
+  "source": "outputs/report_content.json",
+  "source_sha256": "dd02f269c0e7442f3d635749b757496f9844bd64b68a048f7df81c6e6cfa3241",
+  "figure_count": 7,
+  "visual_qa": "All 12 rendered pages inspected; readable text, no missing glyphs, no blank pages, no clipping.",
+  "documents": [
+    {
+      "language": "ZH",
+      "page_count": 9,
+      "docx": "reports/DA-E01_Analysis_Report_ZH.docx",
+      "docx_sha256": "5da71e5547c311853b58866327aa646f21223a2ab5f689a04322734200ec22cf",
+      "pdf": "reports/DA-E01_Analysis_Report_ZH.pdf",
+      "pdf_sha256": "c96f70c0d7cfd063f3c8d25c96e7f4b5d13165a4cb186cf3c5da1a48cb5a1493"
+    },
+    {
+      "language": "EN",
+      "page_count": 3,
+      "docx": "reports/DA-E01_Analysis_Report_EN.docx",
+      "docx_sha256": "3575995f9fb55f1f7af1fda013d92d5737ab468f69b4b11cdeda7ff3b94999e2",
+      "pdf": "reports/DA-E01_Analysis_Report_EN.pdf",
+      "pdf_sha256": "16bcc0a8e020fe36fd0c088f4d46689c2f467473f2ce7624bc93380e27793160"
+    }
+  ]
+}

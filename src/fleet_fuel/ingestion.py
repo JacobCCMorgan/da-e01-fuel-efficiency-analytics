@@ -26,9 +26,11 @@ def validate_envelope(event: dict, definitions: dict) -> tuple[str | None, str |
     if not isinstance(event, dict) or not all(k in event for k in ('event_id','revision','available_time','event_time','tenant_id','table','payload')):
         return 'invalid_envelope', None
     table = event['table']
-    if table not in EVENT_TABLES or table not in definitions:
+    if not isinstance(table,str) or table not in EVENT_TABLES or table not in definitions:
         return 'unsupported_table', None
-    if not isinstance(event['revision'], int) or event['revision'] < 1 or not event['event_id']:
+    if (isinstance(event['revision'],bool) or not isinstance(event['revision'],int)
+        or event['revision']<1 or not isinstance(event['event_id'],str)
+        or not event['event_id'].strip()):
         return 'invalid_event_identity', None
     payload = event['payload']
     if not isinstance(payload, dict) or payload.get('tenant_id') != event['tenant_id']:
@@ -59,7 +61,7 @@ def validate_envelope(event: dict, definitions: dict) -> tuple[str | None, str |
         key = [payload.get(k) for k in spec['primary_key']]
         if any(x is None or x=='' for x in key):
             return 'missing_primary_key', None
-    except (ValueError, TypeError):
+    except (ValueError, TypeError, AttributeError):
         return 'invalid_payload_type', None
     return None, json_text(key)
 
@@ -130,6 +132,11 @@ def ingest_api(root: Path, url: str, limit=2000, resume=True, test_fault=None, t
                 eid=event.get('event_id') if isinstance(event,dict) else None
                 rev=event.get('revision') if isinstance(event,dict) else None
                 table=event.get('table') if isinstance(event,dict) else None
+                # The complete malformed values remain in envelope_json. Audit
+                # index columns retain only valid scalar identity types.
+                eid=eid if isinstance(eid,str) else None
+                rev=rev if isinstance(rev,int) and not isinstance(rev,bool) else None
+                table=table if isinstance(table,str) else None
                 if not reason:
                     version=db.execute('SELECT payload_sha256 FROM event_versions WHERE event_id=? AND revision=?',(eid,rev)).fetchone()
                     existing=db.execute('SELECT payload_sha256 FROM accepted WHERE canonical_table=? AND canonical_key=?',(table,key)).fetchone()
@@ -178,6 +185,42 @@ def load_json_table(con, table: str, path: Path, fields: list[dict]):
     return con.execute(f'SELECT count(*) FROM normalized.{ident(table)}').fetchone()[0]
 
 
+def normalize_counter_units(con) -> dict:
+    """Calculate canonical units from raw values and retain the supplied values.
+
+    Only the normalized database is updated. Unknown units and absent raw values
+    produce NULL, with an explicit audit reason; supplied canonical numbers are
+    never used to fill the gap. Observation identity includes the tenant.
+    """
+    con.execute('CREATE SCHEMA IF NOT EXISTS audit')
+    con.execute("""CREATE OR REPLACE TABLE audit.unit_normalization AS
+      WITH converted AS (
+        SELECT tenant_id,counter_observation_id,
+          fuel_total_l AS supplied_fuel_l,odometer_km AS supplied_distance_km,
+          CAST(fuel_total_raw*CASE fuel_raw_unit WHEN 'US_gal' THEN 3.785411784 WHEN 'L' THEN 1 END AS DECIMAL(20,6)) AS calculated_fuel_l,
+          CAST(odometer_raw*CASE distance_raw_unit WHEN 'mile' THEN 1.609344 WHEN 'km' THEN 1 END AS DECIMAL(20,6)) AS calculated_distance_km,
+          CASE WHEN fuel_raw_unit IS NULL OR fuel_raw_unit NOT IN ('US_gal','L') THEN 'unsupported_unit'
+            WHEN fuel_total_raw IS NULL THEN 'missing_raw_value' ELSE 'normalized' END AS fuel_unit_status,
+          CASE WHEN distance_raw_unit IS NULL OR distance_raw_unit NOT IN ('mile','km') THEN 'unsupported_unit'
+            WHEN odometer_raw IS NULL THEN 'missing_raw_value' ELSE 'normalized' END AS distance_unit_status
+        FROM normalized.fuel_counter_observation
+      )
+      SELECT *,supplied_fuel_l IS DISTINCT FROM calculated_fuel_l AS fuel_value_mismatch,
+        supplied_distance_km IS DISTINCT FROM calculated_distance_km AS distance_value_mismatch
+      FROM converted""")
+    con.execute("""UPDATE normalized.fuel_counter_observation AS o SET
+       fuel_total_l=a.calculated_fuel_l,odometer_km=a.calculated_distance_km
+       FROM audit.unit_normalization a
+       WHERE a.tenant_id=o.tenant_id AND a.counter_observation_id=o.counter_observation_id""")
+    names=['rows','fuel_value_mismatches','distance_value_mismatches','unsupported_fuel_units',
+           'unsupported_distance_units','missing_fuel_raw_values','missing_distance_raw_values']
+    values=con.execute("""SELECT count(*),count(*) FILTER(WHERE fuel_value_mismatch),
+      count(*) FILTER(WHERE distance_value_mismatch),count(*) FILTER(WHERE fuel_unit_status='unsupported_unit'),
+      count(*) FILTER(WHERE distance_unit_status='unsupported_unit'),count(*) FILTER(WHERE fuel_unit_status='missing_raw_value'),
+      count(*) FILTER(WHERE distance_unit_status='missing_raw_value') FROM audit.unit_normalization""").fetchone()
+    return dict(zip(names,values))
+
+
 def build_database(root: Path, operational_dir: Path|None=None) -> dict:
     root=Path(root);c=contract(root)
     target=root/'data/DA-E01.duckdb';temp=root/'data/build.tmp.duckdb'
@@ -207,20 +250,12 @@ def build_database(root: Path, operational_dir: Path|None=None) -> dict:
         con.execute('CREATE TABLE external.public_prices AS SELECT * FROM read_json_auto(?)',[str(public)])
         from .public_normalization import append_public_prices
         append_public_prices(root,con)
-    con.execute('CREATE SCHEMA IF NOT EXISTS audit')
-    con.execute("""CREATE TABLE audit.unit_normalization AS SELECT tenant_id,counter_observation_id,
-      fuel_total_l AS supplied_fuel_l,odometer_km AS supplied_distance_km,
-      CAST(fuel_total_raw*CASE fuel_raw_unit WHEN 'US_gal' THEN 3.785411784 WHEN 'L' THEN 1 END AS DECIMAL(20,6)) AS calculated_fuel_l,
-      CAST(odometer_raw*CASE distance_raw_unit WHEN 'mile' THEN 1.609344 WHEN 'km' THEN 1 END AS DECIMAL(20,6)) AS calculated_distance_km
-      FROM normalized.fuel_counter_observation""")
-    con.execute("""UPDATE normalized.fuel_counter_observation AS o SET
-       fuel_total_l=a.calculated_fuel_l,odometer_km=a.calculated_distance_km
-       FROM audit.unit_normalization a WHERE a.tenant_id=o.tenant_id AND a.counter_observation_id=o.counter_observation_id""")
+    normalization=normalize_counter_units(con)
     for t in c['tables']:
         counts[t['name']]=con.execute(f'SELECT count(*) FROM normalized.{ident(t["name"])}').fetchone()[0]
     con.execute('CHECKPOINT')
     con.close();os.replace(temp,target)
-    result={'database':str(target.relative_to(root)),'rows':counts,'inputs':inputs,'operational_source':'postgresql_extract' if operational_dir else 'frozen_synthetic_snapshot','built_at':utcnow()}
+    result={'database':str(target.relative_to(root)),'rows':counts,'inputs':inputs,'unit_normalization':normalization,'operational_source':'postgresql_extract' if operational_dir else 'frozen_synthetic_snapshot','built_at':utcnow()}
     atomic_json(root/'validation/build_report.json',result)
     return result
 

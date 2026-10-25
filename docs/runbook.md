@@ -119,6 +119,20 @@ PYNOTE
 
 The kernel registration is a normal user-level Jupyter setting; omit it if your notebook tool already selects this virtual environment. The notebook reads the database and should not modify inputs. An execution error must remain visible rather than being replaced by a handwritten output.
 
+A provided alternative executes the trusted project notebook through IPython in the current process, without opening a kernel socket:
+
+```bash
+python scripts/execute_notebook_inprocess.py notebooks/01_fuel_analysis.ipynb --root .
+```
+
+It records actual outputs and execution counts and fails on cell errors. Run it after the final `report` command, because report generation rewrites the notebook. To check dashboard filtering and view separation with Node.js:
+
+```bash
+node scripts/check_dashboard.js outputs/dashboard.html
+```
+
+This checks the embedded data and dashboard JavaScript with a controlled DOM/Plotly stub. It is a functional check of filters, view isolation and empty/reset behavior; it does not replace visual browser review. Both helpers are included in the source package.
+
 ## 7. Review the outputs
 
 | Evidence | What to check |
@@ -152,11 +166,13 @@ Then navigate to `http://127.0.0.1:8000/outputs/dashboard.html`. Use the initial
 | Unexpected MPG | Check aligned intervals, units, reset/rollover treatment, assignment history, denominator and coverage |
 | Price mismatch | Check currency, tax basis, fees, discounts, refund attribution, state mapping, origin and cutoff |
 | Inventory discrepancy | Check same-tank boundaries, calibration, movement completeness, uncertainty and ECU coverage |
-| PostgreSQL unavailable | Preserve the service failure, use explicitly labelled snapshot mode for other checks, and leave service verification pending |
+| PostgreSQL unavailable in your environment | Preserve that failure and use explicitly labelled snapshot mode; the recorded remote CI success does not make a new local service attempt successful |
 | Different totals after replay | Compare seed, profile, contract, source snapshot, dependency versions and report view before interpreting differences |
 
 ## Execution status
 
-This release's local work verified the real HTTP intake, frozen EIA acquisition/parsing, DuckDB snapshot pipeline and source/analytical checks. Exact counts and final test status belong to the generated validation records, not a static badge.
+The full local release verified actual HTTP requests to the synthetic event service, real EIA downloads, DuckDB snapshot analysis and quality checks. The [isolated rebuild report](../validation/rebuild_report.json) shows 26 logically matching canonical tables, 28 byte-identical generated source files and a seed-change check that changes results while preserving quality invariants. Report rendering is checked separately from that rebuild proof.
 
-The authoring environment could not start PostgreSQL: server binaries were absent and the container permitted only a root UID/GID mapping, preventing a supported normal-user server setup. The PostgreSQL adapter and standard startup script are provided; local snapshot execution does not verify the service path. A future or remote PostgreSQL test run must retain its actual run log and service version before this limitation is marked resolved. No source or service execution is inferred from configuration alone.
+The local container could not run a native PostgreSQL server because it lacked binaries and a supported non-root user setup. That local limitation remains; **remote service integration has been verified**. [GitHub Actions run 40226254641](https://github.com/JacobCCMorgan/da-e01-fuel-efficiency-analytics/actions/runs/40226254641), job `121268156571`, passed at commit `ad396bfd66ad4f67ec753fb8dfa20c29bb902a1b` using PostgreSQL **16.15**. Its 61 tests passed with zero skips, including six real-service tests. The subsequent smoke pipeline atomically loaded 6,493 operational records, took a repeatable-read extract, and completed HTTP intake, DuckDB analysis and quality checks.
+
+[CI summary](../validation/ci_run_40226254641.json), [CI test results](../validation/ci_tests_40226254641.xml), [bootstrap](../validation/ci/run-40226254641/validation/postgres_bootstrap.json) and [extract](../validation/ci/run-40226254641/validation/postgres_extract.json) retain this evidence. The remote check used the smoke profile; it is not a full-profile PostgreSQL load/performance test. Later local test runs can still skip the six service tests because no local DSN is configured. Read local and remote result files separately, with their tested commit and execution scope.

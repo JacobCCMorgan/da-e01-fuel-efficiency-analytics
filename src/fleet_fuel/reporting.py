@@ -242,7 +242,7 @@ def _static_figures(root: Path, weekly, balance, reviews, followup, evaluation, 
     if len(low): ax.legend(loc="upper left", bbox_to_anchor=(0, -.12))
     add("02_vehicle_week_heatmap", "Vehicle-week efficiency matrix", fig,
         "Revised view; grey = no usable MPG. Red cross = coverage below 95%. Task mix and vehicle class must be considered before ranking.",
-        "橫向辨識同車變化，縱向比較前先核對任務與覆蓋；灰格代表未知，不是零效率。")
+        "橫向辨識同車變化，縱向比較前先核對任務與覆蓋；灰格表示沒有可用效率，不是零效率。")
 
     fig, ax = plt.subplots(figsize=(12.5, 6.7))
     usable = selected.dropna(subset=["average_load_kg", "l_per_100km"])

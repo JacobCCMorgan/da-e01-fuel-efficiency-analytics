@@ -2,11 +2,17 @@
 
 **DA-E01 · 燃油與能源營運 · Python、SQL、DuckDB、PostgreSQL、HTTP 資料匯入**
 
-[English](README.md) · [互動報告](outputs/dashboard.html) · [分析 Notebook](notebooks/01_fuel_analysis.ipynb) · [圖表中文講解](docs/chart_walkthrough_zh.md) · [執行手冊](docs/runbook.md)
+[English](README.md) · [互動報告](outputs/dashboard.html) · [分析 Notebook](notebooks/01_fuel_analysis.ipynb) · [圖表中文講解](docs/chart_walkthrough_zh.md) · [執行手冊](docs/runbook.md) · [交付包與驗證](docs/delivery.md) · [業務主題作品索引](https://github.com/JacobCCMorgan/data-portfolio)
 
 加油量、ECU 耗用量與油箱存量代表不同事情。本專案整合車端累積計數器、加油交易、油箱異動、歷史裝置關聯與區域市場價格，建立可追溯的每週分析，並將需要查核的結果接到審閱、措施與後續觀察紀錄。
 
 **資料範圍：**2025 年 1–6 月、3 個虛構租戶、30 輛車、36 個裝置、45 位司機及 1,800 趟計畫行程。車隊營運與措施資料為合成資料；EIA 價格是實際取得的公開觀測，保留來源標籤。缺少歷史可取得時間證據時，公開價格只用於回溯比較。
+
+## 已驗證的結果與控制
+
+完整合成情境的修訂版結果為 **8.210096 MPG**，採用相同配對窗口的 **62,852.700212 公升**與 **219,385.511611 公里**，配對時間覆蓋率為 **99.94914%**。這些是可重現的情境結果，不是真實商業車隊的營運成效；本流程的重點是把耗用、購油、庫存、可取得時間與後續措施證據分開並可追溯。
+
+[隔離環境重建驗證](validation/rebuild_report.json)顯示 **26 張 canonical 資料表的邏輯內容一致**，**28 個生成來源檔逐位元一致**；只改變 seed 時，分析結果會隨之改變，品質規則仍通過。[PostgreSQL 16.15 CI](https://github.com/JacobCCMorgan/da-e01-fuel-efficiency-analytics/actions/runs/40226254641) 在 commit `ad396bfd66ad4f67ec753fb8dfa20c29bb902a1b` 通過 **61 項測試、零跳過**，包含六項真實服務測試及 PostgreSQL／HTTP／DuckDB 的 smoke 重建。完整本機快照與遠端 smoke 服務整合是不同驗證範圍，[CI 紀錄](validation/ci_run_40226254641.json)保留其證據。
 
 ## 這個專案回答什麼
 
@@ -55,7 +61,7 @@ python -m fleet_fuel.cli run --profile smoke --operational snapshot --skip-repor
 - DuckDB、Parquet、CSV、JSONL、七張分析圖、離線互動報告與可執行 Notebook。
 - 手算案例、異常注入與整合測試；驗證答案不當成分析輸入。
 
-EIA 使用的是官方 HTTPS **檔案下載**，沒有宣稱呼叫 EIA API。本機事件服務承載合成情境，不是實際 ELD 廠商端點。PostgreSQL 服務的驗證狀態與快照流程分開記錄，詳見[環境執行狀態](docs/runbook.md#execution-status)。
+EIA 使用的是官方 HTTPS **檔案下載**，沒有宣稱呼叫 EIA API。本機事件服務承載合成情境，不是實際 ELD 廠商端點。PostgreSQL 服務已在遠端 smoke 流程中完成驗證；完整分析交付使用本機快照路徑。兩者範圍分開記錄，詳見[環境執行狀態](docs/runbook.md#execution-status)。
 
 ## 三種報告版本不能混加
 

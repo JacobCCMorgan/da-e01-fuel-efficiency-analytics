@@ -1,0 +1,28 @@
+{
+  "status": "executed",
+  "engine": "PostgreSQL 16.15 (Debian 16.15-1.pgdg13+2) on x86_64-pc-linux-gnu, compiled by gcc (Debian 14.2.0-19) 14.2.0, 64-bit",
+  "schema": "fleet_ops",
+  "rows": {
+    "core_tenant": 3,
+    "core_vehicle": 30,
+    "core_device": 36,
+    "core_vehicle_device_assignment": 34,
+    "fuel_vehicle_context": 30,
+    "fuel_task_assignment": 100,
+    "fuel_purchase_line": 1861,
+    "fuel_card_assignment": 30,
+    "fuel_station": 36,
+    "fuel_tank_scope": 30,
+    "fuel_inventory_measurement": 840,
+    "fuel_movement": 3423,
+    "fuel_statement_control": 24,
+    "fuel_output_review": 8,
+    "fuel_action_followup": 8
+  },
+  "inserted_records": 6493,
+  "watermark": 6493,
+  "executed_at": "2026-10-25T19:30:31.028455+00:00",
+  "source_kind": "synthetic_operational_postgresql",
+  "transaction": "all_tables_atomic",
+  "immutable_key_policy": "reject_conflicting_payload"
+}

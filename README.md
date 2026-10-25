@@ -2,11 +2,17 @@
 
 **DA-E01 · Fuel and energy operations · Python, SQL, DuckDB, PostgreSQL, HTTP ingestion**
 
-[繁體中文](README.zh-TW.md) · [Interactive report](outputs/dashboard.html) · [Analysis walkthrough](notebooks/01_fuel_analysis.ipynb) · [Metric definitions](docs/metrics.md) · [Runbook](docs/runbook.md)
+[繁體中文](README.zh-TW.md) · [Interactive report](outputs/dashboard.html) · [Analysis walkthrough](notebooks/01_fuel_analysis.ipynb) · [Metric definitions](docs/metrics.md) · [Runbook](docs/runbook.md) · [Release packages](docs/delivery.md) · [Portfolio index](https://github.com/JacobCCMorgan/data-portfolio)
 
 Fuel purchased is not fuel consumed. This project combines vehicle counter observations, fuel-card transactions, tank movements, historical device assignments, and regional market prices to produce an auditable weekly fuel report. The report separates measurement gaps from efficiency changes and carries review candidates into investigation and follow-up records.
 
 **Data scope:** January–June 2025; 3 fictional tenants, 30 vehicles, 36 devices, 45 drivers and 1,800 planned trips. Fleet operations and action records are synthetic. EIA prices are actual public observations, clearly separated from the fleet and restricted to retrospective context when historical availability is unknown.
+
+## Verified result and controls
+
+The full synthetic scenario's revised view yields **8.210096 MPG**, from **62,852.700212 L** and **219,385.511611 km** over matched intervals, with **99.94914%** paired-time coverage. These are reproducible scenario results, not measured commercial-fleet performance. The workflow's value is the auditable separation of consumption, purchases, inventory, availability cutoffs and follow-up evidence.
+
+A [clean isolated rebuild](validation/rebuild_report.json) reproduced all **26 canonical tables logically** and all **28 generated source files byte for byte**. Changing only the seed changed downstream results while quality invariants still passed. [PostgreSQL 16.15 CI](https://github.com/JacobCCMorgan/da-e01-fuel-efficiency-analytics/actions/runs/40226254641) passed **61 tests with no skips**, including six real-service tests and the PostgreSQL/HTTP/DuckDB smoke rebuild at commit `ad396bfd66ad4f67ec753fb8dfa20c29bb902a1b`. The full-profile local snapshot and remote smoke integration are distinct checks; [retained CI evidence](validation/ci_run_40226254641.json) records that scope.
 
 ## Start with the evidence
 
@@ -55,7 +61,7 @@ The [runbook](docs/runbook.md) documents the stage commands, PostgreSQL mode, de
 - SQL analytical tables, Parquet exports, CSV evidence, a reusable DuckDB database, seven analytical figures, an offline dashboard and an executable notebook.
 - Literal arithmetic examples, anomaly injections and integration fixtures; validation truth is isolated from analysis inputs.
 
-The EIA integration is an official HTTPS **file download**, not an API call. The local event endpoint is a synthetic service used to exercise HTTP ingestion, not an actual ELD vendor connection. PostgreSQL service validation is tracked separately from snapshot execution; see [environment status](docs/runbook.md#execution-status).
+The EIA integration is an official HTTPS **file download**, not an API call. The local event endpoint is a synthetic service used to exercise HTTP ingestion, not an actual ELD vendor connection. PostgreSQL service behavior was verified in the successful remote smoke run; the full analytical release uses the local snapshot path. See [execution status](docs/runbook.md#execution-status).
 
 ## Three reporting views
 

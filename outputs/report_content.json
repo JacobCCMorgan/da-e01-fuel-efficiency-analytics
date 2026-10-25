@@ -1,0 +1,283 @@
+{
+  "project_id": "DA-E01",
+  "report_version": "1.0.0",
+  "generated_at": "2026-10-25T19:15:40.658822+00:00",
+  "default_view": "revised",
+  "source_note": "Fleet operations and follow-up cases are synthetic. Official EIA prices, when present, are retrospective context. Results describe the simulated portfolio dataset, not verified customer savings or causal effects.",
+  "summary": {
+    "vehicle_count": 30,
+    "tenant_count": 3,
+    "vehicle_week_rows": 810,
+    "report_week_count": 27,
+    "paired_distance_km": 219385.511611,
+    "fuel_used_l": 62852.700212,
+    "fleet_mpg": 8.210096229580826,
+    "paired_time_coverage": 0.9994914072433452,
+    "comparable_purchase_amount_usd": 76856.05,
+    "low_coverage_rows": 1,
+    "no_operating_exposure_rows": 30,
+    "unknown_coverage_rows": 0,
+    "intensity_review_rows": 1,
+    "price_review_rows": 17,
+    "no_eligible_peer_rows": 156,
+    "review_case_count": 8,
+    "action_case_count": 8,
+    "inventory_window_count": 810,
+    "comparable_followup_cases": 3,
+    "timed_review_cases": 8,
+    "recorded_active_review_seconds": 8220.0,
+    "recorded_baseline_review_seconds": 14400.0,
+    "followup_statuses": {
+      "comparable_descriptive_only": 3,
+      "no_action_observed": 2,
+      "task_mix_changed": 1,
+      "lost_to_followup": 1,
+      "not_mature": 1
+    }
+  },
+  "sections": [
+    {
+      "title": "資料範圍與分析口徑",
+      "text": [
+        "修訂版分析涵蓋 3 個合成租戶、30 輛車、27 個報告週，共 810 筆車輛週資料。",
+        "可配對里程為 219,385.5 km，對應耗用 62,852.7 L；車隊 MPG 由兩者總量計算為 8.21。有效觀測時間覆蓋率為 99.9%。",
+        "初版、修訂版與事後背景分開保存，不將多個版本重複加總。首尾部分週保留；合成營運數據的結果不能外推為真實車隊效果。"
+      ]
+    },
+    {
+      "title": "效率與工況",
+      "text": [
+        "共有 1 筆車輛週低於 95% 配對時間覆蓋，應先核對觀測缺口再比較效率。",
+        "另有 30 筆沒有預定營運時間，效率不適用；0 筆覆蓋未知。無營運、未知與低覆蓋分開處理。",
+        "按租戶、車型、任務與週分組的同儕規則標出 1 筆需進一步調查的車輛週。每一任務分開與同車前週及至少三輛同儕比較；旗標不是浪費或故障的已驗證標籤。",
+        "有量測的租戶週 MPG 範圍為 7.83–8.65；配對時間覆蓋率範圍為 95.7%–100.0%。不同工況尚未調整，不能直接當排名。",
+        "矩陣共有 30 輛車、27 週；30 格沒有可用 MPG，1 格配對時間覆蓋低於 95%。",
+        "linehaul：179 筆車輛週的耗用強度中位數為 28.31 L/100km。這是各組描述性數值，仍須核對載重與 PTO 差異。",
+        "mixed：592 筆車輛週的耗用強度中位數為 28.75 L/100km。這是各組描述性數值，仍須核對載重與 PTO 差異。",
+        "regional_delivery：9 筆車輛週的耗用強度中位數為 30.21 L/100km。這是各組描述性數值，仍須核對載重與 PTO 差異。"
+      ],
+      "figures": [
+        {
+          "id": "01_efficiency_coverage",
+          "title": "Efficiency and usable observation coverage",
+          "path": "outputs/figures/01_efficiency_coverage.png",
+          "caption": "Revised view. Fleet MPG = total paired km / total paired L × 2.35215. Coverage uses expected operating seconds; partial boundary weeks retained.",
+          "interpretation": "效率與覆蓋率一起閱讀；低覆蓋週不可只憑 MPG 排名，車隊數值採總量比。",
+          "findings": [
+            "有量測的租戶週 MPG 範圍為 7.83–8.65；配對時間覆蓋率範圍為 95.7%–100.0%。不同工況尚未調整，不能直接當排名。"
+          ]
+        },
+        {
+          "id": "02_vehicle_week_heatmap",
+          "title": "Vehicle-week efficiency matrix",
+          "path": "outputs/figures/02_vehicle_week_heatmap.png",
+          "caption": "Revised view; grey = no usable MPG. Red cross = coverage below 95%. Task mix and vehicle class must be considered before ranking.",
+          "interpretation": "橫向辨識同車變化，縱向比較前先核對任務與覆蓋；灰格表示沒有可用效率，不是零效率。",
+          "findings": [
+            "矩陣共有 30 輛車、27 週；30 格沒有可用 MPG，1 格配對時間覆蓋低於 95%。"
+          ]
+        },
+        {
+          "id": "03_operating_context",
+          "title": "Operating context and consumption",
+          "path": "outputs/figures/03_operating_context.png",
+          "caption": "Each point is one vehicle-week in the revised view. Bubble size reflects PTO share. Dispatch metadata is context, not a causal explanation.",
+          "interpretation": "較高載重與 PTO 可能伴隨較高耗用；此圖用來選擇可比情境，不能將相關性當成浪費原因。",
+          "findings": [
+            "linehaul：179 筆車輛週的耗用強度中位數為 28.31 L/100km。這是各組描述性數值，仍須核對載重與 PTO 差異。",
+            "mixed：592 筆車輛週的耗用強度中位數為 28.75 L/100km。這是各組描述性數值，仍須核對載重與 PTO 差異。",
+            "regional_delivery：9 筆車輛週的耗用強度中位數為 30.21 L/100km。這是各組描述性數值，仍須核對載重與 PTO 差異。"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "購油支出與價格背景",
+      "text": [
+        "修訂版可比燃油購買淨額合計為 US$76,856.05。購油支出與 ECU 耗用分開，不能用此金額直接宣稱當期耗用成本。",
+        "價量分解按固定順序計算；無法歸入價格或數量效果的組合差異另列。公開市場價格只用在具有適用證據的比較，事後取得的歷史價格不放入當時資訊回放。",
+        "2025-06-16 至 2025-06-23 的可比購油淨額由 US$1,539.67 變為 US$4,330.44；價格效果 US$24.59、數量效果 US$2,766.18、未分解差額 US$0.00。"
+      ],
+      "figures": [
+        {
+          "id": "04_price_quantity_bridge",
+          "title": "Price, quantity and market background",
+          "path": "outputs/figures/04_price_quantity_bridge.png",
+          "caption": "Left: latest two full revised weeks; residual is disclosed, not forced to zero. Right: retrospective market context, not historical as-of or achievable savings.",
+          "interpretation": "先拆解價格與購油量，再檢查未能分解的組合差異；市場差額僅供調查，不是可實現節省。",
+          "findings": [
+            "2025-06-16 至 2025-06-23 的可比購油淨額由 US$1,539.67 變為 US$4,330.44；價格效果 US$24.59、數量效果 US$2,766.18、未分解差額 US$0.00。"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "燃料平衡與調查優先順序",
+      "text": [
+        "共產生 810 個庫存觀察窗口。只有邊界、油箱範圍與燃料移動能核對時才形成可解釋平衡量。",
+        "先處理低覆蓋與關聯問題，再調查高耗用強度或價格差異；保留未知狀態與原件證據，避免將量測問題解讀成營運損失。",
+        "within_measurement_uncertainty：776 個庫存窗口。",
+        "no_eligible_ecu_intervals：30 個庫存窗口。",
+        "uncalibrated_boundary：2 個庫存窗口。",
+        "incomplete_movements：1 個庫存窗口。",
+        "investigate_coverage_or_balance：1 個庫存窗口。",
+        "覆蓋查核 1 筆、任務內強度查核 1 筆、價格查核 17 筆。類別可重疊；未知覆蓋另留於明細。"
+      ],
+      "figures": [
+        {
+          "id": "05_inventory_reconciliation",
+          "title": "Inventory reconciliation and uncertainty",
+          "path": "outputs/figures/05_inventory_reconciliation.png",
+          "caption": "Bridge: largest known window. Residual uses the same tank window; grey bars show inventory uncertainty. Coverage and unknown transfers require separate investigation.",
+          "interpretation": "橋接圖說明單一窗口的燃料守恆；中圖比對相同窗口的 ECU 與油箱平衡量，並保留量測不確定範圍。差額仍可能來自覆蓋或移動缺口，不能直接判為偷油。",
+          "findings": [
+            "within_measurement_uncertainty：776 個庫存窗口。",
+            "no_eligible_ecu_intervals：30 個庫存窗口。",
+            "uncalibrated_boundary：2 個庫存窗口。",
+            "incomplete_movements：1 個庫存窗口。",
+            "investigate_coverage_or_balance：1 個庫存窗口。"
+          ]
+        },
+        {
+          "id": "06_review_priority",
+          "title": "Review priorities and confidence",
+          "path": "outputs/figures/06_review_priority.png",
+          "caption": "Peers: same tenant, vehicle class, task and week; ≥95% coverage, ≥3 other vehicles. High vs peers means ≥20% above median. Prices: >$0.05/L gap with ≥80% match.",
+          "interpretation": "先確認資料品質，再調查同任務耗用偏高與價格差異；旗標不是故障、舞弊或浪費的結論。",
+          "findings": [
+            "覆蓋查核 1 筆、任務內強度查核 1 筆、價格查核 17 筆。類別可重疊；未知覆蓋另留於明細。"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "報告採用與後續觀察",
+      "text": [
+        "合成流程包含 8 筆報告審閱案例與 8 筆措施追蹤。實際收到報告、是否採用與後續窗口是否成熟各自記錄。",
+        "其中 8 筆具有可對照的工時紀錄，活躍審閱合計 137.0 分鐘，紀錄基準為 240.0 分鐘。活躍工時不含等待；這是合成欄位的演練，不能當作實測效率提升。",
+        "其中 3 筆通過成熟度、任務與至少 95% 覆蓋檢查，可作描述性前後比較。窗口結束本身不代表可比；真實客戶採用、真實節油及公司成效仍未觀測。",
+        "comparable_descriptive_only：3 筆審閱案例。",
+        "no_action_observed：2 筆審閱案例。",
+        "task_mix_changed：1 筆審閱案例。",
+        "lost_to_followup：1 筆審閱案例。",
+        "not_mature：1 筆審閱案例。",
+        "T01-V01 的 T01-V01-REVIEW-01：基準 28.21、原始後續 28.21、按基準任務組合標準化後續 27.90 L/100km；標準化差異 -0.31，任務里程占比最大變動 16.24 個百分點。僅為合成情境的描述性比較。",
+        "T01-V02 的 T01-V02-REVIEW-02：基準 28.64、原始後續 29.19、按基準任務組合標準化後續 29.12 L/100km；標準化差異 +0.48，任務里程占比最大變動 3.37 個百分點。僅為合成情境的描述性比較。",
+        "T01-V08 的 T01-V08-REVIEW-08：基準 29.46、原始後續 28.71、按基準任務組合標準化後續 28.70 L/100km；標準化差異 -0.76，任務里程占比最大變動 3.92 個百分點。僅為合成情境的描述性比較。"
+      ],
+      "figures": [
+        {
+          "id": "07_action_followup",
+          "title": "From report to investigation and follow-up",
+          "path": "outputs/figures/07_action_followup.png",
+          "caption": "Synthetic exercise. Mature windows, ≥95% coverage. Filled follow-up points use baseline task distance shares; hollow diamonds are raw rates. No causal savings established.",
+          "interpretation": "先區分採用、成熟度與可比性，再用基準期各任務的里程占比加權後續耗用強度，降低任務組合不同的影響。原始與標準化差異均可回查；仍不能將變化當作措施的因果效果。",
+          "findings": [
+            "comparable_descriptive_only：3 筆審閱案例。",
+            "no_action_observed：2 筆審閱案例。",
+            "task_mix_changed：1 筆審閱案例。",
+            "lost_to_followup：1 筆審閱案例。",
+            "not_mature：1 筆審閱案例。",
+            "T01-V01 的 T01-V01-REVIEW-01：基準 28.21、原始後續 28.21、按基準任務組合標準化後續 27.90 L/100km；標準化差異 -0.31，任務里程占比最大變動 16.24 個百分點。僅為合成情境的描述性比較。",
+            "T01-V02 的 T01-V02-REVIEW-02：基準 28.64、原始後續 29.19、按基準任務組合標準化後續 29.12 L/100km；標準化差異 +0.48，任務里程占比最大變動 3.37 個百分點。僅為合成情境的描述性比較。",
+            "T01-V08 的 T01-V08-REVIEW-08：基準 29.46、原始後續 28.71、按基準任務組合標準化後續 28.70 L/100km；標準化差異 -0.76，任務里程占比最大變動 3.92 個百分點。僅為合成情境的描述性比較。"
+          ]
+        }
+      ]
+    }
+  ],
+  "figures": [
+    {
+      "id": "01_efficiency_coverage",
+      "title": "Efficiency and usable observation coverage",
+      "path": "outputs/figures/01_efficiency_coverage.png",
+      "caption": "Revised view. Fleet MPG = total paired km / total paired L × 2.35215. Coverage uses expected operating seconds; partial boundary weeks retained.",
+      "interpretation": "效率與覆蓋率一起閱讀；低覆蓋週不可只憑 MPG 排名，車隊數值採總量比。",
+      "findings": [
+        "有量測的租戶週 MPG 範圍為 7.83–8.65；配對時間覆蓋率範圍為 95.7%–100.0%。不同工況尚未調整，不能直接當排名。"
+      ]
+    },
+    {
+      "id": "02_vehicle_week_heatmap",
+      "title": "Vehicle-week efficiency matrix",
+      "path": "outputs/figures/02_vehicle_week_heatmap.png",
+      "caption": "Revised view; grey = no usable MPG. Red cross = coverage below 95%. Task mix and vehicle class must be considered before ranking.",
+      "interpretation": "橫向辨識同車變化，縱向比較前先核對任務與覆蓋；灰格表示沒有可用效率，不是零效率。",
+      "findings": [
+        "矩陣共有 30 輛車、27 週；30 格沒有可用 MPG，1 格配對時間覆蓋低於 95%。"
+      ]
+    },
+    {
+      "id": "03_operating_context",
+      "title": "Operating context and consumption",
+      "path": "outputs/figures/03_operating_context.png",
+      "caption": "Each point is one vehicle-week in the revised view. Bubble size reflects PTO share. Dispatch metadata is context, not a causal explanation.",
+      "interpretation": "較高載重與 PTO 可能伴隨較高耗用；此圖用來選擇可比情境，不能將相關性當成浪費原因。",
+      "findings": [
+        "linehaul：179 筆車輛週的耗用強度中位數為 28.31 L/100km。這是各組描述性數值，仍須核對載重與 PTO 差異。",
+        "mixed：592 筆車輛週的耗用強度中位數為 28.75 L/100km。這是各組描述性數值，仍須核對載重與 PTO 差異。",
+        "regional_delivery：9 筆車輛週的耗用強度中位數為 30.21 L/100km。這是各組描述性數值，仍須核對載重與 PTO 差異。"
+      ]
+    },
+    {
+      "id": "04_price_quantity_bridge",
+      "title": "Price, quantity and market background",
+      "path": "outputs/figures/04_price_quantity_bridge.png",
+      "caption": "Left: latest two full revised weeks; residual is disclosed, not forced to zero. Right: retrospective market context, not historical as-of or achievable savings.",
+      "interpretation": "先拆解價格與購油量，再檢查未能分解的組合差異；市場差額僅供調查，不是可實現節省。",
+      "findings": [
+        "2025-06-16 至 2025-06-23 的可比購油淨額由 US$1,539.67 變為 US$4,330.44；價格效果 US$24.59、數量效果 US$2,766.18、未分解差額 US$0.00。"
+      ]
+    },
+    {
+      "id": "05_inventory_reconciliation",
+      "title": "Inventory reconciliation and uncertainty",
+      "path": "outputs/figures/05_inventory_reconciliation.png",
+      "caption": "Bridge: largest known window. Residual uses the same tank window; grey bars show inventory uncertainty. Coverage and unknown transfers require separate investigation.",
+      "interpretation": "橋接圖說明單一窗口的燃料守恆；中圖比對相同窗口的 ECU 與油箱平衡量，並保留量測不確定範圍。差額仍可能來自覆蓋或移動缺口，不能直接判為偷油。",
+      "findings": [
+        "within_measurement_uncertainty：776 個庫存窗口。",
+        "no_eligible_ecu_intervals：30 個庫存窗口。",
+        "uncalibrated_boundary：2 個庫存窗口。",
+        "incomplete_movements：1 個庫存窗口。",
+        "investigate_coverage_or_balance：1 個庫存窗口。"
+      ]
+    },
+    {
+      "id": "06_review_priority",
+      "title": "Review priorities and confidence",
+      "path": "outputs/figures/06_review_priority.png",
+      "caption": "Peers: same tenant, vehicle class, task and week; ≥95% coverage, ≥3 other vehicles. High vs peers means ≥20% above median. Prices: >$0.05/L gap with ≥80% match.",
+      "interpretation": "先確認資料品質，再調查同任務耗用偏高與價格差異；旗標不是故障、舞弊或浪費的結論。",
+      "findings": [
+        "覆蓋查核 1 筆、任務內強度查核 1 筆、價格查核 17 筆。類別可重疊；未知覆蓋另留於明細。"
+      ]
+    },
+    {
+      "id": "07_action_followup",
+      "title": "From report to investigation and follow-up",
+      "path": "outputs/figures/07_action_followup.png",
+      "caption": "Synthetic exercise. Mature windows, ≥95% coverage. Filled follow-up points use baseline task distance shares; hollow diamonds are raw rates. No causal savings established.",
+      "interpretation": "先區分採用、成熟度與可比性，再用基準期各任務的里程占比加權後續耗用強度，降低任務組合不同的影響。原始與標準化差異均可回查；仍不能將變化當作措施的因果效果。",
+      "findings": [
+        "comparable_descriptive_only：3 筆審閱案例。",
+        "no_action_observed：2 筆審閱案例。",
+        "task_mix_changed：1 筆審閱案例。",
+        "lost_to_followup：1 筆審閱案例。",
+        "not_mature：1 筆審閱案例。",
+        "T01-V01 的 T01-V01-REVIEW-01：基準 28.21、原始後續 28.21、按基準任務組合標準化後續 27.90 L/100km；標準化差異 -0.31，任務里程占比最大變動 16.24 個百分點。僅為合成情境的描述性比較。",
+        "T01-V02 的 T01-V02-REVIEW-02：基準 28.64、原始後續 29.19、按基準任務組合標準化後續 29.12 L/100km；標準化差異 +0.48，任務里程占比最大變動 3.37 個百分點。僅為合成情境的描述性比較。",
+        "T01-V08 的 T01-V08-REVIEW-08：基準 29.46、原始後續 28.71、按基準任務組合標準化後續 28.70 L/100km；標準化差異 -0.76，任務里程占比最大變動 3.92 個百分點。僅為合成情境的描述性比較。"
+      ]
+    }
+  ],
+  "dashboard": "outputs/dashboard.html",
+  "detail_csv": "outputs/report_weekly_detail.csv",
+  "review_candidates_csv": "outputs/review_candidates.csv",
+  "limitations": [
+    "Synthetic operational scenarios do not establish real fleet effectiveness.",
+    "Retrospective public prices are not historical availability evidence.",
+    "Review flags are descriptive rules and require investigation.",
+    "Before/after action comparisons do not identify causal savings."
+  ]
+}

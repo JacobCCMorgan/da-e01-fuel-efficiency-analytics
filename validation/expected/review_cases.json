@@ -1,0 +1,45 @@
+{
+  "scope": "Synthetic process exercise, not real adoption or company effects",
+  "cases": [
+    {
+      "review_case_id": "T01-V01-REVIEW-01",
+      "adoption_status": "accepted",
+      "review_outcome": "confirmed"
+    },
+    {
+      "review_case_id": "T01-V02-REVIEW-02",
+      "adoption_status": "partly_accepted",
+      "review_outcome": "open"
+    },
+    {
+      "review_case_id": "T01-V03-REVIEW-03",
+      "adoption_status": "rejected",
+      "review_outcome": "negated"
+    },
+    {
+      "review_case_id": "T01-V04-REVIEW-04",
+      "adoption_status": "not_reviewed",
+      "review_outcome": "not_reported"
+    },
+    {
+      "review_case_id": "T01-V05-REVIEW-05",
+      "adoption_status": "accepted",
+      "review_outcome": "disputed"
+    },
+    {
+      "review_case_id": "T01-V06-REVIEW-06",
+      "adoption_status": "accepted",
+      "review_outcome": "lost_followup"
+    },
+    {
+      "review_case_id": "T01-V07-REVIEW-07",
+      "adoption_status": "accepted",
+      "review_outcome": "not_mature"
+    },
+    {
+      "review_case_id": "T01-V08-REVIEW-08",
+      "adoption_status": "accepted",
+      "review_outcome": "confirmed"
+    }
+  ]
+}

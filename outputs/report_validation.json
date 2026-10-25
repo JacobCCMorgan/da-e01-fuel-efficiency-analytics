@@ -1,0 +1,17 @@
+{
+  "status": "passed",
+  "figure_count": 7,
+  "visual_review": "All seven final PNGs inspected; labels and footnotes readable, no clipped chart regions.",
+  "dashboard_logic": "Default view, tenant/vehicle/view filters, empty selection, reset and all nine chart calls passed a DOM-stub JavaScript execution check. This is not a browser-rendering test.",
+  "offline_plotly": "Embedded library; no external CDN needed.",
+  "weekly_detail_rows": 2430,
+  "unique_vehicle_week_view_keys": true,
+  "report_totals_match_database": true,
+  "executed_notebook_cells": 12,
+  "notebook_embedded_figures": 2,
+  "notebook_execution_engine": "IPython InteractiveShell in process (kernel sockets unavailable)",
+  "limits": [
+    "Synthetic operating data; no verified real savings or customer effects.",
+    "No browser-rendering claim; static figures and application logic checked."
+  ]
+}
