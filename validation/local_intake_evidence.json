@@ -1,0 +1,26 @@
+{
+  "role": "actual_local_HTTP_replay_of_the_same_synthetic_event_snapshot",
+  "not_remote_receipts": true,
+  "local_report": {
+    "evidence_file": "validation/local_http_ingestion.json",
+    "sha256": "22d84771c71c10af01f074cfa41602580653f3351b46be52de7d6fc118634eb3"
+  },
+  "local_receipt_database": {
+    "evidence_file": "data/ingestion/9cfc0dcf6a84fa6c24966f09fee37152b05225b91f0a7eb5197ab3a1e6bb49ce/receipts.sqlite",
+    "sha256": "2533ff8bc69d4570ec9923c209dbadabcafb16338b59759a4e43ea29c25e3162"
+  },
+  "remote_report": {
+    "evidence_file": "validation/ci/full-run-40227233022/validation/ingestion_report.json",
+    "sha256": "ecd61d82e12640ddbb3b2deabadd9236cf24e392423095717ce958a065ee076b"
+  },
+  "snapshot": "9cfc0dcf6a84fa6c24966f09fee37152b05225b91f0a7eb5197ab3a1e6bb49ce",
+  "matching_checks": {
+    "snapshot": true,
+    "accepted_records": true,
+    "expected_source_attempts": true,
+    "complete": true,
+    "counts_reconcile": true,
+    "total_receipts": true
+  },
+  "interpretation": "Local receipts preserve the earlier local HTTP execution. The delivered database was built remotely; its own CI intake evidence is retained separately. Matching snapshot and counts do not relabel local receipt timestamps as remote execution."
+}

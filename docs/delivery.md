@@ -5,7 +5,7 @@ The release separates rebuildable source from ready-to-query data. All archives 
 | Package | Intended use | Contents |
 | --- | --- | --- |
 | `DA-E01_v1_source.zip` | Review and rebuild independently | Code, contracts, configuration, SQL, tests, scripts, documentation, notebook, reports, figures, analytical CSVs, validation evidence and frozen public source evidence |
-| `DA-E01_v1_data.zip` | Inspect the completed data release | DuckDB, generator-owned raw inputs, accepted staged events, normalized/derived Parquet, public evidence, active HTTP receipt database, quarantine and key build manifests |
+| `DA-E01_v1_data.zip` | Inspect the completed data release | PostgreSQL-built DuckDB, exact operational extract, generator-owned raw inputs, accepted staged events, normalized/derived Parquet, public evidence, active local HTTP receipt database, quarantine and key build manifests |
 | `DA-E01_v1_complete.zip` | Obtain the entire project in one download | Deduplicated union of source and data package contents |
 | `release_manifest.json` | Verify file membership and provenance | Per-file SHA-256, bytes, logical row counts where applicable, origin, license references, package membership and archive hashes |
 | `SHA256SUMS.txt` | Check download integrity | Hashes of all three archives and the external release manifest |
@@ -33,7 +33,7 @@ python scripts/package_release.py --root .
 Outputs appear under `artifacts/`. This command performs the following checks before publishing its completed archives:
 
 1. Use explicit code/document directories and extension allowlists. Raw scenario files are selected only from `data/generation_manifest.json` ownership records, with matching hashes and sizes.
-2. Select normalized exports from their manifest, staged inputs from the build manifest and only the active snapshot's receipt database from the ingestion manifest.
+2. Select normalized exports from their manifest, staged inputs and the exact PostgreSQL extract from the build manifest, and only the active snapshot's local receipt database from the ingestion manifest. PostgreSQL build inputs must exactly match the executed extract manifest; every extract file hash is checked.
 3. Reject unsafe paths, hidden temporary files, symlinks, credential-like content and absolute private machine paths. Inspect Word document XML as well as ordinary file bytes.
 4. Require closed/checkpointed databases without nonempty WAL/shared-memory sidecars. Open DuckDB read-only to verify 26 canonical table counts against normalized manifests, and check SQLite integrity and receipt counts.
 5. Verify that the DuckDB bytes still match the completed run's database hash. Count JSONL/CSV rows and read Parquet metadata for the manifest.
@@ -66,3 +66,7 @@ If you downloaded only one ZIP, compare that ZIP's SHA-256 with its matching lin
 Files larger than 100 MiB are listed in `git_excluded_large_files` in the manifest. They belong in release/download storage rather than ordinary Git commits. The source repository retains the generator, contracts, frozen public inputs and build commands; a separate repository delivery log must record verified upload locations. Archive creation alone does not establish Google Drive or GitHub publication.
 
 Data terms remain in [data/LICENSE.md](../data/LICENSE.md). Public EIA source evidence is separately identified and is not relicensed as fictional sample data. Analytical outputs can depend on both origins; consult provenance rather than treating a whole mixed database as one source.
+
+## Verified database adoption
+
+The ready database is the full-profile PostgreSQL CI artifact identified by `validation/database_adoption.json`. Its 26 tables and 330 fields match the independently rebuilt local reference; normalized Parquet was re-exported from the adopted database and quality checks re-executed. The exact 15-table operational extract is included. Local HTTP receipts are retained with explicit local-execution labels and matching snapshot/count checks; the CI intake evidence stays separate. Existing reports and notebook outputs were retained under the canonical-equivalence evidence, not represented as newly executed remote presentation steps.

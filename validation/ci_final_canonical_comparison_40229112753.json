@@ -1,0 +1,979 @@
+{
+  "checked_at": "2026-10-25T20:13:24.890560+00:00",
+  "status": "passed",
+  "reference_database": "reference",
+  "candidate_database": "candidate",
+  "database_label_policy": "Logical roles only; no private filesystem paths are published.",
+  "reference_sha256": "d6cc6ea1f08794026c9a4b58185eb56688ae3983aa0b1eb05c6b52fe54fb4fb3",
+  "candidate_sha256": "69228493f2a8876eaea9d7a3d6045e2ea65b283784a1dce41163299115b16a24",
+  "contract_sha256": "56f5b3bf504239831c466244db0e95e35047ae806888b390dc67254fe009a77a",
+  "canonical_table_count": 26,
+  "canonical_field_count": 330,
+  "table_checks": [
+    {
+      "table": "core_tenant",
+      "field_count": 4,
+      "fields": [
+        "tenant_id",
+        "tenant_name",
+        "report_timezone",
+        "base_currency"
+      ],
+      "reference": {
+        "rows": 3,
+        "primary_key_sha256": "b76ecff89d26cd686464a9cf8878abdab8c97e589710181640b7a159b913e8fb",
+        "logical_values_sha256": "36a2df3f973321524e37724018511e0bd526140983f5dbc96a7c82b279641210"
+      },
+      "candidate": {
+        "rows": 3,
+        "primary_key_sha256": "b76ecff89d26cd686464a9cf8878abdab8c97e589710181640b7a159b913e8fb",
+        "logical_values_sha256": "36a2df3f973321524e37724018511e0bd526140983f5dbc96a7c82b279641210"
+      },
+      "matches": true
+    },
+    {
+      "table": "core_vehicle",
+      "field_count": 6,
+      "fields": [
+        "tenant_id",
+        "vehicle_id",
+        "vin_raw",
+        "vin",
+        "vehicle_class",
+        "fuel_type"
+      ],
+      "reference": {
+        "rows": 30,
+        "primary_key_sha256": "33dcba4655406515d4db58e0b5c054bd6e231cd7259ff91326ffb33b52e77c0d",
+        "logical_values_sha256": "1580d6185e26e2aacbde1277c4ecc5af761e12e5f11053717d00bc7f2bd290c8"
+      },
+      "candidate": {
+        "rows": 30,
+        "primary_key_sha256": "33dcba4655406515d4db58e0b5c054bd6e231cd7259ff91326ffb33b52e77c0d",
+        "logical_values_sha256": "1580d6185e26e2aacbde1277c4ecc5af761e12e5f11053717d00bc7f2bd290c8"
+      },
+      "matches": true
+    },
+    {
+      "table": "core_device",
+      "field_count": 3,
+      "fields": [
+        "tenant_id",
+        "device_id",
+        "device_model"
+      ],
+      "reference": {
+        "rows": 36,
+        "primary_key_sha256": "d0b1508b9b7c255104178fb1db12de2f8d0ca290de7d29463b98b6e13625272c",
+        "logical_values_sha256": "c5c69c1ce1dd9de6aca23c40c1e645dbc304af65d9b395af3d265a9442015526"
+      },
+      "candidate": {
+        "rows": 36,
+        "primary_key_sha256": "d0b1508b9b7c255104178fb1db12de2f8d0ca290de7d29463b98b6e13625272c",
+        "logical_values_sha256": "c5c69c1ce1dd9de6aca23c40c1e645dbc304af65d9b395af3d265a9442015526"
+      },
+      "matches": true
+    },
+    {
+      "table": "core_vehicle_device_assignment",
+      "field_count": 12,
+      "fields": [
+        "tenant_id",
+        "assignment_id",
+        "vehicle_id",
+        "device_id",
+        "valid_from",
+        "valid_to",
+        "known_from",
+        "known_to",
+        "valid_to_state",
+        "known_to_state",
+        "resolution_status",
+        "provenance_id"
+      ],
+      "reference": {
+        "rows": 34,
+        "primary_key_sha256": "62088193db0040070cd29b8ad967d958a21c32887892b65b28f025d367040fac",
+        "logical_values_sha256": "0c27084e4f2cd52f014a38d5825b707da7ea95e62f783e21956d68fcf1998682"
+      },
+      "candidate": {
+        "rows": 34,
+        "primary_key_sha256": "62088193db0040070cd29b8ad967d958a21c32887892b65b28f025d367040fac",
+        "logical_values_sha256": "0c27084e4f2cd52f014a38d5825b707da7ea95e62f783e21956d68fcf1998682"
+      },
+      "matches": true
+    },
+    {
+      "table": "provenance_record",
+      "field_count": 23,
+      "fields": [
+        "provenance_id",
+        "source_system_id",
+        "source_record_id",
+        "record_version",
+        "record_state",
+        "event_time",
+        "available_time",
+        "retrieved_at",
+        "extract_as_of",
+        "raw_record_reference",
+        "origin_type",
+        "source_dataset_id",
+        "synthetic_scenario_id",
+        "value_states",
+        "source_timezone",
+        "source_utc_offset_minutes",
+        "tenant_id",
+        "field_origins",
+        "availability_basis",
+        "availability_evidence",
+        "canonical_table",
+        "canonical_record_key",
+        "parent_provenance_ids"
+      ],
+      "reference": {
+        "rows": 255007,
+        "primary_key_sha256": "13807e6251eb6fc2c3b5d0187ccbac5c0a003c4a1efc705ccc3a79ea00d38958",
+        "logical_values_sha256": "720c1dadc6c5f9000314529832ddf51104660c82c241be34658b1e56f223983d"
+      },
+      "candidate": {
+        "rows": 255007,
+        "primary_key_sha256": "13807e6251eb6fc2c3b5d0187ccbac5c0a003c4a1efc705ccc3a79ea00d38958",
+        "logical_values_sha256": "720c1dadc6c5f9000314529832ddf51104660c82c241be34658b1e56f223983d"
+      },
+      "matches": true
+    },
+    {
+      "table": "fuel_vehicle_context",
+      "field_count": 9,
+      "fields": [
+        "provenance_id",
+        "tenant_id",
+        "vehicle_context_id",
+        "vehicle_source_id",
+        "vehicle_active_from",
+        "vehicle_active_to",
+        "operating_timezone",
+        "day_boundary_local",
+        "vehicle_id"
+      ],
+      "reference": {
+        "rows": 30,
+        "primary_key_sha256": "445e1b4c6f3ac3870b95fcbd0378b672c8fab5d19eda0bb27f0896b3c8a09830",
+        "logical_values_sha256": "92d6e15d9d96abf4fcd8fecc12b1819cd1189e4d57937ac068663a9287422205"
+      },
+      "candidate": {
+        "rows": 30,
+        "primary_key_sha256": "445e1b4c6f3ac3870b95fcbd0378b672c8fab5d19eda0bb27f0896b3c8a09830",
+        "logical_values_sha256": "92d6e15d9d96abf4fcd8fecc12b1819cd1189e4d57937ac068663a9287422205"
+      },
+      "matches": true
+    },
+    {
+      "table": "fuel_task_assignment",
+      "field_count": 10,
+      "fields": [
+        "provenance_id",
+        "tenant_id",
+        "task_assignment_id",
+        "task_id",
+        "task_type",
+        "task_assignment_from",
+        "task_assignment_to",
+        "task_start_at",
+        "task_end_at",
+        "vehicle_id"
+      ],
+      "reference": {
+        "rows": 1800,
+        "primary_key_sha256": "276f90f377ed3397037fc7f3f7b06a4d451ad41d016e835adccc4a77d566a9fb",
+        "logical_values_sha256": "bf2388048489d608291b4b2839617163ec5ce0d0c8a5361d3991777ef8534172"
+      },
+      "candidate": {
+        "rows": 1800,
+        "primary_key_sha256": "276f90f377ed3397037fc7f3f7b06a4d451ad41d016e835adccc4a77d566a9fb",
+        "logical_values_sha256": "bf2388048489d608291b4b2839617163ec5ce0d0c8a5361d3991777ef8534172"
+      },
+      "matches": true
+    },
+    {
+      "table": "fuel_signal_definition",
+      "field_count": 15,
+      "fields": [
+        "provenance_id",
+        "tenant_id",
+        "signal_definition_id",
+        "source_ecu_id",
+        "signal_definition_version",
+        "signal_kind",
+        "signal_unit",
+        "signal_resolution",
+        "counter_modulus",
+        "firmware_version",
+        "ecu_configuration",
+        "signal_protocol",
+        "source_signal_locator",
+        "valid_from",
+        "valid_to"
+      ],
+      "reference": {
+        "rows": 60,
+        "primary_key_sha256": "46516572e1a437c4e1ca152ba12c47ecfa308b9ed2fa97d52738bdfeb2c0d3e7",
+        "logical_values_sha256": "c169575167fe7d178b41b710e73c6d1c0197c753cf982cce849e1abbb55bbcde"
+      },
+      "candidate": {
+        "rows": 60,
+        "primary_key_sha256": "46516572e1a437c4e1ca152ba12c47ecfa308b9ed2fa97d52738bdfeb2c0d3e7",
+        "logical_values_sha256": "c169575167fe7d178b41b710e73c6d1c0197c753cf982cce849e1abbb55bbcde"
+      },
+      "matches": true
+    },
+    {
+      "table": "fuel_counter_observation",
+      "field_count": 18,
+      "fields": [
+        "provenance_id",
+        "tenant_id",
+        "counter_observation_id",
+        "fuel_total_l",
+        "odometer_km",
+        "signal_validity",
+        "fuel_measured_at",
+        "fuel_raw_unit",
+        "fuel_validity",
+        "distance_measured_at",
+        "distance_raw_unit",
+        "vehicle_id",
+        "device_id",
+        "signal_definition_id",
+        "fuel_total_raw",
+        "odometer_raw",
+        "distance_validity",
+        "distance_definition_id"
+      ],
+      "reference": {
+        "rows": 246448,
+        "primary_key_sha256": "6361c7b49e104f5c08c4b2ca689ab586a98405e93fea625c83113f8b9d32f71d",
+        "logical_values_sha256": "ba6f28a479fba927859e39a78b04e3e8b1e708551f83152f53c98d57552c2dfc"
+      },
+      "candidate": {
+        "rows": 246448,
+        "primary_key_sha256": "6361c7b49e104f5c08c4b2ca689ab586a98405e93fea625c83113f8b9d32f71d",
+        "logical_values_sha256": "ba6f28a479fba927859e39a78b04e3e8b1e708551f83152f53c98d57552c2dfc"
+      },
+      "matches": true
+    },
+    {
+      "table": "fuel_counter_change",
+      "field_count": 10,
+      "fields": [
+        "provenance_id",
+        "tenant_id",
+        "counter_change_id",
+        "counter_change_at",
+        "counter_change_type",
+        "counter_change_evidence",
+        "vehicle_id",
+        "device_id",
+        "signal_definition_id",
+        "signal_kind"
+      ],
+      "reference": {
+        "rows": 3,
+        "primary_key_sha256": "337f5d0f3df84792a975666011266e47b62ac9be33299ca22186341999258e58",
+        "logical_values_sha256": "d9036999008a13eb4abb56dbae48812db2ccd616d5d015bc460a0532c88ae0cb"
+      },
+      "candidate": {
+        "rows": 3,
+        "primary_key_sha256": "337f5d0f3df84792a975666011266e47b62ac9be33299ca22186341999258e58",
+        "logical_values_sha256": "d9036999008a13eb4abb56dbae48812db2ccd616d5d015bc460a0532c88ae0cb"
+      },
+      "matches": true
+    },
+    {
+      "table": "fuel_purchase_line",
+      "field_count": 27,
+      "fields": [
+        "provenance_id",
+        "tenant_id",
+        "purchase_line_id",
+        "line_version",
+        "purchase_id",
+        "purchase_time",
+        "posted_at",
+        "purchase_quantity_l",
+        "purchase_quantity_unit",
+        "purchase_amount",
+        "purchase_fuel_type",
+        "currency",
+        "fuel_subtotal",
+        "fuel_tax_amount",
+        "fuel_discount_amount",
+        "extra_fee_amount",
+        "nonfuel_amount",
+        "transaction_status",
+        "adjustment_type",
+        "original_purchase_line_id",
+        "fuel_card_id",
+        "station_id",
+        "statement_id",
+        "source_amount_basis",
+        "vehicle_id",
+        "quantity_raw",
+        "record_state"
+      ],
+      "reference": {
+        "rows": 1861,
+        "primary_key_sha256": "7944b71b6279c11243a20de7b830605f3371806a36170fb7e4dad6faefcab535",
+        "logical_values_sha256": "441f6a090f21fb7812b081b19188f9669fc9b4841b1e31c8fcc3b0da7d5d7e11"
+      },
+      "candidate": {
+        "rows": 1861,
+        "primary_key_sha256": "7944b71b6279c11243a20de7b830605f3371806a36170fb7e4dad6faefcab535",
+        "logical_values_sha256": "441f6a090f21fb7812b081b19188f9669fc9b4841b1e31c8fcc3b0da7d5d7e11"
+      },
+      "matches": true
+    },
+    {
+      "table": "fuel_card_assignment",
+      "field_count": 9,
+      "fields": [
+        "provenance_id",
+        "tenant_id",
+        "card_assignment_id",
+        "card_vehicle_from",
+        "card_vehicle_to",
+        "vehicle_id",
+        "fuel_card_id",
+        "known_from",
+        "known_to"
+      ],
+      "reference": {
+        "rows": 30,
+        "primary_key_sha256": "2177b788adda07871679a24c98fa76fbb5fd1d2e7b01d75bf22d8f989f7491e5",
+        "logical_values_sha256": "f53182b2d2273f71751b278f31a4625264cbc43fa55158f5e3ed1b7aea113a59"
+      },
+      "candidate": {
+        "rows": 30,
+        "primary_key_sha256": "2177b788adda07871679a24c98fa76fbb5fd1d2e7b01d75bf22d8f989f7491e5",
+        "logical_values_sha256": "f53182b2d2273f71751b278f31a4625264cbc43fa55158f5e3ed1b7aea113a59"
+      },
+      "matches": true
+    },
+    {
+      "table": "fuel_station",
+      "field_count": 6,
+      "fields": [
+        "provenance_id",
+        "tenant_id",
+        "station_version_id",
+        "station_country",
+        "station_state",
+        "station_id"
+      ],
+      "reference": {
+        "rows": 36,
+        "primary_key_sha256": "73379a99888cc77dac7eda8cb54919729deec943f62a666d33b7bbc1aae6a253",
+        "logical_values_sha256": "166ef35a134c9869b5ba15d4052fd16d2fddd36ea8ff3f8a50f082ff69fdef95"
+      },
+      "candidate": {
+        "rows": 36,
+        "primary_key_sha256": "73379a99888cc77dac7eda8cb54919729deec943f62a666d33b7bbc1aae6a253",
+        "logical_values_sha256": "166ef35a134c9869b5ba15d4052fd16d2fddd36ea8ff3f8a50f082ff69fdef95"
+      },
+      "matches": true
+    },
+    {
+      "table": "fuel_market_price",
+      "field_count": 13,
+      "fields": [
+        "provenance_id",
+        "tenant_id",
+        "market_price_version_id",
+        "market_week_price",
+        "market_region",
+        "eia_series_id",
+        "price_observation_date",
+        "price_published_at",
+        "price_retrieved_at",
+        "price_snapshot_ref",
+        "price_method_version",
+        "origin_label",
+        "publication_precision"
+      ],
+      "reference": {
+        "rows": 354,
+        "primary_key_sha256": "8df3d7eaa3068ad7af4cb94f4625ad5212142c310fddab317dbf1f75eb0079ff",
+        "logical_values_sha256": "02e169bb6ae726e23a473d5c8ca74d30367b54fef0f47c03f8d767a091dd98ee"
+      },
+      "candidate": {
+        "rows": 354,
+        "primary_key_sha256": "8df3d7eaa3068ad7af4cb94f4625ad5212142c310fddab317dbf1f75eb0079ff",
+        "logical_values_sha256": "02e169bb6ae726e23a473d5c8ca74d30367b54fef0f47c03f8d767a091dd98ee"
+      },
+      "matches": true
+    },
+    {
+      "table": "fuel_region_mapping",
+      "field_count": 9,
+      "fields": [
+        "provenance_id",
+        "tenant_id",
+        "region_mapping_id",
+        "region_mapping_version",
+        "country_code",
+        "state_code",
+        "market_region",
+        "valid_from",
+        "valid_to"
+      ],
+      "reference": {
+        "rows": 9,
+        "primary_key_sha256": "dbabe0fe869fb6d9af2c611a2b1953dbb73293bbe9f34780f56f7348c10b5648",
+        "logical_values_sha256": "4e5cf19020b083743dfe67d8c0d4f7d044de30cd0062478d72680cca9e4dc6e7"
+      },
+      "candidate": {
+        "rows": 9,
+        "primary_key_sha256": "dbabe0fe869fb6d9af2c611a2b1953dbb73293bbe9f34780f56f7348c10b5648",
+        "logical_values_sha256": "4e5cf19020b083743dfe67d8c0d4f7d044de30cd0062478d72680cca9e4dc6e7"
+      },
+      "matches": true
+    },
+    {
+      "table": "fuel_tank_scope",
+      "field_count": 6,
+      "fields": [
+        "provenance_id",
+        "tenant_id",
+        "tank_scope_version_id",
+        "inventory_tank_scope_id",
+        "tank_capacity_l",
+        "vehicle_id"
+      ],
+      "reference": {
+        "rows": 30,
+        "primary_key_sha256": "46de5986f7acfaf461570b41c16264fbe04871341f014169b39fe24427d5c7b3",
+        "logical_values_sha256": "2439caf74232198f0cacf13bfff3317057dec6c8d8e7c1a12d602fc8d8cea30d"
+      },
+      "candidate": {
+        "rows": 30,
+        "primary_key_sha256": "46de5986f7acfaf461570b41c16264fbe04871341f014169b39fe24427d5c7b3",
+        "logical_values_sha256": "2439caf74232198f0cacf13bfff3317057dec6c8d8e7c1a12d602fc8d8cea30d"
+      },
+      "matches": true
+    },
+    {
+      "table": "fuel_inventory_measurement",
+      "field_count": 14,
+      "fields": [
+        "provenance_id",
+        "tenant_id",
+        "inventory_measurement_id",
+        "inventory_measurement_method",
+        "inventory_uncertainty",
+        "raw_level_percent",
+        "calibration_curve_ref",
+        "vehicle_id",
+        "inventory_tank_scope_id",
+        "measured_at",
+        "quantity_l",
+        "raw_quantity",
+        "raw_quantity_unit",
+        "measurement_role"
+      ],
+      "reference": {
+        "rows": 840,
+        "primary_key_sha256": "c78a0c752df92fa2fd5152181d7229290519d8b976445dc4d2ec0b46ef6ff940",
+        "logical_values_sha256": "2b844efebb82fee9760170fe8713682a0a22881880fe82cf2dd9ca3ba9395255"
+      },
+      "candidate": {
+        "rows": 840,
+        "primary_key_sha256": "c78a0c752df92fa2fd5152181d7229290519d8b976445dc4d2ec0b46ef6ff940",
+        "logical_values_sha256": "2b844efebb82fee9760170fe8713682a0a22881880fe82cf2dd9ca3ba9395255"
+      },
+      "matches": true
+    },
+    {
+      "table": "fuel_movement",
+      "field_count": 10,
+      "fields": [
+        "provenance_id",
+        "tenant_id",
+        "fuel_movement_id",
+        "fuel_movement_at",
+        "fuel_movement_type",
+        "fuel_movement_quantity_l",
+        "fuel_movement_reference",
+        "movement_source_scope",
+        "movement_destination_scope",
+        "vehicle_id"
+      ],
+      "reference": {
+        "rows": 3423,
+        "primary_key_sha256": "79014ab505cb176e4adc26f2977e1921f27e6e645a83b15eb731318d8b61179f",
+        "logical_values_sha256": "bc50ba57da3b972754450795e6424de7997ba13d65e971673930670c5d8838c6"
+      },
+      "candidate": {
+        "rows": 3423,
+        "primary_key_sha256": "79014ab505cb176e4adc26f2977e1921f27e6e645a83b15eb731318d8b61179f",
+        "logical_values_sha256": "bc50ba57da3b972754450795e6424de7997ba13d65e971673930670c5d8838c6"
+      },
+      "matches": true
+    },
+    {
+      "table": "fuel_inventory_balance",
+      "field_count": 18,
+      "fields": [
+        "tenant_id",
+        "balance_id",
+        "opening_volume_l",
+        "closing_volume_l",
+        "period_start_at",
+        "period_end_at",
+        "inventory_quality_state",
+        "refuel_volume_l",
+        "transfer_in_l",
+        "removed_l",
+        "balance_consumption_l",
+        "net_transfer_l",
+        "vehicle_id",
+        "opening_measurement_id",
+        "closing_measurement_id",
+        "inventory_tank_scope_id",
+        "as_of_time",
+        "uncertainty_l"
+      ],
+      "reference": {
+        "rows": 810,
+        "primary_key_sha256": "7918ed7a986574e058f31fecb1744fd09cc52a06a5f515ed0de306536cfb9c3f",
+        "logical_values_sha256": "4b5636304e664fab0450a4164e881afb5bd9f19c84b44db7d6a51c7158a8a278"
+      },
+      "candidate": {
+        "rows": 810,
+        "primary_key_sha256": "7918ed7a986574e058f31fecb1744fd09cc52a06a5f515ed0de306536cfb9c3f",
+        "logical_values_sha256": "4b5636304e664fab0450a4164e881afb5bd9f19c84b44db7d6a51c7158a8a278"
+      },
+      "matches": true
+    },
+    {
+      "table": "fuel_statement_control",
+      "field_count": 12,
+      "fields": [
+        "provenance_id",
+        "tenant_id",
+        "statement_control_id",
+        "statement_period_start",
+        "statement_period_end",
+        "statement_control_amount",
+        "statement_control_quantity",
+        "statement_id",
+        "category_code",
+        "currency",
+        "fuel_type",
+        "quantity_unit"
+      ],
+      "reference": {
+        "rows": 24,
+        "primary_key_sha256": "4f23206dd24ae4b72fd953c8eb73ef45c0a3cf6c2a5a46b59363855ef47c9d27",
+        "logical_values_sha256": "e639f2d7f74bab048cddb0e607f21c5ebe14b331f08023796ebca8dd44f65b87"
+      },
+      "candidate": {
+        "rows": 24,
+        "primary_key_sha256": "4f23206dd24ae4b72fd953c8eb73ef45c0a3cf6c2a5a46b59363855ef47c9d27",
+        "logical_values_sha256": "e639f2d7f74bab048cddb0e607f21c5ebe14b331f08023796ebca8dd44f65b87"
+      },
+      "matches": true
+    },
+    {
+      "table": "fuel_reference_case",
+      "field_count": 10,
+      "fields": [
+        "provenance_id",
+        "tenant_id",
+        "reference_case_id",
+        "reference_metric",
+        "expected_value",
+        "reference_reviewer_role",
+        "reference_reviewed_at",
+        "reference_evidence_ref",
+        "reference_review_status",
+        "scenario_id"
+      ],
+      "reference": {
+        "rows": 8,
+        "primary_key_sha256": "7374f53e828c68a424426f4251ba2847096a87df2389f7032e9f44ea2d94e955",
+        "logical_values_sha256": "013135f66b3498823f99286bf4da5288417712dae63aeba066f1c47ac9874040"
+      },
+      "candidate": {
+        "rows": 8,
+        "primary_key_sha256": "7374f53e828c68a424426f4251ba2847096a87df2389f7032e9f44ea2d94e955",
+        "logical_values_sha256": "013135f66b3498823f99286bf4da5288417712dae63aeba066f1c47ac9874040"
+      },
+      "matches": true
+    },
+    {
+      "table": "fuel_output_review",
+      "field_count": 11,
+      "fields": [
+        "provenance_id",
+        "tenant_id",
+        "review_case_id",
+        "output_received_at",
+        "adoption_status",
+        "review_reason",
+        "review_outcome",
+        "vehicle_id",
+        "project_id",
+        "output_id",
+        "evidence_origin"
+      ],
+      "reference": {
+        "rows": 8,
+        "primary_key_sha256": "35c6a4c16fece5510fec1bbd3af2e4681bcf429260a853791882d8347c8042ce",
+        "logical_values_sha256": "82b866d62b5911da557b3646cb1d013a19f9718a6405614e2d9afb927fce8e86"
+      },
+      "candidate": {
+        "rows": 8,
+        "primary_key_sha256": "35c6a4c16fece5510fec1bbd3af2e4681bcf429260a853791882d8347c8042ce",
+        "logical_values_sha256": "82b866d62b5911da557b3646cb1d013a19f9718a6405614e2d9afb927fce8e86"
+      },
+      "matches": true
+    },
+    {
+      "table": "fuel_action_followup",
+      "field_count": 23,
+      "fields": [
+        "provenance_id",
+        "tenant_id",
+        "action_followup_id",
+        "action_id",
+        "action_type",
+        "action_time",
+        "active_review_seconds",
+        "baseline_review_seconds",
+        "baseline_window_start",
+        "baseline_window_end",
+        "followup_start",
+        "outcome_observation_end",
+        "observed_fuel_l",
+        "action_evidence",
+        "planned_followup_end",
+        "followup_distance_km",
+        "followup_task_mix",
+        "investigation_seconds",
+        "vehicle_id",
+        "project_id",
+        "output_id",
+        "evidence_origin",
+        "review_case_id"
+      ],
+      "reference": {
+        "rows": 8,
+        "primary_key_sha256": "467778c45fca6769a514f4ff090ed5113a3dd57297b7c065330c543bfd77419a",
+        "logical_values_sha256": "a607412487505f963ec7cd669c14a5b4aa96a210d290e64da0ea2c839ce22771"
+      },
+      "candidate": {
+        "rows": 8,
+        "primary_key_sha256": "467778c45fca6769a514f4ff090ed5113a3dd57297b7c065330c543bfd77419a",
+        "logical_values_sha256": "a607412487505f963ec7cd669c14a5b4aa96a210d290e64da0ea2c839ce22771"
+      },
+      "matches": true
+    },
+    {
+      "table": "fuel_report_run",
+      "field_count": 8,
+      "fields": [
+        "tenant_id",
+        "output_id",
+        "metric_version",
+        "metric_owner",
+        "report_week_start",
+        "report_week_end",
+        "as_of_time",
+        "input_snapshot"
+      ],
+      "reference": {
+        "rows": 243,
+        "primary_key_sha256": "15263fba6563a60d4b4ec1950483debb58268ce25c777c620e49ef5d02de18dd",
+        "logical_values_sha256": "e360e0a88b302f144f177fe28ab813656895a412698946bb32d06aada9bd0efd"
+      },
+      "candidate": {
+        "rows": 243,
+        "primary_key_sha256": "15263fba6563a60d4b4ec1950483debb58268ce25c777c620e49ef5d02de18dd",
+        "logical_values_sha256": "e360e0a88b302f144f177fe28ab813656895a412698946bb32d06aada9bd0efd"
+      },
+      "matches": true
+    },
+    {
+      "table": "fuel_paired_interval",
+      "field_count": 18,
+      "fields": [
+        "tenant_id",
+        "paired_interval_id",
+        "fuel_segment_id",
+        "distance_segment_id",
+        "paired_interval_start",
+        "paired_interval_end",
+        "paired_fuel_l",
+        "paired_distance_km",
+        "excluded_interval_reason",
+        "vehicle_id",
+        "as_of_time",
+        "calculation_version",
+        "input_provenance_ids",
+        "fuel_start_observation_id",
+        "fuel_end_observation_id",
+        "distance_start_observation_id",
+        "distance_end_observation_id",
+        "accepted"
+      ],
+      "reference": {
+        "rows": 739242,
+        "primary_key_sha256": "035896d7dbf7005a2cb78701dae858bc2c2ff227a896c6bccd4cbbae972a3882",
+        "logical_values_sha256": "09d221e78218dcda4b3d35eb4f58fc64c07bb36daf604a21457dabb65b900b0e"
+      },
+      "candidate": {
+        "rows": 739242,
+        "primary_key_sha256": "035896d7dbf7005a2cb78701dae858bc2c2ff227a896c6bccd4cbbae972a3882",
+        "logical_values_sha256": "09d221e78218dcda4b3d35eb4f58fc64c07bb36daf604a21457dabb65b900b0e"
+      },
+      "matches": true
+    },
+    {
+      "table": "fuel_weekly_metric",
+      "field_count": 26,
+      "fields": [
+        "tenant_id",
+        "weekly_metric_id",
+        "fuel_used_l",
+        "distance_travelled_km",
+        "measurement_coverage",
+        "consumption_method",
+        "mpg",
+        "comparable_fuel_amount",
+        "weighted_purchase_price_usd_per_l",
+        "purchase_spend_usd_per_km",
+        "benchmark_amount",
+        "benchmark_amount_gap",
+        "benchmark_match_coverage",
+        "purchase_price_effect",
+        "purchase_quantity_effect",
+        "weekly_valid_distance_km",
+        "vehicle_id",
+        "as_of_time",
+        "calculation_version",
+        "input_provenance_ids",
+        "output_id",
+        "task_comparison_group",
+        "valid_paired_seconds",
+        "expected_observation_seconds",
+        "benchmark_matched_quantity_l",
+        "benchmark_eligible_quantity_l"
+      ],
+      "reference": {
+        "rows": 2430,
+        "primary_key_sha256": "c9234b410fbc0a1a976a63897be7c553c322b1dd1189e79835564ab71c75e512",
+        "logical_values_sha256": "91d99090ea736582c0f5c3c492e3f9041793991810af4fdf00cac6410054051f"
+      },
+      "candidate": {
+        "rows": 2430,
+        "primary_key_sha256": "c9234b410fbc0a1a976a63897be7c553c322b1dd1189e79835564ab71c75e512",
+        "logical_values_sha256": "91d99090ea736582c0f5c3c492e3f9041793991810af4fdf00cac6410054051f"
+      },
+      "matches": true
+    }
+  ],
+  "reference_outcomes": {
+    "fleet_totals": {
+      "fuel_used_l": "62852.700212262587184",
+      "distance_km": "219385.511611000000",
+      "fleet_mpg": 8.210096229546526,
+      "measurement_coverage": 0.9994914072433452,
+      "purchase_amount_usd": "76856.050000",
+      "purchased_l": "67258.124342",
+      "market_background_gap_usd": 3318.6935680665683
+    },
+    "financial_exclusions": [
+      {
+        "financial_status": "comparable",
+        "rows": 1830
+      },
+      {
+        "financial_status": "nonfuel_or_product",
+        "rows": 30
+      }
+    ],
+    "market_sources": [
+      {
+        "report_view": "initial",
+        "benchmark_view": "simulated_asof_background",
+        "rows": 1830,
+        "purchase_l": "67258.124342"
+      },
+      {
+        "report_view": "retrospective",
+        "benchmark_view": "retrospective_public_background",
+        "rows": 1830,
+        "purchase_l": "67258.124342"
+      },
+      {
+        "report_view": "revised",
+        "benchmark_view": "simulated_asof_background",
+        "rows": 1830,
+        "purchase_l": "67258.124342"
+      }
+    ],
+    "followup_statuses": [
+      {
+        "comparison_status": "comparable_descriptive_only",
+        "cases": 3
+      },
+      {
+        "comparison_status": "lost_to_followup",
+        "cases": 1
+      },
+      {
+        "comparison_status": "no_action_observed",
+        "cases": 2
+      },
+      {
+        "comparison_status": "not_mature",
+        "cases": 1
+      },
+      {
+        "comparison_status": "task_mix_changed",
+        "cases": 1
+      }
+    ],
+    "inventory_statuses": [
+      {
+        "reconciliation_status": "incomplete_movements",
+        "periods": 1
+      },
+      {
+        "reconciliation_status": "investigate_coverage_or_balance",
+        "periods": 1
+      },
+      {
+        "reconciliation_status": "no_eligible_ecu_intervals",
+        "periods": 30
+      },
+      {
+        "reconciliation_status": "uncalibrated_boundary",
+        "periods": 2
+      },
+      {
+        "reconciliation_status": "within_measurement_uncertainty",
+        "periods": 776
+      }
+    ]
+  },
+  "candidate_outcomes": {
+    "fleet_totals": {
+      "fuel_used_l": "62852.700212262587184",
+      "distance_km": "219385.511611000000",
+      "fleet_mpg": 8.210096229546526,
+      "measurement_coverage": 0.9994914072433452,
+      "purchase_amount_usd": "76856.050000",
+      "purchased_l": "67258.124342",
+      "market_background_gap_usd": 3318.6935680665683
+    },
+    "financial_exclusions": [
+      {
+        "financial_status": "comparable",
+        "rows": 1830
+      },
+      {
+        "financial_status": "nonfuel_or_product",
+        "rows": 30
+      }
+    ],
+    "market_sources": [
+      {
+        "report_view": "initial",
+        "benchmark_view": "simulated_asof_background",
+        "rows": 1830,
+        "purchase_l": "67258.124342"
+      },
+      {
+        "report_view": "retrospective",
+        "benchmark_view": "retrospective_public_background",
+        "rows": 1830,
+        "purchase_l": "67258.124342"
+      },
+      {
+        "report_view": "revised",
+        "benchmark_view": "simulated_asof_background",
+        "rows": 1830,
+        "purchase_l": "67258.124342"
+      }
+    ],
+    "followup_statuses": [
+      {
+        "comparison_status": "comparable_descriptive_only",
+        "cases": 3
+      },
+      {
+        "comparison_status": "lost_to_followup",
+        "cases": 1
+      },
+      {
+        "comparison_status": "no_action_observed",
+        "cases": 2
+      },
+      {
+        "comparison_status": "not_mature",
+        "cases": 1
+      },
+      {
+        "comparison_status": "task_mix_changed",
+        "cases": 1
+      }
+    ],
+    "inventory_statuses": [
+      {
+        "reconciliation_status": "incomplete_movements",
+        "periods": 1
+      },
+      {
+        "reconciliation_status": "investigate_coverage_or_balance",
+        "periods": 1
+      },
+      {
+        "reconciliation_status": "no_eligible_ecu_intervals",
+        "periods": 30
+      },
+      {
+        "reconciliation_status": "uncalibrated_boundary",
+        "periods": 2
+      },
+      {
+        "reconciliation_status": "within_measurement_uncertainty",
+        "periods": 776
+      }
+    ]
+  },
+  "outcome_differences": [],
+  "numeric_tolerance": {
+    "absolute": 1e-06,
+    "relative": 1e-10,
+    "applies_to": "Analytical aggregate outcomes only; canonical value hashes are exact."
+  },
+  "scope": "All contract fields in all canonical tables, plus primary-key identities and analytical aggregate outcomes.",
+  "logical_normalization": {
+    "implementation": "scripts/verify_rebuild.py::logical_table_hash",
+    "row_order": "Declared canonical primary keys",
+    "json_objects": "Sorted keys",
+    "unordered_json_arrays": [
+      "input_provenance_ids",
+      "parent_provenance_ids"
+    ],
+    "timestamps": "UTC representation; all event, availability, retrieval and as-of values preserved."
+  },
+  "canonical_field_exclusions": [],
+  "excluded_from_equality": [
+    "Physical database page layout and storage encoding",
+    "Runtime files outside canonical tables, such as source-extract directory locations"
+  ],
+  "limitations": "Logical equivalence does not replace independent business-rule tests or establish real-fleet effectiveness."
+}

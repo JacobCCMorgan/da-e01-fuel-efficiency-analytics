@@ -1,0 +1,177 @@
+{
+  "repository": "JacobCCMorgan/da-e01-fuel-efficiency-analytics",
+  "run_id": 40229112753,
+  "job_id": 121276813784,
+  "commit": "e0992b650a1686bd19dd50b5950b923be97ab6e0",
+  "url": "https://github.com/JacobCCMorgan/da-e01-fuel-efficiency-analytics/actions/runs/40229112753",
+  "conclusion": "success",
+  "profile": "full",
+  "operational_mode": "postgres",
+  "jobs": [
+    {
+      "id": 121276813784,
+      "name": "postgres-full",
+      "status": "completed",
+      "conclusion": "success",
+      "run_id": 40229112753,
+      "logs_url": null,
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1
+        },
+        {
+          "name": "Initialize containers",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2
+        },
+        {
+          "name": "Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3
+        },
+        {
+          "name": "Run actions/setup-python@v5",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4
+        },
+        {
+          "name": "Install pinned runtime and test dependencies",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5
+        },
+        {
+          "name": "Test calculations, ingestion and real PostgreSQL transactions",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6
+        },
+        {
+          "name": "Rebuild all 1800 trips through PostgreSQL and HTTP sources",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7
+        },
+        {
+          "name": "Preserve full-project verification evidence",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8
+        },
+        {
+          "name": "Preserve PostgreSQL-built full database and source extract",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 9
+        },
+        {
+          "name": "Post Run actions/setup-python@v5",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 16
+        },
+        {
+          "name": "Post Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 17
+        },
+        {
+          "name": "Stop containers",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 18
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 19
+        }
+      ]
+    }
+  ],
+  "artifacts": [
+    {
+      "id": 12611758424,
+      "name": "postgres-full-evidence",
+      "size_in_bytes": 46065,
+      "url": "https://api.github.com/repos/JacobCCMorgan/da-e01-fuel-efficiency-analytics/actions/artifacts/12611758424",
+      "archive_download_url": "https://api.github.com/repos/JacobCCMorgan/da-e01-fuel-efficiency-analytics/actions/artifacts/12611758424/zip",
+      "expired": false,
+      "created_at": "2026-10-25T20:08:41Z",
+      "expires_at": "2026-11-24T20:08:40Z",
+      "updated_at": "2026-10-25T20:08:41Z",
+      "digest": "sha256:d70637b708e6721a153e371b4697e41166ab025679ac0150471fb2228e0a96f5",
+      "workflow_run": {
+        "id": 40229112753,
+        "repository_id": 1433547902,
+        "head_repository_id": 1433547902,
+        "head_branch": "main",
+        "head_sha": "e0992b650a1686bd19dd50b5950b923be97ab6e0"
+      }
+    },
+    {
+      "id": 12611728480,
+      "name": "postgres-full-database",
+      "size_in_bytes": 263722184,
+      "url": "https://api.github.com/repos/JacobCCMorgan/da-e01-fuel-efficiency-analytics/actions/artifacts/12611728480",
+      "archive_download_url": "https://api.github.com/repos/JacobCCMorgan/da-e01-fuel-efficiency-analytics/actions/artifacts/12611728480/zip",
+      "expired": false,
+      "created_at": "2026-10-25T20:08:55Z",
+      "expires_at": "2026-11-24T20:08:42Z",
+      "updated_at": "2026-10-25T20:08:55Z",
+      "digest": "sha256:5fb18e8cee36d19d6f6948340c15f59c09e70d90f885bf6de4e72e4691db8bb6",
+      "workflow_run": {
+        "id": 40229112753,
+        "repository_id": 1433547902,
+        "head_repository_id": 1433547902,
+        "head_branch": "main",
+        "head_sha": "e0992b650a1686bd19dd50b5950b923be97ab6e0"
+      }
+    }
+  ],
+  "comparison_file": "validation/ci_final_canonical_comparison_40229112753.json",
+  "comparison_status": "passed",
+  "scope": "Final source commit:103tests passed and full PostgreSQL+HTTP+DuckDB build passed. All330canonicalfieldvalues across26tables match the delivered PostgreSQL database under explicit logical normalization; the delivered database retains its original run/commit provenance.",
+  "tests": {
+    "tests": 103,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "passed": 103,
+    "seconds": 57.823
+  },
+  "postgres_engine": "PostgreSQL 16.15 (Debian 16.15-1.pgdg13+2) on x86_64-pc-linux-gnu, compiled by gcc (Debian 14.2.0-19) 14.2.0, 64-bit",
+  "postgres_source_tables": 15,
+  "postgres_source_records": 8193,
+  "candidate_database_sha256": "69228493f2a8876eaea9d7a3d6045e2ea65b283784a1dce41163299115b16a24",
+  "delivered_database_source_run": 40227233022,
+  "delivered_database_source_commit": "55b6831eaa7f44849aad39537288654ba04cb701",
+  "delivered_database_sha256": "d6cc6ea1f08794026c9a4b58185eb56688ae3983aa0b1eb05c6b52fe54fb4fb3",
+  "candidate_database_adopted": false,
+  "evidence_zip_checksum_verified": true,
+  "canonical_row_counts_match": true,
+  "generated_source_hashes_match": 28,
+  "parquet_hashes_matching": 23,
+  "parquet_hashes_differing": [
+    "fuel_inventory_balance",
+    "fuel_paired_interval",
+    "fuel_weekly_metric"
+  ],
+  "analytical_summary_common_values_match": true,
+  "analytical_summary_new_metadata": "Final CI summary adds input_policy audit status; common numeric and status outcomes match.",
+  "original_artifacts": "Original ZIP archives retained outside the source release; provider digests refer to those original bytes.",
+  "canonical_field_count": 330,
+  "canonical_table_count": 26,
+  "canonical_field_exclusions": [],
+  "database_zip_checksum_verified": true,
+  "candidate_database_checksum_matches_run_manifest": true,
+  "parquet_difference_interpretation": "Three physical Parquet file hashes differ. The complete final database comparison proves all canonical field values match after documented primary-key/JSON normalization; no logical value changes were found."
+}

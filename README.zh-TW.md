@@ -12,7 +12,10 @@
 
 完整合成情境的修訂版結果為 **8.210096 MPG**，採用相同配對窗口的 **62,852.700212 公升**與 **219,385.511611 公里**，配對時間覆蓋率為 **99.94914%**。這些是可重現的情境結果，不是真實商業車隊的營運成效；本流程的重點是把耗用、購油、庫存、可取得時間與後續措施證據分開並可追溯。
 
-[隔離環境重建驗證](validation/rebuild_report.json)顯示 **26 張 canonical 資料表的邏輯內容一致**，**28 個生成來源檔逐位元一致**；只改變 seed 時，分析結果會隨之改變，品質規則仍通過。[PostgreSQL 16.15 CI](https://github.com/JacobCCMorgan/da-e01-fuel-efficiency-analytics/actions/runs/40226254641) 在 commit `ad396bfd66ad4f67ec753fb8dfa20c29bb902a1b` 通過 **61 項測試、零跳過**，包含六項真實服務測試及 PostgreSQL／HTTP／DuckDB 的 smoke 重建。完整本機快照與遠端 smoke 服務整合是不同驗證範圍，[CI 紀錄](validation/ci_run_40226254641.json)保留其證據。
+[隔離環境重建驗證](validation/rebuild_report.json)顯示 **26 張 canonical 資料表的邏輯內容一致**，**28 個生成來源檔逐位元一致**；只改變 seed 時，分析結果會隨之改變，品質規則仍通過。[最終原始碼 CI](https://github.com/JacobCCMorgan/da-e01-fuel-efficiency-analytics/actions/runs/40229112753) 在 commit `e0992b650a1686bd19dd50b5950b923be97ab6e0` 通過 **103 項測試、零跳過**，並透過 PostgreSQL **16.15**／HTTP／DuckDB 重建全部 **1,800 趟行程**。交付資料庫來自較早通過完整驗證的 run `40227233022`、commit `55b6831eaa7f44849aad39537288654ba04cb701`；[完整比對](validation/ci_full_canonical_comparison_40227233022.json)確認其 26 張表內 **330 個 canonical 欄位的值**與本機參考版本一致。[採用紀錄](validation/database_adoption.json)保存該資料庫的精確雜湊，並將本機接收紀錄與報告執行證據分開標示。
+
+
+[最終原始碼的完整資料庫比對](validation/ci_final_canonical_comparison_40229112753.json)也已通過：交付資料庫與最終 CI 產生的資料庫，26 張表的全部 330 個 canonical 欄位值一致。
 
 ## 這個專案回答什麼
 
@@ -61,7 +64,7 @@ python -m fleet_fuel.cli run --profile smoke --operational snapshot --skip-repor
 - DuckDB、Parquet、CSV、JSONL、七張分析圖、離線互動報告與可執行 Notebook。
 - 手算案例、異常注入與整合測試；驗證答案不當成分析輸入。
 
-EIA 使用的是官方 HTTPS **檔案下載**，沒有宣稱呼叫 EIA API。本機事件服務承載合成情境，不是實際 ELD 廠商端點。PostgreSQL 服務已在遠端 smoke 流程中完成驗證；完整分析交付使用本機快照路徑。兩者範圍分開記錄，詳見[環境執行狀態](docs/runbook.md#execution-status)。
+EIA 使用的是官方 HTTPS **檔案下載**，沒有宣稱呼叫 EIA API。本機事件服務承載合成情境，不是實際 ELD 廠商端點。完整 PostgreSQL 流程已在遠端完成驗證，交付資料庫直接採用該建置成果；本機快照路徑仍可獨立重建，canonical 結果一致。詳見[環境執行狀態](docs/runbook.md#execution-status)。
 
 ## 三種報告版本不能混加
 

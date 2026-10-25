@@ -1,7 +1,7 @@
 {
   "project_id": "DA-E01",
   "database": "data/DA-E01.duckdb",
-  "checked_at": "2026-10-25T19:34:25.243304+00:00",
+  "checked_at": "2026-10-25T20:06:11.043758+00:00",
   "scope": "normalized canonical data; raw rejected records are evaluated separately",
   "checks": [
     {

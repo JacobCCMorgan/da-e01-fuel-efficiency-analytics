@@ -1,0 +1,181 @@
+{
+  "schema_version": "1.0.0",
+  "project_id": "DA-E01",
+  "release": "v1",
+  "reviewed_at": "2026-10-25T20:14:01.034283+00:00",
+  "technical_review_status": "passed",
+  "release_validation_status": "passed",
+  "user_acceptance_status": "pending",
+  "scope": "DA-E01 only: S2.4 data construction, S3 analysis, tests and reproducible technical deliverables. No later project is activated.",
+  "closed_findings": [
+    {
+      "finding_id": "REVIEW-01",
+      "topic": "Independent validation answers remain outside analytical inputs",
+      "status": "closed",
+      "verified_behavior": [
+        "A valid source payload is accepted.",
+        "Injected true_fuel_l and expected_waste_label are rejected as forbidden_payload_field.",
+        "An undeclared supplier column is rejected as unknown_payload_field.",
+        "Analysis gates reject schema drift, substituted views, validation-only relations and external-file readers."
+      ],
+      "evidence": [
+        "src/fleet_fuel/input_policy.py",
+        "src/fleet_fuel/ingestion.py",
+        "tests/test_ingestion.py",
+        "tests/test_analysis.py",
+        "validation/test_results.xml"
+      ],
+      "independent_check": "Re-executed valid/forbidden/unknown payload probes; reviewed the independent regression cases and current test outcomes."
+    },
+    {
+      "finding_id": "REVIEW-02",
+      "topic": "Documented HTTP/API behavior matches implementation",
+      "status": "closed",
+      "verified_behavior": [
+        "Routes, limits, envelope fields, cursor/checkpoint semantics and error responses match code.",
+        "Timestamp filters normalize timezone-aware instants to UTC; naive filters are rejected.",
+        "Retry limits, quarantine rules and index-version migration limitations are explicit.",
+        "The service remains clearly described as a local simulated ELD source."
+      ],
+      "evidence": [
+        "docs/api_contract.md",
+        "src/fleet_fuel/event_api.py",
+        "src/fleet_fuel/ingestion.py",
+        "tests/test_ingestion.py"
+      ],
+      "independent_check": "Read the final API contract against route, validation, pagination and retry implementations."
+    },
+    {
+      "finding_id": "REVIEW-03",
+      "topic": "M0 decisions preserve accepted baselines and deferred project scope",
+      "status": "closed",
+      "verified_behavior": [
+        "All 18 original question IDs preserve their project, question text, source IDs and evidence IDs.",
+        "Two DA-E01 questions are resolved for v1; 16 later-project questions are explicitly deferred with owners, stages and next actions.",
+        "Three frozen baseline file hashes match their originals.",
+        "Two legacy 64-to-128-bit width vectors and four current 128-bit encoder vectors independently recompute.",
+        "The register is identified as release-review reconciliation; no historical completion is fabricated and no second project starts."
+      ],
+      "evidence": [
+        "contracts/implementation_decisions.json",
+        "docs/decision_register.md",
+        "config/simulation.json",
+        "src/fleet_fuel/simulation.py"
+      ],
+      "independent_check": "Recomputed baseline hashes and RNG vectors, compared all 18 question mappings and checked referenced local evidence paths."
+    }
+  ],
+  "canonical_equivalence": {
+    "status": "passed",
+    "evidence": "validation/ci_final_canonical_comparison_40229112753.json",
+    "prior_evidence": "validation/ci_full_canonical_comparison_40227233022.json",
+    "tables": 26,
+    "fields": 330,
+    "field_exclusions": [],
+    "normalization": "Shared logical_table_hash: sort primary keys and JSON object keys; sort only declared unordered provenance-ID arrays; preserve all timestamps and other field values.",
+    "primary_key_and_kpi_checks": "also passed",
+    "delivered_database_provenance": "Full PostgreSQL run40227233022/commit55b6831eaa7f44849aad39537288654ba04cb701; logical equivalence to final source run40229112753 is independently verified."
+  },
+  "verification": {
+    "local_test_evidence": "validation/test_results.xml",
+    "local_tests": {
+      "tests": 103,
+      "errors": 0,
+      "failures": 0,
+      "skipped": 6,
+      "passed": 97
+    },
+    "previous_full_postgresql_run": {
+      "run_id": 40227233022,
+      "commit": "55b6831eaa7f44849aad39537288654ba04cb701",
+      "status": "success",
+      "tests_passed": 79,
+      "skipped": 0,
+      "profile": "full",
+      "trips": 1800,
+      "postgres_source_tables": 15,
+      "postgres_source_records": 8193,
+      "evidence": "validation/ci_full_run_40227233022.json"
+    },
+    "final_source_ci": {
+      "run_id": 40229112753,
+      "job_id": 121276813784,
+      "commit": "e0992b650a1686bd19dd50b5950b923be97ab6e0",
+      "status": "success",
+      "tests": {
+        "tests": 103,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "passed": 103,
+        "seconds": 57.823
+      },
+      "evidence": "validation/ci_final_run_40229112753.json",
+      "url": "https://github.com/JacobCCMorgan/da-e01-fuel-efficiency-analytics/actions/runs/40229112753"
+    }
+  },
+  "remaining_original_review_blockers": [],
+  "pending_release_validation": [],
+  "next_action": "Finalize delivery receipts and stop at DA-E01 v1 user acceptance. Do not start another project.",
+  "later_projects_started": false,
+  "interpretation_limits": [
+    "Fleet operations, review outcomes and actions are synthetic.",
+    "Public prices provide separately identified background; gaps are not proven realizable savings.",
+    "Technical verification does not establish real-company effectiveness or causal savings."
+  ],
+  "evidence_fingerprints": [
+    {
+      "path": "src/fleet_fuel/input_policy.py",
+      "sha256": "53cb4c42cc3ad98d8052e46b8afb861582825fbdb75db112ba25d183523d1b3d"
+    },
+    {
+      "path": "src/fleet_fuel/ingestion.py",
+      "sha256": "d759dd225679926c6b93aff841d08a9a86dba6f56f3c9ddab8d6a2c4cd5d7b21"
+    },
+    {
+      "path": "src/fleet_fuel/analysis.py",
+      "sha256": "344b0b177d7ef915be952112fd9704a82dd2f06ad5fd084070785e903cd6db7a"
+    },
+    {
+      "path": "src/fleet_fuel/event_api.py",
+      "sha256": "19a6dbb547921e36080cb7dc5d3b362683a23690c7798a339875b2a7835c0049"
+    },
+    {
+      "path": "tests/test_ingestion.py",
+      "sha256": "f1ca866acee6032960d20bacaa765b57c85179d4558bae925d25e60aa6cefa50"
+    },
+    {
+      "path": "tests/test_analysis.py",
+      "sha256": "14a59b5d84f11aafae4b8a9e35fd8eb9d340294276e7c14c18a6ad15c1fa63fa"
+    },
+    {
+      "path": "docs/api_contract.md",
+      "sha256": "189df69fa0b319c2cfb1ab256559c251f601be32a3bcaa55843a2ce9c7608bbc"
+    },
+    {
+      "path": "contracts/implementation_decisions.json",
+      "sha256": "03cac1ce00e70875b4815358a59fc9987f98b04cc55928e53c64e63795ff851f"
+    },
+    {
+      "path": "docs/decision_register.md",
+      "sha256": "c2928d687e527b01a02f6c9fd0cbcd81424cfdb996e9ecde0d5afeadb098c125"
+    },
+    {
+      "path": "validation/ci_full_canonical_comparison_40227233022.json",
+      "sha256": "4c4cc2c58ff6d99548564dec834e6740a9f858c3de859e5664cf2a0478fa9906"
+    },
+    {
+      "path": "validation/test_results.xml",
+      "sha256": "d7c2a3ae92dd790d4c96180025ecccce6e75906b5f2eeb2ff8eb65ecaaf95ac1"
+    },
+    {
+      "path": "validation/ci_final_run_40229112753.json",
+      "sha256": "41255a145093a80eba774339e6f08ef6c13e5f790f7aaf8e0903b1fa84be0460"
+    },
+    {
+      "path": "validation/ci_final_canonical_comparison_40229112753.json",
+      "sha256": "386e921b7498b7d0af57e4eed75eb1fd3e06987d67046046fae6685600c649e6"
+    }
+  ],
+  "completion_state": "technical_complete_pending_user_acceptance"
+}

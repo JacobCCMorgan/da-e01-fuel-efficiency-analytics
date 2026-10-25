@@ -1,0 +1,508 @@
+{
+  "schema_version": "1.0.0",
+  "project_id": "DA-E01",
+  "release_version": "v1",
+  "prepared_at": "2026-10-25T20:07:50.321008+00:00",
+  "status": "technical_verification_passed_user_acceptance_pending",
+  "acceptance_status": "pending_user_acceptance",
+  "accepted_at": null,
+  "accepted_by": null,
+  "user_stop_instruction": "Complete DA-E01 S2.4 data, S3 analysis, tests and independent GitHub/Drive delivery; stop at DA-E01 v1 acceptance and do not start the second project.",
+  "scope": {
+    "period_start": "2025-01-01",
+    "period_end": "2025-06-30",
+    "tenants": 3,
+    "vehicles": 30,
+    "devices": 36,
+    "drivers": 45,
+    "trips": 1800,
+    "canonical_tables": 26,
+    "canonical_fields": 330,
+    "original_requirements": 153,
+    "outcomes": [
+      "DA-E01-O01",
+      "DA-E01-O02",
+      "DA-E01-O03"
+    ]
+  },
+  "quality": {
+    "status": "passed",
+    "checks": 1312,
+    "errors": 0,
+    "field_records": 330,
+    "original_requirement_rows": 153,
+    "evidence": "validation/quality_report.json"
+  },
+  "latest_verified_postgres_ci": {
+    "status": "passed",
+    "run_id": 40229112753,
+    "url": "https://github.com/JacobCCMorgan/da-e01-fuel-efficiency-analytics/actions/runs/40229112753",
+    "commit": "e0992b650a1686bd19dd50b5950b923be97ab6e0",
+    "profile": "full",
+    "operational_mode": "postgres",
+    "tests": {
+      "tests": 103,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": 103,
+      "seconds": 57.823
+    },
+    "postgres_engine": "PostgreSQL 16.15 (Debian 16.15-1.pgdg13+2) on x86_64-pc-linux-gnu, compiled by gcc (Debian 14.2.0-19) 14.2.0, 64-bit",
+    "evidence": "validation/ci_final_run_40229112753.json",
+    "junit": "validation/ci_final_tests_40229112753.xml",
+    "canonical_comparison": "validation/ci_final_canonical_comparison_40229112753.json"
+  },
+  "final_revision_ci": {
+    "status": "passed",
+    "run_id": 40229112753,
+    "url": "https://github.com/JacobCCMorgan/da-e01-fuel-efficiency-analytics/actions/runs/40229112753",
+    "commit": "e0992b650a1686bd19dd50b5950b923be97ab6e0",
+    "profile": "full",
+    "operational_mode": "postgres",
+    "tests": {
+      "tests": 103,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": 103,
+      "seconds": 57.823
+    },
+    "postgres_engine": "PostgreSQL 16.15 (Debian 16.15-1.pgdg13+2) on x86_64-pc-linux-gnu, compiled by gcc (Debian 14.2.0-19) 14.2.0, 64-bit",
+    "evidence": "validation/ci_final_run_40229112753.json",
+    "junit": "validation/ci_final_tests_40229112753.xml",
+    "canonical_comparison": "validation/ci_final_canonical_comparison_40229112753.json"
+  },
+  "reproducibility": {
+    "clean_rebuild_status": "passed",
+    "canonical_tables_equal": 26,
+    "source_files_equal": 28,
+    "parameter_change_status": "passed",
+    "cross_mode_status": "passed",
+    "cross_mode_tables": 26,
+    "cross_mode_fields": 330,
+    "cross_mode_field_exclusions": [],
+    "cross_mode_evidence": "validation/ci_final_canonical_comparison_40229112753.json",
+    "note": "Canonical field hashes are exact after documented ordering/JSON normalization. Only analytical aggregate comparisons use the separately stated numeric tolerance.",
+    "previous_cross_mode_evidence": "validation/ci_full_canonical_comparison_40227233022.json",
+    "final_source_cross_mode_status": "passed",
+    "delivered_database_provenance": {
+      "evidence": "validation/database_adoption.json",
+      "originating_run_id": 40227233022,
+      "policy": "The delivered database retains its actual prior verified CI provenance. Its complete canonical values match final-source CI run40229112753; no binary-byte identity or re-execution is fabricated."
+    }
+  },
+  "acceptance_checklist": [
+    {
+      "id": "DA-E01-AC-01",
+      "title": "Scope and requirement preservation",
+      "status": "passed",
+      "criterion_and_result": "26 canonical tables, 330 fields, 153 original requirements and outcomes O01/O02/O03 retained. The Jan–Jun 2025 world has 3 tenants, 30 vehicles, 36 devices, 45 drivers and 1,800 trips.",
+      "evidence": [
+        "contracts/da_e01_contract.json",
+        "validation/requirement_traceability.json",
+        "data/generation_manifest.json"
+      ]
+    },
+    {
+      "id": "DA-E01-AC-02",
+      "title": "Source rights, provenance and availability",
+      "status": "passed",
+      "criterion_and_result": "Fleet operations are explicitly synthetic; EIA background is a frozen public snapshot with receipt/hash evidence, region/unit limits and retrospective-only historical use.",
+      "evidence": [
+        "docs/sources.md",
+        "data/public/source_manifest.json",
+        "contracts/source_registry.json"
+      ]
+    },
+    {
+      "id": "DA-E01-AC-03",
+      "title": "Operational and event acquisition",
+      "status": "passed",
+      "criterion_and_result": "Actual HTTP intake, immutable revisions, quarantine and receipt reconciliation execute. Final-source full PostgreSQL16.15 CI run40229112753 passed103 tests with0 skipped/errors/failures and rebuilt all1,800 trips.",
+      "evidence": [
+        "docs/api_contract.md",
+        "validation/ingestion_report.json",
+        "validation/ci_final_run_40229112753.json"
+      ]
+    },
+    {
+      "id": "DA-E01-AC-04",
+      "title": "Database and quality",
+      "status": "passed",
+      "criterion_and_result": "Typed DuckDB plus Parquet/CSV/JSONL delivery; all 1,312 canonical checks pass with zero errors. Conditional open/inapplicable NULLs are retained with reasons.",
+      "evidence": [
+        "contracts/schema.sql",
+        "validation/quality_report.json",
+        "validation/build_report.json"
+      ]
+    },
+    {
+      "id": "DA-E01-AC-05",
+      "title": "Meaningful O01/O02/O03 analysis",
+      "status": "passed",
+      "criterion_and_result": "Separate ECU consumption, purchases and stock balance; reconcile comparable price/volume effects; retain coverage/as-of revisions and noncausal investigation/follow-up analysis.",
+      "evidence": [
+        "docs/metrics.md",
+        "outputs/vehicle_weekly.csv",
+        "outputs/fleet_weekly.csv",
+        "outputs/inventory_reconciliation.csv",
+        "outputs/followup_evaluation.csv"
+      ]
+    },
+    {
+      "id": "DA-E01-AC-06",
+      "title": "Independent verification and input isolation",
+      "status": "passed",
+      "criterion_and_result": "Independent hand arithmetic, ledger controls and adversarial input-isolation tests pass, including the final-source103-test CI. Validation-only truth is excluded from staging and analytical inputs.",
+      "evidence": [
+        "validation/expected/hand_cases.json",
+        "validation/expected/injections.json",
+        "src/fleet_fuel/input_policy.py",
+        "tests/test_analysis.py",
+        "tests/test_ingestion.py"
+      ]
+    },
+    {
+      "id": "DA-E01-AC-07",
+      "title": "Clean rebuild, parameter change and cross-mode equality",
+      "status": "passed",
+      "criterion_and_result": "Clean build matches all 26 canonical tables and 28 generated source files; paired smoke seed changes alter results without breaking invariants. Full PostgreSQL output matches all 330 canonical fields with none excluded.",
+      "evidence": [
+        "validation/rebuild_report.json",
+        "validation/ci_final_canonical_comparison_40229112753.json"
+      ]
+    },
+    {
+      "id": "DA-E01-AC-08",
+      "title": "Reports and explainability",
+      "status": "passed_with_stated_limits",
+      "criterion_and_result": "English/Chinese reports, seven reviewed charts, executable notebook and offline dashboard are present. Dashboard logic was checked with a DOM stub; no browser-rendering test is claimed.",
+      "evidence": [
+        "outputs/report_validation.json",
+        "reports/document_validation.json",
+        "notebooks/01_fuel_analysis.ipynb",
+        "docs/chart_walkthrough_zh.md",
+        "docs/runbook.md"
+      ]
+    },
+    {
+      "id": "DA-E01-AC-09",
+      "title": "Scope decisions and review-gap closure",
+      "status": "passed",
+      "criterion_and_result": "All 18 original questions have individual dispositions and the three release-review gaps have implementation resolutions. No later project is marked executed.",
+      "evidence": [
+        "docs/decision_register.md",
+        "contracts/implementation_decisions.json",
+        "docs/api_contract.md",
+        "validation/final_acceptance_review.json"
+      ]
+    },
+    {
+      "id": "DA-E01-AC-10",
+      "title": "Final-revision PostgreSQL CI",
+      "status": "passed",
+      "criterion_and_result": "Final runtime source commit e0992b650a1686bd19dd50b5950b923be97ab6e0 passed full PostgreSQL CI run40229112753:103 tests,0 skipped/errors/failures. All330 canonical fields across26 tables exactly match the delivered database under documented normalization.",
+      "evidence": [
+        "validation/ci_final_run_40229112753.json",
+        "validation/ci_final_tests_40229112753.xml",
+        "validation/ci_final_canonical_comparison_40229112753.json"
+      ]
+    },
+    {
+      "id": "DA-E01-AC-11",
+      "title": "Post-package delivery receipt",
+      "status": "external_receipt_pending",
+      "criterion_and_result": "Technical acceptance is recorded inside the package. After packaging, verify actual release/assets and Drive transfers in a separate delivery receipt; that receipt carries archive hashes and observed public locations. The public receipt excludes private Drive identifiers, which belong only in the private continuation record.",
+      "evidence": [
+        "docs/delivery.md"
+      ]
+    },
+    {
+      "id": "DA-E01-AC-12",
+      "title": "User acceptance and stop point",
+      "status": "pending_user_acceptance",
+      "criterion_and_result": "Stop at DA-E01 v1 acceptance. Do not start DE-M02 or any other project automatically. Acceptance does not imply real-fleet performance.",
+      "evidence": [
+        "docs/acceptance.md"
+      ]
+    }
+  ],
+  "closed_implementation_gaps": [
+    {
+      "gap_id": "DA-E01-RG-01",
+      "topic": "Missing M0 decision and continuation record",
+      "status": "closed_in_implementation",
+      "resolution": "Add all 18 original question dispositions, preserve frozen source identities and record the 64-to-128-bit package-note correction with checked vectors; later projects remain deferred.",
+      "evidence": [
+        "docs/decision_register.md",
+        "contracts/implementation_decisions.json"
+      ],
+      "verification": "18 distinct IDs; 2 DA-E01 resolutions, 16 deferred; 3 shared decisions; 2 legacy width vectors and 4 current encoder vectors.",
+      "independent_review_finding_id": "REVIEW-03"
+    },
+    {
+      "gap_id": "DA-E01-RG-02",
+      "topic": "Validation truth could enter an unrestricted input path",
+      "status": "closed_in_implementation",
+      "resolution": "Enforce the canonical input allowlist before staging and enforce analytical table/column/SQL relation guards. Reject true_fuel_l, other forbidden validation-only fields, unknown payload keys and unapproved truth relations or file readers.",
+      "evidence": [
+        "src/fleet_fuel/input_policy.py",
+        "src/fleet_fuel/ingestion.py",
+        "src/fleet_fuel/analysis.py",
+        "tests/test_ingestion.py#test_unapproved_payload_fields_are_quarantined_before_staging",
+        "tests/test_analysis.py#test_analysis_rejects_noncontract_input_columns",
+        "tests/test_analysis.py#test_analysis_sql_blocks_validation_only_relations",
+        "tests/test_analysis.py#test_analysis_sql_blocks_external_truth_file_reader"
+      ],
+      "verification": "Adversarial production-path tests cover rejected fields and relations. Final-source CI run40229112753 passed all103 tests.",
+      "independent_review_finding_id": "REVIEW-01"
+    },
+    {
+      "gap_id": "DA-E01-RG-03",
+      "topic": "Missing explicit API contract and ambiguous timestamp/filter behavior",
+      "status": "closed_in_implementation",
+      "resolution": "Document the actual local GET endpoints, snapshot/cursor contract, ordering, revisions, error and retry behavior. Normalize supported offset-aware timestamps to UTC instants; reject naive filters. Preserve the documented checkpoint-migration limitation when ordering changes.",
+      "evidence": [
+        "docs/api_contract.md",
+        "src/fleet_fuel/event_api.py",
+        "tests/test_ingestion.py#test_available_since_uses_instants_and_rejects_naive_time",
+        "tests/test_ingestion.py#test_cursor_rejects_different_snapshot",
+        "tests/test_ingestion.py#test_checkpoint_resume_does_not_skip_equal_available_times"
+      ],
+      "verification": "Code/documentation readback and focused tests completed; final-source CI run40229112753 passed all103 tests.",
+      "independent_review_finding_id": "REVIEW-02"
+    }
+  ],
+  "open_question_summary": {
+    "total": 18,
+    "resolved_for_DA_E01": 2,
+    "deferred_other_projects": 16,
+    "shared_definitions_retained": 3,
+    "evidence": "contracts/implementation_decisions.json"
+  },
+  "open_question_dispositions": [
+    {
+      "question_id": "S23-OQ-001",
+      "project_id": "DA-E01",
+      "status": "resolved_for_DA_E01_v1",
+      "owner": "Data analyst / project maintainer",
+      "current_stage": "DA-E01 S2.4/S3 complete; v1 review pending",
+      "next_project_or_gate": "DA-E01 v1 acceptance",
+      "next_action": "Accept retrospective-only price interpretation at v1 review. A later weather extension needs its own coverage, rights and version assessment; it is not a missing prerequisite."
+    },
+    {
+      "question_id": "S23-OQ-002",
+      "project_id": "DA-E01",
+      "status": "resolved_for_DA_E01_v1",
+      "owner": "Data analyst / project maintainer",
+      "current_stage": "DA-E01 S2.4/S3 complete; v1 review pending",
+      "next_project_or_gate": "DA-E01 v1 acceptance",
+      "next_action": "Retain the fixed scope at v1 review; add later scenario or scale versions only for a specific coverage/performance question while preserving prior IDs."
+    },
+    {
+      "question_id": "S23-OQ-003",
+      "project_id": "DS-E01",
+      "status": "deferred_project_not_started",
+      "owner": "Data scientist / project maintainer",
+      "current_stage": "DS-E01 S2.4 source coverage; S3 feature evaluation",
+      "next_project_or_gate": "DS-E01",
+      "next_action": "Verify rights, station/month coverage, QC and as-of availability for DS-E01; otherwise use explicitly synthetic weather or disable that optional context."
+    },
+    {
+      "question_id": "S23-OQ-004",
+      "project_id": "DS-E01",
+      "status": "deferred_project_not_started",
+      "owner": "Data scientist / project maintainer",
+      "current_stage": "DS-E01 S2.4 fixtures; S3 sensitivity",
+      "next_project_or_gate": "DS-E01",
+      "next_action": "Define target observability, load/PTO/normal cases, chronological splits and independent labels before deciding whether larger samples are needed."
+    },
+    {
+      "question_id": "S23-OQ-005",
+      "project_id": "DA-E02",
+      "status": "deferred_project_not_started",
+      "owner": "Data analyst / project maintainer",
+      "current_stage": "DA-E02 S2.4 dedicated data and source review",
+      "next_project_or_gate": "DA-E02",
+      "next_action": "Build DA-E02-specific events and tickets; add official format examples only after checking rights, versions and applicability, separate from simulated identities."
+    },
+    {
+      "question_id": "S23-OQ-006",
+      "project_id": "DA-E02",
+      "status": "deferred_project_not_started",
+      "owner": "Data analyst / project maintainer",
+      "current_stage": "DA-E02 S2.4 policy fixtures; S3 sensitivity",
+      "next_project_or_gate": "DA-E02",
+      "next_action": "Define expected online intervals, device/engine states and sampling policies; retain uncertain physical limits as research settings and measure sensitivity."
+    },
+    {
+      "question_id": "S23-OQ-007",
+      "project_id": "DE-E01",
+      "status": "deferred_project_not_started",
+      "owner": "Data engineer / project maintainer",
+      "current_stage": "DE-E01 S2.4 dedicated format fixtures",
+      "next_project_or_gate": "DE-E01",
+      "next_action": "Implement DE-E01 decoded JSONL v1/v2 mappings, parser failures and correction history. Add official examples only after verification; do not claim vehicle-protocol certification."
+    },
+    {
+      "question_id": "S23-OQ-008",
+      "project_id": "DE-E01",
+      "status": "deferred_project_not_started",
+      "owner": "Data engineer / project maintainer",
+      "current_stage": "DE-E01 S2.4 policy/config; S3 sensitivity",
+      "next_project_or_gate": "DE-E01",
+      "next_action": "Freeze per-format policies and failure cases; describe uncertain physical thresholds as research settings, not vehicle standards."
+    },
+    {
+      "question_id": "S23-OQ-009",
+      "project_id": "DE-E03",
+      "status": "deferred_project_not_started",
+      "owner": "Data engineer / project maintainer",
+      "current_stage": "DE-E03 S2.4 independent daily controls",
+      "next_project_or_gate": "DE-E03",
+      "next_action": "Build independent input/receipt/output daily control totals and quarantine balances for missing, late, repeated and corrected records."
+    },
+    {
+      "question_id": "S23-OQ-010",
+      "project_id": "DE-E03",
+      "status": "deferred_project_not_started",
+      "owner": "Data engineer / project maintainer",
+      "current_stage": "DE-E03 S2.4 config; S3 sensitivity",
+      "next_project_or_gate": "DE-E03",
+      "next_action": "Define expected windows, completeness denominators and thresholds; evaluate policy sensitivity without presenting unverified limits as industry rules."
+    },
+    {
+      "question_id": "S23-OQ-011",
+      "project_id": "DE-M02",
+      "status": "deferred_project_not_started",
+      "owner": "Data engineer / project maintainer",
+      "current_stage": "DE-M02 S2.4 dedicated history model",
+      "next_project_or_gate": "DE-M02",
+      "next_action": "Implement complete relationship history with independent swap, overlap and gap timelines when DE-M02 is explicitly activated; verify any optional public format."
+    },
+    {
+      "question_id": "S23-OQ-012",
+      "project_id": "DE-M02",
+      "status": "deferred_project_not_started",
+      "owner": "Data engineer / project maintainer",
+      "current_stage": "DE-M02 S2.4 temporal keys and policies",
+      "next_project_or_gate": "DE-M02",
+      "next_action": "Freeze unknown/overlap/gap policies and temporal keys against independent timelines; add observation policy only where DE-M02 requires it."
+    },
+    {
+      "question_id": "S23-OQ-013",
+      "project_id": "DS-M01",
+      "status": "deferred_project_not_started",
+      "owner": "Data scientist / project maintainer",
+      "current_stage": "DS-M01 S2.4 forecast eligibility; S3 comparison",
+      "next_project_or_gate": "DS-M01",
+      "next_action": "Implement no-forecast baseline first; activate synthetic or evidenced public forecast variants only with availability and leakage fixtures."
+    },
+    {
+      "question_id": "S23-OQ-014",
+      "project_id": "DS-M01",
+      "status": "deferred_project_not_started",
+      "owner": "Data scientist / project maintainer",
+      "current_stage": "DS-M01 S2.4 route fixtures",
+      "next_project_or_gate": "DS-M01",
+      "next_action": "Use the fictional route graph; review external routing terms before optional acquisition or redistribution and preserve true source labels."
+    },
+    {
+      "question_id": "S23-OQ-015",
+      "project_id": "DS-M01",
+      "status": "deferred_project_not_started",
+      "owner": "Data scientist / project maintainer",
+      "current_stage": "DS-M01 S3 calibration and held-out evaluation",
+      "next_project_or_gate": "DS-M01",
+      "next_action": "Set finite notification capacity, tune on calibration data only, freeze before testing and report measured coverage/load with sensitivity."
+    },
+    {
+      "question_id": "S23-OQ-016",
+      "project_id": "DS-M05",
+      "status": "deferred_project_not_started",
+      "owner": "Data scientist / project maintainer",
+      "current_stage": "DS-M05 S2.4 corpus acquisition/versioning",
+      "next_project_or_gate": "DS-M05",
+      "next_action": "Check each document and reuse condition; retain actual version evidence and supply clearly fictional product material for uncovered scenarios."
+    },
+    {
+      "question_id": "S23-OQ-017",
+      "project_id": "DS-M05",
+      "status": "deferred_project_not_started",
+      "owner": "Data scientist / project maintainer",
+      "current_stage": "DS-M05 S2.4 index/data; S3 draft/model evaluation",
+      "next_project_or_gate": "DS-M05",
+      "next_action": "Implement BM25 plus local evidence-backed drafts and claim-level evaluation as the self-contained route; compare optional models on the same frozen set."
+    },
+    {
+      "question_id": "S23-OQ-018",
+      "project_id": "DS-M05",
+      "status": "deferred_project_not_started",
+      "owner": "Data scientist / project maintainer",
+      "current_stage": "DS-M05 S3 independent answer evaluation",
+      "next_project_or_gate": "DS-M05",
+      "next_action": "Create evidence-grounded answers, adversarial cases and disagreement records. Mark adoption/time trials synthetic unless actual independently documented trials occur."
+    }
+  ],
+  "delivery": {
+    "project_repository": "https://github.com/JacobCCMorgan/da-e01-fuel-efficiency-analytics",
+    "portfolio_repository": "https://github.com/JacobCCMorgan/data-portfolio",
+    "portfolio_topics": 11,
+    "portfolio_project_ids": 47,
+    "release_url": null,
+    "release_commit": null,
+    "final_release_verification": "recorded_in_external_post_package_receipt",
+    "drive_delivery_verification": "recorded_in_private_post_package_receipt",
+    "private_destination_policy": "Private Drive IDs/URLs are retained outside the public repository.",
+    "post_package_receipt_url": null,
+    "post_package_receipt_status": "pending_external_verification",
+    "archive_self_verification_policy": "Archive records describe completed technical evidence. Actual remote uploads and archive checksums are verified in a separate post-package delivery receipt; the archive does not assert its own future upload success.",
+    "archive_snapshot_state": "technical_verification_passed; upload success not asserted by the archive"
+  },
+  "limitations": [
+    "All vehicle operations, entities and action/adoption records are synthetic. No verified real fleet saving, customer adoption, employer operating result or causal intervention effect is claimed.",
+    "Public EIA prices are genuine retrieved observations, but their 2025 publication availability is not evidenced; they are retrospective context only. West Coast excluding California is regional context, not a state-level Arizona/Nevada price.",
+    "The local ELD HTTP interface is a documented decoded demonstration. It does not certify a vendor API, a physical device or J1939/J1708/OBD support.",
+    "Business-rule fixtures and synthetic controls are independently checkable program evidence, not an external expert field validation.",
+    "Dashboard static figures and JavaScript application logic were checked; no live browser-rendering test is claimed.",
+    "Weather, ETA modeling, RAG and the remaining seven first-batch projects are not implemented by this delivery. The other 39 projects remain deferred.",
+    "Logical equality preserves every canonical value after declared ordering/JSON normalization; storage layout may differ. Archive checksums describe the delivered bytes, not a promise of identical database page layout."
+  ],
+  "next": {
+    "immediate": "Package the frozen technical deliverables, verify uploads in a separate post-package receipt, and present DA-E01 v1 for user acceptance. Do not start another project.",
+    "next_project_candidate": "DE-M02",
+    "may_start_next_project": false,
+    "activation_rule": "Only after DA-E01 acceptance and an explicit next-project instruction; no automatic launch."
+  },
+  "independent_review": {
+    "status": "passed",
+    "evidence": "validation/final_acceptance_review.json",
+    "closed_findings": [
+      "REVIEW-01",
+      "REVIEW-02",
+      "REVIEW-03"
+    ],
+    "scope": "All three implementation findings closed; final-source CI and all-field equivalence passed. User acceptance remains pending."
+  },
+  "technical_verification_status": "passed",
+  "technical_verification_frozen_at": "2026-10-25T20:16:02.713492+00:00",
+  "previous_verified_postgres_ci": {
+    "status": "passed",
+    "run_id": 40227233022,
+    "url": "https://github.com/JacobCCMorgan/da-e01-fuel-efficiency-analytics/actions/runs/40227233022",
+    "commit": "55b6831eaa7f44849aad39537288654ba04cb701",
+    "profile": "full",
+    "operational_mode": "postgres",
+    "tests": {
+      "tests": 79,
+      "errors": 0,
+      "failures": 0,
+      "skipped": 0,
+      "seconds": 62.077
+    },
+    "postgres_engine": "PostgreSQL 16.15 (Debian 16.15-1.pgdg13+2) on x86_64-pc-linux-gnu, compiled by gcc (Debian 14.2.0-19) 14.2.0, 64-bit",
+    "evidence": "validation/ci_full_run_40227233022.json",
+    "scope_note": "Verified preceding revision. This is not a claim that the pending final revision has passed."
+  }
+}

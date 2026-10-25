@@ -1,0 +1,751 @@
+{
+  "project_id": "DA-E01",
+  "started_at": "2026-10-25T20:07:13.874389+00:00",
+  "profile": "full",
+  "seed": 20261021,
+  "operational_mode": "postgres",
+  "steps": {
+    "public_sources": {
+      "source_id": "S22-PUB-001",
+      "adapter_version": "eia-html-xls-1.0.1",
+      "status": "public_download_verified",
+      "access_mode": "official_https_file_download_not_api",
+      "snapshot_id": "139f0579c430932d",
+      "files": [
+        {
+          "name": "eia_california.html",
+          "url": "https://www.eia.gov/dnav/pet/hist/LeafHandler.ashx?f=W&n=PET&s=EMD_EPD2D_PTE_SCA_DPG",
+          "status": 200,
+          "retrieved_at": "2026-10-25T18:49:04.466626+00:00",
+          "sha256": "0e13453e9cb494ac0ae85dc6bd1dfadf4e8a748108a21418ba31c9658364ed31",
+          "bytes": 171421,
+          "headers": {
+            "Content-Type": "text/html; charset=utf-8",
+            "Last-Modified": null,
+            "ETag": null,
+            "Content-Length": "171421",
+            "Date": "Sun, 25 Oct 2026 18:49:07 GMT"
+          },
+          "path": "data/public/raw/eia_california.html",
+          "receipt_path": "data/public/raw/eia_california.html.receipt.json"
+        },
+        {
+          "name": "eia_west_coast_ex_ca.html",
+          "url": "https://www.eia.gov/dnav/pet/hist/LeafHandler.ashx?f=W&n=PET&s=EMD_EPD2D_PTE_R5XCA_DPG",
+          "status": 200,
+          "retrieved_at": "2026-10-25T18:49:07.912039+00:00",
+          "sha256": "02f5cf793d7973a423e2622deca012ea7e67187f8847d151b3be0d85f74e4388",
+          "bytes": 84400,
+          "headers": {
+            "Content-Type": "text/html; charset=utf-8",
+            "Last-Modified": null,
+            "ETag": null,
+            "Content-Length": "84400",
+            "Date": "Sun, 25 Oct 2026 18:49:10 GMT"
+          },
+          "path": "data/public/raw/eia_west_coast_ex_ca.html",
+          "receipt_path": "data/public/raw/eia_west_coast_ex_ca.html.receipt.json"
+        },
+        {
+          "name": "eia_diesel_history.xls",
+          "url": "https://www.eia.gov/petroleum/gasdiesel/xls/psw18vwall.xls",
+          "status": 200,
+          "retrieved_at": "2026-10-25T18:49:10.807476+00:00",
+          "sha256": "e066d78c437e7a6bae2515354b04b1313727b2e20595b081b8734ff47924275a",
+          "bytes": 765440,
+          "headers": {
+            "Content-Type": "application/vnd.ms-excel",
+            "Last-Modified": "Tue, 20 Oct 2026 13:31:24 GMT",
+            "ETag": "\"0dec4d9760dd1:0\"",
+            "Content-Length": "765440",
+            "Date": "Sun, 25 Oct 2026 18:49:13 GMT"
+          },
+          "path": "data/public/raw/eia_diesel_history.xls",
+          "receipt_path": "data/public/raw/eia_diesel_history.xls.receipt.json"
+        }
+      ],
+      "rows": 62,
+      "observation_start": "2024-12-02",
+      "observation_end": "2025-06-30",
+      "series_count": 2,
+      "main_period_rows": 52,
+      "missing_values": 0,
+      "normalized_path": "data/public/snapshots/139f0579c430932d/fuel_prices.jsonl",
+      "normalized_sha256": "ac3180b1c6f12fde169bbbec9bc0db211cfe623b75a0145dd3be619a53cdcd5b",
+      "xls_crosscheck": {
+        "status": "passed",
+        "html_rows_compared_to_xls": 62,
+        "comparison": "independent formats of the same EIA publication, not an independent measurement",
+        "sheet": "Data 1",
+        "source_key_row": 2,
+        "mismatches": 0
+      },
+      "rights_url": "https://www.eia.gov/about/copyrights_reuse.php",
+      "methodology_url": "https://www.eia.gov/petroleum/gasdiesel/diesel_proc-methods.php",
+      "attribution": "Source: U.S. Energy Information Administration. Source-page release dates: 2026-10-20. Retrieved: 2026-10-25. Historical individual publication dates unknown.",
+      "rights_scope": "EIA numeric data; no logos, photographs, or protected third-party material included in reports",
+      "historical_availability": "unknown; no 2025 as-of joins",
+      "geography_limit": "California is state-level; West Coast except California is regional, not AZ/NV state prices"
+    },
+    "generation": {
+      "generator_version": "1.0.0",
+      "seed": 20261021,
+      "profile": "full",
+      "created_at": "2026-10-25T18:57:01Z",
+      "origin_type": "synthetic",
+      "world": {
+        "tenants": 3,
+        "vehicles": 30,
+        "devices": 36,
+        "drivers": 45,
+        "trips": 1800,
+        "facilities": 12,
+        "routes": 12
+      },
+      "selected_trip_count": 1800,
+      "table_row_counts": {
+        "core_tenant": 3,
+        "core_device": 36,
+        "fuel_station": 36,
+        "provenance_record": 254821,
+        "fuel_region_mapping": 9,
+        "core_vehicle": 30,
+        "fuel_vehicle_context": 30,
+        "core_vehicle_device_assignment": 34,
+        "fuel_card_assignment": 30,
+        "fuel_tank_scope": 30,
+        "fuel_signal_definition": 60,
+        "fuel_market_price": 168,
+        "fuel_purchase_line": 1861,
+        "fuel_movement": 3423,
+        "fuel_task_assignment": 1800,
+        "fuel_counter_observation": 246449,
+        "fuel_counter_change": 3,
+        "fuel_inventory_measurement": 840,
+        "fuel_statement_control": 24,
+        "fuel_output_review": 8,
+        "fuel_action_followup": 8,
+        "fuel_reference_case": 8
+      },
+      "transport_attempts": 246474,
+      "output_id_convention": "{tenant_id}-FUEL-{Monday_YYYYMMDD}-{initial|revised|retrospective}",
+      "smoke_semantics": "100 stable trips emit observations; full accounting and inventory closure preserved; trip_plan retains all1800",
+      "provenance_retrieved_at_rule": "Frozen original dataset creation timestamp; actual replay separately logged",
+      "sources": [
+        {
+          "path": "data/raw/events.jsonl",
+          "bytes": 189105762,
+          "sha256": "9cfc0dcf6a84fa6c24966f09fee37152b05225b91f0a7eb5197ab3a1e6bb49ce"
+        },
+        {
+          "path": "data/raw/operations/drivers.jsonl",
+          "bytes": 7965,
+          "sha256": "45ba8cd5cb0e88ac6139aa0b4c0bffe379286b15cee7a81599ba5064e5367bd1"
+        },
+        {
+          "path": "data/raw/operations/facilities.json",
+          "bytes": 2065,
+          "sha256": "b2896cba8709d5b86fb44544fc9a7267b66699252dd306cfbd014be30c3d0d9d"
+        },
+        {
+          "path": "data/raw/operations/routes.json",
+          "bytes": 2403,
+          "sha256": "c823565c0a7756361ab6ba645a9d00d81b098e4965c96410cb65a4eaef15987f"
+        },
+        {
+          "path": "data/raw/operations/trip_plan.jsonl",
+          "bytes": 816378,
+          "sha256": "30b8b96600ed866568b71952b1683e8c2fbb0cd6ec0350557e4282e185cccbe6"
+        },
+        {
+          "path": "data/raw/operations/trips.jsonl",
+          "bytes": 816378,
+          "sha256": "30b8b96600ed866568b71952b1683e8c2fbb0cd6ec0350557e4282e185cccbe6"
+        },
+        {
+          "path": "data/raw/tables/core_device.jsonl",
+          "bytes": 2520,
+          "sha256": "06a95820f133702632a1a40b1dd899a4f26101db8157586be2670a3b33dcef9b"
+        },
+        {
+          "path": "data/raw/tables/core_tenant.jsonl",
+          "bytes": 348,
+          "sha256": "883788996a38be3b00cf4e144e6b5d9c7545fd0629e582ae3059db5272f17cd1"
+        },
+        {
+          "path": "data/raw/tables/core_vehicle.jsonl",
+          "bytes": 4506,
+          "sha256": "531474282f90b83f67c4d8592db3c7081d66e90b343621feff660445674cfef9"
+        },
+        {
+          "path": "data/raw/tables/core_vehicle_device_assignment.jsonl",
+          "bytes": 11671,
+          "sha256": "0edf0aedf1cf7792bdee010fbe337d91880273208297264b33ba52621a63e460"
+        },
+        {
+          "path": "data/raw/tables/fuel_action_followup.jsonl",
+          "bytes": 8848,
+          "sha256": "8f3d9dc7f91b169bb7994c6afdf4e437253e63a74501b8c155c0c7b698109b77"
+        },
+        {
+          "path": "data/raw/tables/fuel_card_assignment.jsonl",
+          "bytes": 8820,
+          "sha256": "277c4567d4122fee2512a5c33ef25af08b5541843e583d1ea32f6e26d03f01bb"
+        },
+        {
+          "path": "data/raw/tables/fuel_counter_change.jsonl",
+          "bytes": 1092,
+          "sha256": "93f8d28a748f2bb421ee965287f414840999a81f219ad69f7cee314dff9e5488"
+        },
+        {
+          "path": "data/raw/tables/fuel_counter_observation.jsonl",
+          "bytes": 142508634,
+          "sha256": "dabfb9999a249255fb2140c712b814365c1b581fac26ddd9225d3f22147c8a99"
+        },
+        {
+          "path": "data/raw/tables/fuel_inventory_measurement.jsonl",
+          "bytes": 426969,
+          "sha256": "7288857ff34ac52de3c5121e39e76800ee243c9da90723d1c1466151ec514c3b"
+        },
+        {
+          "path": "data/raw/tables/fuel_market_price.jsonl",
+          "bytes": 81786,
+          "sha256": "a66a9493d3b1228629c5355234068fa01517235e7cc664db9b26e0957baef278"
+        },
+        {
+          "path": "data/raw/tables/fuel_movement.jsonl",
+          "bytes": 1348718,
+          "sha256": "7fdf5c0e0cfd3eea70ce8c8497005fcea821bac9ca0f98c8800f43b36ccc2ef5"
+        },
+        {
+          "path": "data/raw/tables/fuel_output_review.jsonl",
+          "bytes": 2931,
+          "sha256": "3cfbc82d0936f3780b300f87ff574874dfb43b884b77581b787327d59f80474c"
+        },
+        {
+          "path": "data/raw/tables/fuel_purchase_line.jsonl",
+          "bytes": 1446479,
+          "sha256": "8a41edc7fc0aace339e928614035db1afb2924c3dd6aec1097d7453d13785875"
+        },
+        {
+          "path": "data/raw/tables/fuel_reference_case.jsonl",
+          "bytes": 4233,
+          "sha256": "4048b22de7491286e86022ce4280af5b4ba6d28d4d42615c62a57d1c6308c5e5"
+        },
+        {
+          "path": "data/raw/tables/fuel_region_mapping.jsonl",
+          "bytes": 2541,
+          "sha256": "d4f45386866929eaa41fd489de502e57c4f8c187605089a32d64a49b5ceb21bf"
+        },
+        {
+          "path": "data/raw/tables/fuel_signal_definition.jsonl",
+          "bytes": 30022,
+          "sha256": "0ac8379dac558aece91c21af43c42cd135a8f062b855bb9c52ccb2165f13b982"
+        },
+        {
+          "path": "data/raw/tables/fuel_statement_control.jsonl",
+          "bytes": 9457,
+          "sha256": "0ff788cafcebf8e6720bdd7c7002dae0c7478d09498dd5c3767ddc65ca81674a"
+        },
+        {
+          "path": "data/raw/tables/fuel_station.jsonl",
+          "bytes": 6048,
+          "sha256": "d2a5b828634afd214b887cb5b84740af8885cec3d34d50ec6a8a4abf2bf149bf"
+        },
+        {
+          "path": "data/raw/tables/fuel_tank_scope.jsonl",
+          "bytes": 5850,
+          "sha256": "a6384fb8ecd105a121f45290208d7575cf5b44ab54a28baaf20d170ff706216e"
+        },
+        {
+          "path": "data/raw/tables/fuel_task_assignment.jsonl",
+          "bytes": 624600,
+          "sha256": "e6978f69fb83057c84796368222e752c629bc65fd4b828bf8520f11ea24da155"
+        },
+        {
+          "path": "data/raw/tables/fuel_vehicle_context.jsonl",
+          "bytes": 9630,
+          "sha256": "c6e9134be340dfb9c45d0b4c53e9dbd7a8b66b26cec62d61a966828e99bae7bc"
+        },
+        {
+          "path": "data/raw/tables/provenance_record.jsonl",
+          "bytes": 237657533,
+          "sha256": "2260a8127b2c91de1372a4264f33f489f515652b84a4798169962c0c26002e41"
+        }
+      ]
+    },
+    "http_ingestion": {
+      "mode": "http_simulated_eld_api",
+      "snapshot": "9cfc0dcf6a84fa6c24966f09fee37152b05225b91f0a7eb5197ab3a1e6bb49ce",
+      "started_at": "2026-10-25T20:07:34.668146+00:00",
+      "finished_at": "2026-10-25T20:08:11.356236+00:00",
+      "pages": 124,
+      "retries": 0,
+      "new_receipts": {
+        "accepted": 246448,
+        "quarantined": 2,
+        "duplicate": 24
+      },
+      "total_receipts": {
+        "accepted": 246448,
+        "duplicate": 24,
+        "quarantined": 2
+      },
+      "accepted_records": 246448,
+      "expected_source_attempts": 246474,
+      "complete": true,
+      "checkpoint": "WyI5Y2ZjMGRjZjZhODRmYTZjMjQ5NjZmMDlmZWUzNzE1MmIwNTIyNWI5MWYwYTdlYjUxOTdhYjNhMWU2YmI0OWNlIiwyNDY0NzRd",
+      "counts_reconcile": true
+    },
+    "postgresql": {
+      "status": "executed",
+      "engine": "PostgreSQL 16.15 (Debian 16.15-1.pgdg13+2) on x86_64-pc-linux-gnu, compiled by gcc (Debian 14.2.0-19) 14.2.0, 64-bit",
+      "schema": "fleet_ops",
+      "rows": {
+        "core_tenant": 3,
+        "core_vehicle": 30,
+        "core_device": 36,
+        "core_vehicle_device_assignment": 34,
+        "fuel_vehicle_context": 30,
+        "fuel_task_assignment": 1800,
+        "fuel_purchase_line": 1861,
+        "fuel_card_assignment": 30,
+        "fuel_station": 36,
+        "fuel_tank_scope": 30,
+        "fuel_inventory_measurement": 840,
+        "fuel_movement": 3423,
+        "fuel_statement_control": 24,
+        "fuel_output_review": 8,
+        "fuel_action_followup": 8
+      },
+      "inserted_records": 8193,
+      "watermark": 8193,
+      "executed_at": "2026-10-25T20:08:18.454834+00:00",
+      "source_kind": "synthetic_operational_postgresql",
+      "transaction": "all_tables_atomic",
+      "immutable_key_policy": "reject_conflicting_payload"
+    },
+    "database": {
+      "database": "data/DA-E01.duckdb",
+      "rows": {
+        "core_tenant": 3,
+        "core_vehicle": 30,
+        "core_device": 36,
+        "core_vehicle_device_assignment": 34,
+        "provenance_record": 255007,
+        "fuel_vehicle_context": 30,
+        "fuel_task_assignment": 1800,
+        "fuel_signal_definition": 60,
+        "fuel_counter_observation": 246448,
+        "fuel_counter_change": 3,
+        "fuel_purchase_line": 1861,
+        "fuel_card_assignment": 30,
+        "fuel_station": 36,
+        "fuel_market_price": 354,
+        "fuel_region_mapping": 9,
+        "fuel_tank_scope": 30,
+        "fuel_inventory_measurement": 840,
+        "fuel_movement": 3423,
+        "fuel_statement_control": 24,
+        "fuel_reference_case": 8,
+        "fuel_output_review": 8,
+        "fuel_action_followup": 8,
+        "fuel_inventory_balance": 0,
+        "fuel_report_run": 0,
+        "fuel_paired_interval": 0,
+        "fuel_weekly_metric": 0
+      },
+      "inputs": {
+        "core_tenant": {
+          "path": "data/postgres_extract/snapshot-8193-fd2abc293a36/core_tenant.jsonl",
+          "sha256": "37715c553a3f047a5b0bd639a66a7a35ea5a20bc52141a375175edd3297bc2f2"
+        },
+        "core_vehicle": {
+          "path": "data/postgres_extract/snapshot-8193-fd2abc293a36/core_vehicle.jsonl",
+          "sha256": "0fe17f7b1ff10f4bc047bb3b9c2331fe6a1313ef54bf36286a79c9d06ccdf292"
+        },
+        "core_device": {
+          "path": "data/postgres_extract/snapshot-8193-fd2abc293a36/core_device.jsonl",
+          "sha256": "0434bd87e1ec24b3e2d9f997a585b17658f084eafdda733225e77d1e794a29af"
+        },
+        "core_vehicle_device_assignment": {
+          "path": "data/postgres_extract/snapshot-8193-fd2abc293a36/core_vehicle_device_assignment.jsonl",
+          "sha256": "ca4df2846ef90bb4a5c07ad62a60425b276fb1e35766e8270dd60c63c569597d"
+        },
+        "provenance_record": {
+          "path": "data/raw/tables/provenance_record.jsonl",
+          "sha256": "2260a8127b2c91de1372a4264f33f489f515652b84a4798169962c0c26002e41"
+        },
+        "fuel_vehicle_context": {
+          "path": "data/postgres_extract/snapshot-8193-fd2abc293a36/fuel_vehicle_context.jsonl",
+          "sha256": "2145ddef318a443da2e585dbaa2dd85363dcb0a3a3d8b7f1cfd84c00bd3c8c3e"
+        },
+        "fuel_task_assignment": {
+          "path": "data/postgres_extract/snapshot-8193-fd2abc293a36/fuel_task_assignment.jsonl",
+          "sha256": "fc80312d28324b3cba70489879772240e217960a39ffc0dc7db5778194391575"
+        },
+        "fuel_signal_definition": {
+          "path": "data/raw/tables/fuel_signal_definition.jsonl",
+          "sha256": "0ac8379dac558aece91c21af43c42cd135a8f062b855bb9c52ccb2165f13b982"
+        },
+        "fuel_counter_observation": {
+          "path": "data/staged/events/fuel_counter_observation.jsonl",
+          "sha256": "01ace9500572397775c3349608438a9d5ca3583cd25f2839ee5e3dec2746c044"
+        },
+        "fuel_counter_change": {
+          "path": "data/raw/tables/fuel_counter_change.jsonl",
+          "sha256": "93f8d28a748f2bb421ee965287f414840999a81f219ad69f7cee314dff9e5488"
+        },
+        "fuel_purchase_line": {
+          "path": "data/postgres_extract/snapshot-8193-fd2abc293a36/fuel_purchase_line.jsonl",
+          "sha256": "0bdc8367a986bc4d6e8074b1ab27ffdb81bcc7bec12ce3f2824b6b8a2afc18b0"
+        },
+        "fuel_card_assignment": {
+          "path": "data/postgres_extract/snapshot-8193-fd2abc293a36/fuel_card_assignment.jsonl",
+          "sha256": "5b63b7f39eb61b05dee3d2ee33cafdf902a8e71134687529a6d0695d3f5a4cc6"
+        },
+        "fuel_station": {
+          "path": "data/postgres_extract/snapshot-8193-fd2abc293a36/fuel_station.jsonl",
+          "sha256": "6d065475dbbdd8a7da248a5ee9f3f44f7ddfab1f185c381b608d03305e5e3fff"
+        },
+        "fuel_market_price": {
+          "path": "data/raw/tables/fuel_market_price.jsonl",
+          "sha256": "a66a9493d3b1228629c5355234068fa01517235e7cc664db9b26e0957baef278"
+        },
+        "fuel_region_mapping": {
+          "path": "data/raw/tables/fuel_region_mapping.jsonl",
+          "sha256": "d4f45386866929eaa41fd489de502e57c4f8c187605089a32d64a49b5ceb21bf"
+        },
+        "fuel_tank_scope": {
+          "path": "data/postgres_extract/snapshot-8193-fd2abc293a36/fuel_tank_scope.jsonl",
+          "sha256": "23a6047b3f3c09cb0abb287bda04fb089fe0dbc91705ce7bf8013fd826dafd99"
+        },
+        "fuel_inventory_measurement": {
+          "path": "data/postgres_extract/snapshot-8193-fd2abc293a36/fuel_inventory_measurement.jsonl",
+          "sha256": "2969eae10e6dd0fbb463a08aec67b1691f570190be481b97c11d413501526979"
+        },
+        "fuel_movement": {
+          "path": "data/postgres_extract/snapshot-8193-fd2abc293a36/fuel_movement.jsonl",
+          "sha256": "f2af9d338a905d1e7890f7aea20a03f57a4713db4e39340f226cbc7a358e97ee"
+        },
+        "fuel_statement_control": {
+          "path": "data/postgres_extract/snapshot-8193-fd2abc293a36/fuel_statement_control.jsonl",
+          "sha256": "319fce97fb5721bdf11bb1b39338352df573407e5f7e64de8a050920f2cade4f"
+        },
+        "fuel_reference_case": {
+          "path": "data/raw/tables/fuel_reference_case.jsonl",
+          "sha256": "4048b22de7491286e86022ce4280af5b4ba6d28d4d42615c62a57d1c6308c5e5"
+        },
+        "fuel_output_review": {
+          "path": "data/postgres_extract/snapshot-8193-fd2abc293a36/fuel_output_review.jsonl",
+          "sha256": "9c048883d3e4d6d130036794aed35b9ee644652707e0bc8d5d01a6c7ba00771e"
+        },
+        "fuel_action_followup": {
+          "path": "data/postgres_extract/snapshot-8193-fd2abc293a36/fuel_action_followup.jsonl",
+          "sha256": "a12eb86eeb890dbbb6170c428b7888808e3626f9166a6ef2e713b699a7b538f6"
+        }
+      },
+      "unit_normalization": {
+        "rows": 246448,
+        "fuel_value_mismatches": 90030,
+        "distance_value_mismatches": 48294,
+        "unsupported_fuel_units": 0,
+        "unsupported_distance_units": 0,
+        "missing_fuel_raw_values": 0,
+        "missing_distance_raw_values": 0
+      },
+      "operational_source": "postgresql_extract",
+      "built_at": "2026-10-25T20:08:21.189935+00:00"
+    },
+    "analysis": {
+      "project_id": "DA-E01",
+      "metric_version": "fuel-metrics-1.0.0",
+      "data_origin": "synthetic_fleet_with_separately_identified_public_price_background",
+      "totals": {
+        "fuel_used_l": "62852.700212262587184",
+        "distance_km": "219385.511611000000",
+        "fleet_mpg": 8.210096229546526,
+        "measurement_coverage": 0.9994914072433452,
+        "purchase_amount_usd": "76856.050000",
+        "purchased_l": "67258.124342",
+        "market_background_gap_usd": 3318.6935680665683
+      },
+      "canonical_rows": {
+        "fuel_report_run": 243,
+        "fuel_paired_interval": 739242,
+        "fuel_weekly_metric": 2430,
+        "fuel_inventory_balance": 810
+      },
+      "financial_exclusions": [
+        {
+          "financial_status": "nonfuel_or_product",
+          "rows": 30
+        },
+        {
+          "financial_status": "comparable",
+          "rows": 1830
+        }
+      ],
+      "market_sources": [
+        {
+          "report_view": "revised",
+          "benchmark_view": "simulated_asof_background",
+          "rows": 1830,
+          "purchase_l": "67258.124342"
+        },
+        {
+          "report_view": "retrospective",
+          "benchmark_view": "retrospective_public_background",
+          "rows": 1830,
+          "purchase_l": "67258.124342"
+        },
+        {
+          "report_view": "initial",
+          "benchmark_view": "simulated_asof_background",
+          "rows": 1830,
+          "purchase_l": "67258.124342"
+        }
+      ],
+      "followup_statuses": [
+        {
+          "comparison_status": "comparable_descriptive_only",
+          "cases": 3
+        },
+        {
+          "comparison_status": "task_mix_changed",
+          "cases": 1
+        },
+        {
+          "comparison_status": "no_action_observed",
+          "cases": 2
+        },
+        {
+          "comparison_status": "lost_to_followup",
+          "cases": 1
+        },
+        {
+          "comparison_status": "not_mature",
+          "cases": 1
+        }
+      ],
+      "inventory_statuses": [
+        {
+          "reconciliation_status": "investigate_coverage_or_balance",
+          "periods": 1
+        },
+        {
+          "reconciliation_status": "no_eligible_ecu_intervals",
+          "periods": 30
+        },
+        {
+          "reconciliation_status": "within_measurement_uncertainty",
+          "periods": 776
+        },
+        {
+          "reconciliation_status": "uncalibrated_boundary",
+          "periods": 2
+        },
+        {
+          "reconciliation_status": "incomplete_movements",
+          "periods": 1
+        }
+      ],
+      "limits": [
+        "All fleet operations and actions are synthetic.",
+        "Market gaps are background comparisons, not realizable savings.",
+        "Initial/revised views use information available by their cutoff.",
+        "Retrospective public prices do not establish historical availability.",
+        "Follow-up changes are descriptive, not causal effects."
+      ],
+      "exports": [
+        "coverage_sensitivity.csv",
+        "efficiency_comparison.csv",
+        "fleet_weekly.csv",
+        "followup_evaluation.csv",
+        "followup_task_comparison.csv",
+        "interval_exclusions.csv",
+        "inventory_reconciliation.csv",
+        "purchase_detail.csv",
+        "report_revisions.csv",
+        "report_runs.csv",
+        "report_weekly_detail.csv",
+        "review_candidates.csv",
+        "vehicle_weekly.csv"
+      ],
+      "input_policy": {
+        "status": "passed",
+        "canonical_tables": 26,
+        "validation_only_tables": [
+          "fuel_reference_case",
+          "fuel_statement_control"
+        ],
+        "policy": "contract_columns_and_explicit_relation_allowlist"
+      }
+    },
+    "quality": {
+      "status": "passed",
+      "report": "validation/quality_report.json"
+    },
+    "parquet": [
+      {
+        "table": "core_device",
+        "path": "data/normalized/core_device.parquet",
+        "rows": 36,
+        "sha256": "765a64c11d0273e39ee6503a41afd7258fd2c5ae0da8aaa1edc3e4def20d6694"
+      },
+      {
+        "table": "core_tenant",
+        "path": "data/normalized/core_tenant.parquet",
+        "rows": 3,
+        "sha256": "c3f964f52073e5eaa125a715e2416a9217cf1c05b1efd2a1cd5595816703a508"
+      },
+      {
+        "table": "core_vehicle",
+        "path": "data/normalized/core_vehicle.parquet",
+        "rows": 30,
+        "sha256": "bdd0d28ca283ba684907821d0fb76c5bd42519c3511aeab334d3c235770dfe7b"
+      },
+      {
+        "table": "core_vehicle_device_assignment",
+        "path": "data/normalized/core_vehicle_device_assignment.parquet",
+        "rows": 34,
+        "sha256": "bb4351d455b897a7304a846d7d91fe18a2c59d3b8b4c99bdf28210caf4145fe2"
+      },
+      {
+        "table": "fuel_action_followup",
+        "path": "data/normalized/fuel_action_followup.parquet",
+        "rows": 8,
+        "sha256": "2bd02d373d5e7bed31cdad4a042aed722fb9aa07b7649eb4f2b06e57671cc45d"
+      },
+      {
+        "table": "fuel_card_assignment",
+        "path": "data/normalized/fuel_card_assignment.parquet",
+        "rows": 30,
+        "sha256": "c0ae82604810ddc589502b9a5b1a0adc6895a6c0174f774181cc8510f7d22bd5"
+      },
+      {
+        "table": "fuel_counter_change",
+        "path": "data/normalized/fuel_counter_change.parquet",
+        "rows": 3,
+        "sha256": "f4ef84074db8aab87cf15d198b6c64ea0e66efd61be41edcdb0ea825fc56a8d4"
+      },
+      {
+        "table": "fuel_counter_observation",
+        "path": "data/normalized/fuel_counter_observation.parquet",
+        "rows": 246448,
+        "sha256": "3a66fba4cf7110d7e71590d5aa87a518456041f66ed891e113f14060668eca4c"
+      },
+      {
+        "table": "fuel_inventory_balance",
+        "path": "data/normalized/fuel_inventory_balance.parquet",
+        "rows": 810,
+        "sha256": "f727eb0962a0d9303c0e3f0ae76f8519e469f6aeeed96a5ff9e3beb504093a03"
+      },
+      {
+        "table": "fuel_inventory_measurement",
+        "path": "data/normalized/fuel_inventory_measurement.parquet",
+        "rows": 840,
+        "sha256": "6245ff1cecfe381504abdb070265aa89515c5f7a00d3bf75f448ec46463cae0c"
+      },
+      {
+        "table": "fuel_market_price",
+        "path": "data/normalized/fuel_market_price.parquet",
+        "rows": 354,
+        "sha256": "1868b8303b374ff762eff7aeed2fd5003614076b30c3db231994c4216d6fc3a1"
+      },
+      {
+        "table": "fuel_movement",
+        "path": "data/normalized/fuel_movement.parquet",
+        "rows": 3423,
+        "sha256": "b2d3314526922b8a89533c9c7788e6edf75a0675e0f9e6356501508998135c5a"
+      },
+      {
+        "table": "fuel_output_review",
+        "path": "data/normalized/fuel_output_review.parquet",
+        "rows": 8,
+        "sha256": "77eaadf4cce231c8b6f69465a40d453f8154fd4217e77647dce82bea7927f190"
+      },
+      {
+        "table": "fuel_paired_interval",
+        "path": "data/normalized/fuel_paired_interval.parquet",
+        "rows": 739242,
+        "sha256": "609bf803ba4358ae6b101e7f7aff4b015907573d4f506bc855196ac516ab3ee2"
+      },
+      {
+        "table": "fuel_purchase_line",
+        "path": "data/normalized/fuel_purchase_line.parquet",
+        "rows": 1861,
+        "sha256": "2f33ad1c3daba75136e62fbb62e7b8601db02782a06afe174e9cd8308edd248c"
+      },
+      {
+        "table": "fuel_reference_case",
+        "path": "data/normalized/fuel_reference_case.parquet",
+        "rows": 8,
+        "sha256": "fb9a70f09237930938ead4c315816b3d55f5cadfe551e8565545c3824b15a923"
+      },
+      {
+        "table": "fuel_region_mapping",
+        "path": "data/normalized/fuel_region_mapping.parquet",
+        "rows": 9,
+        "sha256": "f34f8154244098c8950971ccee14f64538fea7dedfc02f6b6d841c3bc9ab93af"
+      },
+      {
+        "table": "fuel_report_run",
+        "path": "data/normalized/fuel_report_run.parquet",
+        "rows": 243,
+        "sha256": "bcee699a6972323af66ca192c2f4e44c9dae4a4f34192802e31acfec75b31f7b"
+      },
+      {
+        "table": "fuel_signal_definition",
+        "path": "data/normalized/fuel_signal_definition.parquet",
+        "rows": 60,
+        "sha256": "4ac5977d8f4df2272ae7c9031ac11a953d97bef231e260c5a12062515d48aeeb"
+      },
+      {
+        "table": "fuel_statement_control",
+        "path": "data/normalized/fuel_statement_control.parquet",
+        "rows": 24,
+        "sha256": "2e3f78d1bff2f4293034374fec52bb2b2d53ce947b84aa1ce0b9a5a1c19883b6"
+      },
+      {
+        "table": "fuel_station",
+        "path": "data/normalized/fuel_station.parquet",
+        "rows": 36,
+        "sha256": "a6fe5097bd32a0d631ae40211f66caa8def80435ff693ad383305ee20d6d41a8"
+      },
+      {
+        "table": "fuel_tank_scope",
+        "path": "data/normalized/fuel_tank_scope.parquet",
+        "rows": 30,
+        "sha256": "8f43cd056b68ce125ccc63eeff4f10f0b531e34c48c80992c62ff3f0add4ae71"
+      },
+      {
+        "table": "fuel_task_assignment",
+        "path": "data/normalized/fuel_task_assignment.parquet",
+        "rows": 1800,
+        "sha256": "b37ef70b51e6803206597d17a9eb0d59c56c989fd01c98ac177d0db3f77a8cb5"
+      },
+      {
+        "table": "fuel_vehicle_context",
+        "path": "data/normalized/fuel_vehicle_context.parquet",
+        "rows": 30,
+        "sha256": "49b06ea1cd4abc6f60f17dd2505e3f1358213092a655eaa6636b263b4f1e1095"
+      },
+      {
+        "table": "fuel_weekly_metric",
+        "path": "data/normalized/fuel_weekly_metric.parquet",
+        "rows": 2430,
+        "sha256": "9de340f479393e223d6b47c73584b0281c60f4f81d95767cdaa69a5c65efe0dc"
+      },
+      {
+        "table": "provenance_record",
+        "path": "data/normalized/provenance_record.parquet",
+        "rows": 255007,
+        "sha256": "fec0372d082eed148b143990d536f9a68358de3b93ab6faf25eef9e19cac5c78"
+      }
+    ]
+  },
+  "finished_at": "2026-10-25T20:08:40.304921+00:00",
+  "status": "completed",
+  "database_sha256": "69228493f2a8876eaea9d7a3d6045e2ea65b283784a1dce41163299115b16a24"
+}

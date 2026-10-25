@@ -11,6 +11,7 @@ This directory contains several representations with different jobs. The origina
 | `public/raw/` | Official EIA downloads and acquisition receipts | Verifiable external evidence with actual retrieval time |
 | `public/snapshots/` | Versioned normalized public price snapshots | Keeps a refresh from silently rewriting old evidence |
 | `public/source_manifest.json` | Active public snapshot, coverage, source hashes and comparison results | Selects and validates public inputs |
+| `postgres_extract/<snapshot>/` | The 15 operational tables extracted from the verified full PostgreSQL CI run | Exact operational inputs used to build the delivered database |
 | `staged/events/fuel_counter_observation.jsonl` | Accepted counter observations after HTTP intake | Exact input to analytical normalization, separate from rejected deliveries |
 | `ingestion/<snapshot>/receipts.sqlite` | Current snapshot delivery receipts, accepted keys, versions and checkpoints | Audits retries, duplicates, rejects and resume state |
 | `ingestion/quarantine.jsonl` | Rejected records with reasons | Keeps invalid data visible without accepting it as a measurement |
@@ -18,7 +19,7 @@ This directory contains several representations with different jobs. The origina
 | `normalized/*.parquet` | Typed canonical table exports with a manifest | Portable tabular interchange and independent row/hash checks |
 | `derived/*.parquet` | Four canonical calculated tables | Direct access to paired intervals, report runs, weekly metrics and inventory balances |
 
-The API's SQLite event index is a cache, not a new data source. The release package omits that cache and reconstructs it from `raw/events.jsonl` when the HTTP service starts. Only the active ingestion receipt snapshot is packaged; temporary or inactive copies are excluded.
+The API's SQLite event index is a cache, not a new data source. The release package omits that cache and reconstructs it from `raw/events.jsonl` when the HTTP service starts. Only the active ingestion receipt snapshot is packaged; temporary or inactive copies are excluded. These receipts describe the local HTTP replay. The delivered DuckDB comes from the verified full PostgreSQL CI build; its remote intake report is preserved separately. [Local intake evidence](../validation/local_intake_evidence.json) establishes the same source snapshot and counts without changing either execution’s timestamps.
 
 A full-profile generation has 1,800 observed trips. The smoke profile retains the complete planned world and accounting controls but emits observations for 100 stable trips, so its business metrics are intentionally incomplete. The release packager requires the full profile.
 
