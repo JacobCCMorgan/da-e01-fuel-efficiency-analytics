@@ -1,0 +1,82 @@
+{
+  "source_id": "S22-PUB-001",
+  "adapter_version": "eia-html-xls-1.0.1",
+  "status": "public_download_verified",
+  "access_mode": "official_https_file_download_not_api",
+  "snapshot_id": "139f0579c430932d",
+  "files": [
+    {
+      "name": "eia_california.html",
+      "url": "https://www.eia.gov/dnav/pet/hist/LeafHandler.ashx?f=W&n=PET&s=EMD_EPD2D_PTE_SCA_DPG",
+      "status": 200,
+      "retrieved_at": "2026-10-25T18:49:04.466626+00:00",
+      "sha256": "0e13453e9cb494ac0ae85dc6bd1dfadf4e8a748108a21418ba31c9658364ed31",
+      "bytes": 171421,
+      "headers": {
+        "Content-Type": "text/html; charset=utf-8",
+        "Last-Modified": null,
+        "ETag": null,
+        "Content-Length": "171421",
+        "Date": "Sun, 25 Oct 2026 18:49:07 GMT"
+      },
+      "path": "data/public/raw/eia_california.html",
+      "receipt_path": "data/public/raw/eia_california.html.receipt.json"
+    },
+    {
+      "name": "eia_west_coast_ex_ca.html",
+      "url": "https://www.eia.gov/dnav/pet/hist/LeafHandler.ashx?f=W&n=PET&s=EMD_EPD2D_PTE_R5XCA_DPG",
+      "status": 200,
+      "retrieved_at": "2026-10-25T18:49:07.912039+00:00",
+      "sha256": "02f5cf793d7973a423e2622deca012ea7e67187f8847d151b3be0d85f74e4388",
+      "bytes": 84400,
+      "headers": {
+        "Content-Type": "text/html; charset=utf-8",
+        "Last-Modified": null,
+        "ETag": null,
+        "Content-Length": "84400",
+        "Date": "Sun, 25 Oct 2026 18:49:10 GMT"
+      },
+      "path": "data/public/raw/eia_west_coast_ex_ca.html",
+      "receipt_path": "data/public/raw/eia_west_coast_ex_ca.html.receipt.json"
+    },
+    {
+      "name": "eia_diesel_history.xls",
+      "url": "https://www.eia.gov/petroleum/gasdiesel/xls/psw18vwall.xls",
+      "status": 200,
+      "retrieved_at": "2026-10-25T18:49:10.807476+00:00",
+      "sha256": "e066d78c437e7a6bae2515354b04b1313727b2e20595b081b8734ff47924275a",
+      "bytes": 765440,
+      "headers": {
+        "Content-Type": "application/vnd.ms-excel",
+        "Last-Modified": "Tue, 20 Oct 2026 13:31:24 GMT",
+        "ETag": "\"0dec4d9760dd1:0\"",
+        "Content-Length": "765440",
+        "Date": "Sun, 25 Oct 2026 18:49:13 GMT"
+      },
+      "path": "data/public/raw/eia_diesel_history.xls",
+      "receipt_path": "data/public/raw/eia_diesel_history.xls.receipt.json"
+    }
+  ],
+  "rows": 62,
+  "observation_start": "2024-12-02",
+  "observation_end": "2025-06-30",
+  "series_count": 2,
+  "main_period_rows": 52,
+  "missing_values": 0,
+  "normalized_path": "data/public/snapshots/139f0579c430932d/fuel_prices.jsonl",
+  "normalized_sha256": "ac3180b1c6f12fde169bbbec9bc0db211cfe623b75a0145dd3be619a53cdcd5b",
+  "xls_crosscheck": {
+    "status": "passed",
+    "html_rows_compared_to_xls": 62,
+    "comparison": "independent formats of the same EIA publication, not an independent measurement",
+    "sheet": "Data 1",
+    "source_key_row": 2,
+    "mismatches": 0
+  },
+  "rights_url": "https://www.eia.gov/about/copyrights_reuse.php",
+  "methodology_url": "https://www.eia.gov/petroleum/gasdiesel/diesel_proc-methods.php",
+  "attribution": "Source: U.S. Energy Information Administration. Source-page release dates: 2026-10-20. Retrieved: 2026-10-25. Historical individual publication dates unknown.",
+  "rights_scope": "EIA numeric data; no logos, photographs, or protected third-party material included in reports",
+  "historical_availability": "unknown; no 2025 as-of joins",
+  "geography_limit": "California is state-level; West Coast except California is regional, not AZ/NV state prices"
+}

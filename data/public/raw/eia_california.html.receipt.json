@@ -1,0 +1,15 @@
+{
+  "name": "eia_california.html",
+  "url": "https://www.eia.gov/dnav/pet/hist/LeafHandler.ashx?f=W&n=PET&s=EMD_EPD2D_PTE_SCA_DPG",
+  "status": 200,
+  "retrieved_at": "2026-10-25T18:49:04.466626+00:00",
+  "sha256": "0e13453e9cb494ac0ae85dc6bd1dfadf4e8a748108a21418ba31c9658364ed31",
+  "bytes": 171421,
+  "headers": {
+    "Content-Type": "text/html; charset=utf-8",
+    "Last-Modified": null,
+    "ETag": null,
+    "Content-Length": "171421",
+    "Date": "Sun, 25 Oct 2026 18:49:07 GMT"
+  }
+}

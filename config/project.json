@@ -1,0 +1,14 @@
+{
+  "project_id": "DA-E01",
+  "data_version": "1.0.0",
+  "seed": 20261021,
+  "start": "2025-01-01",
+  "end": "2025-06-30",
+  "tenants": 3,
+  "vehicles": 30,
+  "devices": 36,
+  "drivers": 45,
+  "trips": 1800,
+  "report_timezone": "America/Los_Angeles",
+  "profile": "full"
+}

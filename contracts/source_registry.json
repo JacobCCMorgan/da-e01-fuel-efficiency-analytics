@@ -1,0 +1,56 @@
+{
+  "schema_version": "1.0.0",
+  "contract_role": "External source_dataset key registry; outside the 26-table canonical subset.",
+  "entries": [
+    {
+      "source_dataset_id": "fleet-fuel-sample-v1.0.0",
+      "origin_type": "synthetic",
+      "scope": "fictional fleet operations and validation fixtures",
+      "version": "1.0.0",
+      "seed": 20261021,
+      "evidence": [
+        "config/simulation.json",
+        "data/generation_manifest.json",
+        "src/fleet_fuel/simulation.py"
+      ],
+      "expected_generator_version": "1.0.0",
+      "rights": "Original synthetic demonstration; no real customer fleet records."
+    },
+    {
+      "source_dataset_id": "EIA-139f0579c430932d",
+      "origin_type": "public",
+      "scope": "published diesel-price background; no operational entity identity linkage",
+      "version": "139f0579c430932d",
+      "evidence": [
+        "data/public/snapshots/139f0579c430932d/manifest.json"
+      ],
+      "normalized_sha256": "ac3180b1c6f12fde169bbbec9bc0db211cfe623b75a0145dd3be619a53cdcd5b",
+      "snapshot_hash_matches": true,
+      "source_urls": [
+        "https://www.eia.gov/dnav/pet/hist/LeafHandler.ashx?f=W&n=PET&s=EMD_EPD2D_PTE_SCA_DPG",
+        "https://www.eia.gov/dnav/pet/hist/LeafHandler.ashx?f=W&n=PET&s=EMD_EPD2D_PTE_R5XCA_DPG",
+        "https://www.eia.gov/petroleum/gasdiesel/xls/psw18vwall.xls"
+      ],
+      "rights_url": "https://www.eia.gov/about/copyrights_reuse.php",
+      "historical_availability": "unknown; no 2025 as-of joins"
+    },
+    {
+      "source_dataset_id": "EIA-5b623f0c42737469",
+      "origin_type": "public",
+      "scope": "published diesel-price background; no operational entity identity linkage",
+      "version": "5b623f0c42737469",
+      "evidence": [
+        "data/public/snapshots/5b623f0c42737469/manifest.json"
+      ],
+      "normalized_sha256": "7a25b197ac6e2ee710381f687edd78e1142229da032394a93065d4aa972252d4",
+      "snapshot_hash_matches": true,
+      "source_urls": [
+        "https://www.eia.gov/dnav/pet/hist/LeafHandler.ashx?f=W&n=PET&s=EMD_EPD2D_PTE_SCA_DPG",
+        "https://www.eia.gov/dnav/pet/hist/LeafHandler.ashx?f=W&n=PET&s=EMD_EPD2D_PTE_R5XCA_DPG",
+        "https://www.eia.gov/petroleum/gasdiesel/xls/psw18vwall.xls"
+      ],
+      "rights_url": "https://www.eia.gov/about/copyrights_reuse.php",
+      "historical_availability": "unknown; no 2025 as-of joins"
+    }
+  ]
+}

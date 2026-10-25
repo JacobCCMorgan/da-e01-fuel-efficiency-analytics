@@ -1,0 +1,63 @@
+name: Reproducible data pipeline
+
+"on":
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  postgres-smoke:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    services:
+      postgres:
+        image: postgres:16
+        env:
+          POSTGRES_DB: fleet_fuel_ci
+          POSTGRES_USER: fleet_test
+          # Ephemeral CI-only service on loopback; no production credentials.
+          POSTGRES_HOST_AUTH_METHOD: trust
+        ports:
+          - "127.0.0.1:5432:5432"
+        options: >-
+          --health-cmd "pg_isready -U fleet_test -d fleet_fuel_ci"
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 12
+    env:
+      FUEL_POSTGRES_DSN: postgresql://fleet_test@127.0.0.1:5432/fleet_fuel_ci
+      PYTHONPATH: src
+      MPLBACKEND: Agg
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: requirements.lock.txt
+      - name: Install pinned runtime and test dependencies
+        run: |
+          python -m pip install -r requirements.lock.txt
+          python -m pip install --no-deps --no-build-isolation -e .
+      - name: Test calculations, ingestion and real PostgreSQL transactions
+        run: python -m pytest -q --junitxml=validation/ci-tests.xml
+      - name: Rebuild smoke project through PostgreSQL and HTTP sources
+        run: python -m fleet_fuel.cli run --profile smoke --operational postgres --skip-report
+      - name: Preserve CI verification evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: postgres-smoke-evidence
+          path: |
+            validation/ci-tests.xml
+            validation/postgres_bootstrap.json
+            validation/postgres_extract.json
+            validation/ingestion_report.json
+            validation/build_report.json
+            validation/quality_report.json
+            data/generation_manifest.json
+          if-no-files-found: warn
+          retention-days: 30
