@@ -15,6 +15,7 @@ import os
 from pathlib import Path, PurePosixPath
 import re
 import sqlite3
+import sys
 import tempfile
 import xml.etree.ElementTree as ET
 import zipfile
@@ -77,7 +78,10 @@ def safe_file(root: Path, relative: str) -> Path:
 
 def text_hazards(data: bytes, root: Path) -> str | None:
     private = [str(root).encode(), ('/' + 'workspace/scratch/').encode(),
-               ('/' + 'home/runner/work/').encode(), ('/' + 'opt/codex/').encode()]
+               ('/' + 'home/runner/work/').encode()]
+    runtime_root = str(Path(sys.executable).resolve().parents[2])
+    if runtime_root.startswith('/opt/'):
+        private.append(runtime_root.encode())
     if any(prefix in data for prefix in private):
         return 'absolute_private_machine_path'
     credential_patterns = [rb'gh[pousr]_[A-Za-z0-9]{25,}',
@@ -125,6 +129,8 @@ def inspect_file(root: Path, relative: str) -> dict:
         rows = pq.ParquetFile(p).metadata.num_rows
     if relative.startswith('data/public/'):
         origin, license_refs = 'public_EIA_or_acquisition_metadata', ['data/LICENSE.md#external-eia-information', 'docs/sources.md']
+    elif relative.startswith('data/postgres_extract/'):
+        origin, license_refs = 'synthetic_records_extracted_from_verified_postgresql', ['data/LICENSE.md#original-fictional-sample-data']
     elif relative.startswith('data/raw/'):
         origin, license_refs = 'synthetic_source', ['data/LICENSE.md#original-fictional-sample-data']
     elif relative.startswith(('data/staged/', 'data/ingestion/', 'validation/expected/')):
@@ -138,6 +144,29 @@ def inspect_file(root: Path, relative: str) -> dict:
     return {'path': relative, 'bytes': p.stat().st_size, 'sha256': digest.hexdigest(),
             'logical_rows': rows, 'source_origin': origin, 'license_refs': license_refs,
             'git_file_size_eligible': p.stat().st_size <= GIT_LIMIT}
+
+
+def owned_build_inputs(root: Path, build: dict) -> set[str]:
+    """Select exact staged/extracted inputs, never every historical extract."""
+    entries = [entry for entry in build['inputs'].values()
+               if entry['path'].startswith(('data/staged/', 'data/postgres_extract/'))]
+    extracted = {entry['path'] for entry in entries if entry['path'].startswith('data/postgres_extract/')}
+    if build.get('operational_source') == 'postgresql_extract':
+        manifest = load(safe_file(root, 'validation/postgres_extract.json'))
+        safe_file(root, 'validation/postgres_bootstrap.json')
+        directory = manifest['directory']
+        if manifest.get('status') != 'executed' or not re.fullmatch(r'data/postgres_extract/snapshot-[0-9]+-[a-zA-Z0-9]+', directory):
+            raise ValueError('Invalid executed PostgreSQL extract manifest')
+        expected = {directory + '/' + name + '.jsonl' for name in manifest['rows']}
+        if extracted != expected:
+            raise ValueError('PostgreSQL build inputs do not exactly match the active extract manifest')
+    elif extracted:
+        raise ValueError('PostgreSQL extract paths require a PostgreSQL source build')
+    for entry in entries:
+        safe_file(root, entry['path'])
+        if file_hash(root / entry['path']) != entry['sha256']:
+            raise ValueError(f'Build input changed: {entry["path"]}')
+    return {entry['path'] for entry in entries}
 
 
 def collect(root: Path) -> tuple[set[str], set[str], dict]:
@@ -192,12 +221,14 @@ def collect(root: Path) -> tuple[set[str], set[str], dict]:
             raise ValueError(f'Generator-owned source changed: {rel}')
         data.add(rel)
     build = load(root / 'validation/build_report.json')
-    for entry in build['inputs'].values():
-        if entry['path'].startswith('data/staged/'):
-            safe_file(root, entry['path'])
-            if file_hash(root / entry['path']) != entry['sha256']:
-                raise ValueError(f'Staged input changed: {entry["path"]}')
-            data.add(entry['path'])
+    data.update(owned_build_inputs(root, build))
+    if build.get('operational_source') == 'postgresql_extract':
+        data.update({'validation/postgres_bootstrap.json', 'validation/postgres_extract.json'})
+    for name in ['validation/database_adoption.json', 'validation/local_intake_evidence.json',
+                 'validation/local_http_ingestion.json', 'validation/ci_full_run_40227233022.json',
+                 'validation/ci_full_canonical_comparison_40227233022.json']:
+        if (root / name).is_file():
+            data.add(name)
     normalized = load(root / 'data/normalized/manifest.json')
     data.add('data/normalized/manifest.json')
     for entry in normalized:
@@ -313,6 +344,9 @@ def package(root: Path) -> dict:
     common = {'project_id': 'DA-E01', 'release_version': '1.0.0',
               'format_version': '1.0.0', 'profile': metadata['generation']['profile'],
               'seed': metadata['generation']['seed'],
+              'operational_mode': metadata['run']['operational_mode'],
+              'database_execution_evidence': metadata['run'].get('database_execution_evidence'),
+              'delivered_local_intake_evidence': 'validation/local_intake_evidence.json' if 'validation/local_intake_evidence.json' in selected else None,
               'junit_counts': metadata['junit_counts'],
               'notebook_executed_code_cells': metadata['notebook_executed_code_cells'],
               'zip_timestamp_policy': 'fixed_from_original_synthetic_release_creation_not_packaging_time',

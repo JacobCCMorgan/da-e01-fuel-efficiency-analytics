@@ -1,0 +1,712 @@
+{
+  "schema_version": "1.0.0",
+  "project_id": "DA-E01",
+  "recorded_at": "2026-10-25T19:54:54.145020+00:00",
+  "record_role": "Release-review reconciliation of accepted M0 source/scope decisions; not a backdated claim that this file existed before implementation.",
+  "baseline_policy": "Frozen S2.2/S2.3 originals are unchanged. This additive execution register preserves their wording and does not mark later projects complete.",
+  "baseline_references": [
+    {
+      "name": "open_questions.json",
+      "sha256": "84a60abe058eb29485a4e508c00e19eeb7ba4b9ea23871750a4809cecba55df2"
+    },
+    {
+      "name": "s23_source_decisions.json",
+      "sha256": "5596e91e7d2db98c0dc1049d5de68cefac3cdfc5da7de0181419f74faf78262e"
+    },
+    {
+      "name": "S2_4_DA_E01_Execution_Instructions_v2_20261023_REVIEW.txt",
+      "sha256": "6f7190f193c16c6afb7a1cda4203c8e2beada9dc6aa6f273840bcb844f5e7917"
+    }
+  ],
+  "scope_summary": {
+    "current_project_questions": 2,
+    "deferred_project_questions": 16,
+    "shared_definition_decisions": 3,
+    "question_total": 18,
+    "other_first_batch_projects_started": false,
+    "other39_projects_expanded": false,
+    "retained_other39_project_ids": [
+      "DA-E03",
+      "DA-E04",
+      "DA-E05",
+      "DA-M01",
+      "DA-M02",
+      "DA-M03",
+      "DA-M04",
+      "DA-M05",
+      "DA-M06",
+      "DA-M07",
+      "DA-S01",
+      "DA-S02",
+      "DA-S03",
+      "DA-S04",
+      "DE-E02",
+      "DE-M01",
+      "DE-M03",
+      "DE-M04",
+      "DE-M05",
+      "DE-M06",
+      "DE-M07",
+      "DE-M08",
+      "DE-S01",
+      "DE-S02",
+      "DE-S03",
+      "DS-E02",
+      "DS-E03",
+      "DS-M02",
+      "DS-M03",
+      "DS-M04",
+      "DS-M06",
+      "DS-M07",
+      "DS-M08",
+      "DS-M09",
+      "DS-S01",
+      "DS-S02",
+      "DS-S03",
+      "DS-S04",
+      "DS-S05"
+    ]
+  },
+  "common_decisions": [
+    {
+      "decision_id": "DA-E01-M0-001",
+      "scope_category": "shared_definition",
+      "topic": "Deterministic substream width and byte encoding",
+      "status": "applied_to_DA_E01; weather_package_implementation_deferred",
+      "owner": "Project maintainer / data engineer",
+      "stage": "S2.4 M0 execution definition; reconciled at release review",
+      "accepted_rule": "First 16 SHA256 bytes (128 bits), unsigned big-endian; never language built-in hash.",
+      "original_global_rule": "seed_i = first_128_bits(SHA256(UTF8(master_seed|package_id|stable_entity_id|scenario_id|component_version))); 禁用Python隨機hash及全域順序RNG；PCG64或固定演算法需於S2.4鎖版本。",
+      "superseded_package_rules": [
+        {
+          "package_id": "S23-PKG-WEATHER-002",
+          "original_text": "SHA256(\"20261021|weather_field|v1\")取前8bytes轉uint64；不得用語言內建hash",
+          "original_utf8_key": "20261021|weather_field|v1",
+          "original_utf8_hex": "32303236313032317c776561746865725f6669656c647c7631",
+          "sha256_hex": "214dfb88715c9b8038032c2420ba86337db24a16524203b8c3b4722f79d082a0",
+          "legacy_uint64_big_endian_decimal": "2399850739894360960",
+          "width_only_uint128_big_endian_decimal": "44269432413933785659689547793188947507",
+          "purpose": "Width-only comparison on unchanged legacy bytes; no weather data generated."
+        },
+        {
+          "package_id": "S23-PKG-WEATHER-003",
+          "original_text": "SHA256(\"20261021|eta_forecast|v1\")前8bytes uint64",
+          "original_utf8_key": "20261021|eta_forecast|v1",
+          "original_utf8_hex": "32303236313032317c6574615f666f7265636173747c7631",
+          "sha256_hex": "9a31f4c4c3fbb34b237394f623304e331e0e6e015ee0c8abb276c33f31aa8e19",
+          "legacy_uint64_big_endian_decimal": "11110930881638544203",
+          "width_only_uint128_big_endian_decimal": "204960498394262258769924241784648519219",
+          "purpose": "Width-only comparison on unchanged legacy bytes; no weather data generated."
+        }
+      ],
+      "execution_encoding": "UTF-8 str(seed) and explicit component/entity tokens separated by U+001F; DA-E01 v1 uses trip and physics namespaces with stable trip IDs.",
+      "version_boundary": "Generator version 1.0.0 and simulation config freeze the token grammar. The version is recorded outside the RNG key, not silently claimed to be an extra hashed token. Any token grammar, RNG algorithm or component-version change requires a new dataset version and replay comparison.",
+      "compatibility": "Frozen package notes remain unchanged. The 16-byte rule supersedes their 8-byte execution instruction. DA-E01 already uses 128 bits; this register does not regenerate source data. Weather packages require the accepted rule when their owning project is activated.",
+      "test_vectors": [
+        {
+          "tokens": [
+            20261021,
+            "trip",
+            "T01-V01-TR001"
+          ],
+          "serialized_utf8_hex": "32303236313032311f747269701f5430312d5630312d5452303031",
+          "sha256_hex": "2217628b263048f58d2a5cc22ce17bc33fba4835ccbccc92f644526961ea188f",
+          "uint128_big_endian_decimal": "45315173385107991413193837980978084803",
+          "actual_sub_seed_matches": true,
+          "scope": "executed DA-E01 namespace"
+        },
+        {
+          "tokens": [
+            20261021,
+            "physics",
+            "T01-V01-TR001"
+          ],
+          "serialized_utf8_hex": "32303236313032311f706879736963731f5430312d5630312d5452303031",
+          "sha256_hex": "2a8c320b9cc8c6be4864ce39ec0b187f4cba93e134370f6dc51f918ecc73c454",
+          "uint128_big_endian_decimal": "56555512423673698005097336676557723775",
+          "actual_sub_seed_matches": true,
+          "scope": "executed DA-E01 namespace"
+        },
+        {
+          "tokens": [
+            20261021,
+            "weather_field",
+            "v1"
+          ],
+          "serialized_utf8_hex": "32303236313032311f776561746865725f6669656c641f7631",
+          "sha256_hex": "04fdf2f621471ce205efca3bb3e4f5906ca9e650d09da05fc546d2ba2c2b2cef",
+          "uint128_big_endian_decimal": "6635490931900012547853576854177117584",
+          "actual_sub_seed_matches": true,
+          "scope": "encoder compatibility vector only; weather generation deferred"
+        },
+        {
+          "tokens": [
+            20261021,
+            "eta_forecast",
+            "v1"
+          ],
+          "serialized_utf8_hex": "32303236313032311f6574615f666f7265636173741f7631",
+          "sha256_hex": "e00ec79da7908e63004daba21c92204add75dbad2f8067ec2516aa4403d107ec",
+          "uint128_big_endian_decimal": "297823811902032038899646802291833577546",
+          "actual_sub_seed_matches": true,
+          "scope": "encoder compatibility vector only; weather generation deferred"
+        }
+      ],
+      "evidence": [
+        "config/simulation.json",
+        "src/fleet_fuel/simulation.py#sub_seed",
+        "tests/test_simulation.py#SimulationTests.test_world_has_stable_ids_and_valid_intervals",
+        "validation/rebuild_report.json"
+      ],
+      "next_project": [
+        "DS-E01",
+        "DS-M01"
+      ],
+      "next_action": "On explicit activation, freeze the weather/forecast token grammar and fixture vectors before generation; no weather package execution in DA-E01."
+    },
+    {
+      "decision_id": "DA-E01-M0-002",
+      "scope_category": "shared_definition",
+      "topic": "Source-qualified forecast grid identity",
+      "status": "accepted_definition; implementation_deferred",
+      "owner": "DS-M01 data/model maintainer",
+      "stage": "Definition retained at M0; DS-M01 S2.4 implementation deferred",
+      "baseline_change_id": "S23-CHG-WEATHER-001",
+      "field_id": "S22-F-7EFB048C7F64",
+      "requirement_id": "DS-M01-P023",
+      "decision": "Keep the stable grid_id field ID and use source/product/version-qualified identity in the future execution contract; never describe a synthetic location as a real NWS grid. The accepted frozen baseline is not overwritten.",
+      "evidence": [
+        "contracts/da_e01_contract.json"
+      ],
+      "evidence_limit": "DA-E01 has no eta_forecast_version table; this is retained definition, not implemented forecasting.",
+      "next_project": [
+        "DS-M01"
+      ],
+      "next_action": "On activation, materialize qualified grid metadata and independent wrong-grid/as-of fixtures."
+    },
+    {
+      "decision_id": "DA-E01-M0-003",
+      "scope_category": "shared_definition",
+      "topic": "Answer-generator version semantics",
+      "status": "accepted_definition; implementation_deferred",
+      "owner": "DS-M05 retrieval/evaluation maintainer",
+      "stage": "Definition retained at M0; DS-M05 S2.4/S3 implementation deferred",
+      "baseline_change_id": "S23-CP-SUP-001",
+      "field_id": "S22-F-6568412EC7DF",
+      "decision": "generator_version identifies the actual draft-producing component, including a language model or local extractive/template algorithm. retrieval_only uses NULL/not_applicable; generator_kind records the actual implementation. This preserves the required draft outcome without claiming an unexecuted model.",
+      "evidence": [
+        "contracts/da_e01_contract.json"
+      ],
+      "evidence_limit": "DA-E01 has no rag_experiment_config table; no retrieval or answer system is marked complete.",
+      "next_project": [
+        "DS-M05"
+      ],
+      "next_action": "On activation, implement local evidence-backed drafts, citations and independent answer evaluation before DS-M05 completion."
+    }
+  ],
+  "open_question_disposition": [
+    {
+      "question_id": "S23-OQ-001",
+      "baseline_order": 1,
+      "project_id": "DA-E01",
+      "original_question": "公開價格/氣象快照能否符合期間、授權與重現要求？",
+      "scope_category": "current_project",
+      "status": "resolved_for_DA_E01_v1",
+      "decision": "Public EIA prices are frozen: 62 observations from 2024-12-02 to 2025-06-30, including 52 Jan–Jun observations across two series. Original files, receipts, rights notes and hashes are retained. Historical release times remain unknown, so public prices enter retrospective context only. Optional weather is not activated for DA-E01; no full-period weather coverage is claimed.",
+      "owner": "Data analyst / project maintainer",
+      "current_stage": "DA-E01 S2.4/S3 complete; v1 review pending",
+      "evidence": [
+        "data/public/source_manifest.json",
+        "docs/sources.md",
+        "src/fleet_fuel/public_normalization.py",
+        "tests/test_public_normalization.py"
+      ],
+      "baseline_source_ids": [
+        "S22-PUB-001",
+        "S22-PUB-002"
+      ],
+      "baseline_evidence_ids": [
+        "S23-EV-FUEL-001",
+        "S23-EV-FUEL-002",
+        "S23-EV-FUEL-003",
+        "S23-EV-FUEL-004",
+        "S23-EV-FUEL-005",
+        "S23-EV-FUEL-006",
+        "S23-EV-FUEL-007",
+        "S23-EV-WEATHER-001",
+        "S23-EV-WEATHER-002",
+        "S23-EV-WEATHER-003",
+        "S23-EV-WEATHER-004",
+        "S23-EV-WEATHER-005",
+        "S23-EV-WEATHER-006"
+      ],
+      "implementation_evidence_state": "delivered_and_verified_for_DA_E01",
+      "next_project_or_gate": "DA-E01 v1 acceptance",
+      "next_action": "Accept retrospective-only price interpretation at v1 review. A later weather extension needs its own coverage, rights and version assessment; it is not a missing prerequisite.",
+      "requires_explicit_project_activation": false,
+      "user_data_required": false
+    },
+    {
+      "question_id": "S23-OQ-002",
+      "baseline_order": 2,
+      "project_id": "DA-E01",
+      "original_question": "初版情境範圍與樣本規模是否需要擴增？",
+      "scope_category": "current_project",
+      "status": "resolved_for_DA_E01_v1",
+      "decision": "Keep the accepted Jan–Jun 2025 scope: 3 tenants, 30 vehicles, 36 devices, 45 drivers and 1,800 trips. The fixed 100-trip smoke subset, full run, boundary cases, independent controls and parameter change checks execute. No scale increase is required for v1; simulated scale is not evidence of real-world efficacy.",
+      "owner": "Data analyst / project maintainer",
+      "current_stage": "DA-E01 S2.4/S3 complete; v1 review pending",
+      "evidence": [
+        "config/project.json",
+        "data/generation_manifest.json",
+        "contracts/scenario_registry.json",
+        "validation/rebuild_report.json"
+      ],
+      "baseline_source_ids": [],
+      "baseline_evidence_ids": [],
+      "implementation_evidence_state": "delivered_and_verified_for_DA_E01",
+      "next_project_or_gate": "DA-E01 v1 acceptance",
+      "next_action": "Retain the fixed scope at v1 review; add later scenario or scale versions only for a specific coverage/performance question while preserving prior IDs.",
+      "requires_explicit_project_activation": false,
+      "user_data_required": false
+    },
+    {
+      "question_id": "S23-OQ-003",
+      "baseline_order": 3,
+      "project_id": "DS-E01",
+      "original_question": "公開價格/氣象快照能否符合期間、授權與重現要求？",
+      "scope_category": "later_project",
+      "status": "deferred_project_not_started",
+      "decision": "Retain the source policy. DA-E01 EIA acquisition is reusable context, but DS-E01 weather matching and full-period coverage are not implemented.",
+      "owner": "Data scientist / project maintainer",
+      "current_stage": "DS-E01 S2.4 source coverage; S3 feature evaluation",
+      "evidence": [
+        "data/public/source_manifest.json",
+        "docs/sources.md"
+      ],
+      "baseline_source_ids": [
+        "S22-PUB-001",
+        "S22-PUB-002"
+      ],
+      "baseline_evidence_ids": [
+        "S23-EV-FUEL-001",
+        "S23-EV-FUEL-002",
+        "S23-EV-FUEL-003",
+        "S23-EV-FUEL-004",
+        "S23-EV-FUEL-005",
+        "S23-EV-FUEL-006",
+        "S23-EV-FUEL-007",
+        "S23-EV-WEATHER-001",
+        "S23-EV-WEATHER-002",
+        "S23-EV-WEATHER-003",
+        "S23-EV-WEATHER-004",
+        "S23-EV-WEATHER-005",
+        "S23-EV-WEATHER-006"
+      ],
+      "implementation_evidence_state": "no_project_specific_execution_claimed",
+      "next_project_or_gate": "DS-E01",
+      "next_action": "Verify rights, station/month coverage, QC and as-of availability for DS-E01; otherwise use explicitly synthetic weather or disable that optional context.",
+      "requires_explicit_project_activation": true,
+      "user_data_required": false
+    },
+    {
+      "question_id": "S23-OQ-004",
+      "baseline_order": 4,
+      "project_id": "DS-E01",
+      "original_question": "初版情境範圍與樣本規模是否需要擴增？",
+      "scope_category": "later_project",
+      "status": "deferred_project_not_started",
+      "decision": "Preserve the common scale. Reusable DA-E01 simulation does not validate a DS-E01 daily target, normal baseline, model split or waste classifier.",
+      "owner": "Data scientist / project maintainer",
+      "current_stage": "DS-E01 S2.4 fixtures; S3 sensitivity",
+      "evidence": [
+        "config/project.json",
+        "validation/rebuild_report.json"
+      ],
+      "baseline_source_ids": [],
+      "baseline_evidence_ids": [],
+      "implementation_evidence_state": "no_project_specific_execution_claimed",
+      "next_project_or_gate": "DS-E01",
+      "next_action": "Define target observability, load/PTO/normal cases, chronological splits and independent labels before deciding whether larger samples are needed.",
+      "requires_explicit_project_activation": true,
+      "user_data_required": false
+    },
+    {
+      "question_id": "S23-OQ-005",
+      "baseline_order": 5,
+      "project_id": "DA-E02",
+      "original_question": "實際公開資料是否足以補充來源格式或部分事件範例？",
+      "scope_category": "later_project",
+      "status": "deferred_project_not_started",
+      "decision": "Synthetic device, deployment and work-order data remain the sufficient DA-E02 route. No complete DA-E02 online-state or support dataset is claimed.",
+      "owner": "Data analyst / project maintainer",
+      "current_stage": "DA-E02 S2.4 dedicated data and source review",
+      "evidence": [],
+      "baseline_source_ids": [
+        "S22-PUB-007",
+        "S22-PUB-004"
+      ],
+      "baseline_evidence_ids": [
+        "S23-EV-VEH-001",
+        "S23-EV-VEH-002",
+        "S23-EV-VEH-003",
+        "S23-EV-VEH-004",
+        "S23-EV-VEH-005",
+        "S23-EV-RAG-010",
+        "S23-EV-RAG-011",
+        "S23-EV-RAG-012",
+        "S23-EV-RAG-016"
+      ],
+      "implementation_evidence_state": "no_project_specific_execution_claimed",
+      "next_project_or_gate": "DA-E02",
+      "next_action": "Build DA-E02-specific events and tickets; add official format examples only after checking rights, versions and applicability, separate from simulated identities.",
+      "requires_explicit_project_activation": true,
+      "user_data_required": false
+    },
+    {
+      "question_id": "S23-OQ-006",
+      "baseline_order": 6,
+      "project_id": "DA-E02",
+      "original_question": "示範用回報策略與品質門檻是否適合展示？",
+      "scope_category": "later_project",
+      "status": "deferred_project_not_started",
+      "decision": "Reporting policies and physical thresholds remain versioned design assumptions. A 60-second GNSS assumption is not an externally verified device standard; fuel-counter checks do not resolve DA-E02 online-state semantics.",
+      "owner": "Data analyst / project maintainer",
+      "current_stage": "DA-E02 S2.4 policy fixtures; S3 sensitivity",
+      "evidence": [],
+      "baseline_source_ids": [],
+      "baseline_evidence_ids": [],
+      "implementation_evidence_state": "no_project_specific_execution_claimed",
+      "next_project_or_gate": "DA-E02",
+      "next_action": "Define expected online intervals, device/engine states and sampling policies; retain uncertain physical limits as research settings and measure sensitivity.",
+      "requires_explicit_project_activation": true,
+      "user_data_required": false
+    },
+    {
+      "question_id": "S23-OQ-007",
+      "baseline_order": 7,
+      "project_id": "DE-E01",
+      "original_question": "實際公開資料是否足以補充來源格式或部分事件範例？",
+      "scope_category": "later_project",
+      "status": "deferred_project_not_started",
+      "decision": "The DA-E01 HTTP envelope and receipt log are reusable components only. DE-E01 multi-format/version normalization outputs remain unimplemented.",
+      "owner": "Data engineer / project maintainer",
+      "current_stage": "DE-E01 S2.4 dedicated format fixtures",
+      "evidence": [
+        "docs/api_contract.md",
+        "src/fleet_fuel/ingestion.py"
+      ],
+      "baseline_source_ids": [
+        "S22-PUB-007",
+        "S22-PUB-004"
+      ],
+      "baseline_evidence_ids": [
+        "S23-EV-VEH-001",
+        "S23-EV-VEH-002",
+        "S23-EV-VEH-003",
+        "S23-EV-VEH-004",
+        "S23-EV-VEH-005",
+        "S23-EV-RAG-010",
+        "S23-EV-RAG-011",
+        "S23-EV-RAG-012",
+        "S23-EV-RAG-016"
+      ],
+      "implementation_evidence_state": "no_project_specific_execution_claimed",
+      "next_project_or_gate": "DE-E01",
+      "next_action": "Implement DE-E01 decoded JSONL v1/v2 mappings, parser failures and correction history. Add official examples only after verification; do not claim vehicle-protocol certification.",
+      "requires_explicit_project_activation": true,
+      "user_data_required": false
+    },
+    {
+      "question_id": "S23-OQ-008",
+      "baseline_order": 8,
+      "project_id": "DE-E01",
+      "original_question": "示範用回報策略與品質門檻是否適合展示？",
+      "scope_category": "later_project",
+      "status": "deferred_project_not_started",
+      "decision": "Structural, key, time and unit tests are reusable; DE-E01 reporting policies and physical limits remain subject to its own source contract.",
+      "owner": "Data engineer / project maintainer",
+      "current_stage": "DE-E01 S2.4 policy/config; S3 sensitivity",
+      "evidence": [
+        "tests/test_ingestion.py",
+        "tests/test_normalization.py"
+      ],
+      "baseline_source_ids": [],
+      "baseline_evidence_ids": [],
+      "implementation_evidence_state": "no_project_specific_execution_claimed",
+      "next_project_or_gate": "DE-E01",
+      "next_action": "Freeze per-format policies and failure cases; describe uncertain physical thresholds as research settings, not vehicle standards.",
+      "requires_explicit_project_activation": true,
+      "user_data_required": false
+    },
+    {
+      "question_id": "S23-OQ-009",
+      "baseline_order": 9,
+      "project_id": "DE-E03",
+      "original_question": "實際公開資料是否足以補充來源格式或部分事件範例？",
+      "scope_category": "later_project",
+      "status": "deferred_project_not_started",
+      "decision": "DA-E01 receipt reconciliation is not the complete DE-E03 daily-quality project. Optional public examples remain subject to source verification.",
+      "owner": "Data engineer / project maintainer",
+      "current_stage": "DE-E03 S2.4 independent daily controls",
+      "evidence": [
+        "validation/ingestion_report.json",
+        "validation/quality_report.json"
+      ],
+      "baseline_source_ids": [
+        "S22-PUB-007",
+        "S22-PUB-004"
+      ],
+      "baseline_evidence_ids": [
+        "S23-EV-VEH-001",
+        "S23-EV-VEH-002",
+        "S23-EV-VEH-003",
+        "S23-EV-VEH-004",
+        "S23-EV-VEH-005",
+        "S23-EV-RAG-010",
+        "S23-EV-RAG-011",
+        "S23-EV-RAG-012",
+        "S23-EV-RAG-016"
+      ],
+      "implementation_evidence_state": "no_project_specific_execution_claimed",
+      "next_project_or_gate": "DE-E03",
+      "next_action": "Build independent input/receipt/output daily control totals and quarantine balances for missing, late, repeated and corrected records.",
+      "requires_explicit_project_activation": true,
+      "user_data_required": false
+    },
+    {
+      "question_id": "S23-OQ-010",
+      "baseline_order": 10,
+      "project_id": "DE-E03",
+      "original_question": "示範用回報策略與品質門檻是否適合展示？",
+      "scope_category": "later_project",
+      "status": "deferred_project_not_started",
+      "decision": "Keep reporting assumptions explicit and unverified physical limits pending. DE-E03-specific threshold calibration has not occurred.",
+      "owner": "Data engineer / project maintainer",
+      "current_stage": "DE-E03 S2.4 config; S3 sensitivity",
+      "evidence": [],
+      "baseline_source_ids": [],
+      "baseline_evidence_ids": [],
+      "implementation_evidence_state": "no_project_specific_execution_claimed",
+      "next_project_or_gate": "DE-E03",
+      "next_action": "Define expected windows, completeness denominators and thresholds; evaluate policy sensitivity without presenting unverified limits as industry rules.",
+      "requires_explicit_project_activation": true,
+      "user_data_required": false
+    },
+    {
+      "question_id": "S23-OQ-011",
+      "baseline_order": 11,
+      "project_id": "DE-M02",
+      "original_question": "實際公開資料是否足以補充來源格式或部分事件範例？",
+      "scope_category": "later_project",
+      "status": "deferred_project_not_started",
+      "decision": "DA-E01 vehicle-device history supports fuel attribution, including ambiguity. Complete DE-M02 tenant/vehicle/device/driver history and operational data products remain deferred.",
+      "owner": "Data engineer / project maintainer",
+      "current_stage": "DE-M02 S2.4 dedicated history model",
+      "evidence": [
+        "contracts/da_e01_contract.json",
+        "tests/test_analysis.py#test_ambiguous_historical_assignment_is_excluded"
+      ],
+      "baseline_source_ids": [
+        "S22-PUB-007",
+        "S22-PUB-004"
+      ],
+      "baseline_evidence_ids": [
+        "S23-EV-VEH-001",
+        "S23-EV-VEH-002",
+        "S23-EV-VEH-003",
+        "S23-EV-VEH-004",
+        "S23-EV-VEH-005",
+        "S23-EV-RAG-010",
+        "S23-EV-RAG-011",
+        "S23-EV-RAG-012",
+        "S23-EV-RAG-016"
+      ],
+      "implementation_evidence_state": "no_project_specific_execution_claimed",
+      "next_project_or_gate": "DE-M02",
+      "next_action": "Implement complete relationship history with independent swap, overlap and gap timelines when DE-M02 is explicitly activated; verify any optional public format.",
+      "requires_explicit_project_activation": true,
+      "user_data_required": false
+    },
+    {
+      "question_id": "S23-OQ-012",
+      "baseline_order": 12,
+      "project_id": "DE-M02",
+      "original_question": "示範用回報策略與品質門檻是否適合展示？",
+      "scope_category": "later_project",
+      "status": "deferred_project_not_started",
+      "decision": "Sampling assumptions do not define identity resolution. DA-E01 business/known-time checks are reusable, not completion of DE-M02.",
+      "owner": "Data engineer / project maintainer",
+      "current_stage": "DE-M02 S2.4 temporal keys and policies",
+      "evidence": [
+        "docs/metrics.md",
+        "tests/test_analysis.py#test_both_endpoints_require_valid_definition_period"
+      ],
+      "baseline_source_ids": [],
+      "baseline_evidence_ids": [],
+      "implementation_evidence_state": "no_project_specific_execution_claimed",
+      "next_project_or_gate": "DE-M02",
+      "next_action": "Freeze unknown/overlap/gap policies and temporal keys against independent timelines; add observation policy only where DE-M02 requires it.",
+      "requires_explicit_project_activation": true,
+      "user_data_required": false
+    },
+    {
+      "question_id": "S23-OQ-013",
+      "baseline_order": 13,
+      "project_id": "DS-M01",
+      "original_question": "候選公開資料是否有可再利用的歷史預報快照與當時可用證據？",
+      "scope_category": "later_project",
+      "status": "deferred_project_not_started",
+      "decision": "Keep the no-forecast ETA baseline. Public forecasts remain disabled without historical issued/available/valid-time evidence. DA-E01 adds no forecast source.",
+      "owner": "Data scientist / project maintainer",
+      "current_stage": "DS-M01 S2.4 forecast eligibility; S3 comparison",
+      "evidence": [],
+      "baseline_source_ids": [
+        "S22-PUB-003"
+      ],
+      "baseline_evidence_ids": [
+        "S23-EV-WEATHER-007",
+        "S23-EV-WEATHER-008",
+        "S23-EV-WEATHER-009",
+        "S23-EV-WEATHER-010",
+        "S23-EV-WEATHER-011"
+      ],
+      "implementation_evidence_state": "no_project_specific_execution_claimed",
+      "next_project_or_gate": "DS-M01",
+      "next_action": "Implement no-forecast baseline first; activate synthetic or evidenced public forecast variants only with availability and leakage fixtures.",
+      "requires_explicit_project_activation": true,
+      "user_data_required": false
+    },
+    {
+      "question_id": "S23-OQ-014",
+      "baseline_order": 14,
+      "project_id": "DS-M01",
+      "original_question": "路線背景資料及回應是否允許取得與 GitHub 再散布？",
+      "scope_category": "later_project",
+      "status": "deferred_project_not_started",
+      "decision": "The shared 12 fictional facilities/routes exist for DA-E01. They are original simulation context, not commercial API responses; DS-M01 route-response modeling remains deferred.",
+      "owner": "Data scientist / project maintainer",
+      "current_stage": "DS-M01 S2.4 route fixtures",
+      "evidence": [
+        "data/raw/operations/facilities.json",
+        "data/raw/operations/routes.json",
+        "src/fleet_fuel/simulation.py"
+      ],
+      "baseline_source_ids": [],
+      "baseline_evidence_ids": [],
+      "implementation_evidence_state": "no_project_specific_execution_claimed",
+      "next_project_or_gate": "DS-M01",
+      "next_action": "Use the fictional route graph; review external routing terms before optional acquisition or redistribution and preserve true source labels.",
+      "requires_explicit_project_activation": true,
+      "user_data_required": false
+    },
+    {
+      "question_id": "S23-OQ-015",
+      "baseline_order": 15,
+      "project_id": "DS-M01",
+      "original_question": "80% 覆蓋、30 分鐘提前量與通知容量是否適合示範敘事？",
+      "scope_category": "later_project",
+      "status": "deferred_project_not_started",
+      "decision": "Retain 80% nominal interval coverage, 30-minute lead and 30-minute suppression as research settings. No ETA calibration or notification-capacity result is claimed.",
+      "owner": "Data scientist / project maintainer",
+      "current_stage": "DS-M01 S3 calibration and held-out evaluation",
+      "evidence": [],
+      "baseline_source_ids": [],
+      "baseline_evidence_ids": [],
+      "implementation_evidence_state": "no_project_specific_execution_claimed",
+      "next_project_or_gate": "DS-M01",
+      "next_action": "Set finite notification capacity, tune on calibration data only, freeze before testing and report measured coverage/load with sensitivity.",
+      "requires_explicit_project_activation": true,
+      "user_data_required": false
+    },
+    {
+      "question_id": "S23-OQ-016",
+      "baseline_order": 16,
+      "project_id": "DS-M05",
+      "original_question": "哪些官方公開內容可合法重製並具有可核對的版本有效資訊？",
+      "scope_category": "later_project",
+      "status": "deferred_project_not_started",
+      "decision": "Knowledge-source reuse and historical validity remain DS-M05 work. DA-E01 has not obtained an ELD corpus; a current page does not establish its historical version.",
+      "owner": "Data scientist / project maintainer",
+      "current_stage": "DS-M05 S2.4 corpus acquisition/versioning",
+      "evidence": [],
+      "baseline_source_ids": [
+        "S22-PUB-005",
+        "S22-PUB-006",
+        "S22-PUB-007"
+      ],
+      "baseline_evidence_ids": [
+        "S23-EV-RAG-001",
+        "S23-EV-RAG-002",
+        "S23-EV-RAG-003",
+        "S23-EV-RAG-004",
+        "S23-EV-RAG-005",
+        "S23-EV-RAG-006",
+        "S23-EV-RAG-007",
+        "S23-EV-RAG-008",
+        "S23-EV-RAG-009",
+        "S23-EV-RAG-010",
+        "S23-EV-RAG-011",
+        "S23-EV-RAG-012",
+        "S23-EV-RAG-013",
+        "S23-EV-RAG-014",
+        "S23-EV-RAG-015",
+        "S23-EV-RAG-016",
+        "S23-EV-RAG-017"
+      ],
+      "implementation_evidence_state": "no_project_specific_execution_claimed",
+      "next_project_or_gate": "DS-M05",
+      "next_action": "Check each document and reuse condition; retain actual version evidence and supply clearly fictional product material for uncovered scenarios.",
+      "requires_explicit_project_activation": true,
+      "user_data_required": false
+    },
+    {
+      "question_id": "S23-OQ-017",
+      "baseline_order": 17,
+      "project_id": "DS-M05",
+      "original_question": "首版是否加入生成模型與向量檢索？",
+      "scope_category": "later_project",
+      "status": "deferred_project_not_started",
+      "decision": "Retain the accepted generator_version clarification. BM25, drafts, vector retrieval and optional models have not been implemented as DS-M05 outcomes here.",
+      "owner": "Data scientist / project maintainer",
+      "current_stage": "DS-M05 S2.4 index/data; S3 draft/model evaluation",
+      "evidence": [],
+      "baseline_source_ids": [],
+      "baseline_evidence_ids": [],
+      "implementation_evidence_state": "no_project_specific_execution_claimed",
+      "next_project_or_gate": "DS-M05",
+      "next_action": "Implement BM25 plus local evidence-backed drafts and claim-level evaluation as the self-contained route; compare optional models on the same frozen set.",
+      "requires_explicit_project_activation": true,
+      "user_data_required": false
+    },
+    {
+      "question_id": "S23-OQ-018",
+      "baseline_order": 18,
+      "project_id": "DS-M05",
+      "original_question": "是否有真正獨立的人類專家覆核與客服試用？",
+      "scope_category": "later_project",
+      "status": "deferred_project_not_started",
+      "decision": "No external expert or real support trial is required to execute the demonstration, and neither is claimed. DA-E01 synthetic reviews do not resolve independent RAG evaluation.",
+      "owner": "Data scientist / project maintainer",
+      "current_stage": "DS-M05 S3 independent answer evaluation",
+      "evidence": [],
+      "baseline_source_ids": [],
+      "baseline_evidence_ids": [],
+      "implementation_evidence_state": "no_project_specific_execution_claimed",
+      "next_project_or_gate": "DS-M05",
+      "next_action": "Create evidence-grounded answers, adversarial cases and disagreement records. Mark adoption/time trials synthetic unless actual independently documented trials occur.",
+      "requires_explicit_project_activation": true,
+      "user_data_required": false
+    }
+  ],
+  "next_project_order_after_DA_E01_acceptance": [
+    "DE-M02",
+    "DE-E01",
+    "DE-E03",
+    "DA-E02",
+    "DS-E01",
+    "DS-M01",
+    "DS-M05"
+  ],
+  "activation_policy": "Scheduling is not authorization to start. Stop at DA-E01 v1 review; later projects require explicit activation."
+}

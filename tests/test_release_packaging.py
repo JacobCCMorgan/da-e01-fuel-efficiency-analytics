@@ -78,3 +78,38 @@ def test_junit_path_normalization_preserves_results_and_original(tmp_path):
     evidence = json.loads((validation / 'path_normalization.json').read_text())
     assert evidence['records'][0]['portable_sha256'] == normalizer.sha256(portable)
     assert normalizer.sanitize(root, tmp_path / 'private_backup')['normalized_files'] == 0
+
+
+def test_postgresql_release_selects_active_extract_and_rejects_tamper(tmp_path):
+    directory = 'data/postgres_extract/snapshot-7-abc'
+    active = tmp_path / directory
+    active.mkdir(parents=True)
+    target = active / 'core_tenant.jsonl'
+    target.write_text('{"tenant_id":"T01"}\n')
+    old = tmp_path / 'data/postgres_extract/snapshot-6-def'
+    old.mkdir()
+    (old / 'core_tenant.jsonl').write_text('unowned old extract\n')
+    validation = tmp_path / 'validation'
+    validation.mkdir()
+    (validation / 'postgres_bootstrap.json').write_text('{"status":"executed"}')
+    (validation / 'postgres_extract.json').write_text(json.dumps({
+        'status': 'executed', 'directory': directory, 'rows': {'core_tenant': 1}}))
+    path = directory + '/core_tenant.jsonl'
+    build = {'operational_source': 'postgresql_extract', 'inputs': {
+        'core_tenant': {'path': path, 'sha256': packaging.file_hash(target)}}}
+    assert packaging.owned_build_inputs(tmp_path, build) == {path}
+    target.write_text('{"tenant_id":"CHANGED"}\n')
+    with pytest.raises(ValueError, match='Build input changed'):
+        packaging.owned_build_inputs(tmp_path, build)
+
+
+def test_postgresql_release_rejects_unmanifested_extract(tmp_path):
+    validation = tmp_path / 'validation'
+    validation.mkdir()
+    (validation / 'postgres_bootstrap.json').write_text('{"status":"executed"}')
+    (validation / 'postgres_extract.json').write_text(json.dumps({
+        'status': 'executed', 'directory': 'data/postgres_extract/snapshot-7-abc',
+        'rows': {'core_tenant': 1}}))
+    build = {'operational_source': 'postgresql_extract', 'inputs': {}}
+    with pytest.raises(ValueError, match='exactly match'):
+        packaging.owned_build_inputs(tmp_path, build)

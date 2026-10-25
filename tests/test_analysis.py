@@ -8,6 +8,7 @@ import duckdb
 import pytest
 
 from fleet_fuel.analysis import _create_followup, report_id, report_windows
+from fleet_fuel.input_policy import InputPolicyError, execute_analysis_sql, validate_analysis_inputs
 
 ROOT = Path(__file__).resolve().parents[1]
 SQL = (ROOT / "sql/analytics.sql").read_text()
@@ -274,4 +275,57 @@ def test_followup_is_standardized_to_baseline_task_distance_mix():
         _create_followup(c)
         row=c.execute('SELECT baseline_l_per_100km,followup_l_per_100km,standardized_followup_l_per_100km,standardized_change_l_per_100km FROM analytics.followup_evaluation').fetchone()
         assert row==pytest.approx((20,12.5,15,-5))
+    finally:c.close()
+
+
+@pytest.mark.parametrize('extra_column',['true_fuel_l','supplier_new_column'])
+def test_analysis_rejects_noncontract_input_columns(extra_column):
+    c=_fixture_db()
+    try:
+        c.execute('ALTER TABLE normalized.fuel_counter_observation ADD COLUMN '+extra_column+' DOUBLE')
+        with pytest.raises(InputPolicyError,match='Noncontract columns'):
+            validate_analysis_inputs(c,json.loads((ROOT/'contracts/da_e01_contract.json').read_text()))
+        assert c.execute("SELECT count(*) FROM information_schema.tables WHERE table_schema='analytics' AND table_name='paired_result'").fetchone()[0]==0
+    finally:c.close()
+
+
+def test_analysis_rejects_added_truth_table_and_substituted_input_view():
+    c=_fixture_db();contract=json.loads((ROOT/'contracts/da_e01_contract.json').read_text())
+    try:
+        c.execute('CREATE TABLE normalized.simulator_truth(true_fuel_l DOUBLE)')
+        with pytest.raises(InputPolicyError,match='Unapproved or missing'):validate_analysis_inputs(c,contract)
+        c.execute('DROP TABLE normalized.simulator_truth; DROP TABLE normalized.fuel_counter_observation')
+        c.execute('CREATE VIEW normalized.fuel_counter_observation AS SELECT 42 AS true_fuel_l')
+        with pytest.raises(InputPolicyError,match='base tables'):validate_analysis_inputs(c,contract)
+    finally:c.close()
+
+
+@pytest.mark.parametrize('relation',['normalized.fuel_reference_case','normalized.fuel_statement_control','validation.simulator_truth'])
+def test_analysis_sql_blocks_validation_only_relations(relation):
+    c=_fixture_db()
+    try:
+        c.execute('CREATE SCHEMA validation;CREATE TABLE validation.simulator_truth(true_fuel_l DOUBLE);INSERT INTO validation.simulator_truth VALUES(999)')
+        with pytest.raises(InputPolicyError,match='Unapproved analytical relations'):
+            execute_analysis_sql(c,'CREATE TABLE analytics.paired_result AS SELECT * FROM '+relation)
+        assert c.execute("SELECT count(*) FROM information_schema.tables WHERE table_schema='analytics' AND table_name='paired_result'").fetchone()[0]==0
+    finally:c.close()
+
+
+def test_analysis_sql_blocks_external_truth_file_reader(tmp_path):
+    c=_fixture_db();truth=tmp_path/'truth.csv';truth.write_text('true_fuel_l\n999\n')
+    try:
+        with pytest.raises(InputPolicyError,match='External file/query readers'):
+            execute_analysis_sql(c,"CREATE TABLE analytics.paired_result AS SELECT * FROM read_csv('"+str(truth)+"')")
+        assert c.execute("SELECT count(*) FROM information_schema.tables WHERE table_schema='analytics' AND table_name='paired_result'").fetchone()[0]==0
+    finally:c.close()
+
+
+def test_approved_production_sql_passes_input_gates():
+    c=_fixture_db()
+    try:
+        _observation(c,'o0',0,100,1000);_observation(c,'o1',1,110,1020)
+        result=validate_analysis_inputs(c,json.loads((ROOT/'contracts/da_e01_contract.json').read_text()))
+        assert result['status']=='passed'
+        execute_analysis_sql(c,SQL)
+        assert c.execute('SELECT count(*) FROM analytics.paired_result WHERE accepted').fetchone()[0]==3
     finally:c.close()

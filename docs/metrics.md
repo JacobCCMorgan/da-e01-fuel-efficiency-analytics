@@ -12,6 +12,14 @@ PYTHONPATH=src python -m fleet_fuel.analysis --root .
 
 The executable calculations are in `sql/analytics.sql`. `src/fleet_fuel/analysis.py` creates report windows, materializes the canonical contract types, and exports the results. The `normalized` schema contains the four canonical derived tables. The `analytics` schema retains intermediate tables for inspection.
 
+## Fail-closed analytical input boundary
+
+`input_policy.py` checks the actual normalized schema before any report write: table names and columns must match the accepted DA-E01 contract, inputs must be base tables, and analytical inputs cannot contain simulator-truth or reference-answer fields. Extra columns, extra tables and substituted views stop the run.
+
+Independent `fuel_reference_case` and `fuel_statement_control` records may be stored for quality verification, but are excluded from the analytical SQL read allowlist. Each `analytics.sql` statement is parsed and its relation names checked before execution. Reading those validation tables, an unapproved schema such as `validation.simulator_truth`, or an external file reader such as `read_csv` stops execution. The output summary records a passed input-policy check only after the checks run.
+
+Negative tests inject forbidden payload columns, alter normalized input columns, substitute an input view, and attempt actual SQL reads of reference tables and a truth file. The guards reject these paths before the attempted result table is created. These are input controls for the declared pipeline, not a security sandbox for arbitrary changes to Python source code.
+
 ## Report time and source versions
 
 Reports use Monday 00:00 in `America/Los_Angeles`, with the next Monday excluded. The first and last calendar weeks are retained even when the observation period covers only part of them. UTC boundary timestamps are stored explicitly. A daylight-saving week can contain 167 hours, so calendar windows are never replaced by a fixed number of seconds.

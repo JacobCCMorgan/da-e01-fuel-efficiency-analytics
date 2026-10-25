@@ -12,12 +12,23 @@ import sqlite3
 import threading
 import time
 from contextlib import contextmanager, closing
-from datetime import datetime
+from datetime import datetime, timezone
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 from urllib.parse import parse_qs, urlparse
 
 from .common import digest, json_text
+
+
+INDEX_VERSION='utc-microseconds-v2'
+
+
+def canonical_utc(value: str) -> str:
+    """Comparable index key; the event envelope retains its original timestamp."""
+    if not isinstance(value,str):raise ValueError('timestamp must be text')
+    instant=datetime.fromisoformat(value.replace('Z','+00:00'))
+    if instant.tzinfo is None:raise ValueError('timestamp requires timezone')
+    return instant.astimezone(timezone.utc).isoformat(timespec='microseconds')
 
 
 def cursor_token(snapshot: str, last_seq: int) -> str:
@@ -40,8 +51,9 @@ def index_events(source: Path, index: Path) -> str:
     with closing(sqlite3.connect(index)) as db:
         db.execute('CREATE TABLE IF NOT EXISTS metadata (key TEXT PRIMARY KEY, value TEXT)')
         old = db.execute("SELECT value FROM metadata WHERE key='snapshot'").fetchone()
+        version=db.execute("SELECT value FROM metadata WHERE key='index_version'").fetchone()
         exists = db.execute("SELECT 1 FROM sqlite_master WHERE type='table' AND name='events'").fetchone()
-        if old and old[0] == snapshot and exists:
+        if old and old[0] == snapshot and exists and version and version[0]==INDEX_VERSION:
             return snapshot
     temp = index.with_suffix('.building.sqlite')
     if temp.exists():
@@ -63,6 +75,8 @@ def index_events(source: Path, index: Path) -> str:
                 except (ValueError, TypeError, AttributeError):
                     event = {'transport_error': 'invalid_json', 'raw_line': line.rstrip()}
                     at, event_id, revision = '', '', 0
+                try:at=canonical_utc(event.get('available_time'))
+                except (ValueError,TypeError,AttributeError):at=''
                 batch.append((n, at, event_id, revision, json_text(event)))
                 if len(batch) == 5000:
                     db.executemany('INSERT INTO staging VALUES (?,?,?,?,?)', batch)
@@ -75,6 +89,7 @@ def index_events(source: Path, index: Path) -> str:
         db.execute('CREATE INDEX events_available ON events(available_time,seq)')
         db.execute('DROP TABLE staging')
         db.execute("INSERT OR REPLACE INTO metadata VALUES ('snapshot',?)", (snapshot,))
+        db.execute("INSERT OR REPLACE INTO metadata VALUES ('index_version',?)", (INDEX_VERSION,))
         db.commit()
     os.replace(temp,index)
     return snapshot
@@ -119,7 +134,7 @@ def make_handler(index: Path, snapshot: str):
                 last = read_cursor(q['cursor'][0], snapshot) if 'cursor' in q else 0
                 since = q.get('available_since', [''])[0]
                 if since:
-                    datetime.fromisoformat(since.replace('Z','+00:00'))
+                    since=canonical_utc(since)
             except (ValueError, TypeError, KeyError):
                 self.send_json(409 if 'cursor' in q else 400, {'error':'invalid_query_or_snapshot_cursor'})
                 return

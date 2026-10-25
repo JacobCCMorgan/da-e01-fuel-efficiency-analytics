@@ -10,6 +10,8 @@ from pathlib import Path
 from typing import Any
 from zoneinfo import ZoneInfo
 
+from .input_policy import execute_analysis_sql, validate_analysis_inputs
+
 METRIC_VERSION = "fuel-metrics-1.0.0"
 REPORT_ZONE = ZoneInfo("America/Los_Angeles")
 MIN_FOLLOWUP_COVERAGE = 0.95
@@ -365,9 +367,10 @@ def analyze(root: Path | str) -> dict:
     connection.execute("SET threads=2")
     connection.execute("SET preserve_insertion_order=false")
     try:
+        input_policy=validate_analysis_inputs(connection,contract)
         _create_reports(connection, root, config)
         _canonical(connection, contract, "fuel_report_run", "SELECT * FROM analytics.report_context")
-        connection.execute((root / "sql/analytics.sql").read_text())
+        execute_analysis_sql(connection,(root / "sql/analytics.sql").read_text())
         for name, source in [("fuel_paired_interval", "paired_result"),
                              ("fuel_weekly_metric", "weekly_result"),
                              ("fuel_inventory_balance", "inventory_result")]:
@@ -396,6 +399,7 @@ def analyze(root: Path | str) -> dict:
             connection.execute(f'COPY normalized."{name}" TO ? (FORMAT PARQUET, COMPRESSION ZSTD)',
                                [str(derived_dir / f"{name}.parquet")])
         summary = _summary(connection, root)
+        summary['input_policy']=input_policy
         (root / "outputs/analytics_summary.json").write_text(
             json.dumps(summary, ensure_ascii=False, indent=2, default=_json_default) + "\n")
         connection.execute("CHECKPOINT")
