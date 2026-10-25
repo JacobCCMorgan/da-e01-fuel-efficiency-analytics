@@ -1,0 +1,3349 @@
+{
+  "archives": [
+    {
+      "bytes": 9992746,
+      "content_verification": "all_members_sha256_verified",
+      "embedded_manifest_sha256": "e1d126f299b94fe358da04828049b89840309a46a993b93f2b8e213e0fb723de",
+      "file_count": 165,
+      "filename": "DA-E01_v1_source.zip",
+      "sha256": "c6f890c1bd0724bcf3f133dde50957a259502280c05f9f4eadd2f75daacc1e0a",
+      "uncompressed_bytes": 34903440
+    },
+    {
+      "bytes": 458241379,
+      "content_verification": "all_members_sha256_verified",
+      "embedded_manifest_sha256": "15ad6d3fbf953d81ece841dba4d0d5fa8d62c81991128df51d39375f26927624",
+      "file_count": 106,
+      "filename": "DA-E01_v1_data.zip",
+      "sha256": "4eeb5a214b0062f716d9167c7fb0e39c0a58b34c8b9a36ba997fd537ff4a23e6",
+      "uncompressed_bytes": 2022339991
+    },
+    {
+      "bytes": 467919692,
+      "content_verification": "all_members_sha256_verified",
+      "embedded_manifest_sha256": "963c10ef4ae5f6ccdcaafb4005120d1a8e70f4444e6f5076b8a389451c569280",
+      "file_count": 244,
+      "filename": "DA-E01_v1_complete.zip",
+      "sha256": "76f585f33f3b4fb7f38fc87bc7325db424431956c732e816cfda375ae8fa1426",
+      "uncompressed_bytes": 2055408803
+    }
+  ],
+  "database_execution_evidence": {
+    "commit": "55b6831eaa7f44849aad39537288654ba04cb701",
+    "finished_at": "2026-10-25T19:44:54.788193+00:00",
+    "original_run_manifest": "validation/ci/full-run-40227233022/validation/run_manifest.json",
+    "run_id": 40227233022,
+    "source_engine": "PostgreSQL 16.15 (Debian 16.15-1.pgdg13+2) on x86_64-pc-linux-gnu, compiled by gcc (Debian 14.2.0-19) 14.2.0, 64-bit",
+    "started_at": "2026-10-25T19:43:29.705097+00:00",
+    "url": "https://github.com/JacobCCMorgan/da-e01-fuel-efficiency-analytics/actions/runs/40227233022"
+  },
+  "delivered_local_intake_evidence": "validation/local_intake_evidence.json",
+  "files": [
+    {
+      "bytes": 3327,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "LICENSE"
+      ],
+      "logical_rows": null,
+      "path": ".github/workflows/ci.yml",
+      "sha256": "d4465863ee3ab78446e6e645d70c22a99ab4fcfd53fb1ae918ac7b2ba9f71808",
+      "source_origin": "project_code_documentation_or_execution_evidence"
+    },
+    {
+      "bytes": 188,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "LICENSE"
+      ],
+      "logical_rows": null,
+      "path": ".gitignore",
+      "sha256": "6c39b64c0ea114dd193fa7ce9951a5d30a1576d50137bc3c6216e16f30f26c19",
+      "source_origin": "project_code_documentation_or_execution_evidence"
+    },
+    {
+      "bytes": 1223,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "LICENSE"
+      ],
+      "logical_rows": null,
+      "path": "LICENSE",
+      "sha256": "bbdeb973aa70f9b82d0d91a0819ad27ee34c0a34cd859abded0f1935a7d59865",
+      "source_origin": "project_code_documentation_or_execution_evidence"
+    },
+    {
+      "bytes": 9960,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "LICENSE"
+      ],
+      "logical_rows": null,
+      "path": "README.md",
+      "sha256": "c248ffb358909582aaeee1d669705e28854321c50a09cb5a07b57e80a7af8655",
+      "source_origin": "project_code_documentation_or_execution_evidence"
+    },
+    {
+      "bytes": 8592,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "LICENSE"
+      ],
+      "logical_rows": null,
+      "path": "README.zh-TW.md",
+      "sha256": "0d5df99f9e9cfc4b8c3df26518be3edeb42fade44cbe030cfc4d0e5ed74f32f7",
+      "source_origin": "project_code_documentation_or_execution_evidence"
+    },
+    {
+      "bytes": 274,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "LICENSE"
+      ],
+      "logical_rows": null,
+      "path": "config/project.json",
+      "sha256": "5d572c8df4a907dcf0382a325a57c37894d627f414d09beecc14e9fd7d79eda1",
+      "source_origin": "project_code_documentation_or_execution_evidence"
+    },
+    {
+      "bytes": 757,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "LICENSE"
+      ],
+      "logical_rows": null,
+      "path": "config/simulation.json",
+      "sha256": "6ac569918be5c86a8397e1fddd838b3109e7fcd906db912198e07bf4152e0433",
+      "source_origin": "project_code_documentation_or_execution_evidence"
+    },
+    {
+      "bytes": 1177805,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "LICENSE"
+      ],
+      "logical_rows": null,
+      "path": "contracts/da_e01_contract.json",
+      "sha256": "56f5b3bf504239831c466244db0e95e35047ae806888b390dc67254fe009a77a",
+      "source_origin": "project_code_documentation_or_execution_evidence"
+    },
+    {
+      "bytes": 456558,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "LICENSE"
+      ],
+      "logical_rows": 330,
+      "path": "contracts/field_dictionary.csv",
+      "sha256": "28bfc525ec97fb39cb5ac3d1314f8d9f5437f4fde5a21f8ecd04ea5e2dde95aa",
+      "source_origin": "project_code_documentation_or_execution_evidence"
+    },
+    {
+      "bytes": 33143,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "LICENSE"
+      ],
+      "logical_rows": null,
+      "path": "contracts/implementation_decisions.json",
+      "sha256": "03cac1ce00e70875b4815358a59fc9987f98b04cc55928e53c64e63795ff851f",
+      "source_origin": "project_code_documentation_or_execution_evidence"
+    },
+    {
+      "bytes": 14385,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "LICENSE"
+      ],
+      "logical_rows": null,
+      "path": "contracts/scenario_registry.json",
+      "sha256": "069a3bc02f29bfa4d444dc6c156d72f300ccdffddf8b1e957fbb416efbf12ba8",
+      "source_origin": "project_code_documentation_or_execution_evidence"
+    },
+    {
+      "bytes": 13297,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "LICENSE"
+      ],
+      "logical_rows": null,
+      "path": "contracts/schema.sql",
+      "sha256": "ae6433cb6b54ffb20019780f6403bc340a3541bfd1010c4b56b8064a40b18162",
+      "source_origin": "project_code_documentation_or_execution_evidence"
+    },
+    {
+      "bytes": 2397,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "LICENSE"
+      ],
+      "logical_rows": null,
+      "path": "contracts/source_registry.json",
+      "sha256": "31e0a78d2efc084d8d0246c63a912bc5cd7c0586c5b8847bd7b149c6be6bb681",
+      "source_origin": "project_code_documentation_or_execution_evidence"
+    },
+    {
+      "bytes": 596127744,
+      "git_file_size_eligible": false,
+      "license_refs": [
+        "data/LICENSE.md"
+      ],
+      "logical_rows": 1252807,
+      "path": "data/DA-E01.duckdb",
+      "sha256": "d6cc6ea1f08794026c9a4b58185eb56688ae3983aa0b1eb05c6b52fe54fb4fb3",
+      "source_origin": "canonical_or_derived_with_record_level_origin"
+    },
+    {
+      "bytes": 2398,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "LICENSE"
+      ],
+      "logical_rows": null,
+      "path": "data/LICENSE.md",
+      "sha256": "943f510572c98d54ddc4b3c5dae5b30639ff7d82848af26918d8cbf681e92b01",
+      "source_origin": "project_code_documentation_or_execution_evidence"
+    },
+    {
+      "bytes": 4849,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "LICENSE"
+      ],
+      "logical_rows": null,
+      "path": "data/README.md",
+      "sha256": "9d693f74bb790ddc07f65abdc0c2dcba5eba62c581494ea32f35ee49ef6b37b2",
+      "source_origin": "project_code_documentation_or_execution_evidence"
+    },
+    {
+      "bytes": 22292,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "data/LICENSE.md"
+      ],
+      "logical_rows": 810,
+      "path": "data/derived/fuel_inventory_balance.parquet",
+      "sha256": "65e41f25abc2c4c5d7370739a100defd57449c2db748f85449bba19d7297c3fd",
+      "source_origin": "canonical_or_derived_with_record_level_origin"
+    },
+    {
+      "bytes": 27189023,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "data/LICENSE.md"
+      ],
+      "logical_rows": 739242,
+      "path": "data/derived/fuel_paired_interval.parquet",
+      "sha256": "fe9d8c9652529223b797ce6fbad92247e2acc49b053de1171bdfb0074cc102f0",
+      "source_origin": "canonical_or_derived_with_record_level_origin"
+    },
+    {
+      "bytes": 5723,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "data/LICENSE.md"
+      ],
+      "logical_rows": 243,
+      "path": "data/derived/fuel_report_run.parquet",
+      "sha256": "bcee699a6972323af66ca192c2f4e44c9dae4a4f34192802e31acfec75b31f7b",
+      "source_origin": "canonical_or_derived_with_record_level_origin"
+    },
+    {
+      "bytes": 10304758,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "data/LICENSE.md"
+      ],
+      "logical_rows": 2430,
+      "path": "data/derived/fuel_weekly_metric.parquet",
+      "sha256": "f04d32d985989661671bd4f6d9723d5cb6ded34322e93cb769579ce17bedab26",
+      "source_origin": "canonical_or_derived_with_record_level_origin"
+    },
+    {
+      "bytes": 6317,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "LICENSE"
+      ],
+      "logical_rows": null,
+      "path": "data/generation_manifest.json",
+      "sha256": "64f1218307a745b2efd6d957da5d7a603590f3e757456529217027210ee731aa",
+      "source_origin": "project_code_documentation_or_execution_evidence"
+    },
+    {
+      "bytes": 612732928,
+      "git_file_size_eligible": false,
+      "license_refs": [
+        "data/LICENSE.md#original-fictional-sample-data"
+      ],
+      "logical_rows": 246474,
+      "path": "data/ingestion/9cfc0dcf6a84fa6c24966f09fee37152b05225b91f0a7eb5197ab3a1e6bb49ce/receipts.sqlite",
+      "sha256": "2533ff8bc69d4570ec9923c209dbadabcafb16338b59759a4e43ea29c25e3162",
+      "source_origin": "synthetic_processed_or_validation"
+    },
+    {
+      "bytes": 1590,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "data/LICENSE.md#original-fictional-sample-data"
+      ],
+      "logical_rows": 2,
+      "path": "data/ingestion/quarantine.jsonl",
+      "sha256": "b1d4c76753a77f2dd3ebd2bca89b545a2c864e776df2bd97e396cecaf70ac6dd",
+      "source_origin": "synthetic_processed_or_validation"
+    },
+    {
+      "bytes": 818,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "data/LICENSE.md"
+      ],
+      "logical_rows": 36,
+      "path": "data/normalized/core_device.parquet",
+      "sha256": "765a64c11d0273e39ee6503a41afd7258fd2c5ae0da8aaa1edc3e4def20d6694",
+      "source_origin": "canonical_or_derived_with_record_level_origin"
+    },
+    {
+      "bytes": 798,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "data/LICENSE.md"
+      ],
+      "logical_rows": 3,
+      "path": "data/normalized/core_tenant.parquet",
+      "sha256": "c3f964f52073e5eaa125a715e2416a9217cf1c05b1efd2a1cd5595816703a508",
+      "source_origin": "canonical_or_derived_with_record_level_origin"
+    },
+    {
+      "bytes": 1617,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "data/LICENSE.md"
+      ],
+      "logical_rows": 30,
+      "path": "data/normalized/core_vehicle.parquet",
+      "sha256": "bdd0d28ca283ba684907821d0fb76c5bd42519c3511aeab334d3c235770dfe7b",
+      "source_origin": "canonical_or_derived_with_record_level_origin"
+    },
+    {
+      "bytes": 3499,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "data/LICENSE.md"
+      ],
+      "logical_rows": 34,
+      "path": "data/normalized/core_vehicle_device_assignment.parquet",
+      "sha256": "bb4351d455b897a7304a846d7d91fe18a2c59d3b8b4c99bdf28210caf4145fe2",
+      "source_origin": "canonical_or_derived_with_record_level_origin"
+    },
+    {
+      "bytes": 6496,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "data/LICENSE.md"
+      ],
+      "logical_rows": 8,
+      "path": "data/normalized/fuel_action_followup.parquet",
+      "sha256": "2bd02d373d5e7bed31cdad4a042aed722fb9aa07b7649eb4f2b06e57671cc45d",
+      "source_origin": "canonical_or_derived_with_record_level_origin"
+    },
+    {
+      "bytes": 2639,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "data/LICENSE.md"
+      ],
+      "logical_rows": 30,
+      "path": "data/normalized/fuel_card_assignment.parquet",
+      "sha256": "c0ae82604810ddc589502b9a5b1a0adc6895a6c0174f774181cc8510f7d22bd5",
+      "source_origin": "canonical_or_derived_with_record_level_origin"
+    },
+    {
+      "bytes": 2254,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "data/LICENSE.md"
+      ],
+      "logical_rows": 3,
+      "path": "data/normalized/fuel_counter_change.parquet",
+      "sha256": "f4ef84074db8aab87cf15d198b6c64ea0e66efd61be41edcdb0ea825fc56a8d4",
+      "source_origin": "canonical_or_derived_with_record_level_origin"
+    },
+    {
+      "bytes": 9095196,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "data/LICENSE.md"
+      ],
+      "logical_rows": 246448,
+      "path": "data/normalized/fuel_counter_observation.parquet",
+      "sha256": "3a66fba4cf7110d7e71590d5aa87a518456041f66ed891e113f14060668eca4c",
+      "source_origin": "canonical_or_derived_with_record_level_origin"
+    },
+    {
+      "bytes": 22572,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "data/LICENSE.md"
+      ],
+      "logical_rows": 810,
+      "path": "data/normalized/fuel_inventory_balance.parquet",
+      "sha256": "f4a4385b4dcf766cdf879f7715a4ae8d835a8bb0e3f914a239bd88b88dcdd2e0",
+      "source_origin": "canonical_or_derived_with_record_level_origin"
+    },
+    {
+      "bytes": 25607,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "data/LICENSE.md"
+      ],
+      "logical_rows": 840,
+      "path": "data/normalized/fuel_inventory_measurement.parquet",
+      "sha256": "6245ff1cecfe381504abdb070265aa89515c5f7a00d3bf75f448ec46463cae0c",
+      "source_origin": "canonical_or_derived_with_record_level_origin"
+    },
+    {
+      "bytes": 14142,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "data/LICENSE.md"
+      ],
+      "logical_rows": 354,
+      "path": "data/normalized/fuel_market_price.parquet",
+      "sha256": "1868b8303b374ff762eff7aeed2fd5003614076b30c3db231994c4216d6fc3a1",
+      "source_origin": "canonical_or_derived_with_record_level_origin"
+    },
+    {
+      "bytes": 68897,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "data/LICENSE.md"
+      ],
+      "logical_rows": 3423,
+      "path": "data/normalized/fuel_movement.parquet",
+      "sha256": "b2d3314526922b8a89533c9c7788e6edf75a0675e0f9e6356501508998135c5a",
+      "source_origin": "canonical_or_derived_with_record_level_origin"
+    },
+    {
+      "bytes": 2810,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "data/LICENSE.md"
+      ],
+      "logical_rows": 8,
+      "path": "data/normalized/fuel_output_review.parquet",
+      "sha256": "77eaadf4cce231c8b6f69465a40d453f8154fd4217e77647dce82bea7927f190",
+      "source_origin": "canonical_or_derived_with_record_level_origin"
+    },
+    {
+      "bytes": 27295808,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "data/LICENSE.md"
+      ],
+      "logical_rows": 739242,
+      "path": "data/normalized/fuel_paired_interval.parquet",
+      "sha256": "c1130f77552630dbc4fd568ec15cf0239636829a218475febbf93fbc5fb10332",
+      "source_origin": "canonical_or_derived_with_record_level_origin"
+    },
+    {
+      "bytes": 71757,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "data/LICENSE.md"
+      ],
+      "logical_rows": 1861,
+      "path": "data/normalized/fuel_purchase_line.parquet",
+      "sha256": "2f33ad1c3daba75136e62fbb62e7b8601db02782a06afe174e9cd8308edd248c",
+      "source_origin": "canonical_or_derived_with_record_level_origin"
+    },
+    {
+      "bytes": 3537,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "data/LICENSE.md"
+      ],
+      "logical_rows": 8,
+      "path": "data/normalized/fuel_reference_case.parquet",
+      "sha256": "fb9a70f09237930938ead4c315816b3d55f5cadfe551e8565545c3824b15a923",
+      "source_origin": "canonical_or_derived_with_record_level_origin"
+    },
+    {
+      "bytes": 2087,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "data/LICENSE.md"
+      ],
+      "logical_rows": 9,
+      "path": "data/normalized/fuel_region_mapping.parquet",
+      "sha256": "f34f8154244098c8950971ccee14f64538fea7dedfc02f6b6d841c3bc9ab93af",
+      "source_origin": "canonical_or_derived_with_record_level_origin"
+    },
+    {
+      "bytes": 5723,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "data/LICENSE.md"
+      ],
+      "logical_rows": 243,
+      "path": "data/normalized/fuel_report_run.parquet",
+      "sha256": "bcee699a6972323af66ca192c2f4e44c9dae4a4f34192802e31acfec75b31f7b",
+      "source_origin": "canonical_or_derived_with_record_level_origin"
+    },
+    {
+      "bytes": 4900,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "data/LICENSE.md"
+      ],
+      "logical_rows": 60,
+      "path": "data/normalized/fuel_signal_definition.parquet",
+      "sha256": "4ac5977d8f4df2272ae7c9031ac11a953d97bef231e260c5a12062515d48aeeb",
+      "source_origin": "canonical_or_derived_with_record_level_origin"
+    },
+    {
+      "bytes": 3593,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "data/LICENSE.md"
+      ],
+      "logical_rows": 24,
+      "path": "data/normalized/fuel_statement_control.parquet",
+      "sha256": "2e3f78d1bff2f4293034374fec52bb2b2d53ce947b84aa1ce0b9a5a1c19883b6",
+      "source_origin": "canonical_or_derived_with_record_level_origin"
+    },
+    {
+      "bytes": 2063,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "data/LICENSE.md"
+      ],
+      "logical_rows": 36,
+      "path": "data/normalized/fuel_station.parquet",
+      "sha256": "a6fe5097bd32a0d631ae40211f66caa8def80435ff693ad383305ee20d6d41a8",
+      "source_origin": "canonical_or_derived_with_record_level_origin"
+    },
+    {
+      "bytes": 2014,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "data/LICENSE.md"
+      ],
+      "logical_rows": 30,
+      "path": "data/normalized/fuel_tank_scope.parquet",
+      "sha256": "8f43cd056b68ce125ccc63eeff4f10f0b531e34c48c80992c62ff3f0add4ae71",
+      "source_origin": "canonical_or_derived_with_record_level_origin"
+    },
+    {
+      "bytes": 45928,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "data/LICENSE.md"
+      ],
+      "logical_rows": 1800,
+      "path": "data/normalized/fuel_task_assignment.parquet",
+      "sha256": "b37ef70b51e6803206597d17a9eb0d59c56c989fd01c98ac177d0db3f77a8cb5",
+      "source_origin": "canonical_or_derived_with_record_level_origin"
+    },
+    {
+      "bytes": 2844,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "data/LICENSE.md"
+      ],
+      "logical_rows": 30,
+      "path": "data/normalized/fuel_vehicle_context.parquet",
+      "sha256": "49b06ea1cd4abc6f60f17dd2505e3f1358213092a655eaa6636b263b4f1e1095",
+      "source_origin": "canonical_or_derived_with_record_level_origin"
+    },
+    {
+      "bytes": 10530909,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "data/LICENSE.md"
+      ],
+      "logical_rows": 2430,
+      "path": "data/normalized/fuel_weekly_metric.parquet",
+      "sha256": "7908dee64c51b5b204401eea8a9f779055fb23d3499da94160dca87a609c96e1",
+      "source_origin": "canonical_or_derived_with_record_level_origin"
+    },
+    {
+      "bytes": 5219,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "data/LICENSE.md"
+      ],
+      "logical_rows": null,
+      "path": "data/normalized/manifest.json",
+      "sha256": "ed99c33176fcb87f38d2a11a1883f70d11e92107bdf5bbf8f7ab4f2a0136a9f2",
+      "source_origin": "canonical_or_derived_with_record_level_origin"
+    },
+    {
+      "bytes": 5289453,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "data/LICENSE.md"
+      ],
+      "logical_rows": 255007,
+      "path": "data/normalized/provenance_record.parquet",
+      "sha256": "fec0372d082eed148b143990d536f9a68358de3b93ab6faf25eef9e19cac5c78",
+      "source_origin": "canonical_or_derived_with_record_level_origin"
+    },
+    {
+      "bytes": 2520,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "data/LICENSE.md#original-fictional-sample-data"
+      ],
+      "logical_rows": 36,
+      "path": "data/postgres_extract/snapshot-8193-a7972ea3cf79/core_device.jsonl",
+      "sha256": "0434bd87e1ec24b3e2d9f997a585b17658f084eafdda733225e77d1e794a29af",
+      "source_origin": "synthetic_records_extracted_from_verified_postgresql"
+    },
+    {
+      "bytes": 348,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "data/LICENSE.md#original-fictional-sample-data"
+      ],
+      "logical_rows": 3,
+      "path": "data/postgres_extract/snapshot-8193-a7972ea3cf79/core_tenant.jsonl",
+      "sha256": "37715c553a3f047a5b0bd639a66a7a35ea5a20bc52141a375175edd3297bc2f2",
+      "source_origin": "synthetic_records_extracted_from_verified_postgresql"
+    },
+    {
+      "bytes": 4506,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "data/LICENSE.md#original-fictional-sample-data"
+      ],
+      "logical_rows": 30,
+      "path": "data/postgres_extract/snapshot-8193-a7972ea3cf79/core_vehicle.jsonl",
+      "sha256": "0fe17f7b1ff10f4bc047bb3b9c2331fe6a1313ef54bf36286a79c9d06ccdf292",
+      "source_origin": "synthetic_records_extracted_from_verified_postgresql"
+    },
+    {
+      "bytes": 12181,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "data/LICENSE.md#original-fictional-sample-data"
+      ],
+      "logical_rows": 34,
+      "path": "data/postgres_extract/snapshot-8193-a7972ea3cf79/core_vehicle_device_assignment.jsonl",
+      "sha256": "ca4df2846ef90bb4a5c07ad62a60425b276fb1e35766e8270dd60c63c569597d",
+      "source_origin": "synthetic_records_extracted_from_verified_postgresql"
+    },
+    {
+      "bytes": 9101,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "data/LICENSE.md#original-fictional-sample-data"
+      ],
+      "logical_rows": 8,
+      "path": "data/postgres_extract/snapshot-8193-a7972ea3cf79/fuel_action_followup.jsonl",
+      "sha256": "a12eb86eeb890dbbb6170c428b7888808e3626f9166a6ef2e713b699a7b538f6",
+      "source_origin": "synthetic_records_extracted_from_verified_postgresql"
+    },
+    {
+      "bytes": 9270,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "data/LICENSE.md#original-fictional-sample-data"
+      ],
+      "logical_rows": 30,
+      "path": "data/postgres_extract/snapshot-8193-a7972ea3cf79/fuel_card_assignment.jsonl",
+      "sha256": "5b63b7f39eb61b05dee3d2ee33cafdf902a8e71134687529a6d0695d3f5a4cc6",
+      "source_origin": "synthetic_records_extracted_from_verified_postgresql"
+    },
+    {
+      "bytes": 442623,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "data/LICENSE.md#original-fictional-sample-data"
+      ],
+      "logical_rows": 840,
+      "path": "data/postgres_extract/snapshot-8193-a7972ea3cf79/fuel_inventory_measurement.jsonl",
+      "sha256": "2969eae10e6dd0fbb463a08aec67b1691f570190be481b97c11d413501526979",
+      "source_origin": "synthetic_records_extracted_from_verified_postgresql"
+    },
+    {
+      "bytes": 1384118,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "data/LICENSE.md#original-fictional-sample-data"
+      ],
+      "logical_rows": 3423,
+      "path": "data/postgres_extract/snapshot-8193-a7972ea3cf79/fuel_movement.jsonl",
+      "sha256": "f2af9d338a905d1e7890f7aea20a03f57a4713db4e39340f226cbc7a358e97ee",
+      "source_origin": "synthetic_records_extracted_from_verified_postgresql"
+    },
+    {
+      "bytes": 2966,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "data/LICENSE.md#original-fictional-sample-data"
+      ],
+      "logical_rows": 8,
+      "path": "data/postgres_extract/snapshot-8193-a7972ea3cf79/fuel_output_review.jsonl",
+      "sha256": "9c048883d3e4d6d130036794aed35b9ee644652707e0bc8d5d01a6c7ba00771e",
+      "source_origin": "synthetic_records_extracted_from_verified_postgresql"
+    },
+    {
+      "bytes": 1548778,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "data/LICENSE.md#original-fictional-sample-data"
+      ],
+      "logical_rows": 1861,
+      "path": "data/postgres_extract/snapshot-8193-a7972ea3cf79/fuel_purchase_line.jsonl",
+      "sha256": "0bdc8367a986bc4d6e8074b1ab27ffdb81bcc7bec12ce3f2824b6b8a2afc18b0",
+      "source_origin": "synthetic_records_extracted_from_verified_postgresql"
+    },
+    {
+      "bytes": 9927,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "data/LICENSE.md#original-fictional-sample-data"
+      ],
+      "logical_rows": 24,
+      "path": "data/postgres_extract/snapshot-8193-a7972ea3cf79/fuel_statement_control.jsonl",
+      "sha256": "319fce97fb5721bdf11bb1b39338352df573407e5f7e64de8a050920f2cade4f",
+      "source_origin": "synthetic_records_extracted_from_verified_postgresql"
+    },
+    {
+      "bytes": 6048,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "data/LICENSE.md#original-fictional-sample-data"
+      ],
+      "logical_rows": 36,
+      "path": "data/postgres_extract/snapshot-8193-a7972ea3cf79/fuel_station.jsonl",
+      "sha256": "6d065475dbbdd8a7da248a5ee9f3f44f7ddfab1f185c381b608d03305e5e3fff",
+      "source_origin": "synthetic_records_extracted_from_verified_postgresql"
+    },
+    {
+      "bytes": 6060,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "data/LICENSE.md#original-fictional-sample-data"
+      ],
+      "logical_rows": 30,
+      "path": "data/postgres_extract/snapshot-8193-a7972ea3cf79/fuel_tank_scope.jsonl",
+      "sha256": "23a6047b3f3c09cb0abb287bda04fb089fe0dbc91705ce7bf8013fd826dafd99",
+      "source_origin": "synthetic_records_extracted_from_verified_postgresql"
+    },
+    {
+      "bytes": 660600,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "data/LICENSE.md#original-fictional-sample-data"
+      ],
+      "logical_rows": 1800,
+      "path": "data/postgres_extract/snapshot-8193-a7972ea3cf79/fuel_task_assignment.jsonl",
+      "sha256": "fc80312d28324b3cba70489879772240e217960a39ffc0dc7db5778194391575",
+      "source_origin": "synthetic_records_extracted_from_verified_postgresql"
+    },
+    {
+      "bytes": 9930,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "data/LICENSE.md#original-fictional-sample-data"
+      ],
+      "logical_rows": 30,
+      "path": "data/postgres_extract/snapshot-8193-a7972ea3cf79/fuel_vehicle_context.jsonl",
+      "sha256": "2145ddef318a443da2e585dbaa2dd85363dcb0a3a3d8b7f1cfd84c00bd3c8c3e",
+      "source_origin": "synthetic_records_extracted_from_verified_postgresql"
+    },
+    {
+      "bytes": 28881,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "data/LICENSE.md#external-eia-information",
+        "docs/sources.md"
+      ],
+      "logical_rows": 62,
+      "path": "data/public/fuel_prices.csv",
+      "sha256": "971a03540de086cd94b2191e70a9c7ff5f16b2a5e99fb46c2faef0a1ed222976",
+      "source_origin": "public_EIA_or_acquisition_metadata"
+    },
+    {
+      "bytes": 59644,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "data/LICENSE.md#external-eia-information",
+        "docs/sources.md"
+      ],
+      "logical_rows": 62,
+      "path": "data/public/fuel_prices.jsonl",
+      "sha256": "ac3180b1c6f12fde169bbbec9bc0db211cfe623b75a0145dd3be619a53cdcd5b",
+      "source_origin": "public_EIA_or_acquisition_metadata"
+    },
+    {
+      "bytes": 171421,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "data/LICENSE.md#external-eia-information",
+        "docs/sources.md"
+      ],
+      "logical_rows": null,
+      "path": "data/public/raw/eia_california.html",
+      "sha256": "0e13453e9cb494ac0ae85dc6bd1dfadf4e8a748108a21418ba31c9658364ed31",
+      "source_origin": "public_EIA_or_acquisition_metadata"
+    },
+    {
+      "bytes": 492,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "data/LICENSE.md#external-eia-information",
+        "docs/sources.md"
+      ],
+      "logical_rows": null,
+      "path": "data/public/raw/eia_california.html.receipt.json",
+      "sha256": "7de8f22e6e444cd9ed7c52ed4a9cc0d1133b259427a3787b4601ff9f19bc6e5c",
+      "source_origin": "public_EIA_or_acquisition_metadata"
+    },
+    {
+      "bytes": 765440,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "data/LICENSE.md#external-eia-information",
+        "docs/sources.md"
+      ],
+      "logical_rows": null,
+      "path": "data/public/raw/eia_diesel_history.xls",
+      "sha256": "e066d78c437e7a6bae2515354b04b1313727b2e20595b081b8734ff47924275a",
+      "source_origin": "public_EIA_or_acquisition_metadata"
+    },
+    {
+      "bytes": 513,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "data/LICENSE.md#external-eia-information",
+        "docs/sources.md"
+      ],
+      "logical_rows": null,
+      "path": "data/public/raw/eia_diesel_history.xls.receipt.json",
+      "sha256": "8d77f82ceda9ee45cdf535eeae35975bf5ed8013ef28d5af92be444f5b87bd40",
+      "source_origin": "public_EIA_or_acquisition_metadata"
+    },
+    {
+      "bytes": 84400,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "data/LICENSE.md#external-eia-information",
+        "docs/sources.md"
+      ],
+      "logical_rows": null,
+      "path": "data/public/raw/eia_west_coast_ex_ca.html",
+      "sha256": "02f5cf793d7973a423e2622deca012ea7e67187f8847d151b3be0d85f74e4388",
+      "source_origin": "public_EIA_or_acquisition_metadata"
+    },
+    {
+      "bytes": 498,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "data/LICENSE.md#external-eia-information",
+        "docs/sources.md"
+      ],
+      "logical_rows": null,
+      "path": "data/public/raw/eia_west_coast_ex_ca.html.receipt.json",
+      "sha256": "43c9dfc4e966f78f69cf77a5af870952c6d1b6a4a572f88b3c317797b6bf2527",
+      "source_origin": "public_EIA_or_acquisition_metadata"
+    },
+    {
+      "bytes": 59644,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "data/LICENSE.md#external-eia-information",
+        "docs/sources.md"
+      ],
+      "logical_rows": 62,
+      "path": "data/public/snapshots/139f0579c430932d/fuel_prices.jsonl",
+      "sha256": "ac3180b1c6f12fde169bbbec9bc0db211cfe623b75a0145dd3be619a53cdcd5b",
+      "source_origin": "public_EIA_or_acquisition_metadata"
+    },
+    {
+      "bytes": 3523,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "data/LICENSE.md#external-eia-information",
+        "docs/sources.md"
+      ],
+      "logical_rows": null,
+      "path": "data/public/snapshots/139f0579c430932d/manifest.json",
+      "sha256": "c80b31a054c5b317cb03bffdb6ce48d083f25f897ece2e05033cec790f23abd2",
+      "source_origin": "public_EIA_or_acquisition_metadata"
+    },
+    {
+      "bytes": 54808,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "data/LICENSE.md#external-eia-information",
+        "docs/sources.md"
+      ],
+      "logical_rows": 62,
+      "path": "data/public/snapshots/5b623f0c42737469/fuel_prices.jsonl",
+      "sha256": "7a25b197ac6e2ee710381f687edd78e1142229da032394a93065d4aa972252d4",
+      "source_origin": "public_EIA_or_acquisition_metadata"
+    },
+    {
+      "bytes": 3507,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "data/LICENSE.md#external-eia-information",
+        "docs/sources.md"
+      ],
+      "logical_rows": null,
+      "path": "data/public/snapshots/5b623f0c42737469/manifest.json",
+      "sha256": "dce3bf2582c1de78e233c5f0f16bcf723ea27a2451a1713113dc3f10ade59efd",
+      "source_origin": "public_EIA_or_acquisition_metadata"
+    },
+    {
+      "bytes": 3523,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "data/LICENSE.md#external-eia-information",
+        "docs/sources.md"
+      ],
+      "logical_rows": null,
+      "path": "data/public/source_manifest.json",
+      "sha256": "c80b31a054c5b317cb03bffdb6ce48d083f25f897ece2e05033cec790f23abd2",
+      "source_origin": "public_EIA_or_acquisition_metadata"
+    },
+    {
+      "bytes": 189105762,
+      "git_file_size_eligible": false,
+      "license_refs": [
+        "data/LICENSE.md#original-fictional-sample-data"
+      ],
+      "logical_rows": 246474,
+      "path": "data/raw/events.jsonl",
+      "sha256": "9cfc0dcf6a84fa6c24966f09fee37152b05225b91f0a7eb5197ab3a1e6bb49ce",
+      "source_origin": "synthetic_source"
+    },
+    {
+      "bytes": 7965,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "data/LICENSE.md#original-fictional-sample-data"
+      ],
+      "logical_rows": 45,
+      "path": "data/raw/operations/drivers.jsonl",
+      "sha256": "45ba8cd5cb0e88ac6139aa0b4c0bffe379286b15cee7a81599ba5064e5367bd1",
+      "source_origin": "synthetic_source"
+    },
+    {
+      "bytes": 2065,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "data/LICENSE.md#original-fictional-sample-data"
+      ],
+      "logical_rows": null,
+      "path": "data/raw/operations/facilities.json",
+      "sha256": "b2896cba8709d5b86fb44544fc9a7267b66699252dd306cfbd014be30c3d0d9d",
+      "source_origin": "synthetic_source"
+    },
+    {
+      "bytes": 2403,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "data/LICENSE.md#original-fictional-sample-data"
+      ],
+      "logical_rows": null,
+      "path": "data/raw/operations/routes.json",
+      "sha256": "c823565c0a7756361ab6ba645a9d00d81b098e4965c96410cb65a4eaef15987f",
+      "source_origin": "synthetic_source"
+    },
+    {
+      "bytes": 816378,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "data/LICENSE.md#original-fictional-sample-data"
+      ],
+      "logical_rows": 1800,
+      "path": "data/raw/operations/trip_plan.jsonl",
+      "sha256": "30b8b96600ed866568b71952b1683e8c2fbb0cd6ec0350557e4282e185cccbe6",
+      "source_origin": "synthetic_source"
+    },
+    {
+      "bytes": 816378,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "data/LICENSE.md#original-fictional-sample-data"
+      ],
+      "logical_rows": 1800,
+      "path": "data/raw/operations/trips.jsonl",
+      "sha256": "30b8b96600ed866568b71952b1683e8c2fbb0cd6ec0350557e4282e185cccbe6",
+      "source_origin": "synthetic_source"
+    },
+    {
+      "bytes": 2520,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "data/LICENSE.md#original-fictional-sample-data"
+      ],
+      "logical_rows": 36,
+      "path": "data/raw/tables/core_device.jsonl",
+      "sha256": "06a95820f133702632a1a40b1dd899a4f26101db8157586be2670a3b33dcef9b",
+      "source_origin": "synthetic_source"
+    },
+    {
+      "bytes": 348,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "data/LICENSE.md#original-fictional-sample-data"
+      ],
+      "logical_rows": 3,
+      "path": "data/raw/tables/core_tenant.jsonl",
+      "sha256": "883788996a38be3b00cf4e144e6b5d9c7545fd0629e582ae3059db5272f17cd1",
+      "source_origin": "synthetic_source"
+    },
+    {
+      "bytes": 4506,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "data/LICENSE.md#original-fictional-sample-data"
+      ],
+      "logical_rows": 30,
+      "path": "data/raw/tables/core_vehicle.jsonl",
+      "sha256": "531474282f90b83f67c4d8592db3c7081d66e90b343621feff660445674cfef9",
+      "source_origin": "synthetic_source"
+    },
+    {
+      "bytes": 11671,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "data/LICENSE.md#original-fictional-sample-data"
+      ],
+      "logical_rows": 34,
+      "path": "data/raw/tables/core_vehicle_device_assignment.jsonl",
+      "sha256": "0edf0aedf1cf7792bdee010fbe337d91880273208297264b33ba52621a63e460",
+      "source_origin": "synthetic_source"
+    },
+    {
+      "bytes": 8848,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "data/LICENSE.md#original-fictional-sample-data"
+      ],
+      "logical_rows": 8,
+      "path": "data/raw/tables/fuel_action_followup.jsonl",
+      "sha256": "8f3d9dc7f91b169bb7994c6afdf4e437253e63a74501b8c155c0c7b698109b77",
+      "source_origin": "synthetic_source"
+    },
+    {
+      "bytes": 8820,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "data/LICENSE.md#original-fictional-sample-data"
+      ],
+      "logical_rows": 30,
+      "path": "data/raw/tables/fuel_card_assignment.jsonl",
+      "sha256": "277c4567d4122fee2512a5c33ef25af08b5541843e583d1ea32f6e26d03f01bb",
+      "source_origin": "synthetic_source"
+    },
+    {
+      "bytes": 1092,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "data/LICENSE.md#original-fictional-sample-data"
+      ],
+      "logical_rows": 3,
+      "path": "data/raw/tables/fuel_counter_change.jsonl",
+      "sha256": "93f8d28a748f2bb421ee965287f414840999a81f219ad69f7cee314dff9e5488",
+      "source_origin": "synthetic_source"
+    },
+    {
+      "bytes": 142508634,
+      "git_file_size_eligible": false,
+      "license_refs": [
+        "data/LICENSE.md#original-fictional-sample-data"
+      ],
+      "logical_rows": 246449,
+      "path": "data/raw/tables/fuel_counter_observation.jsonl",
+      "sha256": "dabfb9999a249255fb2140c712b814365c1b581fac26ddd9225d3f22147c8a99",
+      "source_origin": "synthetic_source"
+    },
+    {
+      "bytes": 426969,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "data/LICENSE.md#original-fictional-sample-data"
+      ],
+      "logical_rows": 840,
+      "path": "data/raw/tables/fuel_inventory_measurement.jsonl",
+      "sha256": "7288857ff34ac52de3c5121e39e76800ee243c9da90723d1c1466151ec514c3b",
+      "source_origin": "synthetic_source"
+    },
+    {
+      "bytes": 81786,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "data/LICENSE.md#original-fictional-sample-data"
+      ],
+      "logical_rows": 168,
+      "path": "data/raw/tables/fuel_market_price.jsonl",
+      "sha256": "a66a9493d3b1228629c5355234068fa01517235e7cc664db9b26e0957baef278",
+      "source_origin": "synthetic_source"
+    },
+    {
+      "bytes": 1348718,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "data/LICENSE.md#original-fictional-sample-data"
+      ],
+      "logical_rows": 3423,
+      "path": "data/raw/tables/fuel_movement.jsonl",
+      "sha256": "7fdf5c0e0cfd3eea70ce8c8497005fcea821bac9ca0f98c8800f43b36ccc2ef5",
+      "source_origin": "synthetic_source"
+    },
+    {
+      "bytes": 2931,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "data/LICENSE.md#original-fictional-sample-data"
+      ],
+      "logical_rows": 8,
+      "path": "data/raw/tables/fuel_output_review.jsonl",
+      "sha256": "3cfbc82d0936f3780b300f87ff574874dfb43b884b77581b787327d59f80474c",
+      "source_origin": "synthetic_source"
+    },
+    {
+      "bytes": 1446479,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "data/LICENSE.md#original-fictional-sample-data"
+      ],
+      "logical_rows": 1861,
+      "path": "data/raw/tables/fuel_purchase_line.jsonl",
+      "sha256": "8a41edc7fc0aace339e928614035db1afb2924c3dd6aec1097d7453d13785875",
+      "source_origin": "synthetic_source"
+    },
+    {
+      "bytes": 4233,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "data/LICENSE.md#original-fictional-sample-data"
+      ],
+      "logical_rows": 8,
+      "path": "data/raw/tables/fuel_reference_case.jsonl",
+      "sha256": "4048b22de7491286e86022ce4280af5b4ba6d28d4d42615c62a57d1c6308c5e5",
+      "source_origin": "synthetic_source"
+    },
+    {
+      "bytes": 2541,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "data/LICENSE.md#original-fictional-sample-data"
+      ],
+      "logical_rows": 9,
+      "path": "data/raw/tables/fuel_region_mapping.jsonl",
+      "sha256": "d4f45386866929eaa41fd489de502e57c4f8c187605089a32d64a49b5ceb21bf",
+      "source_origin": "synthetic_source"
+    },
+    {
+      "bytes": 30022,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "data/LICENSE.md#original-fictional-sample-data"
+      ],
+      "logical_rows": 60,
+      "path": "data/raw/tables/fuel_signal_definition.jsonl",
+      "sha256": "0ac8379dac558aece91c21af43c42cd135a8f062b855bb9c52ccb2165f13b982",
+      "source_origin": "synthetic_source"
+    },
+    {
+      "bytes": 9457,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "data/LICENSE.md#original-fictional-sample-data"
+      ],
+      "logical_rows": 24,
+      "path": "data/raw/tables/fuel_statement_control.jsonl",
+      "sha256": "0ff788cafcebf8e6720bdd7c7002dae0c7478d09498dd5c3767ddc65ca81674a",
+      "source_origin": "synthetic_source"
+    },
+    {
+      "bytes": 6048,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "data/LICENSE.md#original-fictional-sample-data"
+      ],
+      "logical_rows": 36,
+      "path": "data/raw/tables/fuel_station.jsonl",
+      "sha256": "d2a5b828634afd214b887cb5b84740af8885cec3d34d50ec6a8a4abf2bf149bf",
+      "source_origin": "synthetic_source"
+    },
+    {
+      "bytes": 5850,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "data/LICENSE.md#original-fictional-sample-data"
+      ],
+      "logical_rows": 30,
+      "path": "data/raw/tables/fuel_tank_scope.jsonl",
+      "sha256": "a6384fb8ecd105a121f45290208d7575cf5b44ab54a28baaf20d170ff706216e",
+      "source_origin": "synthetic_source"
+    },
+    {
+      "bytes": 624600,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "data/LICENSE.md#original-fictional-sample-data"
+      ],
+      "logical_rows": 1800,
+      "path": "data/raw/tables/fuel_task_assignment.jsonl",
+      "sha256": "e6978f69fb83057c84796368222e752c629bc65fd4b828bf8520f11ea24da155",
+      "source_origin": "synthetic_source"
+    },
+    {
+      "bytes": 9630,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "data/LICENSE.md#original-fictional-sample-data"
+      ],
+      "logical_rows": 30,
+      "path": "data/raw/tables/fuel_vehicle_context.jsonl",
+      "sha256": "c6e9134be340dfb9c45d0b4c53e9dbd7a8b66b26cec62d61a966828e99bae7bc",
+      "source_origin": "synthetic_source"
+    },
+    {
+      "bytes": 237657533,
+      "git_file_size_eligible": false,
+      "license_refs": [
+        "data/LICENSE.md#original-fictional-sample-data"
+      ],
+      "logical_rows": 254821,
+      "path": "data/raw/tables/provenance_record.jsonl",
+      "sha256": "2260a8127b2c91de1372a4264f33f489f515652b84a4798169962c0c26002e41",
+      "source_origin": "synthetic_source"
+    },
+    {
+      "bytes": 142508056,
+      "git_file_size_eligible": false,
+      "license_refs": [
+        "data/LICENSE.md#original-fictional-sample-data"
+      ],
+      "logical_rows": 246448,
+      "path": "data/staged/events/fuel_counter_observation.jsonl",
+      "sha256": "01ace9500572397775c3349608438a9d5ca3583cd25f2839ee5e3dec2746c044",
+      "source_origin": "synthetic_processed_or_validation"
+    },
+    {
+      "bytes": 611,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "LICENSE"
+      ],
+      "logical_rows": null,
+      "path": "docker-compose.yml",
+      "sha256": "898c372cdc888db99807d71fcb7eb9e7b80b0668f06fa112f7d2bba6b2f7b93b",
+      "source_origin": "project_code_documentation_or_execution_evidence"
+    },
+    {
+      "bytes": 11075,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "LICENSE"
+      ],
+      "logical_rows": null,
+      "path": "docs/acceptance.md",
+      "sha256": "6c407b2fbddb3c8512939b3fb53a935988239977326b3b04fa9500b2bbf2d518",
+      "source_origin": "project_code_documentation_or_execution_evidence"
+    },
+    {
+      "bytes": 14534,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "LICENSE"
+      ],
+      "logical_rows": null,
+      "path": "docs/api_contract.md",
+      "sha256": "189df69fa0b319c2cfb1ab256559c251f601be32a3bcaa55843a2ce9c7608bbc",
+      "source_origin": "project_code_documentation_or_execution_evidence"
+    },
+    {
+      "bytes": 7668,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "LICENSE"
+      ],
+      "logical_rows": null,
+      "path": "docs/architecture.md",
+      "sha256": "a9031560ace00bf1ef8b431c1ec8811559b1fc084ac3d721cc148d5c49e930d1",
+      "source_origin": "project_code_documentation_or_execution_evidence"
+    },
+    {
+      "bytes": 7524,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "LICENSE"
+      ],
+      "logical_rows": null,
+      "path": "docs/chart_walkthrough_zh.md",
+      "sha256": "e426f540475548b8541e7c6751a94c1c309c18fa82c3abc7b8b0f8f75080183b",
+      "source_origin": "project_code_documentation_or_execution_evidence"
+    },
+    {
+      "bytes": 135102,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "LICENSE"
+      ],
+      "logical_rows": null,
+      "path": "docs/data_dictionary.md",
+      "sha256": "dfb742bd12a51a6d5549c38936d04fd4f6492078746c08fbf9640ef922042a3e",
+      "source_origin": "project_code_documentation_or_execution_evidence"
+    },
+    {
+      "bytes": 18027,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "LICENSE"
+      ],
+      "logical_rows": null,
+      "path": "docs/decision_register.md",
+      "sha256": "c2928d687e527b01a02f6c9fd0cbcd81424cfdb996e9ecde0d5afeadb098c125",
+      "source_origin": "project_code_documentation_or_execution_evidence"
+    },
+    {
+      "bytes": 7562,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "LICENSE"
+      ],
+      "logical_rows": null,
+      "path": "docs/delivery.md",
+      "sha256": "164331f748a153dfc1dd7d3d9a397cc92b3f769f9c2112efc4428ac0da6febde",
+      "source_origin": "project_code_documentation_or_execution_evidence"
+    },
+    {
+      "bytes": 14552,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "LICENSE"
+      ],
+      "logical_rows": null,
+      "path": "docs/metrics.md",
+      "sha256": "75a38f08f9b8ea95d3551b23930b4535864bf7a9e09fa27799709cea0c817eda",
+      "source_origin": "project_code_documentation_or_execution_evidence"
+    },
+    {
+      "bytes": 1109,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "LICENSE"
+      ],
+      "logical_rows": null,
+      "path": "docs/portfolio_summary_en.md",
+      "sha256": "cfeba1141a016a9d5b2c34c9fadc67580aad8277aa744c8f0cdb11abcac563d5",
+      "source_origin": "project_code_documentation_or_execution_evidence"
+    },
+    {
+      "bytes": 13075,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "LICENSE"
+      ],
+      "logical_rows": null,
+      "path": "docs/runbook.md",
+      "sha256": "6e0eb4e74495dd3662de52027efa35fe8becd032f9b623f350ec86fd423d2c65",
+      "source_origin": "project_code_documentation_or_execution_evidence"
+    },
+    {
+      "bytes": 11647,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "LICENSE"
+      ],
+      "logical_rows": null,
+      "path": "docs/simulation.md",
+      "sha256": "77d987da7255fd26b2cee8a410e22eab5aee427a38d8b2f5544012cea5d29d50",
+      "source_origin": "project_code_documentation_or_execution_evidence"
+    },
+    {
+      "bytes": 7170,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "LICENSE"
+      ],
+      "logical_rows": null,
+      "path": "docs/sources.md",
+      "sha256": "cdfe1c1c69a21fde2671348b8d8ceae4d5160fd2582fd13a9bec1124e45b31b0",
+      "source_origin": "project_code_documentation_or_execution_evidence"
+    },
+    {
+      "bytes": 701596,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "LICENSE"
+      ],
+      "logical_rows": null,
+      "path": "notebooks/01_fuel_analysis.ipynb",
+      "sha256": "036aeb59649f7bac1f146c447a6e515007eb2f458ba01b09feadb39ad90a0711",
+      "source_origin": "project_code_documentation_or_execution_evidence"
+    },
+    {
+      "bytes": 2964,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "LICENSE",
+        "data/LICENSE.md"
+      ],
+      "logical_rows": null,
+      "path": "outputs/analytics_summary.json",
+      "sha256": "7ac87fff92fc0f3740bdc2936c985c4483fddce53585058a3cd598f88a760e62",
+      "source_origin": "derived_analysis_and_presentation"
+    },
+    {
+      "bytes": 344,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "LICENSE",
+        "data/LICENSE.md"
+      ],
+      "logical_rows": 4,
+      "path": "outputs/coverage_sensitivity.csv",
+      "sha256": "1f6c8cc4f944290f5a7f46eabee7f244d3240b807f1c31eed377fe4c08ad869f",
+      "source_origin": "derived_analysis_and_presentation"
+    },
+    {
+      "bytes": 11241437,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "LICENSE",
+        "data/LICENSE.md"
+      ],
+      "logical_rows": null,
+      "path": "outputs/dashboard.html",
+      "sha256": "54463d5a169aafbf2ed59a1e4f6904e9026363f3c7a0b21751db5892c774eec0",
+      "source_origin": "derived_analysis_and_presentation"
+    },
+    {
+      "bytes": 1621564,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "LICENSE",
+        "data/LICENSE.md"
+      ],
+      "logical_rows": 4116,
+      "path": "outputs/efficiency_comparison.csv",
+      "sha256": "4d7278d92f5784345a1f25d424e6946ef97e7e7ccc5237c23f59b6b8235fdd85",
+      "source_origin": "derived_analysis_and_presentation"
+    },
+    {
+      "bytes": 235509,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "LICENSE",
+        "data/LICENSE.md"
+      ],
+      "logical_rows": null,
+      "path": "outputs/figures/01_efficiency_coverage.png",
+      "sha256": "2b34e35676b585b8497c926cef1ad352fa0c00f9c3d338aef16f5c7fc07cffb4",
+      "source_origin": "derived_analysis_and_presentation"
+    },
+    {
+      "bytes": 183399,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "LICENSE",
+        "data/LICENSE.md"
+      ],
+      "logical_rows": null,
+      "path": "outputs/figures/02_vehicle_week_heatmap.png",
+      "sha256": "b1583f48b0a042ccf420e83b1619f95823bdfc0fb02cdd1ceda3b17815f51272",
+      "source_origin": "derived_analysis_and_presentation"
+    },
+    {
+      "bytes": 382814,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "LICENSE",
+        "data/LICENSE.md"
+      ],
+      "logical_rows": null,
+      "path": "outputs/figures/03_operating_context.png",
+      "sha256": "2b05263d34bba8e2f66cee5ab0185d27cf3bc61c143b3a03c65fc069dcdc6d0c",
+      "source_origin": "derived_analysis_and_presentation"
+    },
+    {
+      "bytes": 217356,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "LICENSE",
+        "data/LICENSE.md"
+      ],
+      "logical_rows": null,
+      "path": "outputs/figures/04_price_quantity_bridge.png",
+      "sha256": "50a6d3faed989ecd8f582fe39ef9030a7847b64f7f0b2c8349c1afcf147672e2",
+      "source_origin": "derived_analysis_and_presentation"
+    },
+    {
+      "bytes": 195134,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "LICENSE",
+        "data/LICENSE.md"
+      ],
+      "logical_rows": null,
+      "path": "outputs/figures/05_inventory_reconciliation.png",
+      "sha256": "deabd6bfc00e4630b33261e7815a3ac960d607dbd441dc89356ba999fc4fc588",
+      "source_origin": "derived_analysis_and_presentation"
+    },
+    {
+      "bytes": 294583,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "LICENSE",
+        "data/LICENSE.md"
+      ],
+      "logical_rows": null,
+      "path": "outputs/figures/06_review_priority.png",
+      "sha256": "b7efb3b8063d3efc85fa64b22e0d022c4fbad4e7d44c94f31376cf769ed70698",
+      "source_origin": "derived_analysis_and_presentation"
+    },
+    {
+      "bytes": 188010,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "LICENSE",
+        "data/LICENSE.md"
+      ],
+      "logical_rows": null,
+      "path": "outputs/figures/07_action_followup.png",
+      "sha256": "72c7b62a05d692f4c7fad198d8c01af9f20c120a6a38c7566b68d7e227c38c28",
+      "source_origin": "derived_analysis_and_presentation"
+    },
+    {
+      "bytes": 63253,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "LICENSE",
+        "data/LICENSE.md"
+      ],
+      "logical_rows": 243,
+      "path": "outputs/fleet_weekly.csv",
+      "sha256": "c471a5019fca9b2536844bd443c4f3ac978c4287923c2bfd9168582bd460b057",
+      "source_origin": "derived_analysis_and_presentation"
+    },
+    {
+      "bytes": 8590,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "LICENSE",
+        "data/LICENSE.md"
+      ],
+      "logical_rows": 8,
+      "path": "outputs/followup_evaluation.csv",
+      "sha256": "b8e1cf9a48812619f48af51db993997a6afdb64d28f6f3a35723cee2bc129110",
+      "source_origin": "derived_analysis_and_presentation"
+    },
+    {
+      "bytes": 3141,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "LICENSE",
+        "data/LICENSE.md"
+      ],
+      "logical_rows": 16,
+      "path": "outputs/followup_task_comparison.csv",
+      "sha256": "63e5e796de52b3b249c7ce00d6ff8db585290f5787d21a07063d70e61640a5c0",
+      "source_origin": "derived_analysis_and_presentation"
+    },
+    {
+      "bytes": 987,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "LICENSE",
+        "data/LICENSE.md"
+      ],
+      "logical_rows": 21,
+      "path": "outputs/interval_exclusions.csv",
+      "sha256": "7d6a57b9c91660f6b1c365dce7f9b8493c8eb7b5ba6c8edaa79d2d00a72dc9e4",
+      "source_origin": "derived_analysis_and_presentation"
+    },
+    {
+      "bytes": 317451,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "LICENSE",
+        "data/LICENSE.md"
+      ],
+      "logical_rows": 810,
+      "path": "outputs/inventory_reconciliation.csv",
+      "sha256": "09bc1ff42279e94105eecdd591b1b0f32d39e1aa2492103fd54dd455b76348d5",
+      "source_origin": "derived_analysis_and_presentation"
+    },
+    {
+      "bytes": 4520583,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "LICENSE",
+        "data/LICENSE.md"
+      ],
+      "logical_rows": 5580,
+      "path": "outputs/purchase_detail.csv",
+      "sha256": "216df6e596161c347316c2cc1913c38265c5dd66f59ac928812212a8a59a3d1b",
+      "source_origin": "derived_analysis_and_presentation"
+    },
+    {
+      "bytes": 19418,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "LICENSE",
+        "data/LICENSE.md"
+      ],
+      "logical_rows": null,
+      "path": "outputs/report_content.json",
+      "sha256": "dd02f269c0e7442f3d635749b757496f9844bd64b68a048f7df81c6e6cfa3241",
+      "source_origin": "derived_analysis_and_presentation"
+    },
+    {
+      "bytes": 95377,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "LICENSE",
+        "data/LICENSE.md"
+      ],
+      "logical_rows": 810,
+      "path": "outputs/report_revisions.csv",
+      "sha256": "4b48253772ff54c01ccac20b870a7d6ab24d408238c8893035102d72f32af3de",
+      "source_origin": "derived_analysis_and_presentation"
+    },
+    {
+      "bytes": 35583,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "LICENSE",
+        "data/LICENSE.md"
+      ],
+      "logical_rows": 243,
+      "path": "outputs/report_runs.csv",
+      "sha256": "d60cbae5b14767a749fe51d05887b1eee80b92c4339d99a9fc3fb273e48df721",
+      "source_origin": "derived_analysis_and_presentation"
+    },
+    {
+      "bytes": 876,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "LICENSE",
+        "data/LICENSE.md"
+      ],
+      "logical_rows": null,
+      "path": "outputs/report_validation.json",
+      "sha256": "cbd7cbfffff5dd5b6a10b8a8df866f1b56456d678478c21d10a244c1ddc38442",
+      "source_origin": "derived_analysis_and_presentation"
+    },
+    {
+      "bytes": 1216014,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "LICENSE",
+        "data/LICENSE.md"
+      ],
+      "logical_rows": 2430,
+      "path": "outputs/report_weekly_detail.csv",
+      "sha256": "32c99eddcdc4d10c5b4ddceb4cbf5ead41766b487c48beb77d04fddb0d59b76c",
+      "source_origin": "derived_analysis_and_presentation"
+    },
+    {
+      "bytes": 86666,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "LICENSE",
+        "data/LICENSE.md"
+      ],
+      "logical_rows": 170,
+      "path": "outputs/review_candidates.csv",
+      "sha256": "63f80d61839a251feebdab1fc77dfad7b2456be4fa943e0ff01c3f03533e7097",
+      "source_origin": "derived_analysis_and_presentation"
+    },
+    {
+      "bytes": 1322138,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "LICENSE",
+        "data/LICENSE.md"
+      ],
+      "logical_rows": 2430,
+      "path": "outputs/vehicle_weekly.csv",
+      "sha256": "9a65ae051bf3108b4c550fb736d94446688d813903e2a16d97305f2084e59acc",
+      "source_origin": "derived_analysis_and_presentation"
+    },
+    {
+      "bytes": 646,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "LICENSE"
+      ],
+      "logical_rows": null,
+      "path": "pyproject.toml",
+      "sha256": "10622f92a22d8d2b177283a5c80da1cf18b8f85befe08b84eccc36e1e807dd4b",
+      "source_origin": "project_code_documentation_or_execution_evidence"
+    },
+    {
+      "bytes": 626568,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "LICENSE",
+        "data/LICENSE.md"
+      ],
+      "logical_rows": null,
+      "path": "reports/DA-E01_Analysis_Report_EN.docx",
+      "sha256": "3575995f9fb55f1f7af1fda013d92d5737ab468f69b4b11cdeda7ff3b94999e2",
+      "source_origin": "derived_analysis_and_presentation"
+    },
+    {
+      "bytes": 582151,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "LICENSE",
+        "data/LICENSE.md"
+      ],
+      "logical_rows": null,
+      "path": "reports/DA-E01_Analysis_Report_EN.pdf",
+      "sha256": "16bcc0a8e020fe36fd0c088f4d46689c2f467473f2ce7624bc93380e27793160",
+      "source_origin": "derived_analysis_and_presentation"
+    },
+    {
+      "bytes": 1584684,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "LICENSE",
+        "data/LICENSE.md"
+      ],
+      "logical_rows": null,
+      "path": "reports/DA-E01_Analysis_Report_ZH.docx",
+      "sha256": "5da71e5547c311853b58866327aa646f21223a2ab5f689a04322734200ec22cf",
+      "source_origin": "derived_analysis_and_presentation"
+    },
+    {
+      "bytes": 1604189,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "LICENSE",
+        "data/LICENSE.md"
+      ],
+      "logical_rows": null,
+      "path": "reports/DA-E01_Analysis_Report_ZH.pdf",
+      "sha256": "c96f70c0d7cfd063f3c8d25c96e7f4b5d13165a4cb186cf3c5da1a48cb5a1493",
+      "source_origin": "derived_analysis_and_presentation"
+    },
+    {
+      "bytes": 1402,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "LICENSE",
+        "data/LICENSE.md"
+      ],
+      "logical_rows": null,
+      "path": "reports/README.md",
+      "sha256": "d6ff1187aa2a1f6ec4d468d9fd43b9f2d55654d1652af889aea3577b7e15bee6",
+      "source_origin": "derived_analysis_and_presentation"
+    },
+    {
+      "bytes": 981,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "LICENSE",
+        "data/LICENSE.md"
+      ],
+      "logical_rows": null,
+      "path": "reports/document_validation.json",
+      "sha256": "f1338b44000f380542f65ebee03647e1528c77ce8c882d6d278514fb5534ebf6",
+      "source_origin": "derived_analysis_and_presentation"
+    },
+    {
+      "bytes": 1271,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "LICENSE"
+      ],
+      "logical_rows": null,
+      "path": "requirements.lock.txt",
+      "sha256": "dc46e3319a80b895aeaf265cd3872c3b2989671489c6e978601b90f0c0b7219a",
+      "source_origin": "project_code_documentation_or_execution_evidence"
+    },
+    {
+      "bytes": 21091,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "LICENSE"
+      ],
+      "logical_rows": null,
+      "path": "scripts/build_documents.py",
+      "sha256": "6b69eb48422eef3fb2a3472652d9e817a807ddd31d839cc2aaf441a85d5cac26",
+      "source_origin": "project_code_documentation_or_execution_evidence"
+    },
+    {
+      "bytes": 2397,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "LICENSE"
+      ],
+      "logical_rows": null,
+      "path": "scripts/check_dashboard.js",
+      "sha256": "149a8a1c9fc539e34da08a809a856199ac0f5db60a4153c8b428bc66b030aeac",
+      "source_origin": "project_code_documentation_or_execution_evidence"
+    },
+    {
+      "bytes": 9990,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "LICENSE"
+      ],
+      "logical_rows": null,
+      "path": "scripts/compare_ci_database.py",
+      "sha256": "062126992f102c07c4c186df0f005ef90182fbe86e2e6b9fe1b8aa4c37e64e2f",
+      "source_origin": "project_code_documentation_or_execution_evidence"
+    },
+    {
+      "bytes": 1969,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "LICENSE"
+      ],
+      "logical_rows": null,
+      "path": "scripts/execute_notebook_inprocess.py",
+      "sha256": "c68cc96c3c4b45bd43cf2a11584f824e1cd4f275ea2e413c7c990fd3ce05a27b",
+      "source_origin": "project_code_documentation_or_execution_evidence"
+    },
+    {
+      "bytes": 3750,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "LICENSE"
+      ],
+      "logical_rows": null,
+      "path": "scripts/export_contract.py",
+      "sha256": "c9210e8ecd60646e6cd092067ad0e413b6276d444cfc65ae72ffc1a01f7210d4",
+      "source_origin": "project_code_documentation_or_execution_evidence"
+    },
+    {
+      "bytes": 22059,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "LICENSE"
+      ],
+      "logical_rows": null,
+      "path": "scripts/package_release.py",
+      "sha256": "e0f843431fa496d04f29a5fd00c8604d1387bdba889cc072e4d2b67513058e90",
+      "source_origin": "project_code_documentation_or_execution_evidence"
+    },
+    {
+      "bytes": 1500,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "LICENSE"
+      ],
+      "logical_rows": null,
+      "path": "scripts/postgres_local.sh",
+      "sha256": "4aca500429c49c35c9995c426bd169fb203a9a514736d1f32f23ad20bc72a7a4",
+      "source_origin": "project_code_documentation_or_execution_evidence"
+    },
+    {
+      "bytes": 4265,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "LICENSE"
+      ],
+      "logical_rows": null,
+      "path": "scripts/sanitize_validation_paths.py",
+      "sha256": "9be2ba4c3dfec244f11936bdabf464be96d732e675fd8e3697fc06df55a4fd96",
+      "source_origin": "project_code_documentation_or_execution_evidence"
+    },
+    {
+      "bytes": 13707,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "LICENSE"
+      ],
+      "logical_rows": null,
+      "path": "scripts/verify_rebuild.py",
+      "sha256": "a54cc622663f5beadba8a50bfc8ab0ec4f7b85079dc858973e034db87174d3d6",
+      "source_origin": "project_code_documentation_or_execution_evidence"
+    },
+    {
+      "bytes": 27797,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "LICENSE"
+      ],
+      "logical_rows": null,
+      "path": "sql/analytics.sql",
+      "sha256": "76ad56792d24b512fe6c258fe3a78699678ca37b21a961409ab0e0eedf82f215",
+      "source_origin": "project_code_documentation_or_execution_evidence"
+    },
+    {
+      "bytes": 22,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "LICENSE"
+      ],
+      "logical_rows": null,
+      "path": "src/fleet_fuel/__init__.py",
+      "sha256": "27e8febb48ada44153ea2add9969a2c50a9831a74d9755fdd53c549a888b1cc2",
+      "source_origin": "project_code_documentation_or_execution_evidence"
+    },
+    {
+      "bytes": 26633,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "LICENSE"
+      ],
+      "logical_rows": null,
+      "path": "src/fleet_fuel/analysis.py",
+      "sha256": "344b0b177d7ef915be952112fd9704a82dd2f06ad5fd084070785e903cd6db7a",
+      "source_origin": "project_code_documentation_or_execution_evidence"
+    },
+    {
+      "bytes": 5699,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "LICENSE"
+      ],
+      "logical_rows": null,
+      "path": "src/fleet_fuel/cli.py",
+      "sha256": "e8e8bb15cffc16157e0e3fcc531c9cbfb8dd4e504aa4c20be18a4f265393496a",
+      "source_origin": "project_code_documentation_or_execution_evidence"
+    },
+    {
+      "bytes": 1280,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "LICENSE"
+      ],
+      "logical_rows": null,
+      "path": "src/fleet_fuel/common.py",
+      "sha256": "e2a6b476a2eeb09f0d0ced5ec5dc85f736b12400ac2e1c5841b7484605876b88",
+      "source_origin": "project_code_documentation_or_execution_evidence"
+    },
+    {
+      "bytes": 8278,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "LICENSE"
+      ],
+      "logical_rows": null,
+      "path": "src/fleet_fuel/event_api.py",
+      "sha256": "19a6dbb547921e36080cb7dc5d3b362683a23690c7798a339875b2a7835c0049",
+      "source_origin": "project_code_documentation_or_execution_evidence"
+    },
+    {
+      "bytes": 16498,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "LICENSE"
+      ],
+      "logical_rows": null,
+      "path": "src/fleet_fuel/ingestion.py",
+      "sha256": "d759dd225679926c6b93aff841d08a9a86dba6f56f3c9ddab8d6a2c4cd5d7b21",
+      "source_origin": "project_code_documentation_or_execution_evidence"
+    },
+    {
+      "bytes": 4836,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "LICENSE"
+      ],
+      "logical_rows": null,
+      "path": "src/fleet_fuel/input_policy.py",
+      "sha256": "53cb4c42cc3ad98d8052e46b8afb861582825fbdb75db112ba25d183523d1b3d",
+      "source_origin": "project_code_documentation_or_execution_evidence"
+    },
+    {
+      "bytes": 9897,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "LICENSE"
+      ],
+      "logical_rows": null,
+      "path": "src/fleet_fuel/operational.py",
+      "sha256": "4dfe1c06253190972932a418a3c30f5faf995f2d2a24d09fe1a1bf8e7e3b9569",
+      "source_origin": "project_code_documentation_or_execution_evidence"
+    },
+    {
+      "bytes": 7261,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "LICENSE"
+      ],
+      "logical_rows": null,
+      "path": "src/fleet_fuel/public_normalization.py",
+      "sha256": "526f971bf87c39e633db01f39ec6b65f6c15a02cbffae75472e17bf54c7cd61c",
+      "source_origin": "project_code_documentation_or_execution_evidence"
+    },
+    {
+      "bytes": 34073,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "LICENSE"
+      ],
+      "logical_rows": null,
+      "path": "src/fleet_fuel/quality.py",
+      "sha256": "7f4b374eb9a7cdd8ae681c74977cbeb24964fc31d3f66aa9ef221bed624bf0cd",
+      "source_origin": "project_code_documentation_or_execution_evidence"
+    },
+    {
+      "bytes": 69707,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "LICENSE"
+      ],
+      "logical_rows": null,
+      "path": "src/fleet_fuel/reporting.py",
+      "sha256": "a1cf516a6d21cbd19bc700f0c11954a684bade87ce70d8f65708e70f401b1de1",
+      "source_origin": "project_code_documentation_or_execution_evidence"
+    },
+    {
+      "bytes": 41492,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "LICENSE"
+      ],
+      "logical_rows": null,
+      "path": "src/fleet_fuel/simulation.py",
+      "sha256": "13b0ea15ad47629a8e3aa53c13784d90fb43baf7f59225e55b537ea6b346afbf",
+      "source_origin": "project_code_documentation_or_execution_evidence"
+    },
+    {
+      "bytes": 14162,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "LICENSE"
+      ],
+      "logical_rows": null,
+      "path": "src/fleet_fuel/sources.py",
+      "sha256": "fa188a75c990b23478721330f1354ed61853852a8904aa8dcaee7267fc3023bc",
+      "source_origin": "project_code_documentation_or_execution_evidence"
+    },
+    {
+      "bytes": 17973,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "LICENSE"
+      ],
+      "logical_rows": null,
+      "path": "tests/test_analysis.py",
+      "sha256": "14a59b5d84f11aafae4b8a9e35fd8eb9d340294276e7c14c18a6ad15c1fa63fa",
+      "source_origin": "project_code_documentation_or_execution_evidence"
+    },
+    {
+      "bytes": 2687,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "LICENSE"
+      ],
+      "logical_rows": null,
+      "path": "tests/test_ci_database_comparison.py",
+      "sha256": "72ad92dcdaeb0f6dc3300fb6e4a36e37e12e26e4c94f9ac72029e20d5dffc2c0",
+      "source_origin": "project_code_documentation_or_execution_evidence"
+    },
+    {
+      "bytes": 7276,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "LICENSE"
+      ],
+      "logical_rows": null,
+      "path": "tests/test_contracts.py",
+      "sha256": "eed05e28f55b7cfb54d5b93ee4a4e4d1d15e6809f3475f1fee4952260e8c47a7",
+      "source_origin": "project_code_documentation_or_execution_evidence"
+    },
+    {
+      "bytes": 8023,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "LICENSE"
+      ],
+      "logical_rows": null,
+      "path": "tests/test_ingestion.py",
+      "sha256": "f1ca866acee6032960d20bacaa765b57c85179d4558bae925d25e60aa6cefa50",
+      "source_origin": "project_code_documentation_or_execution_evidence"
+    },
+    {
+      "bytes": 4268,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "LICENSE"
+      ],
+      "logical_rows": null,
+      "path": "tests/test_normalization.py",
+      "sha256": "67a3ee630e54cb7df53ca44827c5b1ab97d51c9ded163b0b2b1fd6c6c171258b",
+      "source_origin": "project_code_documentation_or_execution_evidence"
+    },
+    {
+      "bytes": 8153,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "LICENSE"
+      ],
+      "logical_rows": null,
+      "path": "tests/test_postgres.py",
+      "sha256": "fbb8b85d56bcf29d92ecab8e135bb078a7692da1e74312c672f240a5afc8b901",
+      "source_origin": "project_code_documentation_or_execution_evidence"
+    },
+    {
+      "bytes": 3865,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "LICENSE"
+      ],
+      "logical_rows": null,
+      "path": "tests/test_public_normalization.py",
+      "sha256": "60e71f7008e43bb1a70e7bf714e6f4b0b50b23e51bd27804cdf6c53ce824c9ae",
+      "source_origin": "project_code_documentation_or_execution_evidence"
+    },
+    {
+      "bytes": 5469,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "LICENSE"
+      ],
+      "logical_rows": null,
+      "path": "tests/test_release_packaging.py",
+      "sha256": "d396b745f82537e28c2f0479a190141267eb2e2f2661b332e0997a29cac1acaf",
+      "source_origin": "project_code_documentation_or_execution_evidence"
+    },
+    {
+      "bytes": 9990,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "LICENSE"
+      ],
+      "logical_rows": null,
+      "path": "tests/test_simulation.py",
+      "sha256": "8e12b95960142d136ec226da14eb3dd610570213488b36542f8e533c8606ff80",
+      "source_origin": "project_code_documentation_or_execution_evidence"
+    },
+    {
+      "bytes": 3111,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "LICENSE"
+      ],
+      "logical_rows": null,
+      "path": "tests/test_sources.py",
+      "sha256": "f7d3387768b33647d0485a0fb1f3960a2b35576285727b2fc4536dc653459ced",
+      "source_origin": "project_code_documentation_or_execution_evidence"
+    },
+    {
+      "bytes": 25291,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "LICENSE"
+      ],
+      "logical_rows": null,
+      "path": "validation/acceptance_checkpoint.json",
+      "sha256": "7ab992b7f0bb1339c2e290036d195ef036854379d922eb69c17f2cb74152501e",
+      "source_origin": "project_code_documentation_or_execution_evidence"
+    },
+    {
+      "bytes": 5623,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "LICENSE"
+      ],
+      "logical_rows": null,
+      "path": "validation/build_report.json",
+      "sha256": "4363a45e7583bedbc1933e0435c7b8d22772f20cbe428a14bd57d80baa6687da",
+      "source_origin": "project_code_documentation_or_execution_evidence"
+    },
+    {
+      "bytes": 6317,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "LICENSE"
+      ],
+      "logical_rows": null,
+      "path": "validation/ci/final-run-40229112753/data/generation_manifest.json",
+      "sha256": "64f1218307a745b2efd6d957da5d7a603590f3e757456529217027210ee731aa",
+      "source_origin": "project_code_documentation_or_execution_evidence"
+    },
+    {
+      "bytes": 5219,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "LICENSE"
+      ],
+      "logical_rows": null,
+      "path": "validation/ci/final-run-40229112753/data/normalized/manifest.json",
+      "sha256": "aee95000d5eef5593d38ce491b996f26086a0681ba0846d4ce9823c13e00cf1c",
+      "source_origin": "project_code_documentation_or_execution_evidence"
+    },
+    {
+      "bytes": 3205,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "LICENSE"
+      ],
+      "logical_rows": null,
+      "path": "validation/ci/final-run-40229112753/outputs/analytics_summary.json",
+      "sha256": "ac0575d5b2127fc55e58c2b4c23f550a7d094e3c353860a981d1f36d9375ef2c",
+      "source_origin": "project_code_documentation_or_execution_evidence"
+    },
+    {
+      "bytes": 5623,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "LICENSE"
+      ],
+      "logical_rows": null,
+      "path": "validation/ci/final-run-40229112753/validation/build_report.json",
+      "sha256": "6fced56407dcd93d9bf94e3ea5f615c3dacc61fedce606437c77e19982e42888",
+      "source_origin": "project_code_documentation_or_execution_evidence"
+    },
+    {
+      "bytes": 13554,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "LICENSE"
+      ],
+      "logical_rows": null,
+      "path": "validation/ci/final-run-40229112753/validation/ci-tests.xml",
+      "sha256": "d3bf0858841ba2bf657b237a4e634208d258529612d70cc3ee30fea4fa48fb04",
+      "source_origin": "project_code_documentation_or_execution_evidence"
+    },
+    {
+      "bytes": 678,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "LICENSE"
+      ],
+      "logical_rows": null,
+      "path": "validation/ci/final-run-40229112753/validation/ingestion_report.json",
+      "sha256": "243a38148584a414772213efd35c2682862ad282da1e5e282acf9b0199aa0169",
+      "source_origin": "project_code_documentation_or_execution_evidence"
+    },
+    {
+      "bytes": 901,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "LICENSE"
+      ],
+      "logical_rows": null,
+      "path": "validation/ci/final-run-40229112753/validation/postgres_bootstrap.json",
+      "sha256": "239a14d98c60de37d9c4edfeacdcbb82b01a1d24323b71164f6f9f0e2af69c5a",
+      "source_origin": "project_code_documentation_or_execution_evidence"
+    },
+    {
+      "bytes": 717,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "LICENSE"
+      ],
+      "logical_rows": null,
+      "path": "validation/ci/final-run-40229112753/validation/postgres_extract.json",
+      "sha256": "2c331bdab46491bdb3000aca8a0fb90dcbdb83f2c0336cc60b0dbad74ea90182",
+      "source_origin": "project_code_documentation_or_execution_evidence"
+    },
+    {
+      "bytes": 524080,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "LICENSE"
+      ],
+      "logical_rows": null,
+      "path": "validation/ci/final-run-40229112753/validation/quality_report.json",
+      "sha256": "14d0e1181c20d4b62f33eba22d0e553229a96f106115a1c2b9bfcac55da12add",
+      "source_origin": "project_code_documentation_or_execution_evidence"
+    },
+    {
+      "bytes": 28978,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "LICENSE"
+      ],
+      "logical_rows": null,
+      "path": "validation/ci/final-run-40229112753/validation/run_manifest.json",
+      "sha256": "04c8f02a3dd0ab8eb29b4ff80cfa65c1d950bf6e0c3b3b25ec1108e251e57af0",
+      "source_origin": "project_code_documentation_or_execution_evidence"
+    },
+    {
+      "bytes": 6317,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "LICENSE"
+      ],
+      "logical_rows": null,
+      "path": "validation/ci/full-run-40227233022/data/generation_manifest.json",
+      "sha256": "64f1218307a745b2efd6d957da5d7a603590f3e757456529217027210ee731aa",
+      "source_origin": "project_code_documentation_or_execution_evidence"
+    },
+    {
+      "bytes": 5219,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "LICENSE"
+      ],
+      "logical_rows": null,
+      "path": "validation/ci/full-run-40227233022/data/normalized/manifest.json",
+      "sha256": "ed99c33176fcb87f38d2a11a1883f70d11e92107bdf5bbf8f7ab4f2a0136a9f2",
+      "source_origin": "project_code_documentation_or_execution_evidence"
+    },
+    {
+      "bytes": 2964,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "LICENSE"
+      ],
+      "logical_rows": null,
+      "path": "validation/ci/full-run-40227233022/outputs/analytics_summary.json",
+      "sha256": "6052668eedd9713f4398733adf63e8a601ede4f579a7392f77aa3d72ad53a73c",
+      "source_origin": "project_code_documentation_or_execution_evidence"
+    },
+    {
+      "bytes": 5623,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "LICENSE"
+      ],
+      "logical_rows": null,
+      "path": "validation/ci/full-run-40227233022/validation/build_report.json",
+      "sha256": "4363a45e7583bedbc1933e0435c7b8d22772f20cbe428a14bd57d80baa6687da",
+      "source_origin": "project_code_documentation_or_execution_evidence"
+    },
+    {
+      "bytes": 9962,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "LICENSE"
+      ],
+      "logical_rows": null,
+      "path": "validation/ci/full-run-40227233022/validation/ci-tests.xml",
+      "sha256": "174f2360f9f40ffa022589945b72d375d30bfc02025cd4f961cc7df8db86d900",
+      "source_origin": "project_code_documentation_or_execution_evidence"
+    },
+    {
+      "bytes": 678,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "LICENSE"
+      ],
+      "logical_rows": null,
+      "path": "validation/ci/full-run-40227233022/validation/ingestion_report.json",
+      "sha256": "ecd61d82e12640ddbb3b2deabadd9236cf24e392423095717ce958a065ee076b",
+      "source_origin": "project_code_documentation_or_execution_evidence"
+    },
+    {
+      "bytes": 901,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "LICENSE"
+      ],
+      "logical_rows": null,
+      "path": "validation/ci/full-run-40227233022/validation/postgres_bootstrap.json",
+      "sha256": "3512f026b91ec01ad6fea13ea07c7df8d5eb60c68cb9ed744f2da1e6f28bed6d",
+      "source_origin": "project_code_documentation_or_execution_evidence"
+    },
+    {
+      "bytes": 717,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "LICENSE"
+      ],
+      "logical_rows": null,
+      "path": "validation/ci/full-run-40227233022/validation/postgres_extract.json",
+      "sha256": "bfc8cfc737487fe2d607d5893504326cbe9905a664a878682acff5e86af26602",
+      "source_origin": "project_code_documentation_or_execution_evidence"
+    },
+    {
+      "bytes": 524080,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "LICENSE"
+      ],
+      "logical_rows": null,
+      "path": "validation/ci/full-run-40227233022/validation/quality_report.json",
+      "sha256": "866066ffee54dcd521e4ee3c287fa451a720f460be002751d0efbd692c8501ba",
+      "source_origin": "project_code_documentation_or_execution_evidence"
+    },
+    {
+      "bytes": 28701,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "LICENSE"
+      ],
+      "logical_rows": null,
+      "path": "validation/ci/full-run-40227233022/validation/run_manifest.json",
+      "sha256": "adf330ca1180634148cfd350b907244b4003634d129df864e04e8a3b57347453",
+      "source_origin": "project_code_documentation_or_execution_evidence"
+    },
+    {
+      "bytes": 6307,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "LICENSE"
+      ],
+      "logical_rows": null,
+      "path": "validation/ci/run-40226254641/data/generation_manifest.json",
+      "sha256": "221e608b7ece3f328d9c8a7c6a0671e9fde0848e6592bb7b4d4b10880830f6de",
+      "source_origin": "project_code_documentation_or_execution_evidence"
+    },
+    {
+      "bytes": 5352,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "LICENSE"
+      ],
+      "logical_rows": null,
+      "path": "validation/ci/run-40226254641/validation/build_report.json",
+      "sha256": "58090418aba87c9fdc8aa1098518fdc75202aea10884093a80a89ca46b8ab589",
+      "source_origin": "project_code_documentation_or_execution_evidence"
+    },
+    {
+      "bytes": 7618,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "LICENSE"
+      ],
+      "logical_rows": null,
+      "path": "validation/ci/run-40226254641/validation/ci-tests.xml",
+      "sha256": "c3d22e064dba4f689e6e8c94914c4a424b10f7f2994441877d1dc5fd6f1e72dd",
+      "source_origin": "project_code_documentation_or_execution_evidence"
+    },
+    {
+      "bytes": 670,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "LICENSE"
+      ],
+      "logical_rows": null,
+      "path": "validation/ci/run-40226254641/validation/ingestion_report.json",
+      "sha256": "886bb7fe91d5cd3b585c9de3956d79bd8e80c7a37b90db4597ebeae6407ffa08",
+      "source_origin": "project_code_documentation_or_execution_evidence"
+    },
+    {
+      "bytes": 900,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "LICENSE"
+      ],
+      "logical_rows": null,
+      "path": "validation/ci/run-40226254641/validation/postgres_bootstrap.json",
+      "sha256": "d075261b5b91a744d6fce791f2f5c5475c32acef5866f2827b91520c017bb187",
+      "source_origin": "project_code_documentation_or_execution_evidence"
+    },
+    {
+      "bytes": 716,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "LICENSE"
+      ],
+      "logical_rows": null,
+      "path": "validation/ci/run-40226254641/validation/postgres_extract.json",
+      "sha256": "80dc7d10f87d515dd30d8257a1631abbf6a1275fb80b6751be413963d83e4694",
+      "source_origin": "project_code_documentation_or_execution_evidence"
+    },
+    {
+      "bytes": 523866,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "LICENSE"
+      ],
+      "logical_rows": null,
+      "path": "validation/ci/run-40226254641/validation/quality_report.json",
+      "sha256": "9801e77904e33477328a21ac8a1c143e40eb187905464c6f2cbd7c92eb9c66d1",
+      "source_origin": "project_code_documentation_or_execution_evidence"
+    },
+    {
+      "bytes": 30970,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "LICENSE"
+      ],
+      "logical_rows": null,
+      "path": "validation/ci_final_canonical_comparison_40229112753.json",
+      "sha256": "386e921b7498b7d0af57e4eed75eb1fd3e06987d67046046fae6685600c649e6",
+      "source_origin": "project_code_documentation_or_execution_evidence"
+    },
+    {
+      "bytes": 6620,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "LICENSE"
+      ],
+      "logical_rows": null,
+      "path": "validation/ci_final_run_40229112753.json",
+      "sha256": "41255a145093a80eba774339e6f08ef6c13e5f790f7aaf8e0903b1fa84be0460",
+      "source_origin": "project_code_documentation_or_execution_evidence"
+    },
+    {
+      "bytes": 13554,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "LICENSE"
+      ],
+      "logical_rows": null,
+      "path": "validation/ci_final_tests_40229112753.xml",
+      "sha256": "d3bf0858841ba2bf657b237a4e634208d258529612d70cc3ee30fea4fa48fb04",
+      "source_origin": "project_code_documentation_or_execution_evidence"
+    },
+    {
+      "bytes": 30970,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "LICENSE"
+      ],
+      "logical_rows": null,
+      "path": "validation/ci_full_canonical_comparison_40227233022.json",
+      "sha256": "4c4cc2c58ff6d99548564dec834e6740a9f858c3de859e5664cf2a0478fa9906",
+      "source_origin": "project_code_documentation_or_execution_evidence"
+    },
+    {
+      "bytes": 14783,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "LICENSE"
+      ],
+      "logical_rows": null,
+      "path": "validation/ci_full_comparison_40227233022.json",
+      "sha256": "e59e708d22eacd037fb3ee3fdb14af131150dd0d4d59d26cc8d6a95f516b2ee7",
+      "source_origin": "project_code_documentation_or_execution_evidence"
+    },
+    {
+      "bytes": 6264,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "LICENSE"
+      ],
+      "logical_rows": null,
+      "path": "validation/ci_full_run_40227233022.json",
+      "sha256": "99457b4e2c9ef688e61fd030a1e231ff9bf0be70930a10c59808580f23ffb9a6",
+      "source_origin": "project_code_documentation_or_execution_evidence"
+    },
+    {
+      "bytes": 9962,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "LICENSE"
+      ],
+      "logical_rows": null,
+      "path": "validation/ci_full_tests_40227233022.xml",
+      "sha256": "174f2360f9f40ffa022589945b72d375d30bfc02025cd4f961cc7df8db86d900",
+      "source_origin": "project_code_documentation_or_execution_evidence"
+    },
+    {
+      "bytes": 13119,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "LICENSE"
+      ],
+      "logical_rows": null,
+      "path": "validation/ci_run_40226254641.json",
+      "sha256": "48b8227e37ca4a6585b21df11324b82682142e36c9680e28a9bf02eba190f440",
+      "source_origin": "project_code_documentation_or_execution_evidence"
+    },
+    {
+      "bytes": 7618,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "LICENSE"
+      ],
+      "logical_rows": null,
+      "path": "validation/ci_tests_40226254641.xml",
+      "sha256": "c3d22e064dba4f689e6e8c94914c4a424b10f7f2994441877d1dc5fd6f1e72dd",
+      "source_origin": "project_code_documentation_or_execution_evidence"
+    },
+    {
+      "bytes": 1993,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "LICENSE"
+      ],
+      "logical_rows": null,
+      "path": "validation/database_adoption.json",
+      "sha256": "6fca999a7643479e48ed39d637bd29a822bf0147308de973b5d24aa084ebcdd8",
+      "source_origin": "project_code_documentation_or_execution_evidence"
+    },
+    {
+      "bytes": 3419,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "data/LICENSE.md#original-fictional-sample-data"
+      ],
+      "logical_rows": null,
+      "path": "validation/expected/hand_cases.json",
+      "sha256": "461c537f113f0b27bbb7ccedbb7c708e0792e87734a3ebc91f1d83b14858c5db",
+      "source_origin": "synthetic_processed_or_validation"
+    },
+    {
+      "bytes": 1908,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "data/LICENSE.md#original-fictional-sample-data"
+      ],
+      "logical_rows": null,
+      "path": "validation/expected/injections.json",
+      "sha256": "d38a7c449351ace549f51f6c27d5ee416d86a9c40a67532273fc4c283ae47cc0",
+      "source_origin": "synthetic_processed_or_validation"
+    },
+    {
+      "bytes": 72,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "data/LICENSE.md#original-fictional-sample-data"
+      ],
+      "logical_rows": 2,
+      "path": "validation/expected/malformed_transport.jsonl",
+      "sha256": "dbd834defd87e836fa87e8c270e020d95af5887a6560dd9e2e985189fad42c5c",
+      "source_origin": "synthetic_processed_or_validation"
+    },
+    {
+      "bytes": 302986,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "data/LICENSE.md#original-fictional-sample-data"
+      ],
+      "logical_rows": 1800,
+      "path": "validation/expected/physical_trip_ledger.jsonl",
+      "sha256": "d2fb7453cb5d7fafd994c2c94710c4a36d1a617e47d0130cf3d2f5abc737431c",
+      "source_origin": "synthetic_processed_or_validation"
+    },
+    {
+      "bytes": 1158,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "data/LICENSE.md#original-fictional-sample-data"
+      ],
+      "logical_rows": null,
+      "path": "validation/expected/review_cases.json",
+      "sha256": "ecdefb86605e22af94c30ecf67b494a72629b5771927d078a3af2d3574e8cf25",
+      "source_origin": "synthetic_processed_or_validation"
+    },
+    {
+      "bytes": 7641,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "LICENSE"
+      ],
+      "logical_rows": null,
+      "path": "validation/final_acceptance_review.json",
+      "sha256": "8a68c41a203af905df449eef2440af90565251907cd39e8e6f1cd51f36fadec5",
+      "source_origin": "project_code_documentation_or_execution_evidence"
+    },
+    {
+      "bytes": 678,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "LICENSE"
+      ],
+      "logical_rows": null,
+      "path": "validation/ingestion_report.json",
+      "sha256": "22d84771c71c10af01f074cfa41602580653f3351b46be52de7d6fc118634eb3",
+      "source_origin": "project_code_documentation_or_execution_evidence"
+    },
+    {
+      "bytes": 678,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "LICENSE"
+      ],
+      "logical_rows": null,
+      "path": "validation/local_http_ingestion.json",
+      "sha256": "22d84771c71c10af01f074cfa41602580653f3351b46be52de7d6fc118634eb3",
+      "source_origin": "project_code_documentation_or_execution_evidence"
+    },
+    {
+      "bytes": 1255,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "LICENSE"
+      ],
+      "logical_rows": null,
+      "path": "validation/local_intake_evidence.json",
+      "sha256": "fb4b8a41db5714abfe6b311b977f3c6857cb6c3d21bd56707e637efbda4c2d23",
+      "source_origin": "project_code_documentation_or_execution_evidence"
+    },
+    {
+      "bytes": 1911,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "LICENSE"
+      ],
+      "logical_rows": null,
+      "path": "validation/path_normalization.json",
+      "sha256": "bcb451a56ff55ba2d76227573e89e7a4da9fefea38ea0f96090f8201c4b2b60d",
+      "source_origin": "project_code_documentation_or_execution_evidence"
+    },
+    {
+      "bytes": 901,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "LICENSE"
+      ],
+      "logical_rows": null,
+      "path": "validation/postgres_bootstrap.json",
+      "sha256": "3512f026b91ec01ad6fea13ea07c7df8d5eb60c68cb9ed744f2da1e6f28bed6d",
+      "source_origin": "project_code_documentation_or_execution_evidence"
+    },
+    {
+      "bytes": 717,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "LICENSE"
+      ],
+      "logical_rows": null,
+      "path": "validation/postgres_extract.json",
+      "sha256": "bfc8cfc737487fe2d607d5893504326cbe9905a664a878682acff5e86af26602",
+      "source_origin": "project_code_documentation_or_execution_evidence"
+    },
+    {
+      "bytes": 524080,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "LICENSE"
+      ],
+      "logical_rows": null,
+      "path": "validation/quality_report.json",
+      "sha256": "02749cbd2a2867f83e755953948d877bc16c119f00295540bb6cafb2a0764e37",
+      "source_origin": "project_code_documentation_or_execution_evidence"
+    },
+    {
+      "bytes": 30165,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "LICENSE"
+      ],
+      "logical_rows": null,
+      "path": "validation/rebuild_report.json",
+      "sha256": "071c2eded1a770c60fbdc4d2de05a4e0fb9c9ad5ac66b9d32cc0264b1b418969",
+      "source_origin": "project_code_documentation_or_execution_evidence"
+    },
+    {
+      "bytes": 442195,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "LICENSE"
+      ],
+      "logical_rows": 153,
+      "path": "validation/requirement_traceability.csv",
+      "sha256": "9ffaf71966fd75ccd681cbbcc3e56a2fc29bd51e08f20d05ff4fa59cdba0f605",
+      "source_origin": "project_code_documentation_or_execution_evidence"
+    },
+    {
+      "bytes": 623071,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "LICENSE"
+      ],
+      "logical_rows": null,
+      "path": "validation/requirement_traceability.json",
+      "sha256": "9e7bc786ad0a7f7a572aa57dbe93077af62a6353110f92f6a495723a7634a637",
+      "source_origin": "project_code_documentation_or_execution_evidence"
+    },
+    {
+      "bytes": 4618,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "LICENSE"
+      ],
+      "logical_rows": null,
+      "path": "validation/run_manifest.json",
+      "sha256": "1a3f357110db26b7e8f0750b30a647c100d1a307a2eac06899cb0ecea304cfc4",
+      "source_origin": "project_code_documentation_or_execution_evidence"
+    },
+    {
+      "bytes": 14475,
+      "git_file_size_eligible": true,
+      "license_refs": [
+        "LICENSE"
+      ],
+      "logical_rows": null,
+      "path": "validation/test_results.xml",
+      "sha256": "d7c2a3ae92dd790d4c96180025ecccce6e75906b5f2eeb2ff8eb65ecaaf95ac1",
+      "source_origin": "project_code_documentation_or_execution_evidence"
+    }
+  ],
+  "format_version": "1.0.0",
+  "git_excluded_large_files": [
+    "data/DA-E01.duckdb",
+    "data/ingestion/9cfc0dcf6a84fa6c24966f09fee37152b05225b91f0a7eb5197ab3a1e6bb49ce/receipts.sqlite",
+    "data/raw/events.jsonl",
+    "data/raw/tables/fuel_counter_observation.jsonl",
+    "data/raw/tables/provenance_record.jsonl",
+    "data/staged/events/fuel_counter_observation.jsonl"
+  ],
+  "junit_counts": {
+    "errors": 0,
+    "failures": 0,
+    "skipped": 6,
+    "tests": 103
+  },
+  "license_refs": [
+    "LICENSE",
+    "data/LICENSE.md",
+    "docs/sources.md"
+  ],
+  "membership": {
+    "complete": [
+      ".github/workflows/ci.yml",
+      ".gitignore",
+      "LICENSE",
+      "README.md",
+      "README.zh-TW.md",
+      "config/project.json",
+      "config/simulation.json",
+      "contracts/da_e01_contract.json",
+      "contracts/field_dictionary.csv",
+      "contracts/implementation_decisions.json",
+      "contracts/scenario_registry.json",
+      "contracts/schema.sql",
+      "contracts/source_registry.json",
+      "data/DA-E01.duckdb",
+      "data/LICENSE.md",
+      "data/README.md",
+      "data/derived/fuel_inventory_balance.parquet",
+      "data/derived/fuel_paired_interval.parquet",
+      "data/derived/fuel_report_run.parquet",
+      "data/derived/fuel_weekly_metric.parquet",
+      "data/generation_manifest.json",
+      "data/ingestion/9cfc0dcf6a84fa6c24966f09fee37152b05225b91f0a7eb5197ab3a1e6bb49ce/receipts.sqlite",
+      "data/ingestion/quarantine.jsonl",
+      "data/normalized/core_device.parquet",
+      "data/normalized/core_tenant.parquet",
+      "data/normalized/core_vehicle.parquet",
+      "data/normalized/core_vehicle_device_assignment.parquet",
+      "data/normalized/fuel_action_followup.parquet",
+      "data/normalized/fuel_card_assignment.parquet",
+      "data/normalized/fuel_counter_change.parquet",
+      "data/normalized/fuel_counter_observation.parquet",
+      "data/normalized/fuel_inventory_balance.parquet",
+      "data/normalized/fuel_inventory_measurement.parquet",
+      "data/normalized/fuel_market_price.parquet",
+      "data/normalized/fuel_movement.parquet",
+      "data/normalized/fuel_output_review.parquet",
+      "data/normalized/fuel_paired_interval.parquet",
+      "data/normalized/fuel_purchase_line.parquet",
+      "data/normalized/fuel_reference_case.parquet",
+      "data/normalized/fuel_region_mapping.parquet",
+      "data/normalized/fuel_report_run.parquet",
+      "data/normalized/fuel_signal_definition.parquet",
+      "data/normalized/fuel_statement_control.parquet",
+      "data/normalized/fuel_station.parquet",
+      "data/normalized/fuel_tank_scope.parquet",
+      "data/normalized/fuel_task_assignment.parquet",
+      "data/normalized/fuel_vehicle_context.parquet",
+      "data/normalized/fuel_weekly_metric.parquet",
+      "data/normalized/manifest.json",
+      "data/normalized/provenance_record.parquet",
+      "data/postgres_extract/snapshot-8193-a7972ea3cf79/core_device.jsonl",
+      "data/postgres_extract/snapshot-8193-a7972ea3cf79/core_tenant.jsonl",
+      "data/postgres_extract/snapshot-8193-a7972ea3cf79/core_vehicle.jsonl",
+      "data/postgres_extract/snapshot-8193-a7972ea3cf79/core_vehicle_device_assignment.jsonl",
+      "data/postgres_extract/snapshot-8193-a7972ea3cf79/fuel_action_followup.jsonl",
+      "data/postgres_extract/snapshot-8193-a7972ea3cf79/fuel_card_assignment.jsonl",
+      "data/postgres_extract/snapshot-8193-a7972ea3cf79/fuel_inventory_measurement.jsonl",
+      "data/postgres_extract/snapshot-8193-a7972ea3cf79/fuel_movement.jsonl",
+      "data/postgres_extract/snapshot-8193-a7972ea3cf79/fuel_output_review.jsonl",
+      "data/postgres_extract/snapshot-8193-a7972ea3cf79/fuel_purchase_line.jsonl",
+      "data/postgres_extract/snapshot-8193-a7972ea3cf79/fuel_statement_control.jsonl",
+      "data/postgres_extract/snapshot-8193-a7972ea3cf79/fuel_station.jsonl",
+      "data/postgres_extract/snapshot-8193-a7972ea3cf79/fuel_tank_scope.jsonl",
+      "data/postgres_extract/snapshot-8193-a7972ea3cf79/fuel_task_assignment.jsonl",
+      "data/postgres_extract/snapshot-8193-a7972ea3cf79/fuel_vehicle_context.jsonl",
+      "data/public/fuel_prices.csv",
+      "data/public/fuel_prices.jsonl",
+      "data/public/raw/eia_california.html",
+      "data/public/raw/eia_california.html.receipt.json",
+      "data/public/raw/eia_diesel_history.xls",
+      "data/public/raw/eia_diesel_history.xls.receipt.json",
+      "data/public/raw/eia_west_coast_ex_ca.html",
+      "data/public/raw/eia_west_coast_ex_ca.html.receipt.json",
+      "data/public/snapshots/139f0579c430932d/fuel_prices.jsonl",
+      "data/public/snapshots/139f0579c430932d/manifest.json",
+      "data/public/snapshots/5b623f0c42737469/fuel_prices.jsonl",
+      "data/public/snapshots/5b623f0c42737469/manifest.json",
+      "data/public/source_manifest.json",
+      "data/raw/events.jsonl",
+      "data/raw/operations/drivers.jsonl",
+      "data/raw/operations/facilities.json",
+      "data/raw/operations/routes.json",
+      "data/raw/operations/trip_plan.jsonl",
+      "data/raw/operations/trips.jsonl",
+      "data/raw/tables/core_device.jsonl",
+      "data/raw/tables/core_tenant.jsonl",
+      "data/raw/tables/core_vehicle.jsonl",
+      "data/raw/tables/core_vehicle_device_assignment.jsonl",
+      "data/raw/tables/fuel_action_followup.jsonl",
+      "data/raw/tables/fuel_card_assignment.jsonl",
+      "data/raw/tables/fuel_counter_change.jsonl",
+      "data/raw/tables/fuel_counter_observation.jsonl",
+      "data/raw/tables/fuel_inventory_measurement.jsonl",
+      "data/raw/tables/fuel_market_price.jsonl",
+      "data/raw/tables/fuel_movement.jsonl",
+      "data/raw/tables/fuel_output_review.jsonl",
+      "data/raw/tables/fuel_purchase_line.jsonl",
+      "data/raw/tables/fuel_reference_case.jsonl",
+      "data/raw/tables/fuel_region_mapping.jsonl",
+      "data/raw/tables/fuel_signal_definition.jsonl",
+      "data/raw/tables/fuel_statement_control.jsonl",
+      "data/raw/tables/fuel_station.jsonl",
+      "data/raw/tables/fuel_tank_scope.jsonl",
+      "data/raw/tables/fuel_task_assignment.jsonl",
+      "data/raw/tables/fuel_vehicle_context.jsonl",
+      "data/raw/tables/provenance_record.jsonl",
+      "data/staged/events/fuel_counter_observation.jsonl",
+      "docker-compose.yml",
+      "docs/acceptance.md",
+      "docs/api_contract.md",
+      "docs/architecture.md",
+      "docs/chart_walkthrough_zh.md",
+      "docs/data_dictionary.md",
+      "docs/decision_register.md",
+      "docs/delivery.md",
+      "docs/metrics.md",
+      "docs/portfolio_summary_en.md",
+      "docs/runbook.md",
+      "docs/simulation.md",
+      "docs/sources.md",
+      "notebooks/01_fuel_analysis.ipynb",
+      "outputs/analytics_summary.json",
+      "outputs/coverage_sensitivity.csv",
+      "outputs/dashboard.html",
+      "outputs/efficiency_comparison.csv",
+      "outputs/figures/01_efficiency_coverage.png",
+      "outputs/figures/02_vehicle_week_heatmap.png",
+      "outputs/figures/03_operating_context.png",
+      "outputs/figures/04_price_quantity_bridge.png",
+      "outputs/figures/05_inventory_reconciliation.png",
+      "outputs/figures/06_review_priority.png",
+      "outputs/figures/07_action_followup.png",
+      "outputs/fleet_weekly.csv",
+      "outputs/followup_evaluation.csv",
+      "outputs/followup_task_comparison.csv",
+      "outputs/interval_exclusions.csv",
+      "outputs/inventory_reconciliation.csv",
+      "outputs/purchase_detail.csv",
+      "outputs/report_content.json",
+      "outputs/report_revisions.csv",
+      "outputs/report_runs.csv",
+      "outputs/report_validation.json",
+      "outputs/report_weekly_detail.csv",
+      "outputs/review_candidates.csv",
+      "outputs/vehicle_weekly.csv",
+      "pyproject.toml",
+      "reports/DA-E01_Analysis_Report_EN.docx",
+      "reports/DA-E01_Analysis_Report_EN.pdf",
+      "reports/DA-E01_Analysis_Report_ZH.docx",
+      "reports/DA-E01_Analysis_Report_ZH.pdf",
+      "reports/README.md",
+      "reports/document_validation.json",
+      "requirements.lock.txt",
+      "scripts/build_documents.py",
+      "scripts/check_dashboard.js",
+      "scripts/compare_ci_database.py",
+      "scripts/execute_notebook_inprocess.py",
+      "scripts/export_contract.py",
+      "scripts/package_release.py",
+      "scripts/postgres_local.sh",
+      "scripts/sanitize_validation_paths.py",
+      "scripts/verify_rebuild.py",
+      "sql/analytics.sql",
+      "src/fleet_fuel/__init__.py",
+      "src/fleet_fuel/analysis.py",
+      "src/fleet_fuel/cli.py",
+      "src/fleet_fuel/common.py",
+      "src/fleet_fuel/event_api.py",
+      "src/fleet_fuel/ingestion.py",
+      "src/fleet_fuel/input_policy.py",
+      "src/fleet_fuel/operational.py",
+      "src/fleet_fuel/public_normalization.py",
+      "src/fleet_fuel/quality.py",
+      "src/fleet_fuel/reporting.py",
+      "src/fleet_fuel/simulation.py",
+      "src/fleet_fuel/sources.py",
+      "tests/test_analysis.py",
+      "tests/test_ci_database_comparison.py",
+      "tests/test_contracts.py",
+      "tests/test_ingestion.py",
+      "tests/test_normalization.py",
+      "tests/test_postgres.py",
+      "tests/test_public_normalization.py",
+      "tests/test_release_packaging.py",
+      "tests/test_simulation.py",
+      "tests/test_sources.py",
+      "validation/acceptance_checkpoint.json",
+      "validation/build_report.json",
+      "validation/ci/final-run-40229112753/data/generation_manifest.json",
+      "validation/ci/final-run-40229112753/data/normalized/manifest.json",
+      "validation/ci/final-run-40229112753/outputs/analytics_summary.json",
+      "validation/ci/final-run-40229112753/validation/build_report.json",
+      "validation/ci/final-run-40229112753/validation/ci-tests.xml",
+      "validation/ci/final-run-40229112753/validation/ingestion_report.json",
+      "validation/ci/final-run-40229112753/validation/postgres_bootstrap.json",
+      "validation/ci/final-run-40229112753/validation/postgres_extract.json",
+      "validation/ci/final-run-40229112753/validation/quality_report.json",
+      "validation/ci/final-run-40229112753/validation/run_manifest.json",
+      "validation/ci/full-run-40227233022/data/generation_manifest.json",
+      "validation/ci/full-run-40227233022/data/normalized/manifest.json",
+      "validation/ci/full-run-40227233022/outputs/analytics_summary.json",
+      "validation/ci/full-run-40227233022/validation/build_report.json",
+      "validation/ci/full-run-40227233022/validation/ci-tests.xml",
+      "validation/ci/full-run-40227233022/validation/ingestion_report.json",
+      "validation/ci/full-run-40227233022/validation/postgres_bootstrap.json",
+      "validation/ci/full-run-40227233022/validation/postgres_extract.json",
+      "validation/ci/full-run-40227233022/validation/quality_report.json",
+      "validation/ci/full-run-40227233022/validation/run_manifest.json",
+      "validation/ci/run-40226254641/data/generation_manifest.json",
+      "validation/ci/run-40226254641/validation/build_report.json",
+      "validation/ci/run-40226254641/validation/ci-tests.xml",
+      "validation/ci/run-40226254641/validation/ingestion_report.json",
+      "validation/ci/run-40226254641/validation/postgres_bootstrap.json",
+      "validation/ci/run-40226254641/validation/postgres_extract.json",
+      "validation/ci/run-40226254641/validation/quality_report.json",
+      "validation/ci_final_canonical_comparison_40229112753.json",
+      "validation/ci_final_run_40229112753.json",
+      "validation/ci_final_tests_40229112753.xml",
+      "validation/ci_full_canonical_comparison_40227233022.json",
+      "validation/ci_full_comparison_40227233022.json",
+      "validation/ci_full_run_40227233022.json",
+      "validation/ci_full_tests_40227233022.xml",
+      "validation/ci_run_40226254641.json",
+      "validation/ci_tests_40226254641.xml",
+      "validation/database_adoption.json",
+      "validation/expected/hand_cases.json",
+      "validation/expected/injections.json",
+      "validation/expected/malformed_transport.jsonl",
+      "validation/expected/physical_trip_ledger.jsonl",
+      "validation/expected/review_cases.json",
+      "validation/final_acceptance_review.json",
+      "validation/ingestion_report.json",
+      "validation/local_http_ingestion.json",
+      "validation/local_intake_evidence.json",
+      "validation/path_normalization.json",
+      "validation/postgres_bootstrap.json",
+      "validation/postgres_extract.json",
+      "validation/quality_report.json",
+      "validation/rebuild_report.json",
+      "validation/requirement_traceability.csv",
+      "validation/requirement_traceability.json",
+      "validation/run_manifest.json",
+      "validation/test_results.xml"
+    ],
+    "data": [
+      "data/DA-E01.duckdb",
+      "data/LICENSE.md",
+      "data/README.md",
+      "data/derived/fuel_inventory_balance.parquet",
+      "data/derived/fuel_paired_interval.parquet",
+      "data/derived/fuel_report_run.parquet",
+      "data/derived/fuel_weekly_metric.parquet",
+      "data/generation_manifest.json",
+      "data/ingestion/9cfc0dcf6a84fa6c24966f09fee37152b05225b91f0a7eb5197ab3a1e6bb49ce/receipts.sqlite",
+      "data/ingestion/quarantine.jsonl",
+      "data/normalized/core_device.parquet",
+      "data/normalized/core_tenant.parquet",
+      "data/normalized/core_vehicle.parquet",
+      "data/normalized/core_vehicle_device_assignment.parquet",
+      "data/normalized/fuel_action_followup.parquet",
+      "data/normalized/fuel_card_assignment.parquet",
+      "data/normalized/fuel_counter_change.parquet",
+      "data/normalized/fuel_counter_observation.parquet",
+      "data/normalized/fuel_inventory_balance.parquet",
+      "data/normalized/fuel_inventory_measurement.parquet",
+      "data/normalized/fuel_market_price.parquet",
+      "data/normalized/fuel_movement.parquet",
+      "data/normalized/fuel_output_review.parquet",
+      "data/normalized/fuel_paired_interval.parquet",
+      "data/normalized/fuel_purchase_line.parquet",
+      "data/normalized/fuel_reference_case.parquet",
+      "data/normalized/fuel_region_mapping.parquet",
+      "data/normalized/fuel_report_run.parquet",
+      "data/normalized/fuel_signal_definition.parquet",
+      "data/normalized/fuel_statement_control.parquet",
+      "data/normalized/fuel_station.parquet",
+      "data/normalized/fuel_tank_scope.parquet",
+      "data/normalized/fuel_task_assignment.parquet",
+      "data/normalized/fuel_vehicle_context.parquet",
+      "data/normalized/fuel_weekly_metric.parquet",
+      "data/normalized/manifest.json",
+      "data/normalized/provenance_record.parquet",
+      "data/postgres_extract/snapshot-8193-a7972ea3cf79/core_device.jsonl",
+      "data/postgres_extract/snapshot-8193-a7972ea3cf79/core_tenant.jsonl",
+      "data/postgres_extract/snapshot-8193-a7972ea3cf79/core_vehicle.jsonl",
+      "data/postgres_extract/snapshot-8193-a7972ea3cf79/core_vehicle_device_assignment.jsonl",
+      "data/postgres_extract/snapshot-8193-a7972ea3cf79/fuel_action_followup.jsonl",
+      "data/postgres_extract/snapshot-8193-a7972ea3cf79/fuel_card_assignment.jsonl",
+      "data/postgres_extract/snapshot-8193-a7972ea3cf79/fuel_inventory_measurement.jsonl",
+      "data/postgres_extract/snapshot-8193-a7972ea3cf79/fuel_movement.jsonl",
+      "data/postgres_extract/snapshot-8193-a7972ea3cf79/fuel_output_review.jsonl",
+      "data/postgres_extract/snapshot-8193-a7972ea3cf79/fuel_purchase_line.jsonl",
+      "data/postgres_extract/snapshot-8193-a7972ea3cf79/fuel_statement_control.jsonl",
+      "data/postgres_extract/snapshot-8193-a7972ea3cf79/fuel_station.jsonl",
+      "data/postgres_extract/snapshot-8193-a7972ea3cf79/fuel_tank_scope.jsonl",
+      "data/postgres_extract/snapshot-8193-a7972ea3cf79/fuel_task_assignment.jsonl",
+      "data/postgres_extract/snapshot-8193-a7972ea3cf79/fuel_vehicle_context.jsonl",
+      "data/public/fuel_prices.csv",
+      "data/public/fuel_prices.jsonl",
+      "data/public/raw/eia_california.html",
+      "data/public/raw/eia_california.html.receipt.json",
+      "data/public/raw/eia_diesel_history.xls",
+      "data/public/raw/eia_diesel_history.xls.receipt.json",
+      "data/public/raw/eia_west_coast_ex_ca.html",
+      "data/public/raw/eia_west_coast_ex_ca.html.receipt.json",
+      "data/public/snapshots/139f0579c430932d/fuel_prices.jsonl",
+      "data/public/snapshots/139f0579c430932d/manifest.json",
+      "data/public/snapshots/5b623f0c42737469/fuel_prices.jsonl",
+      "data/public/snapshots/5b623f0c42737469/manifest.json",
+      "data/public/source_manifest.json",
+      "data/raw/events.jsonl",
+      "data/raw/operations/drivers.jsonl",
+      "data/raw/operations/facilities.json",
+      "data/raw/operations/routes.json",
+      "data/raw/operations/trip_plan.jsonl",
+      "data/raw/operations/trips.jsonl",
+      "data/raw/tables/core_device.jsonl",
+      "data/raw/tables/core_tenant.jsonl",
+      "data/raw/tables/core_vehicle.jsonl",
+      "data/raw/tables/core_vehicle_device_assignment.jsonl",
+      "data/raw/tables/fuel_action_followup.jsonl",
+      "data/raw/tables/fuel_card_assignment.jsonl",
+      "data/raw/tables/fuel_counter_change.jsonl",
+      "data/raw/tables/fuel_counter_observation.jsonl",
+      "data/raw/tables/fuel_inventory_measurement.jsonl",
+      "data/raw/tables/fuel_market_price.jsonl",
+      "data/raw/tables/fuel_movement.jsonl",
+      "data/raw/tables/fuel_output_review.jsonl",
+      "data/raw/tables/fuel_purchase_line.jsonl",
+      "data/raw/tables/fuel_reference_case.jsonl",
+      "data/raw/tables/fuel_region_mapping.jsonl",
+      "data/raw/tables/fuel_signal_definition.jsonl",
+      "data/raw/tables/fuel_statement_control.jsonl",
+      "data/raw/tables/fuel_station.jsonl",
+      "data/raw/tables/fuel_tank_scope.jsonl",
+      "data/raw/tables/fuel_task_assignment.jsonl",
+      "data/raw/tables/fuel_vehicle_context.jsonl",
+      "data/raw/tables/provenance_record.jsonl",
+      "data/staged/events/fuel_counter_observation.jsonl",
+      "validation/build_report.json",
+      "validation/ci_full_canonical_comparison_40227233022.json",
+      "validation/ci_full_run_40227233022.json",
+      "validation/database_adoption.json",
+      "validation/ingestion_report.json",
+      "validation/local_http_ingestion.json",
+      "validation/local_intake_evidence.json",
+      "validation/postgres_bootstrap.json",
+      "validation/postgres_extract.json",
+      "validation/quality_report.json",
+      "validation/run_manifest.json"
+    ],
+    "source": [
+      ".github/workflows/ci.yml",
+      ".gitignore",
+      "LICENSE",
+      "README.md",
+      "README.zh-TW.md",
+      "config/project.json",
+      "config/simulation.json",
+      "contracts/da_e01_contract.json",
+      "contracts/field_dictionary.csv",
+      "contracts/implementation_decisions.json",
+      "contracts/scenario_registry.json",
+      "contracts/schema.sql",
+      "contracts/source_registry.json",
+      "data/LICENSE.md",
+      "data/README.md",
+      "data/public/fuel_prices.csv",
+      "data/public/fuel_prices.jsonl",
+      "data/public/raw/eia_california.html",
+      "data/public/raw/eia_california.html.receipt.json",
+      "data/public/raw/eia_diesel_history.xls",
+      "data/public/raw/eia_diesel_history.xls.receipt.json",
+      "data/public/raw/eia_west_coast_ex_ca.html",
+      "data/public/raw/eia_west_coast_ex_ca.html.receipt.json",
+      "data/public/snapshots/139f0579c430932d/fuel_prices.jsonl",
+      "data/public/snapshots/139f0579c430932d/manifest.json",
+      "data/public/snapshots/5b623f0c42737469/fuel_prices.jsonl",
+      "data/public/snapshots/5b623f0c42737469/manifest.json",
+      "data/public/source_manifest.json",
+      "docker-compose.yml",
+      "docs/acceptance.md",
+      "docs/api_contract.md",
+      "docs/architecture.md",
+      "docs/chart_walkthrough_zh.md",
+      "docs/data_dictionary.md",
+      "docs/decision_register.md",
+      "docs/delivery.md",
+      "docs/metrics.md",
+      "docs/portfolio_summary_en.md",
+      "docs/runbook.md",
+      "docs/simulation.md",
+      "docs/sources.md",
+      "notebooks/01_fuel_analysis.ipynb",
+      "outputs/analytics_summary.json",
+      "outputs/coverage_sensitivity.csv",
+      "outputs/dashboard.html",
+      "outputs/efficiency_comparison.csv",
+      "outputs/figures/01_efficiency_coverage.png",
+      "outputs/figures/02_vehicle_week_heatmap.png",
+      "outputs/figures/03_operating_context.png",
+      "outputs/figures/04_price_quantity_bridge.png",
+      "outputs/figures/05_inventory_reconciliation.png",
+      "outputs/figures/06_review_priority.png",
+      "outputs/figures/07_action_followup.png",
+      "outputs/fleet_weekly.csv",
+      "outputs/followup_evaluation.csv",
+      "outputs/followup_task_comparison.csv",
+      "outputs/interval_exclusions.csv",
+      "outputs/inventory_reconciliation.csv",
+      "outputs/purchase_detail.csv",
+      "outputs/report_content.json",
+      "outputs/report_revisions.csv",
+      "outputs/report_runs.csv",
+      "outputs/report_validation.json",
+      "outputs/report_weekly_detail.csv",
+      "outputs/review_candidates.csv",
+      "outputs/vehicle_weekly.csv",
+      "pyproject.toml",
+      "reports/DA-E01_Analysis_Report_EN.docx",
+      "reports/DA-E01_Analysis_Report_EN.pdf",
+      "reports/DA-E01_Analysis_Report_ZH.docx",
+      "reports/DA-E01_Analysis_Report_ZH.pdf",
+      "reports/README.md",
+      "reports/document_validation.json",
+      "requirements.lock.txt",
+      "scripts/build_documents.py",
+      "scripts/check_dashboard.js",
+      "scripts/compare_ci_database.py",
+      "scripts/execute_notebook_inprocess.py",
+      "scripts/export_contract.py",
+      "scripts/package_release.py",
+      "scripts/postgres_local.sh",
+      "scripts/sanitize_validation_paths.py",
+      "scripts/verify_rebuild.py",
+      "sql/analytics.sql",
+      "src/fleet_fuel/__init__.py",
+      "src/fleet_fuel/analysis.py",
+      "src/fleet_fuel/cli.py",
+      "src/fleet_fuel/common.py",
+      "src/fleet_fuel/event_api.py",
+      "src/fleet_fuel/ingestion.py",
+      "src/fleet_fuel/input_policy.py",
+      "src/fleet_fuel/operational.py",
+      "src/fleet_fuel/public_normalization.py",
+      "src/fleet_fuel/quality.py",
+      "src/fleet_fuel/reporting.py",
+      "src/fleet_fuel/simulation.py",
+      "src/fleet_fuel/sources.py",
+      "tests/test_analysis.py",
+      "tests/test_ci_database_comparison.py",
+      "tests/test_contracts.py",
+      "tests/test_ingestion.py",
+      "tests/test_normalization.py",
+      "tests/test_postgres.py",
+      "tests/test_public_normalization.py",
+      "tests/test_release_packaging.py",
+      "tests/test_simulation.py",
+      "tests/test_sources.py",
+      "validation/acceptance_checkpoint.json",
+      "validation/build_report.json",
+      "validation/ci/final-run-40229112753/data/generation_manifest.json",
+      "validation/ci/final-run-40229112753/data/normalized/manifest.json",
+      "validation/ci/final-run-40229112753/outputs/analytics_summary.json",
+      "validation/ci/final-run-40229112753/validation/build_report.json",
+      "validation/ci/final-run-40229112753/validation/ci-tests.xml",
+      "validation/ci/final-run-40229112753/validation/ingestion_report.json",
+      "validation/ci/final-run-40229112753/validation/postgres_bootstrap.json",
+      "validation/ci/final-run-40229112753/validation/postgres_extract.json",
+      "validation/ci/final-run-40229112753/validation/quality_report.json",
+      "validation/ci/final-run-40229112753/validation/run_manifest.json",
+      "validation/ci/full-run-40227233022/data/generation_manifest.json",
+      "validation/ci/full-run-40227233022/data/normalized/manifest.json",
+      "validation/ci/full-run-40227233022/outputs/analytics_summary.json",
+      "validation/ci/full-run-40227233022/validation/build_report.json",
+      "validation/ci/full-run-40227233022/validation/ci-tests.xml",
+      "validation/ci/full-run-40227233022/validation/ingestion_report.json",
+      "validation/ci/full-run-40227233022/validation/postgres_bootstrap.json",
+      "validation/ci/full-run-40227233022/validation/postgres_extract.json",
+      "validation/ci/full-run-40227233022/validation/quality_report.json",
+      "validation/ci/full-run-40227233022/validation/run_manifest.json",
+      "validation/ci/run-40226254641/data/generation_manifest.json",
+      "validation/ci/run-40226254641/validation/build_report.json",
+      "validation/ci/run-40226254641/validation/ci-tests.xml",
+      "validation/ci/run-40226254641/validation/ingestion_report.json",
+      "validation/ci/run-40226254641/validation/postgres_bootstrap.json",
+      "validation/ci/run-40226254641/validation/postgres_extract.json",
+      "validation/ci/run-40226254641/validation/quality_report.json",
+      "validation/ci_final_canonical_comparison_40229112753.json",
+      "validation/ci_final_run_40229112753.json",
+      "validation/ci_final_tests_40229112753.xml",
+      "validation/ci_full_canonical_comparison_40227233022.json",
+      "validation/ci_full_comparison_40227233022.json",
+      "validation/ci_full_run_40227233022.json",
+      "validation/ci_full_tests_40227233022.xml",
+      "validation/ci_run_40226254641.json",
+      "validation/ci_tests_40226254641.xml",
+      "validation/database_adoption.json",
+      "validation/expected/hand_cases.json",
+      "validation/expected/injections.json",
+      "validation/expected/malformed_transport.jsonl",
+      "validation/expected/physical_trip_ledger.jsonl",
+      "validation/expected/review_cases.json",
+      "validation/final_acceptance_review.json",
+      "validation/ingestion_report.json",
+      "validation/local_http_ingestion.json",
+      "validation/local_intake_evidence.json",
+      "validation/path_normalization.json",
+      "validation/postgres_bootstrap.json",
+      "validation/postgres_extract.json",
+      "validation/quality_report.json",
+      "validation/rebuild_report.json",
+      "validation/requirement_traceability.csv",
+      "validation/requirement_traceability.json",
+      "validation/run_manifest.json",
+      "validation/test_results.xml"
+    ]
+  },
+  "notebook_executed_code_cells": 12,
+  "omitted_rebuildable_files": [
+    "data/api/event_index.sqlite"
+  ],
+  "operational_mode": "postgres",
+  "profile": "full",
+  "project_id": "DA-E01",
+  "public_origin": "EIA_observations_with_actual_retrieval_and_unknown_historical_publication",
+  "raw_origin": "synthetic",
+  "release_version": "1.0.0",
+  "seed": 20261021,
+  "source_ownership": "generator_manifest_sources_only_for_data_raw",
+  "source_rebuild_entry": "python -m fleet_fuel.cli run --profile full --operational snapshot",
+  "table_rows": {
+    "active_receipt_tables": {
+      "accepted": 246448,
+      "checkpoints": 1,
+      "event_versions": 246448,
+      "receipts": 246474
+    },
+    "canonical_tables": {
+      "normalized.core_device": 36,
+      "normalized.core_tenant": 3,
+      "normalized.core_vehicle": 30,
+      "normalized.core_vehicle_device_assignment": 34,
+      "normalized.fuel_action_followup": 8,
+      "normalized.fuel_card_assignment": 30,
+      "normalized.fuel_counter_change": 3,
+      "normalized.fuel_counter_observation": 246448,
+      "normalized.fuel_inventory_balance": 810,
+      "normalized.fuel_inventory_measurement": 840,
+      "normalized.fuel_market_price": 354,
+      "normalized.fuel_movement": 3423,
+      "normalized.fuel_output_review": 8,
+      "normalized.fuel_paired_interval": 739242,
+      "normalized.fuel_purchase_line": 1861,
+      "normalized.fuel_reference_case": 8,
+      "normalized.fuel_region_mapping": 9,
+      "normalized.fuel_report_run": 243,
+      "normalized.fuel_signal_definition": 60,
+      "normalized.fuel_statement_control": 24,
+      "normalized.fuel_station": 36,
+      "normalized.fuel_tank_scope": 30,
+      "normalized.fuel_task_assignment": 1800,
+      "normalized.fuel_vehicle_context": 30,
+      "normalized.fuel_weekly_metric": 2430,
+      "normalized.provenance_record": 255007
+    }
+  },
+  "zip_timestamp_policy": "fixed_from_original_synthetic_release_creation_not_packaging_time"
+}
