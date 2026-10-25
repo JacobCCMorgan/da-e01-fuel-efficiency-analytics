@@ -1,0 +1,187 @@
+{
+  "generator_version": "1.0.0",
+  "seed": 20261021,
+  "profile": "full",
+  "created_at": "2026-10-25T18:57:01Z",
+  "origin_type": "synthetic",
+  "world": {
+    "tenants": 3,
+    "vehicles": 30,
+    "devices": 36,
+    "drivers": 45,
+    "trips": 1800,
+    "facilities": 12,
+    "routes": 12
+  },
+  "selected_trip_count": 1800,
+  "table_row_counts": {
+    "core_tenant": 3,
+    "core_device": 36,
+    "fuel_station": 36,
+    "provenance_record": 254821,
+    "fuel_region_mapping": 9,
+    "core_vehicle": 30,
+    "fuel_vehicle_context": 30,
+    "core_vehicle_device_assignment": 34,
+    "fuel_card_assignment": 30,
+    "fuel_tank_scope": 30,
+    "fuel_signal_definition": 60,
+    "fuel_market_price": 168,
+    "fuel_purchase_line": 1861,
+    "fuel_movement": 3423,
+    "fuel_task_assignment": 1800,
+    "fuel_counter_observation": 246449,
+    "fuel_counter_change": 3,
+    "fuel_inventory_measurement": 840,
+    "fuel_statement_control": 24,
+    "fuel_output_review": 8,
+    "fuel_action_followup": 8,
+    "fuel_reference_case": 8
+  },
+  "transport_attempts": 246474,
+  "output_id_convention": "{tenant_id}-FUEL-{Monday_YYYYMMDD}-{initial|revised|retrospective}",
+  "smoke_semantics": "100 stable trips emit observations; full accounting and inventory closure preserved; trip_plan retains all1800",
+  "provenance_retrieved_at_rule": "Frozen original dataset creation timestamp; actual replay separately logged",
+  "sources": [
+    {
+      "path": "data/raw/events.jsonl",
+      "bytes": 189105762,
+      "sha256": "9cfc0dcf6a84fa6c24966f09fee37152b05225b91f0a7eb5197ab3a1e6bb49ce"
+    },
+    {
+      "path": "data/raw/operations/drivers.jsonl",
+      "bytes": 7965,
+      "sha256": "45ba8cd5cb0e88ac6139aa0b4c0bffe379286b15cee7a81599ba5064e5367bd1"
+    },
+    {
+      "path": "data/raw/operations/facilities.json",
+      "bytes": 2065,
+      "sha256": "b2896cba8709d5b86fb44544fc9a7267b66699252dd306cfbd014be30c3d0d9d"
+    },
+    {
+      "path": "data/raw/operations/routes.json",
+      "bytes": 2403,
+      "sha256": "c823565c0a7756361ab6ba645a9d00d81b098e4965c96410cb65a4eaef15987f"
+    },
+    {
+      "path": "data/raw/operations/trip_plan.jsonl",
+      "bytes": 816378,
+      "sha256": "30b8b96600ed866568b71952b1683e8c2fbb0cd6ec0350557e4282e185cccbe6"
+    },
+    {
+      "path": "data/raw/operations/trips.jsonl",
+      "bytes": 816378,
+      "sha256": "30b8b96600ed866568b71952b1683e8c2fbb0cd6ec0350557e4282e185cccbe6"
+    },
+    {
+      "path": "data/raw/tables/core_device.jsonl",
+      "bytes": 2520,
+      "sha256": "06a95820f133702632a1a40b1dd899a4f26101db8157586be2670a3b33dcef9b"
+    },
+    {
+      "path": "data/raw/tables/core_tenant.jsonl",
+      "bytes": 348,
+      "sha256": "883788996a38be3b00cf4e144e6b5d9c7545fd0629e582ae3059db5272f17cd1"
+    },
+    {
+      "path": "data/raw/tables/core_vehicle.jsonl",
+      "bytes": 4506,
+      "sha256": "531474282f90b83f67c4d8592db3c7081d66e90b343621feff660445674cfef9"
+    },
+    {
+      "path": "data/raw/tables/core_vehicle_device_assignment.jsonl",
+      "bytes": 11671,
+      "sha256": "0edf0aedf1cf7792bdee010fbe337d91880273208297264b33ba52621a63e460"
+    },
+    {
+      "path": "data/raw/tables/fuel_action_followup.jsonl",
+      "bytes": 8848,
+      "sha256": "8f3d9dc7f91b169bb7994c6afdf4e437253e63a74501b8c155c0c7b698109b77"
+    },
+    {
+      "path": "data/raw/tables/fuel_card_assignment.jsonl",
+      "bytes": 8820,
+      "sha256": "277c4567d4122fee2512a5c33ef25af08b5541843e583d1ea32f6e26d03f01bb"
+    },
+    {
+      "path": "data/raw/tables/fuel_counter_change.jsonl",
+      "bytes": 1092,
+      "sha256": "93f8d28a748f2bb421ee965287f414840999a81f219ad69f7cee314dff9e5488"
+    },
+    {
+      "path": "data/raw/tables/fuel_counter_observation.jsonl",
+      "bytes": 142508634,
+      "sha256": "dabfb9999a249255fb2140c712b814365c1b581fac26ddd9225d3f22147c8a99"
+    },
+    {
+      "path": "data/raw/tables/fuel_inventory_measurement.jsonl",
+      "bytes": 426969,
+      "sha256": "7288857ff34ac52de3c5121e39e76800ee243c9da90723d1c1466151ec514c3b"
+    },
+    {
+      "path": "data/raw/tables/fuel_market_price.jsonl",
+      "bytes": 81786,
+      "sha256": "a66a9493d3b1228629c5355234068fa01517235e7cc664db9b26e0957baef278"
+    },
+    {
+      "path": "data/raw/tables/fuel_movement.jsonl",
+      "bytes": 1348718,
+      "sha256": "7fdf5c0e0cfd3eea70ce8c8497005fcea821bac9ca0f98c8800f43b36ccc2ef5"
+    },
+    {
+      "path": "data/raw/tables/fuel_output_review.jsonl",
+      "bytes": 2931,
+      "sha256": "3cfbc82d0936f3780b300f87ff574874dfb43b884b77581b787327d59f80474c"
+    },
+    {
+      "path": "data/raw/tables/fuel_purchase_line.jsonl",
+      "bytes": 1446479,
+      "sha256": "8a41edc7fc0aace339e928614035db1afb2924c3dd6aec1097d7453d13785875"
+    },
+    {
+      "path": "data/raw/tables/fuel_reference_case.jsonl",
+      "bytes": 4233,
+      "sha256": "4048b22de7491286e86022ce4280af5b4ba6d28d4d42615c62a57d1c6308c5e5"
+    },
+    {
+      "path": "data/raw/tables/fuel_region_mapping.jsonl",
+      "bytes": 2541,
+      "sha256": "d4f45386866929eaa41fd489de502e57c4f8c187605089a32d64a49b5ceb21bf"
+    },
+    {
+      "path": "data/raw/tables/fuel_signal_definition.jsonl",
+      "bytes": 30022,
+      "sha256": "0ac8379dac558aece91c21af43c42cd135a8f062b855bb9c52ccb2165f13b982"
+    },
+    {
+      "path": "data/raw/tables/fuel_statement_control.jsonl",
+      "bytes": 9457,
+      "sha256": "0ff788cafcebf8e6720bdd7c7002dae0c7478d09498dd5c3767ddc65ca81674a"
+    },
+    {
+      "path": "data/raw/tables/fuel_station.jsonl",
+      "bytes": 6048,
+      "sha256": "d2a5b828634afd214b887cb5b84740af8885cec3d34d50ec6a8a4abf2bf149bf"
+    },
+    {
+      "path": "data/raw/tables/fuel_tank_scope.jsonl",
+      "bytes": 5850,
+      "sha256": "a6384fb8ecd105a121f45290208d7575cf5b44ab54a28baaf20d170ff706216e"
+    },
+    {
+      "path": "data/raw/tables/fuel_task_assignment.jsonl",
+      "bytes": 624600,
+      "sha256": "e6978f69fb83057c84796368222e752c629bc65fd4b828bf8520f11ea24da155"
+    },
+    {
+      "path": "data/raw/tables/fuel_vehicle_context.jsonl",
+      "bytes": 9630,
+      "sha256": "c6e9134be340dfb9c45d0b4c53e9dbd7a8b66b26cec62d61a966828e99bae7bc"
+    },
+    {
+      "path": "data/raw/tables/provenance_record.jsonl",
+      "bytes": 237657533,
+      "sha256": "2260a8127b2c91de1372a4264f33f489f515652b84a4798169962c0c26002e41"
+    }
+  ]
+}

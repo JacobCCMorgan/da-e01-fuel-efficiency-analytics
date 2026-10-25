@@ -1,0 +1,179 @@
+{
+  "repository": "JacobCCMorgan/da-e01-fuel-efficiency-analytics",
+  "run_id": 40227233022,
+  "job_id": 121271074347,
+  "commit": "55b6831eaa7f44849aad39537288654ba04cb701",
+  "url": "https://github.com/JacobCCMorgan/da-e01-fuel-efficiency-analytics/actions/runs/40227233022",
+  "conclusion": "success",
+  "profile": "full",
+  "operational_mode": "postgres",
+  "jobs": [
+    {
+      "id": 121271074347,
+      "name": "postgres-full",
+      "status": "completed",
+      "conclusion": "success",
+      "run_id": 40227233022,
+      "logs_url": null,
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1
+        },
+        {
+          "name": "Initialize containers",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2
+        },
+        {
+          "name": "Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3
+        },
+        {
+          "name": "Run actions/setup-python@v5",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4
+        },
+        {
+          "name": "Install pinned runtime and test dependencies",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5
+        },
+        {
+          "name": "Test calculations, ingestion and real PostgreSQL transactions",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6
+        },
+        {
+          "name": "Rebuild all 1800 trips through PostgreSQL and HTTP sources",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7
+        },
+        {
+          "name": "Preserve full-project verification evidence",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8
+        },
+        {
+          "name": "Preserve PostgreSQL-built full database and source extract",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 9
+        },
+        {
+          "name": "Post Run actions/setup-python@v5",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 16
+        },
+        {
+          "name": "Post Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 17
+        },
+        {
+          "name": "Stop containers",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 18
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 19
+        }
+      ]
+    }
+  ],
+  "artifacts": [
+    {
+      "id": 12611951327,
+      "name": "postgres-full-evidence",
+      "size_in_bytes": 45347,
+      "url": "https://api.github.com/repos/JacobCCMorgan/da-e01-fuel-efficiency-analytics/actions/artifacts/12611951327",
+      "archive_download_url": "https://api.github.com/repos/JacobCCMorgan/da-e01-fuel-efficiency-analytics/actions/artifacts/12611951327/zip",
+      "expired": false,
+      "created_at": "2026-10-25T19:44:56Z",
+      "expires_at": "2026-11-24T19:44:55Z",
+      "updated_at": "2026-10-25T19:44:56Z",
+      "digest": "sha256:57f5b6fbcde0fbef4a69a9c5d49d0eb97a1001545a609942169c04252979ead7",
+      "workflow_run": {
+        "id": 40227233022,
+        "repository_id": 1433547902,
+        "head_repository_id": 1433547902,
+        "head_branch": "main",
+        "head_sha": "55b6831eaa7f44849aad39537288654ba04cb701"
+      }
+    },
+    {
+      "id": 12611349826,
+      "name": "postgres-full-database",
+      "size_in_bytes": 263546041,
+      "url": "https://api.github.com/repos/JacobCCMorgan/da-e01-fuel-efficiency-analytics/actions/artifacts/12611349826",
+      "archive_download_url": "https://api.github.com/repos/JacobCCMorgan/da-e01-fuel-efficiency-analytics/actions/artifacts/12611349826/zip",
+      "expired": false,
+      "created_at": "2026-10-25T19:45:12Z",
+      "expires_at": "2026-11-24T19:44:56Z",
+      "updated_at": "2026-10-25T19:45:12Z",
+      "digest": "sha256:4f513851c839fa0bd42263c386681f4814d1eaf8d241d91db3b46b9dbe859db4",
+      "workflow_run": {
+        "id": 40227233022,
+        "repository_id": 1433547902,
+        "head_repository_id": 1433547902,
+        "head_branch": "main",
+        "head_sha": "55b6831eaa7f44849aad39537288654ba04cb701"
+      }
+    }
+  ],
+  "comparison_file": "validation/ci_full_canonical_comparison_40227233022.json",
+  "scope": "Full 1,800-trip PostgreSQL operational source, HTTP ELD ingestion, DuckDB analysis and canonical validation; all330canonicalfieldvalues across26tables exactly match the local reference after documented logical normalization, with no omitted provenance or temporal fields.",
+  "tests": {
+    "tests": 79,
+    "errors": 0,
+    "failures": 0,
+    "skipped": 0,
+    "seconds": 62.077
+  },
+  "postgres_engine": "PostgreSQL 16.15 (Debian 16.15-1.pgdg13+2) on x86_64-pc-linux-gnu, compiled by gcc (Debian 14.2.0-19) 14.2.0, 64-bit",
+  "postgres_source_records": 8193,
+  "postgres_source_tables": {
+    "core_tenant": 3,
+    "core_vehicle": 30,
+    "core_device": 36,
+    "core_vehicle_device_assignment": 34,
+    "fuel_vehicle_context": 30,
+    "fuel_task_assignment": 1800,
+    "fuel_purchase_line": 1861,
+    "fuel_card_assignment": 30,
+    "fuel_station": 36,
+    "fuel_tank_scope": 30,
+    "fuel_inventory_measurement": 840,
+    "fuel_movement": 3423,
+    "fuel_statement_control": 24,
+    "fuel_output_review": 8,
+    "fuel_action_followup": 8
+  },
+  "database_sha256": "d6cc6ea1f08794026c9a4b58185eb56688ae3983aa0b1eb05c6b52fe54fb4fb3",
+  "database_bytes": 596127744,
+  "source_extract_directory": "data/postgres_extract/snapshot-8193-a7972ea3cf79",
+  "original_archive_checksums_verified": true,
+  "database_checksum_matches_run_manifest": true,
+  "comparison_status": "passed",
+  "artifact_originals": "retained outside source release; checksums identify original downloaded ZIP bytes",
+  "identity_kpi_comparison_file": "validation/ci_full_comparison_40227233022.json",
+  "canonical_comparison_field_count": 330,
+  "canonical_comparison_table_count": 26,
+  "canonical_field_exclusions": []
+}

@@ -22,6 +22,17 @@
       "result_signature_unchanged": true,
       "original_location": "private_external_backup_not_in_release",
       "checksum_policy": "original_checksum_replaced_by_portable_checksum"
+    },
+    {
+      "path": "validation/test_results.xml",
+      "original_sha256": "3c3a117b4f4c40557b846e5f3e80610f2222b72ee19e4cadcad3b2f9a26910f5",
+      "portable_sha256": "d7c2a3ae92dd790d4c96180025ecccce6e75906b5f2eeb2ff8eb65ecaaf95ac1",
+      "original_bytes": 14913,
+      "portable_bytes": 14475,
+      "normalization": "machine_prefix_to_relative_dot_slash",
+      "result_signature_unchanged": true,
+      "original_location": "private_external_backup_not_in_release",
+      "checksum_policy": "original_checksum_replaced_by_portable_checksum"
     }
   ],
   "scope": "JUnit filesystem locations only; counts, outcomes, timing and skip reasons preserved",

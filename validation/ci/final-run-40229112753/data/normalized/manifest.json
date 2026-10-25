@@ -1,0 +1,158 @@
+[
+  {
+    "table": "core_device",
+    "path": "data/normalized/core_device.parquet",
+    "rows": 36,
+    "sha256": "765a64c11d0273e39ee6503a41afd7258fd2c5ae0da8aaa1edc3e4def20d6694"
+  },
+  {
+    "table": "core_tenant",
+    "path": "data/normalized/core_tenant.parquet",
+    "rows": 3,
+    "sha256": "c3f964f52073e5eaa125a715e2416a9217cf1c05b1efd2a1cd5595816703a508"
+  },
+  {
+    "table": "core_vehicle",
+    "path": "data/normalized/core_vehicle.parquet",
+    "rows": 30,
+    "sha256": "bdd0d28ca283ba684907821d0fb76c5bd42519c3511aeab334d3c235770dfe7b"
+  },
+  {
+    "table": "core_vehicle_device_assignment",
+    "path": "data/normalized/core_vehicle_device_assignment.parquet",
+    "rows": 34,
+    "sha256": "bb4351d455b897a7304a846d7d91fe18a2c59d3b8b4c99bdf28210caf4145fe2"
+  },
+  {
+    "table": "fuel_action_followup",
+    "path": "data/normalized/fuel_action_followup.parquet",
+    "rows": 8,
+    "sha256": "2bd02d373d5e7bed31cdad4a042aed722fb9aa07b7649eb4f2b06e57671cc45d"
+  },
+  {
+    "table": "fuel_card_assignment",
+    "path": "data/normalized/fuel_card_assignment.parquet",
+    "rows": 30,
+    "sha256": "c0ae82604810ddc589502b9a5b1a0adc6895a6c0174f774181cc8510f7d22bd5"
+  },
+  {
+    "table": "fuel_counter_change",
+    "path": "data/normalized/fuel_counter_change.parquet",
+    "rows": 3,
+    "sha256": "f4ef84074db8aab87cf15d198b6c64ea0e66efd61be41edcdb0ea825fc56a8d4"
+  },
+  {
+    "table": "fuel_counter_observation",
+    "path": "data/normalized/fuel_counter_observation.parquet",
+    "rows": 246448,
+    "sha256": "3a66fba4cf7110d7e71590d5aa87a518456041f66ed891e113f14060668eca4c"
+  },
+  {
+    "table": "fuel_inventory_balance",
+    "path": "data/normalized/fuel_inventory_balance.parquet",
+    "rows": 810,
+    "sha256": "f727eb0962a0d9303c0e3f0ae76f8519e469f6aeeed96a5ff9e3beb504093a03"
+  },
+  {
+    "table": "fuel_inventory_measurement",
+    "path": "data/normalized/fuel_inventory_measurement.parquet",
+    "rows": 840,
+    "sha256": "6245ff1cecfe381504abdb070265aa89515c5f7a00d3bf75f448ec46463cae0c"
+  },
+  {
+    "table": "fuel_market_price",
+    "path": "data/normalized/fuel_market_price.parquet",
+    "rows": 354,
+    "sha256": "1868b8303b374ff762eff7aeed2fd5003614076b30c3db231994c4216d6fc3a1"
+  },
+  {
+    "table": "fuel_movement",
+    "path": "data/normalized/fuel_movement.parquet",
+    "rows": 3423,
+    "sha256": "b2d3314526922b8a89533c9c7788e6edf75a0675e0f9e6356501508998135c5a"
+  },
+  {
+    "table": "fuel_output_review",
+    "path": "data/normalized/fuel_output_review.parquet",
+    "rows": 8,
+    "sha256": "77eaadf4cce231c8b6f69465a40d453f8154fd4217e77647dce82bea7927f190"
+  },
+  {
+    "table": "fuel_paired_interval",
+    "path": "data/normalized/fuel_paired_interval.parquet",
+    "rows": 739242,
+    "sha256": "609bf803ba4358ae6b101e7f7aff4b015907573d4f506bc855196ac516ab3ee2"
+  },
+  {
+    "table": "fuel_purchase_line",
+    "path": "data/normalized/fuel_purchase_line.parquet",
+    "rows": 1861,
+    "sha256": "2f33ad1c3daba75136e62fbb62e7b8601db02782a06afe174e9cd8308edd248c"
+  },
+  {
+    "table": "fuel_reference_case",
+    "path": "data/normalized/fuel_reference_case.parquet",
+    "rows": 8,
+    "sha256": "fb9a70f09237930938ead4c315816b3d55f5cadfe551e8565545c3824b15a923"
+  },
+  {
+    "table": "fuel_region_mapping",
+    "path": "data/normalized/fuel_region_mapping.parquet",
+    "rows": 9,
+    "sha256": "f34f8154244098c8950971ccee14f64538fea7dedfc02f6b6d841c3bc9ab93af"
+  },
+  {
+    "table": "fuel_report_run",
+    "path": "data/normalized/fuel_report_run.parquet",
+    "rows": 243,
+    "sha256": "bcee699a6972323af66ca192c2f4e44c9dae4a4f34192802e31acfec75b31f7b"
+  },
+  {
+    "table": "fuel_signal_definition",
+    "path": "data/normalized/fuel_signal_definition.parquet",
+    "rows": 60,
+    "sha256": "4ac5977d8f4df2272ae7c9031ac11a953d97bef231e260c5a12062515d48aeeb"
+  },
+  {
+    "table": "fuel_statement_control",
+    "path": "data/normalized/fuel_statement_control.parquet",
+    "rows": 24,
+    "sha256": "2e3f78d1bff2f4293034374fec52bb2b2d53ce947b84aa1ce0b9a5a1c19883b6"
+  },
+  {
+    "table": "fuel_station",
+    "path": "data/normalized/fuel_station.parquet",
+    "rows": 36,
+    "sha256": "a6fe5097bd32a0d631ae40211f66caa8def80435ff693ad383305ee20d6d41a8"
+  },
+  {
+    "table": "fuel_tank_scope",
+    "path": "data/normalized/fuel_tank_scope.parquet",
+    "rows": 30,
+    "sha256": "8f43cd056b68ce125ccc63eeff4f10f0b531e34c48c80992c62ff3f0add4ae71"
+  },
+  {
+    "table": "fuel_task_assignment",
+    "path": "data/normalized/fuel_task_assignment.parquet",
+    "rows": 1800,
+    "sha256": "b37ef70b51e6803206597d17a9eb0d59c56c989fd01c98ac177d0db3f77a8cb5"
+  },
+  {
+    "table": "fuel_vehicle_context",
+    "path": "data/normalized/fuel_vehicle_context.parquet",
+    "rows": 30,
+    "sha256": "49b06ea1cd4abc6f60f17dd2505e3f1358213092a655eaa6636b263b4f1e1095"
+  },
+  {
+    "table": "fuel_weekly_metric",
+    "path": "data/normalized/fuel_weekly_metric.parquet",
+    "rows": 2430,
+    "sha256": "9de340f479393e223d6b47c73584b0281c60f4f81d95767cdaa69a5c65efe0dc"
+  },
+  {
+    "table": "provenance_record",
+    "path": "data/normalized/provenance_record.parquet",
+    "rows": 255007,
+    "sha256": "fec0372d082eed148b143990d536f9a68358de3b93ab6faf25eef9e19cac5c78"
+  }
+]

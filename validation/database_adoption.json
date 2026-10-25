@@ -1,0 +1,40 @@
+{
+  "project_id": "DA-E01",
+  "status": "completed",
+  "adopted_at": "2026-10-25T20:06:12.925657+00:00",
+  "database": "data/DA-E01.duckdb",
+  "database_sha256": "d6cc6ea1f08794026c9a4b58185eb56688ae3983aa0b1eb05c6b52fe54fb4fb3",
+  "previous_reference_sha256": "3da64a1af34c573ac0afc31a609ca7c153beaf9a677f5cd92d2412dbded7da4b",
+  "backup_policy": "Previous database and manifests retained outside the published project",
+  "source": "verified_GitHub_Actions_full_PostgreSQL_database_artifact",
+  "run_id": 40227233022,
+  "commit": "55b6831eaa7f44849aad39537288654ba04cb701",
+  "artifact_id": 12611349826,
+  "artifact_archive_sha256": "4f513851c839fa0bd42263c386681f4814d1eaf8d241d91db3b46b9dbe859db4",
+  "comparison": {
+    "evidence_file": "validation/ci_full_canonical_comparison_40227233022.json",
+    "sha256": "4c4cc2c58ff6d99548564dec834e6740a9f858c3de859e5664cf2a0478fa9906"
+  },
+  "canonical_scope": "All 330 canonical field values across 26 tables; no provenance or time fields omitted",
+  "operational_extract": {
+    "evidence_file": "validation/postgres_extract.json",
+    "sha256": "bfc8cfc737487fe2d607d5893504326cbe9905a664a878682acff5e86af26602"
+  },
+  "build": {
+    "evidence_file": "validation/build_report.json",
+    "sha256": "4363a45e7583bedbc1933e0435c7b8d22772f20cbe428a14bd57d80baa6687da"
+  },
+  "local_intake_role": {
+    "evidence_file": "validation/local_intake_evidence.json",
+    "sha256": "fb4b8a41db5714abfe6b311b977f3c6857cb6c3d21bd56707e637efbda4c2d23"
+  },
+  "parquet": {
+    "evidence_file": "data/normalized/manifest.json",
+    "sha256": "ed99c33176fcb87f38d2a11a1883f70d11e92107bdf5bbf8f7ab4f2a0136a9f2"
+  },
+  "quality": {
+    "evidence_file": "validation/quality_report.json",
+    "sha256": "02749cbd2a2867f83e755953948d877bc16c119f00295540bb6cafb2a0764e37"
+  },
+  "presentation_policy": "Existing report and executed notebook retained: underlying canonical values exactly match. No presentation regeneration or re-execution is claimed by adoption."
+}

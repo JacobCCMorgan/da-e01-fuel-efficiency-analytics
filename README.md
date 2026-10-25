@@ -12,7 +12,10 @@ Fuel purchased is not fuel consumed. This project combines vehicle counter obser
 
 The full synthetic scenario's revised view yields **8.210096 MPG**, from **62,852.700212 L** and **219,385.511611 km** over matched intervals, with **99.94914%** paired-time coverage. These are reproducible scenario results, not measured commercial-fleet performance. The workflow's value is the auditable separation of consumption, purchases, inventory, availability cutoffs and follow-up evidence.
 
-A [clean isolated rebuild](validation/rebuild_report.json) reproduced all **26 canonical tables logically** and all **28 generated source files byte for byte**. Changing only the seed changed downstream results while quality invariants still passed. [PostgreSQL 16.15 CI](https://github.com/JacobCCMorgan/da-e01-fuel-efficiency-analytics/actions/runs/40226254641) passed **61 tests with no skips**, including six real-service tests and the PostgreSQL/HTTP/DuckDB smoke rebuild at commit `ad396bfd66ad4f67ec753fb8dfa20c29bb902a1b`. The full-profile local snapshot and remote smoke integration are distinct checks; [retained CI evidence](validation/ci_run_40226254641.json) records that scope.
+A [clean isolated rebuild](validation/rebuild_report.json) reproduced all **26 canonical tables logically** and all **28 generated source files byte for byte**. Changing only the seed changed downstream results while quality invariants still passed. [Final source CI](https://github.com/JacobCCMorgan/da-e01-fuel-efficiency-analytics/actions/runs/40229112753) passed **103 tests with no skips** and rebuilt all **1,800 trips** through PostgreSQL **16.15**, HTTP intake and DuckDB at commit `e0992b650a1686bd19dd50b5950b923be97ab6e0`. The delivered database was produced by the earlier verified full run `40227233022` at commit `55b6831eaa7f44849aad39537288654ba04cb701`; all **330 canonical field values across 26 tables** match the local reference under [documented logical normalization](validation/ci_full_canonical_comparison_40227233022.json). [Adoption evidence](validation/database_adoption.json) identifies that database’s exact hash and keeps local intake and presentation records separate from remote execution.
+
+
+The [final-source database comparison](validation/ci_final_canonical_comparison_40229112753.json) also passed: all 330 canonical field values across 26 tables match the delivered database.
 
 ## Start with the evidence
 
@@ -61,7 +64,7 @@ The [runbook](docs/runbook.md) documents the stage commands, PostgreSQL mode, de
 - SQL analytical tables, Parquet exports, CSV evidence, a reusable DuckDB database, seven analytical figures, an offline dashboard and an executable notebook.
 - Literal arithmetic examples, anomaly injections and integration fixtures; validation truth is isolated from analysis inputs.
 
-The EIA integration is an official HTTPS **file download**, not an API call. The local event endpoint is a synthetic service used to exercise HTTP ingestion, not an actual ELD vendor connection. PostgreSQL service behavior was verified in the successful remote smoke run; the full analytical release uses the local snapshot path. See [execution status](docs/runbook.md#execution-status).
+The EIA integration is an official HTTPS **file download**, not an API call. The local event endpoint is a synthetic service used to exercise HTTP ingestion, not an actual ELD vendor connection. The full PostgreSQL workflow was verified remotely, and its resulting database is delivered. The snapshot path remains independently rebuildable and has matching canonical results. See [execution status](docs/runbook.md#execution-status).
 
 ## Three reporting views
 

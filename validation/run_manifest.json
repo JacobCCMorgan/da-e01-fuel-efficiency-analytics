@@ -3,39 +3,93 @@
   "profile": "full",
   "seed": 20261021,
   "status": "completed",
-  "execution_method": "staged_entrypoints",
-  "operational_mode": "snapshot",
-  "completed_at": "2026-10-25T19:32:05.827748+00:00",
-  "database_sha256": "3da64a1af34c573ac0afc31a609ca7c153beaf9a677f5cd92d2412dbded7da4b",
+  "execution_method": "verified_remote_PostgreSQL_build_adopted_with_equivalent_local_presentation",
+  "operational_mode": "postgres",
+  "completed_at": "2026-10-25T20:06:12.925657+00:00",
+  "database_sha256": "d6cc6ea1f08794026c9a4b58185eb56688ae3983aa0b1eb05c6b52fe54fb4fb3",
+  "database_execution_evidence": {
+    "run_id": 40227233022,
+    "commit": "55b6831eaa7f44849aad39537288654ba04cb701",
+    "url": "https://github.com/JacobCCMorgan/da-e01-fuel-efficiency-analytics/actions/runs/40227233022",
+    "original_run_manifest": "validation/ci/full-run-40227233022/validation/run_manifest.json",
+    "started_at": "2026-10-25T19:43:29.705097+00:00",
+    "finished_at": "2026-10-25T19:44:54.788193+00:00",
+    "source_engine": "PostgreSQL 16.15 (Debian 16.15-1.pgdg13+2) on x86_64-pc-linux-gnu, compiled by gcc (Debian 14.2.0-19) 14.2.0, 64-bit"
+  },
   "steps": {
     "generation": {
       "evidence_file": "data/generation_manifest.json",
-      "sha256": "64f1218307a745b2efd6d957da5d7a603590f3e757456529217027210ee731aa"
+      "sha256": "64f1218307a745b2efd6d957da5d7a603590f3e757456529217027210ee731aa",
+      "role": "local_frozen_generation_matching_remote_build_inputs"
     },
     "http_ingestion": {
-      "evidence_file": "validation/ingestion_report.json",
-      "sha256": "22d84771c71c10af01f074cfa41602580653f3351b46be52de7d6fc118634eb3"
+      "evidence_file": "validation/ci/full-run-40227233022/validation/ingestion_report.json",
+      "sha256": "ecd61d82e12640ddbb3b2deabadd9236cf24e392423095717ce958a065ee076b",
+      "role": "actual_remote_build_intake"
+    },
+    "delivered_local_http_receipts": {
+      "evidence_file": "validation/local_intake_evidence.json",
+      "sha256": "fb4b8a41db5714abfe6b311b977f3c6857cb6c3d21bd56707e637efbda4c2d23",
+      "role": "separate_local_execution_same_snapshot"
+    },
+    "postgresql": {
+      "evidence_file": "validation/postgres_bootstrap.json",
+      "sha256": "3512f026b91ec01ad6fea13ea07c7df8d5eb60c68cb9ed744f2da1e6f28bed6d"
+    },
+    "postgres_extract": {
+      "evidence_file": "validation/postgres_extract.json",
+      "sha256": "bfc8cfc737487fe2d607d5893504326cbe9905a664a878682acff5e86af26602"
     },
     "database": {
       "evidence_file": "validation/build_report.json",
-      "sha256": "9e00abb32c83eea2fb637509a537ea6de5f5a4faba9a5139262a14e9a4fecc4f"
+      "sha256": "4363a45e7583bedbc1933e0435c7b8d22772f20cbe428a14bd57d80baa6687da"
     },
     "analysis": {
       "evidence_file": "outputs/analytics_summary.json",
-      "sha256": "7ac87fff92fc0f3740bdc2936c985c4483fddce53585058a3cd598f88a760e62"
+      "sha256": "7ac87fff92fc0f3740bdc2936c985c4483fddce53585058a3cd598f88a760e62",
+      "role": "retained_canonically_equivalent_analysis"
     },
     "quality": {
       "evidence_file": "validation/quality_report.json",
-      "sha256": "8c2815ebdb6168d97f91a1465e97054d9e03c3284eedb0f4b2839c05d85caa97"
+      "sha256": "02749cbd2a2867f83e755953948d877bc16c119f00295540bb6cafb2a0764e37",
+      "role": "executed_after_database_adoption"
+    },
+    "parquet": {
+      "evidence_file": "data/normalized/manifest.json",
+      "sha256": "ed99c33176fcb87f38d2a11a1883f70d11e92107bdf5bbf8f7ab4f2a0136a9f2",
+      "role": "exported_from_adopted_database"
     },
     "rebuild": {
       "evidence_file": "validation/rebuild_report.json",
-      "sha256": "071c2eded1a770c60fbdc4d2de05a4e0fb9c9ad5ac66b9d32cc0264b1b418969"
+      "sha256": "071c2eded1a770c60fbdc4d2de05a4e0fb9c9ad5ac66b9d32cc0264b1b418969",
+      "role": "independent_snapshot_rebuild_equivalence"
+    },
+    "canonical_comparison": {
+      "evidence_file": "validation/ci_full_canonical_comparison_40227233022.json",
+      "sha256": "4c4cc2c58ff6d99548564dec834e6740a9f858c3de859e5664cf2a0478fa9906"
     },
     "reporting": {
       "evidence_file": "outputs/report_validation.json",
-      "sha256": "cbd7cbfffff5dd5b6a10b8a8df866f1b56456d678478c21d10a244c1ddc38442"
+      "sha256": "cbd7cbfffff5dd5b6a10b8a8df866f1b56456d678478c21d10a244c1ddc38442",
+      "role": "retained_equivalent_local_presentation"
+    },
+    "final_source_verification": {
+      "evidence_file": "validation/ci_final_run_40229112753.json",
+      "sha256": "41255a145093a80eba774339e6f08ef6c13e5f790f7aaf8e0903b1fa84be0460"
+    },
+    "final_canonical_comparison": {
+      "evidence_file": "validation/ci_final_canonical_comparison_40229112753.json",
+      "sha256": "386e921b7498b7d0af57e4eed75eb1fd3e06987d67046046fae6685600c649e6"
     }
   },
-  "scope_note": "Full local snapshot pipeline completed. PostgreSQL service integration has a separate CI evidence record."
+  "scope_note": "Delivered database is the verified full-profile PostgreSQL CI build. Local HTTP receipts and presentation evidence remain explicitly separate execution records. All canonical values match the prior local reference.",
+  "source_verification_evidence": {
+    "run_id": 40229112753,
+    "commit": "e0992b650a1686bd19dd50b5950b923be97ab6e0",
+    "ci_summary": "validation/ci_final_run_40229112753.json",
+    "canonical_comparison": "validation/ci_final_canonical_comparison_40229112753.json",
+    "tests_passed": 103,
+    "tests_skipped": 0,
+    "database_provenance_policy": "Delivered database remains from run40227233022; final source CI independently rebuilds matching canonical values."
+  }
 }

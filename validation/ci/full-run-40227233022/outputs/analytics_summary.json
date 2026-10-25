@@ -1,0 +1,116 @@
+{
+  "project_id": "DA-E01",
+  "metric_version": "fuel-metrics-1.0.0",
+  "data_origin": "synthetic_fleet_with_separately_identified_public_price_background",
+  "totals": {
+    "fuel_used_l": 62852.700212262585,
+    "distance_km": 219385.511611,
+    "fleet_mpg": 8.210096229546526,
+    "measurement_coverage": 0.9994914072433452,
+    "purchase_amount_usd": 76856.05,
+    "purchased_l": 67258.124342,
+    "market_background_gap_usd": 3318.6935680665683
+  },
+  "canonical_rows": {
+    "fuel_report_run": 243,
+    "fuel_paired_interval": 739242,
+    "fuel_weekly_metric": 2430,
+    "fuel_inventory_balance": 810
+  },
+  "financial_exclusions": [
+    {
+      "financial_status": "nonfuel_or_product",
+      "rows": 30
+    },
+    {
+      "financial_status": "comparable",
+      "rows": 1830
+    }
+  ],
+  "market_sources": [
+    {
+      "report_view": "revised",
+      "benchmark_view": "simulated_asof_background",
+      "rows": 1830,
+      "purchase_l": 67258.124342
+    },
+    {
+      "report_view": "retrospective",
+      "benchmark_view": "retrospective_public_background",
+      "rows": 1830,
+      "purchase_l": 67258.124342
+    },
+    {
+      "report_view": "initial",
+      "benchmark_view": "simulated_asof_background",
+      "rows": 1830,
+      "purchase_l": 67258.124342
+    }
+  ],
+  "followup_statuses": [
+    {
+      "comparison_status": "comparable_descriptive_only",
+      "cases": 3
+    },
+    {
+      "comparison_status": "task_mix_changed",
+      "cases": 1
+    },
+    {
+      "comparison_status": "no_action_observed",
+      "cases": 2
+    },
+    {
+      "comparison_status": "lost_to_followup",
+      "cases": 1
+    },
+    {
+      "comparison_status": "not_mature",
+      "cases": 1
+    }
+  ],
+  "inventory_statuses": [
+    {
+      "reconciliation_status": "investigate_coverage_or_balance",
+      "periods": 1
+    },
+    {
+      "reconciliation_status": "no_eligible_ecu_intervals",
+      "periods": 30
+    },
+    {
+      "reconciliation_status": "within_measurement_uncertainty",
+      "periods": 776
+    },
+    {
+      "reconciliation_status": "uncalibrated_boundary",
+      "periods": 2
+    },
+    {
+      "reconciliation_status": "incomplete_movements",
+      "periods": 1
+    }
+  ],
+  "limits": [
+    "All fleet operations and actions are synthetic.",
+    "Market gaps are background comparisons, not realizable savings.",
+    "Initial/revised views use information available by their cutoff.",
+    "Retrospective public prices do not establish historical availability.",
+    "Follow-up changes are descriptive, not causal effects."
+  ],
+  "exports": [
+    "coverage_sensitivity.csv",
+    "efficiency_comparison.csv",
+    "fleet_weekly.csv",
+    "followup_evaluation.csv",
+    "followup_task_comparison.csv",
+    "interval_exclusions.csv",
+    "inventory_reconciliation.csv",
+    "purchase_detail.csv",
+    "report_revisions.csv",
+    "report_runs.csv",
+    "report_weekly_detail.csv",
+    "review_candidates.csv",
+    "vehicle_weekly.csv"
+  ]
+}
